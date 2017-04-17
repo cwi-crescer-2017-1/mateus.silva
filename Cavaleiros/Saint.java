@@ -9,15 +9,7 @@ public  class Saint{
     public Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
-      if (this.armadura.getValorDaCategoria()== 2){
-          this.qtsSentidosDespertados = 6;
-    }else if (this.armadura.getValorDaCategoria()==3){
-          this.qtsSentidosDespertados = 7;
-          String constelacao = armadura.getConstelacao();
-          if (!constelacao.equals("Áries")){
-              throw new Exception ("Constelação inválida"); }
-    }
-    }
+        }
     public void vestirArmadura(){
         this.armaduraVestida = true;
     }    
