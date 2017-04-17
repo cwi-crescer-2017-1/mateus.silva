@@ -33,13 +33,6 @@ public class SaintTest{
         assertEquals(100.0, shaka.getVida(),0.01);
     }
     @Test 
-    public void retornaOValorStringDaCategoria(){
-        Saint shaka = new Saint ("Shaka", new Armadura ("Virgem", Categoria.OURO));
-        String valor = shaka.getValorStringDaCategoria();
-        int valorInt =  valor.compareTo("OURO");
-        assertEquals(0,valorInt);
-    }
-        @Test 
     public void retornaOValorIntDaCategoria (){
         Saint shion = new Saint ("Shion", new Armadura ("Áries", Categoria.OURO));
         int valor = shion.getValorDaCategoria();
