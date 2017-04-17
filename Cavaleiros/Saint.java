@@ -25,7 +25,7 @@ public  class Saint{
         return this.status;
     }
     public void perderVida(double golpe){
-        vida = vida - golpe;
+        this.vida = this.vida - golpe;
     }
      public double getVida(){
         return this.vida;
