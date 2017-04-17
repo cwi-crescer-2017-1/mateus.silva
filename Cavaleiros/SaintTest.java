@@ -91,12 +91,12 @@ public class SaintTest{
     }
     @Test
     public void acriarSaintNasceCom6SentidosDespertados()throws Exception{
-        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.PRATA)); 
+        SilverSaint seiya = new SilverSaint ("Seiya", new Armadura ("Pégaso", Categoria.PRATA)); 
         assertEquals(6,seiya.getQtsSentidosDespertados());
     }
     @Test
     public void acriarSaintNasceCom7SentidosDespertados()throws Exception{
-        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.OURO)); 
-        assertEquals(7,seiya.getQtsSentidosDespertados());
+        GoldSaint mu = new GoldSaint ("Mu", new Armadura ("Touro", Categoria.OURO)); 
+        assertEquals(7,mu.getQtsSentidosDespertados());
     }
 }
