@@ -45,31 +45,12 @@ public class SaintTest{
         int valor = shion.getValorDaCategoria();
         assertEquals (3, valor);
     }
-    @Test 
-    public void iniciaBatalhaCavaleiroDeMenorCategoriaDevePederDezDeVida (){
-        Batalha b = new Batalha();
-        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
-        Saint shion = new Saint ("Shion", new Armadura ("Áries", Categoria.OURO));
-        double delta  = 0.0000001;
-        b.iniciar(seiya, shion);
-        assertEquals (90, seiya.getVida(), delta );
-    }
-    @Test 
+     @Test 
     public void perde10deVidaAoSofrerGolpe (){
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
         double delta  = 0.0000001;
-<<<<<<< Updated upstream
-        seiya.perderVida(90);
-        assertEquals (10, seiya.getVida(), delta);
-<<<<<<< Updated upstream
         seiya.perderVida(10);
         assertEquals (90, seiya.getVida(), delta);
-=======
-=======
-        seiya.perderVida(10);
-        assertEquals (90, seiya.getVida(), delta);
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     }
      @Test 
     public void perde100deVidaAoSofrerGolpe (){
