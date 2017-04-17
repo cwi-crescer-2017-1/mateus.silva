@@ -6,13 +6,16 @@ public  class Saint{
     private Status status = Status.VIVO;
     private double vida = 100.;
     private int qtsSentidosDespertados = 5;
-    public Saint (String nome, Armadura armadura){
+    public Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
       if (this.armadura.getValorDaCategoria()== 2){
           this.qtsSentidosDespertados = 6;
-      }else if (this.armadura.getValorDaCategoria()==3){
+    }else if (this.armadura.getValorDaCategoria()==3){
           this.qtsSentidosDespertados = 7;
+          String constelacao = armadura.getConstelacao();
+          if (!constelacao.equals("Áries")){
+              throw new Exception ("Constelação inválida"); }
     }
     }
     public void vestirArmadura(){
