@@ -58,12 +58,34 @@ public class SaintTest{
     public void perde10deVidaAoSofrerGolpe (){
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
         double delta  = 0.0000001;
+<<<<<<< Updated upstream
         seiya.perderVida(90);
         assertEquals (10, seiya.getVida(), delta);
+<<<<<<< Updated upstream
         seiya.perderVida(10);
         assertEquals (90, seiya.getVida(), delta);
+=======
+=======
+        seiya.perderVida(10);
+        assertEquals (90, seiya.getVida(), delta);
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     }
-    @Test 
+     @Test 
+    public void perde100deVidaAoSofrerGolpe (){
+        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
+        double delta  = 0.0000001;
+        seiya.perderVida(100);
+        assertEquals (0, seiya.getVida(), delta);
+    }
+     @Test 
+    public void perdeMenos1000deVidaAoSofrerGolpe (){
+        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
+        double delta  = 0.0000001;
+        seiya.perderVida(-1000);
+        assertEquals (1100, seiya.getVida(), delta);
+    }
+       @Test 
     public void deveRetonarONomeDoSaint (){
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));  
         String nome = seiya.getNome();
