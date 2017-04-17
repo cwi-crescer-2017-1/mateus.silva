@@ -9,8 +9,4 @@ public class Armadura{
         int valorDaCategoria = categoria.getValor();
         return valorDaCategoria;
     } 
-    public String getValorStringDaCategoria(){
-        String valorString = categoria.getValorString();
-        return valorString;
-    }
 }
