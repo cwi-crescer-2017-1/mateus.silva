@@ -34,11 +34,7 @@ public  class Saint{
         int valorDaCategoria = armadura.getValorDaCategoria();
         return valorDaCategoria;
     }
-    public String getValorStringDaCategoria(){
-        String valorString = armadura.getValorStringDaCategoria();
-        return valorString;
-    }
-    public String getNome(){
+        public String getNome(){
         return this.nome;
     }
 }
