@@ -55,7 +55,7 @@ public class SaintTest{
         assertEquals (90, seiya.getVida(), delta );
     }
     @Test 
-    public void perdeVidaAoSofrerGolpe (){
+    public void perde10deVidaAoSofrerGolpe (){
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
         double delta  = 0.0000001;
         seiya.perderVida(90);
