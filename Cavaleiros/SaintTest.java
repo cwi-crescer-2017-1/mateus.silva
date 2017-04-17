@@ -60,6 +60,8 @@ public class SaintTest{
         double delta  = 0.0000001;
         seiya.perderVida(90);
         assertEquals (10, seiya.getVida(), delta);
+        seiya.perderVida(10);
+        assertEquals (90, seiya.getVida(), delta);
     }
     @Test 
     public void deveRetonarONomeDoSaint (){
