@@ -23,9 +23,9 @@ public class SaintTest{
         assertEquals(Genero.NAO_INFORMADO, shina.getGenero());
     }
     @Test 
-    public void aoCriarSaintStatusVidaDeveSerVivo(){
+    public void aoCriarSaintStatusDeveSerVivo(){
         Saint shaka = new Saint ("Shaka", new Armadura ("Virgem", Categoria.OURO));
-        assertEquals(StatusDeVida.VIVO, shaka.getStatusDeVida());
+        assertEquals(Status.VIVO, shaka.getStatus());
     }
     @Test 
     public void retornaOValorStringDaCategoria(){
