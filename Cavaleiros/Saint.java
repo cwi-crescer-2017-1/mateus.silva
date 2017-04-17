@@ -5,7 +5,7 @@ public  class Saint{
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     private double vida = 100.;
-    private int qtsSentidosDespertados = 5;
+    protected  int qtsSentidosDespertados = 5;
     public Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
