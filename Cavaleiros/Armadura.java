@@ -5,6 +5,9 @@ public class Armadura{
         this.constelacao = constelacao;
         this.categoria = categoria;
     }
+    public String getConstelacao(){
+        return this.constelacao;
+    }
     public int getValorDaCategoria (){
         int valorDaCategoria = categoria.getValor();
         return valorDaCategoria;
