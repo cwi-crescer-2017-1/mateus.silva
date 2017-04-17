@@ -85,8 +85,18 @@ public class SaintTest{
         assertEquals (Genero.NAO_INFORMADO,seiya.getGenero());
     }
     @Test
-    public void criarSaintNasceCom5SentidosDespertados(){
+    public void acriarSaintNasceCom5SentidosDespertados(){
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE)); 
         assertEquals(5,seiya.getQtsSentidosDespertados());
+    }
+    @Test
+    public void acriarSaintNasceCom6SentidosDespertados(){
+        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.PRATA)); 
+        assertEquals(6,seiya.getQtsSentidosDespertados());
+    }
+    @Test
+    public void acriarSaintNasceCom7SentidosDespertados(){
+        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.OURO)); 
+        assertEquals(7,seiya.getQtsSentidosDespertados());
     }
 }
