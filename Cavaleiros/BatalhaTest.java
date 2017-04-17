@@ -1,13 +1,10 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 public class BatalhaTest{
      @Test 
-    public void iniciaBatalhaSaint1Perde10(){
+    public void iniciaBatalhaSaint1Perde10()throws Exception{
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
         Saint shion = new Saint ("Shion", new Armadura ("Áries", Categoria.OURO));
         Batalha b = new Batalha(seiya, shion);
@@ -16,7 +13,7 @@ public class BatalhaTest{
         assertEquals (90, seiya.getVida(), delta );
     }
      @Test 
-    public void iniciaBatalhaSaint2Perde10(){
+    public void iniciaBatalhaSaint2Perde10()throws Exception{
         Saint shion = new Saint ("Shion", new Armadura ("Áries", Categoria.OURO));
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
         Batalha b = new Batalha( shion, seiya);
@@ -25,7 +22,7 @@ public class BatalhaTest{
         assertEquals (90, seiya.getVida(), delta );
     }
      @Test 
-    public void iniciaBatalhaComDoisCavaleirosDaMesmaCategoriaSegundoCavaleiroDevePerder10 (){
+    public void iniciaBatalhaComDoisCavaleirosDaMesmaCategoriaSegundoCavaleiroDevePerder10 ()throws Exception{
         Saint shion = new Saint ("Shion", new Armadura ("Áries", Categoria.OURO));
         Saint mu = new Saint ("Mu", new Armadura ("Touro", Categoria.OURO));
         Batalha b = new Batalha( shion, mu);
