@@ -27,6 +27,11 @@ public class SaintTest{
         Saint shaka = new Saint ("Shaka", new Armadura ("Virgem", Categoria.OURO));
         assertEquals(Status.VIVO, shaka.getStatus());
     }
+    @Test
+    public void aoCriarSaintVidaDeveSer100(){
+        Saint shaka = new Saint ("Shaka", new Armadura ("Virgem", Categoria.OURO));
+        assertEquals(100.0, shaka.getVida(),0.01);
+    }
     @Test 
     public void retornaOValorStringDaCategoria(){
         Saint shaka = new Saint ("Shaka", new Armadura ("Virgem", Categoria.OURO));
