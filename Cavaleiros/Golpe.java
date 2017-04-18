@@ -4,7 +4,8 @@ public class Golpe{
     public Golpe(String nome, int fatorDano) {
         this.nome = nome;
         this.fatorDano = fatorDano;
-    }public String getNome() {
+    }
+    public String getNome() {
         return this.nome;
     }
     public int getFatorDano() {
