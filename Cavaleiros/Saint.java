@@ -52,12 +52,12 @@ public  class Saint{
     public int getQtsSentidosDespertados(){
         return this.qtsSentidosDespertados;
     }
-    //public Golpe [] getGolpes(){
-     //    return armadura.getConstelacao().getGolpes();
-    //}
-    //public void aprenderGolpe(Golpe golpe) {
-    //    armadura.getConstelacao().adicionarGolpe(golpe);
-    //}
+    public Golpe [] getGolpes(){
+        return armadura.getConstelacao().getGolpes();
+    }
+    public void aprenderGolpe(Golpe golpe) {
+        armadura.getConstelacao().adicionarGolpe(golpe);
+    }
     //public Golpe getProximoGolpe(){
     //    for (int indice = 0; indice < getGolpes().length; indice++){
     //    Golpe  proximoGolpe = getGolpes()[indice];
