@@ -10,4 +10,7 @@ public class ListaSaint{
     public ArrayList<Saint> todos (){
         return this.listaSaint;
     } 
+    public void remover (Saint saint){
+        this.listaSaint.remove(saint);
+    }
  }
