@@ -25,10 +25,10 @@ public  class Saint{
     public Status getStatus(){
         return this.status;
     }
-    public void perderVida(double golpe) throws IllegalArgumentException{
+    public void perderVida(double golpe) {
         if (golpe<0){
             // erro
-            throw new IllegalArgumentException();
+            throw new java.security.InvalidParameterException ();
         }
         else {
             if (getStatus() != status.MORTO){
