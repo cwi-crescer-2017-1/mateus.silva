@@ -7,9 +7,9 @@ public class ConstelacaoTest {
     public void aoAdicionarGolpeEleVaiParaOFinalDoArray() throws Exception{
         Constelacao virgem = new Constelacao ("Virgem");
         GoldSaint shaka = new GoldSaint ("Shaka", new Armadura (virgem, Categoria.OURO));
-        Golpe golpe1 = new Golpe ();
-        Golpe golpe2 = new Golpe ();
-        Golpe golpe3 = new Golpe ();
+        Golpe golpe1 = new Golpe ("a",2);
+        Golpe golpe2 = new Golpe ("b",3);
+        Golpe golpe3 = new Golpe ("c",4);
         virgem.adicionarGolpe(golpe1);
         assertEquals(virgem.getGolpes()[2],golpe1);
         virgem.adicionarGolpe(golpe2);
