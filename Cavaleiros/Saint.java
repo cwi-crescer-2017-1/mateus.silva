@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public  class Saint{
     private String nome;
     private Armadura armadura;
@@ -53,16 +54,16 @@ public  class Saint{
     public int getQtsSentidosDespertados(){
         return this.qtsSentidosDespertados;
     }
-    public Golpe [] getGolpes(){
+    public ArrayList <Golpe>  getGolpes(){
         return this.armadura.getConstelacao().getGolpes();
     }
     public void aprenderGolpe(Golpe golpe) {
         this.armadura.getConstelacao().adicionarGolpe(golpe);
     }
     public Golpe getProximoGolpe(){
-        Golpe[] golpes = getGolpes();
-        int posicao = this.acumuladorProximoGolpe % golpes.length;
+        ArrayList <Golpe> golpes = getGolpes();
+        int posicao = this.acumuladorProximoGolpe % golpes.size();
         this.acumuladorProximoGolpe++;
-        return golpes[posicao];
+        return golpes.get(posicao);
     }
 }
