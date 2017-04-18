@@ -1,7 +1,10 @@
 public class Constelacao {
     private String nome;
-    private int []golpes; 
-    public void adicionarGolpe(int golpe){
+    private int []golpes;
+    public Constelacao (String nome){
+        this.nome = nome;
+    }
+        public void adicionarGolpe(int golpe){
         golpes = new int[golpe];
     }
     public int[] getGolpes (){
