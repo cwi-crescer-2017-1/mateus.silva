@@ -6,6 +6,7 @@ public  class Saint{
     private Status status = Status.VIVO;
     private double vida = 100.;
     protected  int qtsSentidosDespertados = 5;
+    private int acumuladorProximoGolpe =0;
     public Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
@@ -58,14 +59,10 @@ public  class Saint{
     public void aprenderGolpe(Golpe golpe) {
         this.armadura.getConstelacao().adicionarGolpe(golpe);
     }
-    //public Golpe getProximoGolpe(){
-    //    for (int indice = 0; indice < getGolpes().length; indice++){
-    //    Golpe  proximoGolpe = getGolpes()[indice];
-        //     if (indice ==2){
-                 //  proximoGolpe = getGolpes() [0];}
-            // else {
-             //      proximoGolpe = getGolpes() [indice +1];}
-            // return proximoGolpe;
-             //     }
-   // }
+    public Golpe getProximoGolpe(){
+        Golpe[] golpes = getGolpes();
+        int posicao = this.acumuladorProximoGolpe % golpes.length;
+        this.acumuladorProximoGolpe++;
+        return golpes[posicao];
+    }
 }
