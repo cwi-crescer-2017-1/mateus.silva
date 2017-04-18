@@ -56,7 +56,7 @@ public  class Saint{
         return this.armadura.getConstelacao().getGolpes();
     }
     public void aprenderGolpe(Golpe golpe) {
-        armadura.getConstelacao().adicionarGolpe(golpe);
+        this.armadura.getConstelacao().adicionarGolpe(golpe);
     }
     //public Golpe getProximoGolpe(){
     //    for (int indice = 0; indice < getGolpes().length; indice++){
