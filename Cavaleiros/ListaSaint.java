@@ -7,4 +7,7 @@ public class ListaSaint{
     public Saint get(int indice){
          return this.listaSaint.get(indice);
     }
+    public ArrayList<Saint> todos (){
+        return this.listaSaint;
+    } 
  }
