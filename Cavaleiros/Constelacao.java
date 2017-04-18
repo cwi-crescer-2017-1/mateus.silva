@@ -1,13 +1,13 @@
 public class Constelacao {
     private String nome;
-    private int []golpes;
+    private Golpe []golpes = new Golpe [3];
     public Constelacao (String nome){
         this.nome = nome;
     }
-        public void adicionarGolpe(int golpe){
-        golpes = new int[golpe];
+    public void adicionarGolpe(Golpe golpe){
+        golpes [2]  = golpe;
     }
-    public int[] getGolpes (){
+    public Golpe[] getGolpes (){
         return this.golpes; 
     }
     public String getNomeDaConstelacao(){
