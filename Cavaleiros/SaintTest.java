@@ -108,31 +108,31 @@ public class SaintTest{
         assertEquals(0, seiya.getVida(),0.001);
         assertEquals(Status.MORTO,seiya.getStatus());
     }
-    //@Test
+    @Test
 
-   // public void aprenderUmGolpe() throws Exception {
-    //    Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-    //    Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-    //    saga.aprenderGolpe(new Golpe("Outra dimensão", 10));
-    //    ArrayList<Golpe>golpes = saga.getGolpes();
-    //    assertEquals(outraDimensao, golpes.get(0));
-    //    assertNull(golpes.get(1));
-    //    assertNull(golpes.get(2));
+    public void aprenderUmGolpe() throws Exception {
+       Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+       Golpe outraDimensao = new Golpe("Outra dimensão", 10);
+       saga.aprenderGolpe(new Golpe("Outra dimensão", 10));
+       ArrayList<Golpe>golpes = saga.getGolpes();
+       assertEquals(outraDimensao, golpes.get(0));
+        // assertNull(golpes.get(1));
+        //    assertNull(golpes.get(2));
         // TODO: assert null
-  //  }
-   // @Test
+    }
+    @Test
 
-   // public void aprenderDoisGolpes() throws Exception {
-   //     Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-   //     Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-   //     Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
-   //     saga.aprenderGolpe(outraDimensao);
-   //     saga.aprenderGolpe(explosaoGalatica);
-   //     ArrayList<Golpe>golpes = saga.getGolpes();
-   //     assertEquals(outraDimensao, golpes.get(0));
-   //     assertEquals(explosaoGalatica, golpes.get(1));
+    public void aprenderDoisGolpes() throws Exception {
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
+        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
+        saga.aprenderGolpe(outraDimensao);
+        saga.aprenderGolpe(explosaoGalatica);
+        ArrayList<Golpe>golpes = saga.getGolpes();
+        assertEquals(outraDimensao, golpes.get(0));
+        assertEquals(explosaoGalatica, golpes.get(1));
    //     assertNull(golpes.get(2));
-   // }
+    }
     @Test
 
     public void aprenderTresGolpes() throws Exception {
