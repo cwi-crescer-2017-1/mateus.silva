@@ -114,4 +114,14 @@ public class SaintTest{
     ///    seiya.perderVida(-1000);
     //    assertEquals (1100, seiya.getVida(), delta);
    // }
+   @Test
+   public void insereOGolpeNaConstelacaoDoSaint ()throws Exception{
+       Constelacao virgem = new Constelacao ("Virgem");
+       GoldSaint shaka = new GoldSaint ("Shaka", new Armadura (virgem, Categoria.OURO));
+        Golpe golpe1 = new Golpe ();
+        shaka.aprenderGolpe(golpe1);
+        assertEquals(shaka.getGolpes()[2],golpe1); 
+   }
+  
+       
 }
