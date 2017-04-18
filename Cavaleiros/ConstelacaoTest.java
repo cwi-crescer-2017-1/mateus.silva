@@ -18,7 +18,6 @@ public class ConstelacaoTest {
         virgem.adicionarGolpe(golpe3);
         assertEquals(virgem.getGolpes()[2],golpe3);
         assertEquals(virgem.getGolpes()[0],golpe1);
-        assertEquals(virgem.getGolpes()[1],golpe2);
-        
+        assertEquals(virgem.getGolpes()[1],golpe2); 
     }
 }
