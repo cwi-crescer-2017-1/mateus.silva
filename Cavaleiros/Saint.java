@@ -25,8 +25,19 @@ public  class Saint{
     public Status getStatus(){
         return this.status;
     }
-    public void perderVida(double golpe){
-        this.vida = this.vida - golpe;
+    public void perderVida(double golpe) throws IllegalArgumentException{
+        if (golpe<0){
+            // erro
+            throw new IllegalArgumentException();
+        }
+        else {
+            if (getStatus() != status.MORTO){
+            this.vida = this.vida - golpe;
+             }
+             if (getVida()<1){
+            this.status = status.MORTO;
+            }
+        }
     }
      public double getVida(){
         return this.vida;
