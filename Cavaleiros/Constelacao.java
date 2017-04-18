@@ -5,7 +5,21 @@ public class Constelacao {
         this.nome = nome;
     }
     public void adicionarGolpe(Golpe golpe){
-        golpes [2]  = golpe;
+        if (golpes [2] == null){
+        golpes [2]  = golpe;}
+        else {
+             if (golpes [1] == null){
+                golpes [1] = golpes [2];
+                golpes [2]  = golpe;
+            }
+            else {
+                if (golpes [0] == null){
+                golpes [0] = golpes [1];
+                golpes [1] = golpes [2];
+                golpes [2]  = golpe;
+            }
+            }
+        }
     }
     public Golpe[] getGolpes (){
         return this.golpes; 
