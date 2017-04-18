@@ -4,4 +4,7 @@ public class ListaSaint{
     public void adicionarSaint(Saint saint){
          this.listaSaint.add(saint);
     }
+    public Saint get(int indice){
+         return this.listaSaint.get(indice);
+    }
  }
