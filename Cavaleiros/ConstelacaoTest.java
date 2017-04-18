@@ -2,22 +2,54 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-public class ConstelacaoTest {
-    @Test
-    public void aoAdicionarGolpeEleVaiParaOFinalDoArray() throws Exception{
-        Constelacao virgem = new Constelacao ("Virgem");
-        GoldSaint shaka = new GoldSaint ("Shaka", new Armadura (virgem, Categoria.OURO));
-        Golpe golpe1 = new Golpe ("a",2);
-        Golpe golpe2 = new Golpe ("b",3);
-        Golpe golpe3 = new Golpe ("c",4);
-        virgem.adicionarGolpe(golpe1);
-        assertEquals(virgem.getGolpes()[2],golpe1);
-        virgem.adicionarGolpe(golpe2);
-        assertEquals(virgem.getGolpes()[2],golpe2);
-        assertEquals(virgem.getGolpes()[1],golpe1);
-        virgem.adicionarGolpe(golpe3);
-        assertEquals(virgem.getGolpes()[2],golpe3);
-        assertEquals(virgem.getGolpes()[0],golpe1);
-        assertEquals(virgem.getGolpes()[1],golpe2); 
+public class ConstelacaoTest{
+@Test
+    public void adicionarUmGolpe() {
+        Constelacao gemeos = new Constelacao("Gêmeos");
+        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
+        gemeos.adicionarGolpe(new Golpe("Outra dimensão", 10));
+        Golpe[] golpes = gemeos.getGolpes();
+        assertEquals(outraDimensao, golpes[0]);
+        assertNull(golpes[1]);
+        assertNull(golpes[2]);
+        // TODO: assert null
+    }
+@Test
+    public void adicionarDoisGolpes() {
+        Constelacao gemeos = new Constelacao("Gêmeos");
+        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
+        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
+        gemeos.adicionarGolpe(outraDimensao);
+        gemeos.adicionarGolpe(explosaoGalatica);
+        Golpe[] golpes = gemeos.getGolpes();
+        assertEquals(outraDimensao, golpes[0]);
+        assertEquals(explosaoGalatica, golpes[1]);
+        assertNull(golpes[2]);
+    }
+@Test
+
+    public void adicionarTresGolpes() {
+        Constelacao gemeos = new Constelacao("Gêmeos");
+        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
+        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
+        Golpe sataImperial = new Golpe("Satã Imperial", 60);
+        gemeos.adicionarGolpe(outraDimensao);
+        gemeos.adicionarGolpe(explosaoGalatica);
+        gemeos.adicionarGolpe(sataImperial);
+        Golpe[] golpes = gemeos.getGolpes();
+        assertEquals(outraDimensao, golpes[0]);
+        assertEquals(explosaoGalatica, golpes[1]);
+        assertEquals(sataImperial, golpes[2]);
+    }
+@Test(expected=ArrayIndexOutOfBoundsException.class)
+    public void adicionarQuatroGolpes() {
+        Constelacao gemeos = new Constelacao("Gêmeos");
+        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
+        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
+        Golpe sataImperial = new Golpe("Satã Imperial", 60);
+        gemeos.adicionarGolpe(outraDimensao);
+        gemeos.adicionarGolpe(explosaoGalatica);
+        gemeos.adicionarGolpe(sataImperial);
+        gemeos.adicionarGolpe(new Golpe("Cólera do café intenso", 80));
     }
 }
