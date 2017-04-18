@@ -52,14 +52,7 @@ public class SaintTest{
         seiya.perderVida(100);
         assertEquals (0, seiya.getVida(), delta);
     }
-     @Test 
-    public void perdeMenos1000deVidaAoSofrerGolpe ()throws Exception{
-        Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
-        double delta  = 0.0000001;
-        seiya.perderVida(-1000);
-        assertEquals (1100, seiya.getVida(), delta);
-    }
-       @Test 
+    @Test 
     public void deveRetonarONomeDoSaint ()throws Exception{
         Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));  
         String nome = seiya.getNome();
@@ -99,4 +92,26 @@ public class SaintTest{
         GoldSaint mu = new GoldSaint ("Mu", new Armadura ("Touro", Categoria.OURO)); 
         assertEquals(7,mu.getQtsSentidosDespertados());
     }
+    @Test
+    public void mudaStatusParaMortoQuandoAVidaForMenorQue1 ()throws Exception{
+        SilverSaint seiya = new SilverSaint ("Seiya", new Armadura ("Pégaso", Categoria.PRATA)); 
+        seiya.perderVida(110);
+        assertEquals(Status.MORTO,seiya.getStatus());
+    }
+    @Test
+    public void  evitarQueSaintTenhaSuaVidaEStatusAlteradoQuandoEstiverMorto () throws Exception{
+        SilverSaint seiya = new SilverSaint ("Seiya", new Armadura ("Pégaso", Categoria.PRATA)); 
+        seiya.perderVida(100);
+        assertEquals(Status.MORTO,seiya.getStatus());
+        seiya.perderVida(10);
+        assertEquals(0, seiya.getVida(),0.001);
+        assertEquals(Status.MORTO,seiya.getStatus());
+    }
+    //@Test 
+    //public void darErroInvalidParameterExceptionQuandoDanoDoGolpeForNegativo()throws Exception{
+    //    Saint seiya = new Saint ("Seiya", new Armadura ("Pégaso", Categoria.BRONZE));
+     //   double delta  = 0.0000001;
+    ///    seiya.perderVida(-1000);
+    //    assertEquals (1100, seiya.getVida(), delta);
+   // }
 }
