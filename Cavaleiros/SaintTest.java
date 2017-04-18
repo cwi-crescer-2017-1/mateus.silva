@@ -118,10 +118,8 @@ public class SaintTest{
    public void insereOGolpeNaConstelacaoDoSaint ()throws Exception{
        Constelacao virgem = new Constelacao ("Virgem");
        GoldSaint shaka = new GoldSaint ("Shaka", new Armadura (virgem, Categoria.OURO));
-        Golpe golpe1 = new Golpe ();
+        Golpe golpe1 = new Golpe ("a",3);
         shaka.aprenderGolpe(golpe1);
         assertEquals(shaka.getGolpes()[2],golpe1); 
-   }
-  
-       
+    }      
 }
