@@ -55,8 +55,8 @@ public class ListaSaintTest{
          lista.adicionar(mu);
          lista.adicionar(shaka);
          Categoria categoria = Categoria.OURO;
-         ArrayList <Saint> subList =lista.buscarPorCategoria(categoria);
-         assertEquals(3, subList.size());
+         ArrayList <Saint> subLista =lista.buscarPorCategoria(categoria);
+         assertEquals(3, subLista.size());
     } 
      @Test
     public void retornaSubListaDaCategoriaInformadaQueContem1SaintBronze() throws Exception{
@@ -64,8 +64,8 @@ public class ListaSaintTest{
          ListaSaint lista = new ListaSaint();
          lista.adicionar(shina);
          Categoria categoria = Categoria.BRONZE;
-         ArrayList <Saint> subList =lista.buscarPorCategoria(categoria);
-         assertEquals(1, subList.size());
+         ArrayList <Saint> subLista =lista.buscarPorCategoria(categoria);
+         assertEquals(1, subLista.size());
     }  
      @Test
     public void retornaSubListaDaCategoriaInformadaQueContem2SaintPrata() throws Exception{
@@ -75,8 +75,8 @@ public class ListaSaintTest{
          lista.adicionar(seiya);
          lista.adicionar(hyoga);
          Categoria categoria = Categoria.PRATA;
-         ArrayList <Saint> subList =lista.buscarPorCategoria(categoria);
-         assertEquals(2, subList.size());
+         ArrayList <Saint> subLista =lista.buscarPorCategoria(categoria);
+         assertEquals(2, subLista.size());
     }  
     @Test
     public void retornaSubListaDeSaintCom2SaintStatusVivo () throws Exception{
@@ -88,8 +88,8 @@ public class ListaSaintTest{
          saga.perderVida(10);
          seiya.perderVida(90);
          Status status = Status.VIVO;
-         ArrayList <Saint> subList =lista.buscarPorStatus(status);
-         assertEquals(2, subList.size());
+         ArrayList <Saint> subLista =lista.buscarPorStatus(status);
+         assertEquals(2, subLista.size());
     } 
     @Test
     public void retornaSaintComMaiorVidaSendoQue2SaintTemAMesmaVida () throws Exception{
