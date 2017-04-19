@@ -32,4 +32,14 @@ public class ListaSaint{
         }
         return subList;
     }
+    public ArrayList <Saint> buscarPorStatus (Status status){
+         ArrayList <Saint> subLista = new ArrayList();
+        for (int i = 0; i<listaSaint.size(); i++){
+            Saint subSaint = this.listaSaint.get(i); 
+            if(subSaint.getStatus() == status){
+                 subLista.add(subSaint);
+            }
+        }
+        return subLista;
+    }
 }
