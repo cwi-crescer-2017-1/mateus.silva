@@ -1,11 +1,8 @@
-
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-
 public class ListaSaintTest{
      @Test
     public void adicionar1SaintALista() throws Exception{
@@ -37,5 +34,15 @@ public class ListaSaintTest{
          lista.remover(saga);
          ArrayList<Saint>listaSaint = lista.todos();
          assertEquals(true, listaSaint.isEmpty());
-    }        
+    }      
+    @Test
+    public void buscarPrimeiroSaintComNomeIgualaAoValorDoArgumeto()throws Exception {
+         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         GoldSaint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Touro"), Categoria.OURO)); 
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(saga);
+         lista.adicionar(mu);
+         Saint saint = lista.buscarPorNome("Saga");
+         assertEquals(true, saint.getNome().equals("Saga"));
+    }
 }
