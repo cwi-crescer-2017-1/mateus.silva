@@ -1,6 +1,7 @@
 import java.util.Collection;
 import java.util.ArrayList;
-public class ListaSaint{
+
+public class ListaSaints{
     private ArrayList <Saint> listaSaint = new ArrayList();
     public void adicionar(Saint saint){
          this.listaSaint.add(saint);
