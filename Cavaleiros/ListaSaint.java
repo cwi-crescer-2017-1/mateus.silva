@@ -13,4 +13,13 @@ public class ListaSaint{
     public void remover (Saint saint){
         this.listaSaint.remove(saint);
     }
- }
+    public Saint buscarPorNome(String nome){
+        for (int i = 0; i<listaSaint.size(); i++){
+            Saint primeiroSaint = listaSaint.get(i); 
+            if(primeiroSaint.getNome().equals(nome)){
+                 return primeiroSaint;
+            }
+        }
+        return null;
+    }
+}
