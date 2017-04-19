@@ -15,11 +15,21 @@ public class ListaSaint{
     }
     public Saint buscarPorNome(String nome){
         for (int i = 0; i<listaSaint.size(); i++){
-            Saint primeiroSaint = listaSaint.get(i); 
+            Saint primeiroSaint = this.listaSaint.get(i); 
             if(primeiroSaint.getNome().equals(nome)){
                  return primeiroSaint;
             }
         }
         return null;
+    }
+    public ArrayList <Saint> buscarPorCategoria(Categoria categoria){
+        ArrayList <Saint> subList = new ArrayList();
+        for (int i = 0; i<listaSaint.size(); i++){
+            Saint subSaint = this.listaSaint.get(i); 
+            if(subSaint.getValorDaCategoria() == categoria.getValor()){
+                 subList.add(subSaint);
+            }
+        }
+        return subList;
     }
 }
