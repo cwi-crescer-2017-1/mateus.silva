@@ -148,18 +148,18 @@ public class SaintTest{
         assertEquals(explosaoGalatica, golpes.get(1));
         assertEquals(sataImperial, golpes.get(2));
     }
-   // @Test(expected=ArrayIndexOutOfBoundsException.class)
-    //public void aprenderQuatroGolpesLancaErro() throws Exception {
-    //    Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-     // /  Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-       // Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
-       // Golpe sataImperial = new Golpe("Satã Imperial", 42);
-        //Golpe rasteira = new Golpe("Rasteira", 2);
-       // saga.aprenderGolpe(outraDimensao);
-      // / saga.aprenderGolpe(explosaoGalatica);
-        //saga.aprenderGolpe(sataImperial);
-     //   saga.aprenderGolpe(rasteira);
-    //}
+    @Test
+    public void aprenderQuatroGolpesENaoLancaMaisErro() throws Exception {
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
+        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
+        Golpe sataImperial = new Golpe("Satã Imperial", 42);
+        Golpe rasteira = new Golpe("Rasteira", 2);
+        saga.aprenderGolpe(outraDimensao);
+        saga.aprenderGolpe(explosaoGalatica);
+        saga.aprenderGolpe(sataImperial);
+        saga.aprenderGolpe(rasteira);
+    }
     @Test
     public void getProximoGolpeComUm() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
