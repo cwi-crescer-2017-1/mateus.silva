@@ -78,4 +78,17 @@ public class ListaSaintTest{
          ArrayList <Saint> subList =lista.buscarPorCategoria(categoria);
          assertEquals(2, subList.size());
     }  
+    @Test
+    public void retornaSubListaDeSaintCom2SaintStatusVivo () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(seiya);
+         lista.adicionar(saga);
+         saga.perderVida(10);
+         seiya.perderVida(90);
+         Status status = Status.VIVO;
+         ArrayList <Saint> subList =lista.buscarPorStatus(status);
+         assertEquals(2, subList.size());
+    } 
 }
