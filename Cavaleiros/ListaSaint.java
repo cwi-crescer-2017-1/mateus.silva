@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.ArrayList;
 public class ListaSaint{
     private ArrayList <Saint> listaSaint = new ArrayList();
@@ -62,4 +63,23 @@ public class ListaSaint{
         }
         return saintComMenorVida;
     }
-}
+    public void ordenar (){
+        for (int a = 1; a<listaSaint.size(); a++){
+            Saint saintAntes ;
+           Saint saintDepois ;
+            Saint auxiliar  ;
+        for (int i = 0; i<listaSaint.size()-a; i++){
+            if (this.listaSaint.get(i).getVida()>this.listaSaint.get(i+1).getVida()){
+               auxiliar = this.listaSaint.get(i);
+               saintAntes = this.listaSaint.get(i+1);
+               saintDepois = auxiliar; 
+               this.listaSaint.set(i,saintAntes);
+               this.listaSaint.set(i+1, auxiliar); 
+            }
+        }  
+    }
+    }
+ }
+        
+        
+ 
