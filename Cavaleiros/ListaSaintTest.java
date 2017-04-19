@@ -91,4 +91,59 @@ public class ListaSaintTest{
          ArrayList <Saint> subList =lista.buscarPorStatus(status);
          assertEquals(2, subList.size());
     } 
+    @Test
+    public void retornaSaintComMaiorVidaSendoQue2SaintTemAMesmaVida () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(seiya);
+         lista.adicionar(shina);
+         lista.adicionar(saga);
+         shina.perderVida(10);
+         saga.perderVida(10);
+         seiya.perderVida(90);
+         assertEquals(shina, lista.getSaintMaiorVida());
+    } 
+     public void retornaSaintComMaiorVidaNenhumSaintTemAMesmaVida() throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(seiya);
+         lista.adicionar(shina);
+         lista.adicionar(saga);
+         shina.perderVida(6);
+         saga.perderVida(1);
+         seiya.perderVida(90);
+         assertEquals(saga, lista.getSaintMaiorVida());
+    }
+    @Test
+    public void retornaSaintComMenorNenhumTemAMesmaVida () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(shina);
+         lista.adicionar(seiya);
+         lista.adicionar(saga);
+         shina.perderVida(98);
+         saga.perderVida(15);
+         seiya.perderVida(90);
+         assertEquals(shina, lista.getSaintMenorVida());
+    } 
+     @Test
+    public void retornaSaintComMenorVidaSendoQue2TemAMesmaVida () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(shina);
+         lista.adicionar(seiya);
+         lista.adicionar(saga);
+         shina.perderVida(10);
+         seiya.perderVida(100);
+         saga.perderVida(110);
+         assertEquals(seiya, lista.getSaintMenorVida());
+    } 
 }
