@@ -58,6 +58,9 @@ public class ListaSaints{
         return saintComMaiorVida;
     }
     public Saint getSaintMenorVida(){
+         if (listaSaint.isEmpty()){
+            return null;
+        }
         Saint saintComMenorVida = this.listaSaint.get(0);
         for (int i = 0; i<listaSaint.size(); i++){
             Saint saint = this.listaSaint.get(i);
