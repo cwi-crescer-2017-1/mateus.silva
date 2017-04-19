@@ -46,7 +46,7 @@ public class ListaSaints{
     }
     public Saint getSaintMaiorVida(){
         Saint saintComMaiorVida = this.listaSaint.get(0);
-        for (int i = 0; i<listaSaint.size(); i++){
+        for (int i = 1; i<listaSaint.size(); i++){
             Saint saint = this.listaSaint.get(i);
             if(saint.getVida() > saintComMaiorVida.getVida()){
                 saintComMaiorVida = saint;
@@ -81,6 +81,3 @@ public class ListaSaints{
         }
     }
  }
-        
-        
- 
