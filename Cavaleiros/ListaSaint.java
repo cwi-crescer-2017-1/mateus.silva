@@ -42,4 +42,24 @@ public class ListaSaint{
         }
         return subLista;
     }
+    public Saint getSaintMaiorVida(){
+        Saint saintComMaiorVida = this.listaSaint.get(0);
+        for (int i = 0; i<listaSaint.size(); i++){
+            Saint saint = this.listaSaint.get(i);
+            if(saint.getVida() > saintComMaiorVida.getVida()){
+                saintComMaiorVida = saint;
+            }
+        }
+        return saintComMaiorVida;
+    }
+    public Saint getSaintMenorVida(){
+        Saint saintComMenorVida = this.listaSaint.get(0);
+        for (int i = 0; i<listaSaint.size(); i++){
+            Saint saint = this.listaSaint.get(i);
+            if(saint.getVida() < saintComMenorVida.getVida()){
+                 saintComMenorVida = saint;
+            }
+        }
+        return saintComMenorVida;
+    }
 }
