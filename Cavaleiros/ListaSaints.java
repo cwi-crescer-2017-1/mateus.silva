@@ -71,40 +71,38 @@ public class ListaSaints{
         return saintComMenorVida;
     }
     public void ordenar (){
-        for (int a = 1; a<listaSaint.size(); a++){
-            Saint saintAntes;
-            Saint saintDepois;
-            Saint auxiliar;
-            for (int i = 0; i<listaSaint.size()-a; i++){
-                if (this.listaSaint.get(i).getVida()>this.listaSaint.get(i+1).getVida()){
-                    auxiliar = this.listaSaint.get(i);
-                    saintAntes = this.listaSaint.get(i+1);
-               saintDepois = auxiliar; 
-               this.listaSaint.set(i,saintAntes);
-               this.listaSaint.set(i+1, auxiliar); 
-            }
-        }  
-        }
+        boolean posicoesSendoTrocadas;    
+        do{
+            posicoesSendoTrocadas = false;
+            for (int i = 0; i<listaSaint.size()-1; i++){
+                Saint saintAtual =  this.listaSaint.get(i);      
+                Saint saintProximo = this.listaSaint.get(i+1);
+                if (saintAtual.getVida()>saintProximo.getVida()){
+                    this.listaSaint.set(i,saintProximo);
+                    this.listaSaint.set(i+1, saintAtual); 
+                    posicoesSendoTrocadas = true;
+                }
+            }  
+        } while (posicoesSendoTrocadas);
     }
     public void ordenar (TipoOrdenacao tipoOrdenacao){
          if (TipoOrdenacao.ASCENDENTE == tipoOrdenacao){
              ordenar();
-            }
-         else { 
-             for (int a = 1; a<listaSaint.size(); a++){
-            Saint saintAntes;
-            Saint saintDepois;
-            Saint auxiliar;
-            for (int i = 0; i<listaSaint.size()-a; i++){
-                if (this.listaSaint.get(i).getVida()<this.listaSaint.get(i+1).getVida()){
-                    auxiliar = this.listaSaint.get(i);
-                    saintAntes = this.listaSaint.get(i+1);
-               saintDepois = auxiliar; 
-               this.listaSaint.set(i,saintAntes);
-               this.listaSaint.set(i+1, auxiliar); 
-            }
-            }  
         }
+         else { 
+             boolean  posicoesSendoTrocadas;
+             do{
+                 posicoesSendoTrocadas = false;
+                 for (int i = 0; i<listaSaint.size()-1; i++){
+                     Saint saintAtual =  this.listaSaint.get(i);      
+                     Saint saintProximo = this.listaSaint.get(i+1);
+                     if  (saintAtual.getVida()<saintProximo.getVida()){
+                         this.listaSaint.set(i,saintProximo);
+                         this.listaSaint.set(i+1, saintAtual); 
+                         posicoesSendoTrocadas = true;
+                      }
+                 }  
+             } while (posicoesSendoTrocadas);
         }
     }
 }
