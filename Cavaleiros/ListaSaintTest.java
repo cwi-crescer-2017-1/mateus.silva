@@ -145,5 +145,50 @@ public class ListaSaintTest{
          seiya.perderVida(100);
          saga.perderVida(110);
          assertEquals(seiya, lista.getSaintMenorVida());
-    } 
+    }
+    @Test
+    public void ordenaAListaEmOrdemCrescenteSendoQueAOrdemEstaDecrescente () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(seiya);
+         lista.adicionar(shina);
+         lista.adicionar(saga);
+         seiya.perderVida(10);
+         saga.perderVida(50);
+         shina.perderVida(90);
+         lista.ordenar();
+         assertEquals(seiya,lista.get(2));
+         assertEquals(saga,lista.get(1));
+         assertEquals(shina,lista.get(0));
+         assertEquals(10,shina.getVida(),00.1);
+         assertEquals(50,saga.getVida(),00.1);
+         assertEquals(90,seiya.getVida(),00.1);
+    }
+      @Test
+    public void ordenaAListaEmOrdemCrescenteSendoQueAOrdemAleatória () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         BronzeSaint shina1 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         BronzeSaint shina2 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         ListaSaint lista = new ListaSaint();
+         lista.adicionar(seiya);
+         lista.adicionar(saga);
+         lista.adicionar(shina);
+         lista.adicionar(shina1);
+         lista.adicionar(shina2);
+         seiya.perderVida(80);
+         saga.perderVida(50);
+         shina.perderVida(70);
+         shina1.perderVida(40);
+         shina2.perderVida(10);
+         lista.ordenar();
+         assertEquals(seiya,lista.get(0));
+         assertEquals(saga,lista.get(2));
+         assertEquals(shina,lista.get(1));
+         assertEquals(shina1,lista.get(3));
+         assertEquals(shina2,lista.get(4));
+    }
 }
