@@ -38,6 +38,7 @@ public  class Saint{
              }
              if (getVida()<1){
             this.status = status.MORTO;
+            this.vida = 0;
             }
         }
     }
