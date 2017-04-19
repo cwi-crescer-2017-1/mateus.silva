@@ -24,14 +24,14 @@ public class ListaSaint{
         return null;
     }
     public ArrayList <Saint> buscarPorCategoria(Categoria categoria){
-        ArrayList <Saint> subList = new ArrayList();
+        ArrayList <Saint> subLista = new ArrayList();
         for (int i = 0; i<listaSaint.size(); i++){
             Saint subSaint = this.listaSaint.get(i); 
             if(subSaint.getValorDaCategoria() == categoria.getValor()){
-                 subList.add(subSaint);
+                 subLista.add(subSaint);
             }
         }
-        return subList;
+        return subLista;
     }
     public ArrayList <Saint> buscarPorStatus (Status status){
          ArrayList <Saint> subLista = new ArrayList();
