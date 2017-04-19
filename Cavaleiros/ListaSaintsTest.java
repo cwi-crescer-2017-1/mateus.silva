@@ -106,6 +106,11 @@ public class ListaSaintsTest{
          seiya.perderVida(90);
          assertEquals(shina, lista.getSaintMaiorVida());
     } 
+      @Test
+    public void retornaSaintComMaiorListaVazia () throws Exception{
+         ListaSaints lista = new ListaSaints();
+         assertNull(lista.getSaintMaiorVida());
+    }
      public void retornaSaintComMaiorVidaNenhumSaintTemAMesmaVida() throws Exception{
          GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
