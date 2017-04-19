@@ -106,8 +106,8 @@ public class ListaSaintsTest{
          seiya.perderVida(90);
          assertEquals(shina, lista.getSaintMaiorVida());
     } 
-      @Test
-    public void retornaSaintComMaiorListaVazia () throws Exception{
+    @Test
+    public void retornaSaintComMaiorVidaListaVazia () throws Exception{
          ListaSaints lista = new ListaSaints();
          assertNull(lista.getSaintMaiorVida());
     }
@@ -151,6 +151,10 @@ public class ListaSaintsTest{
          seiya.perderVida(100);
          saga.perderVida(110);
          assertEquals(seiya, lista.getSaintMenorVida());
+    }@Test
+    public void retornaSaintComMenorVidaListaVazia () throws Exception{
+         ListaSaints lista = new ListaSaints();
+         assertNull(lista.getSaintMenorVida());
     }
     @Test
     public void ordenaAListaEmOrdemCrescenteSendoQueAOrdemEstaDecrescente () throws Exception{
