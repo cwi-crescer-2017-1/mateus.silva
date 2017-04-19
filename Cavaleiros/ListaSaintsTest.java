@@ -251,4 +251,18 @@ public class ListaSaintsTest{
          assertEquals(shina1,lista.get(1));
          assertEquals(shina2,lista.get(0));
     }
+    @Test
+    public void ordenaAListaEmOrdemDescedenteComListaVazia () throws Exception{
+         ListaSaints lista = new ListaSaints();
+         lista.ordenar(TipoOrdenacao.DESCENDENTE);
+         ArrayList<Saint>listaSaint = lista.todos();
+         assertEquals(0,listaSaint.size());
+    }
+    @Test
+    public void ordenaAListaEmOrdemAscedenteComListaVazia () throws Exception{
+         ListaSaints lista = new ListaSaints();
+         lista.ordenar(TipoOrdenacao.DESCENDENTE);
+         ArrayList<Saint>listaSaint = lista.todos();
+         assertEquals(0,listaSaint.size());
+    }
 }
