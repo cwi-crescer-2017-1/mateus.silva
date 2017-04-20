@@ -107,20 +107,20 @@ public class ListaSaints{
     }
     public ArrayList <Saint> unir (ArrayList <Saint>  lista){
         ArrayList <Saint> novaListaSaint = new ArrayList();
-        int size = listaSaint.size();
+        int tamanhoDaLista1 = listaSaint.size();
         for (int i = 0 ; i<listaSaint.size();i++){
             Saint atual = listaSaint.get(i);
             novaListaSaint.add(i,atual);
         }
         for (int i = 0 ; i<lista.size();i++) {
             Saint atual = lista.get(i);
-            novaListaSaint.add(size + i,atual);
+            novaListaSaint.add(tamanhoDaLista1 + i,atual);
         }
         return novaListaSaint;
-    }
-}
+    }}
     //public ArrayList<Saint> intersec (ArrayList <Saint>  lista){
-        
+     //  ArrayList <Saint> novaListaSaint = new ArrayList();
+       
     //}
     
  //   Crie uma operação na classe ListaSaints chamada intersec que recebe um outra lista de
