@@ -121,10 +121,10 @@ public class ListaSaints{
     public ArrayList<Saint> intersec (ArrayList <Saint>  lista){
         ArrayList <Saint> novaListaSaint = new ArrayList();
         int tamanhoDaLista1 = listaSaint.size();
-        for (int i = 0 ; i<listaSaint.size();i++){
-            Saint atual = listaSaint.get(i);
-            novaListaSaint.add(i,atual);
-        }
+        //for (int i = 0 ; i<listaSaint.size();i++){
+          //  Saint atual = listaSaint.get(i);
+           // novaListaSaint.add(i,atual);
+        //}
         for (int i = 0 ; i<lista.size();i++) {
             Saint atual = lista.get(i);
             boolean igual = false;
@@ -134,9 +134,9 @@ public class ListaSaints{
                    break;
                 } 
             }
-            if (igual == false){
+            if (igual == true){
                  novaListaSaint.add(atual);}
                     }
         return novaListaSaint;
     }
-}    
+ }
