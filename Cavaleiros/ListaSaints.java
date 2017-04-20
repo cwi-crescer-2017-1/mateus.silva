@@ -118,6 +118,26 @@ public class ListaSaints{
         }
         return novaListaSaint;
     }
+    public ArrayList<Saint> diff (ArrayList <Saint>  lista){
+        ArrayList <Saint> novaListaSaint = new ArrayList();
+        for (int i = 0 ; i<listaSaint.size();i++){
+            Saint atual = listaSaint.get(i);
+            novaListaSaint.add(i,atual);
+         }
+        for (int i = 0 ; i<lista.size();i++) {
+            Saint atual = lista.get(i);
+            boolean igual = false;
+            for (int a = 0 ; a<listaSaint.size ();a++){
+                if (atual==listaSaint.get(a)){
+                    igual = true;
+                    break;
+                 } 
+             }
+            if (igual == false){
+                  novaListaSaint.add(atual);}
+                     }
+         return novaListaSaint;
+     }
     public ArrayList<Saint> intersec (ArrayList <Saint>  lista){
         ArrayList <Saint> novaListaSaint = new ArrayList();
         for (int i = 0 ; i<lista.size();i++) {
@@ -134,4 +154,4 @@ public class ListaSaints{
                     }
         return novaListaSaint;
     }
- }
+} 
