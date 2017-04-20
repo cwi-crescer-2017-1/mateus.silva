@@ -67,4 +67,19 @@ public  class Saint{
         this.acumuladorProximoGolpe++;
         return golpes.get(posicao);
     }
+    //public String getCSV(){
+      //  String csv= "";
+        
+     //   csv +=
+      //      this.nome + ","+
+     //       this.vida +","+
+      //      this.armadura.getConstelacao().getNomeDaConstelacao()+ ","+
+     //       this.armadura.getValorDaCategoria() + ","+
+     //       this.status+ ","+
+     //       this.genero + ","+
+       //     this.armaduraVestida;
+            
+      //      return csv;
+        
+  //  }
 }
