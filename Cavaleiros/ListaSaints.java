@@ -117,11 +117,26 @@ public class ListaSaints{
             novaListaSaint.add(tamanhoDaLista1 + i,atual);
         }
         return novaListaSaint;
-    }}
-    //public ArrayList<Saint> intersec (ArrayList <Saint>  lista){
-     //  ArrayList <Saint> novaListaSaint = new ArrayList();
-       
-    //}
-    
- //   Crie uma operação na classe ListaSaints chamada intersec que recebe um outra lista de
-   // saints (ou seja...) e retorna uma nova ListaSaints com a interseção entre lista atual e a outra que foi informada.
+    }
+    public ArrayList<Saint> intersec (ArrayList <Saint>  lista){
+        ArrayList <Saint> novaListaSaint = new ArrayList();
+        int tamanhoDaLista1 = listaSaint.size();
+        for (int i = 0 ; i<listaSaint.size();i++){
+            Saint atual = listaSaint.get(i);
+            novaListaSaint.add(i,atual);
+        }
+        for (int i = 0 ; i<lista.size();i++) {
+            Saint atual = lista.get(i);
+            boolean igual = false;
+            for (int a = 0 ; a<listaSaint.size ();a++){
+               if (atual==listaSaint.get(a)){
+                   igual = true;
+                   break;
+                } 
+            }
+            if (igual == false){
+                 novaListaSaint.add(atual);}
+                    }
+        return novaListaSaint;
+    }
+}    
