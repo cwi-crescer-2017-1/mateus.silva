@@ -265,4 +265,42 @@ public class ListaSaintsTest{
          ArrayList<Saint>listaSaint = lista.todos();
          assertEquals(0,listaSaint.size());
     }
+    @Test
+    public void unirDoisArraysNaoVazios () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         ListaSaints lista1 = new ListaSaints();
+         lista1.adicionar(seiya);
+         ListaSaints lista2 = new ListaSaints();
+         lista2.adicionar(saga);
+         ArrayList <Saint> listaSaint = lista2.todos();
+         ArrayList <Saint> listaSaint2 =lista1.unir(listaSaint);
+         assertEquals(2, listaSaint2.size());
+    }
+    @Test
+    public void unirDoisArraysVazios () throws Exception{
+         ListaSaints lista1 = new ListaSaints();
+         ListaSaints lista2 = new ListaSaints();
+         ArrayList <Saint> listaSaint = lista2.todos();
+         ArrayList <Saint> listaSaint2 =lista1.unir(listaSaint);
+         assertEquals(0, listaSaint2.size());
+    }
+    @Test
+    public void unirDoisArraysDeSize5e3 () throws Exception{
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         ListaSaints lista1 = new ListaSaints();
+         lista1.adicionar(seiya);
+         lista1.adicionar(seiya);
+         lista1.adicionar(seiya);
+         lista1.adicionar(seiya);
+         lista1.adicionar(seiya);
+         ListaSaints lista2 = new ListaSaints();
+         lista2.adicionar(saga);
+         lista2.adicionar(saga);
+         lista2.adicionar(saga);
+         ArrayList <Saint> listaSaint = lista2.todos();
+         ArrayList <Saint> listaSaint2 =lista1.unir(listaSaint);
+         assertEquals(8, listaSaint2.size());
+    }
 }
