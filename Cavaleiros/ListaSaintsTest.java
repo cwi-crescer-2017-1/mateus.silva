@@ -304,7 +304,7 @@ public class ListaSaintsTest{
          assertEquals(8, listaSaint2.size());
     }
     @Test
-    public void intersecDoisArraysDe3ObjetosE1objetoEmComum() throws Exception{
+    public void intersecDoisArraysDe3ObjetosE1ObjetoEmComum() throws Exception{
          GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
          ListaSaints lista1 = new ListaSaints();
@@ -317,10 +317,10 @@ public class ListaSaintsTest{
          lista2.adicionar(saga);
          ArrayList <Saint> listaSaint = lista2.todos();
          ArrayList <Saint> listaSaint2 =lista1.intersec(listaSaint);
-         assertEquals(5, listaSaint2.size());
+         assertEquals(1, listaSaint2.size());
     }
     @Test
-    public void intersecDoisArraysDe3ObjetosE3objetoEmComum()throws Exception{
+    public void intersecDoisArraysDe3ObjetosE3ObjetosEmComum()throws Exception{
          GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
          ListaSaints lista1 = new ListaSaints();
@@ -336,7 +336,7 @@ public class ListaSaintsTest{
          assertEquals(3, listaSaint2.size());
     }
      @Test
-    public void intersecDoisArraysDe5ObjetosE2objetoEmComum()throws Exception{
+    public void intersecDoisArraysDe5ObjetosE2ObjetosEmComum()throws Exception{
          GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
          ListaSaints lista1 = new ListaSaints();
@@ -353,6 +353,6 @@ public class ListaSaintsTest{
          lista2.adicionar(saga);
          ArrayList <Saint> listaSaint = lista2.todos();
          ArrayList <Saint> listaSaint2 =lista1.intersec(listaSaint);
-         assertEquals(8, listaSaint2.size());
+         assertEquals(2, listaSaint2.size());
     }
 }
