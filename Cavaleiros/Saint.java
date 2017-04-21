@@ -9,6 +9,7 @@ public abstract class Saint{
     protected  int qtsSentidosDespertados = 5;
     private int acumuladorProximoGolpe =0;
     private String nomeDaConstelacao; 
+    private ArrayList <Movimento> movimento = new ArrayList <Movimento> ();
     public Saint (String nome, String nomeDaConstelacao) throws Exception{
       this.nome = nome;
       this.nomeDaConstelacao = nomeDaConstelacao;
@@ -83,4 +84,9 @@ public abstract class Saint{
     public Armadura getArmadura(){
         return this.armadura;
     }
+    public void adicionarMovimento (Movimento movimento){
+        this.movimento.add(movimento);
+    }
+    
+    
 }
