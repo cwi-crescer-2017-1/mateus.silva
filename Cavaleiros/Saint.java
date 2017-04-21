@@ -28,14 +28,14 @@ public abstract class Saint{
     public Status getStatus(){
         return this.status;
     }
-    public void perderVida(double golpe) {
-        if (golpe<0){
+    public void perderVida(double dano) {
+        if (dano<0){
             // erro
             throw new java.security.InvalidParameterException ();
         }
         else {
             if (getStatus() != status.MORTO){
-            this.vida = this.vida - golpe;
+            this.vida = this.vida -dano;
              }
              if (getVida()<1){
             this.status = status.MORTO;
