@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public abstract class Saint{
     private String nome;
-    protected Armadura armadura;
+    protected  Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO; 
