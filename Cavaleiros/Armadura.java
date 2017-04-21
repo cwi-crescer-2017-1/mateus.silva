@@ -15,4 +15,7 @@ public class Armadura{
        public String getValorStringDaCategoria (){
         return this.categoria.getValorString();
     }
+    public Categoria getCategoria(){
+        return this.categoria;
+    }
 }
