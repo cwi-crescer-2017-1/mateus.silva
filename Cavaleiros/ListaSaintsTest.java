@@ -7,28 +7,28 @@ import org.junit.Test;
 public class ListaSaintsTest{
      @Test
     public void adicionar1SaintALista() throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         ListaSaints lista = new ListaSaints();
+         Saint saga = new GoldSaint("Saga","Gêmeos");
+         ListaSaints  lista = new  ListaSaints();
          lista.adicionar(saga);
          assertEquals(saga, lista.get(0));
     }
     @Test
     public void adicionar2SaintALista() throws Exception{
-         Saint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         Saint saga = new GoldSaint("Saga", "Gêmeos");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
          assertEquals(saga, lista.get(0));
-         GoldSaint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Touro"), Categoria.OURO)); 
+         GoldSaint mu = new GoldSaint ("Mu", "Touro"); 
          lista.adicionar(mu);
          assertEquals(mu, lista.get(1));
     }
     @Test
     public void removerSaintDoArray() throws Exception{
-         Saint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         Saint saga = new GoldSaint("Saga", "Gêmeos");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
          assertEquals(saga, lista.get(0));
-         GoldSaint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Touro"), Categoria.OURO)); 
+         GoldSaint mu = new GoldSaint ("Mu", "Touro"); 
          lista.adicionar(mu);
          assertEquals(mu, lista.get(1));
          lista.remover(mu);
@@ -38,8 +38,8 @@ public class ListaSaintsTest{
     }      
     @Test
     public void buscarPrimeiroSaintComNomeIgualaAoValorDoArgumeto()throws Exception {
-         Saint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         GoldSaint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Touro"), Categoria.OURO)); 
+         Saint saga = new GoldSaint("Saga", "Gêmeos");
+         GoldSaint mu = new GoldSaint ("Mu","Touro"); 
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
          lista.adicionar(mu);
@@ -48,9 +48,9 @@ public class ListaSaintsTest{
     }
     @Test
     public void retornaSubListaDaCategoriaInformadaQueContem3SaintOuro() throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         GoldSaint mu = new GoldSaint("Mu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-         GoldSaint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Virgem"), Categoria.OURO));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         GoldSaint mu = new GoldSaint("Mu", "Touro");
+         GoldSaint shaka = new GoldSaint("Shaka", "Virgem");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
          lista.adicionar(mu);
@@ -61,7 +61,7 @@ public class ListaSaintsTest{
     } 
      @Test
     public void retornaSubListaDaCategoriaInformadaQueContem1SaintBronze() throws Exception{
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(shina);
          Categoria categoria = Categoria.BRONZE;
@@ -70,8 +70,8 @@ public class ListaSaintsTest{
     }  
      @Test
     public void retornaSubListaDaCategoriaInformadaQueContem2SaintPrata() throws Exception{
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         SilverSaint hyoga = new SilverSaint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.PRATA));
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
+         SilverSaint hyoga = new SilverSaint("Hyoga", "Cisne");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(hyoga);
@@ -81,8 +81,8 @@ public class ListaSaintsTest{
     }  
     @Test
     public void retornaSubListaDeSaintCom2SaintStatusVivo () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(saga);
@@ -94,9 +94,9 @@ public class ListaSaintsTest{
     } 
     @Test
     public void retornaSaintComMaiorVidaSendoQue2SaintTemAMesmaVida () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(shina);
@@ -112,9 +112,9 @@ public class ListaSaintsTest{
          assertNull(lista.getSaintMaiorVida());
     }
      public void retornaSaintComMaiorVidaNenhumSaintTemAMesmaVida() throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(shina);
@@ -126,9 +126,9 @@ public class ListaSaintsTest{
     }
     @Test
     public void retornaSaintComMenorNenhumTemAMesmaVida () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(shina);
          lista.adicionar(seiya);
@@ -140,9 +140,9 @@ public class ListaSaintsTest{
     } 
      @Test
     public void retornaSaintComMenorVidaSendoQue2TemAMesmaVida () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(shina);
          lista.adicionar(seiya);
@@ -158,9 +158,9 @@ public class ListaSaintsTest{
     }
     @Test
     public void ordenaAListaEmOrdemCrescenteSendoQueAOrdemEstaDecrescente () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(shina);
@@ -178,11 +178,11 @@ public class ListaSaintsTest{
     }
       @Test
     public void ordenaAListaEmOrdemCrescenteSendoQueAOrdemAleatória () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
-         BronzeSaint shina1 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
-         BronzeSaint shina2 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
+         BronzeSaint shina1 = new BronzeSaint("Shina", "Cobra");
+         BronzeSaint shina2 = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(saga);
@@ -203,11 +203,11 @@ public class ListaSaintsTest{
     }
       @Test
     public void ordenaAListaEmOrdemAscedente () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
-         BronzeSaint shina1 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
-         BronzeSaint shina2 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
+         BronzeSaint shina1 = new BronzeSaint("Shina", "Cobra");
+         BronzeSaint shina2 = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(saga);
@@ -228,11 +228,11 @@ public class ListaSaintsTest{
     }
       @Test
     public void ordenaAListaEmOrdemDescedente () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
-         BronzeSaint shina = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
-         BronzeSaint shina1 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
-         BronzeSaint shina2 = new BronzeSaint("Shina", new Armadura(new Constelacao("Cobra"), Categoria.BRONZE));
+         GoldSaint saga = new GoldSaint("Saga","Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
+         BronzeSaint shina = new BronzeSaint("Shina", "Cobra");
+         BronzeSaint shina1 = new BronzeSaint("Shina", "Cobra");
+         BronzeSaint shina2 = new BronzeSaint("Shina", "Cobra");
          ListaSaints lista = new ListaSaints();
          lista.adicionar(seiya);
          lista.adicionar(saga);
@@ -267,8 +267,8 @@ public class ListaSaintsTest{
     }
     @Test
     public void unirDoisArraysNaoVazios () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          ListaSaints lista2 = new ListaSaints();
@@ -287,8 +287,8 @@ public class ListaSaintsTest{
     }
     @Test
     public void unirDoisArraysDeSize5e3 () throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          lista1.adicionar(seiya);
@@ -305,8 +305,8 @@ public class ListaSaintsTest{
     }
     @Test
     public void diffDoisArraysDe3ObjetosE1ObjetoEmComum() throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          lista1.adicionar(seiya);
@@ -321,8 +321,8 @@ public class ListaSaintsTest{
     }
     @Test
     public void diffDoisArraysDe3ObjetosE3ObjetosEmComum()throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          lista1.adicionar(seiya);
@@ -337,8 +337,8 @@ public class ListaSaintsTest{
     }
      @Test
     public void diffDoisArraysDe5ObjetosE2ObjetosEmComum()throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          lista1.adicionar(seiya);
@@ -357,8 +357,8 @@ public class ListaSaintsTest{
     }
     @Test
     public void intersecDoisArraysDe3ObjetosE1ObjetoEmComum() throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          lista1.adicionar(seiya);
@@ -373,8 +373,8 @@ public class ListaSaintsTest{
     }
     @Test
     public void intersecDoisArraysDe3ObjetosE3ObjetosEmComum()throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          lista1.adicionar(seiya);
@@ -389,8 +389,8 @@ public class ListaSaintsTest{
     }
      @Test
     public void intersecDoisArraysDe5ObjetosE2ObjetosEmComum()throws Exception{
-         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-         SilverSaint seiya = new SilverSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.PRATA)); 
+         GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
+         SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          lista1.adicionar(seiya);
