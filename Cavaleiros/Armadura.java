@@ -12,4 +12,7 @@ public class Armadura{
         int valorDaCategoria = categoria.getValor();
         return valorDaCategoria;
     } 
+       public String getValorStringDaCategoria (){
+        return this.categoria.getValorString();
+    }
 }
