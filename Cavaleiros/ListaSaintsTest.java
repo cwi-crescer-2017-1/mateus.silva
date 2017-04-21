@@ -7,14 +7,14 @@ import org.junit.Test;
 public class ListaSaintsTest{
      @Test
     public void adicionar1SaintALista() throws Exception{
-         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         GoldSaint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
          assertEquals(saga, lista.get(0));
     }
     @Test
     public void adicionar2SaintALista() throws Exception{
-         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         Saint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
          assertEquals(saga, lista.get(0));
@@ -24,7 +24,7 @@ public class ListaSaintsTest{
     }
     @Test
     public void removerSaintDoArray() throws Exception{
-         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         Saint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
          assertEquals(saga, lista.get(0));
@@ -38,7 +38,7 @@ public class ListaSaintsTest{
     }      
     @Test
     public void buscarPrimeiroSaintComNomeIgualaAoValorDoArgumeto()throws Exception {
-         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+         Saint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
          GoldSaint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Touro"), Categoria.OURO)); 
          ListaSaints lista = new ListaSaints();
          lista.adicionar(saga);
