@@ -1,8 +1,12 @@
+import java.util.ArrayList;
 public class GoldSaint extends Saint {
-    public GoldSaint (String nome, Armadura armadura) throws Exception{
-        super(nome, armadura);
+    public GoldSaint (String nome, String nomeDaConstelacao) throws Exception{
+       
+        super(nome, nomeDaConstelacao);
+        this.armadura = new Armadura (new Constelacao (nomeDaConstelacao), Categoria.OURO);
         this.qtsSentidosDespertados = 7;
-        String constelacao = armadura.getConstelacao().getNomeDaConstelacao();
+        
+        String constelacao = getArmadura().getConstelacao().getNomeDaConstelacao();
         if ( !constelacao.equals("Áries") 
         && !constelacao.equals("Touro")
         && !constelacao.equals("Gêmeos")
