@@ -1,17 +1,18 @@
 import java.util.ArrayList;
 public abstract class Saint{
     private String nome;
-    private Armadura armadura;
+    protected Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
-    private Status status = Status.VIVO;
+    private Status status = Status.VIVO; 
     private double vida = 100.;
     protected  int qtsSentidosDespertados = 5;
     private int acumuladorProximoGolpe =0;
-    public Saint (String nome, Armadura armadura) throws Exception{
+    private String nomeDaConstelacao; 
+    public Saint (String nome, String nomeDaConstelacao) throws Exception{
       this.nome = nome;
-      this.armadura = armadura;
-        }
+      this.nomeDaConstelacao = nomeDaConstelacao;
+    }
     public void vestirArmadura(){
         this.armaduraVestida = true;
     }    
@@ -78,5 +79,8 @@ public abstract class Saint{
            this.genero + ","+
            this.armaduraVestida;
         return csv;
+    }
+    public Armadura getArmadura(){
+        return this.armadura;
     }
 }
