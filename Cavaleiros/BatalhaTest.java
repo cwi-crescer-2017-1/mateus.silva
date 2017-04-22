@@ -10,7 +10,8 @@ public class BatalhaTest{
         Batalha b = new Batalha(seiya, shion);
         double delta  = 0.0000001;
         b.iniciar();
-        assertEquals (90, seiya.getVida(), delta );
+        assertEquals (0, seiya.getVida(), delta );
+        assertEquals (10, shion.getVida(), delta );
     }
      @Test 
     public void iniciaBatalhaSaint2Perde10()throws Exception{
@@ -19,7 +20,8 @@ public class BatalhaTest{
         Batalha b = new Batalha( shion, seiya);
         double delta  = 0.0000001;
         b.iniciar();
-        assertEquals (90, seiya.getVida(), delta );
+        assertEquals (0, seiya.getVida(), delta );
+        assertEquals (10, shion.getVida(), delta );
     }
      @Test 
     public void iniciaBatalhaComDoisCavaleirosDaMesmaCategoriaSegundoCavaleiroDevePerder10 ()throws Exception{
@@ -28,6 +30,7 @@ public class BatalhaTest{
         Batalha b = new Batalha( shion, mu);
         double delta  = 0.0000001;
         b.iniciar();
-        assertEquals (90, mu.getVida(), delta );
+        assertEquals (0, mu.getVida(), delta );
+        assertEquals (10, shion.getVida(), delta );
     }
 }
