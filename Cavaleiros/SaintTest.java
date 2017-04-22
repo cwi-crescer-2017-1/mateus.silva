@@ -228,4 +228,65 @@ public class SaintTest{
         String esperado = "null,84.5,Camaleão,BRONZE,VIVO,FEMININO,false";
         assertEquals(esperado, june.getCSV());
     }
+     @Test
+    public void testaGetProximoGolpeExecuta1GolpeVesteArmaduraEExecutaOutroGolpe ()throws Exception {
+        GoldSaint mu = new GoldSaint("Mu", "Touro");
+        SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
+        Golpe golpe1 = new Golpe ("Meteoro de Pégasus", 10);
+        Golpe golpe2 = new Golpe ("Cometa de Pégasus", 5);
+        Golpe golpe3 = new Golpe ("Chute de Pégasus", 2);
+        seiya.aprenderGolpe(golpe1);
+        seiya.aprenderGolpe(golpe2);
+        seiya.aprenderGolpe(golpe3);
+        Golpear golpear = new Golpear (seiya, mu);
+        VestirArmadura vestirArmadura = new VestirArmadura (seiya);
+        seiya.adicionarMovimento(golpear);
+        seiya.adicionarMovimento(vestirArmadura);
+        seiya.getProximoMovimento().executar();  
+        seiya.getProximoMovimento().executar();
+        seiya.getProximoMovimento().executar();
+        assertEquals(75,mu.getVida(),0.01);
+    }
+     @Test
+    public void testaGetProximoGolpePrataExecutaGolpeVesteArmaduraExecutaGolpeOuroVesteDepoisExecuta ()throws Exception {
+        GoldSaint mu = new GoldSaint("Mu", "Touro");
+        SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
+        Golpe golpe3 = new Golpe ("Cometa de Pégasus", 5);
+        Golpe golpe1 = new Golpe ("Meteoro de Pégasus", 10);
+        Golpe golpe2 = new Golpe ("Chifrada", 5);
+        seiya.aprenderGolpe(golpe1);
+        seiya.aprenderGolpe(golpe3);
+        mu.aprenderGolpe(golpe2);
+        Golpear golpear1 = new Golpear (seiya, mu);
+        Golpear golpear2 = new Golpear (mu,seiya);
+         Golpear golpear3 = new Golpear (seiya, mu);
+        VestirArmadura vestirArmadura1 = new VestirArmadura (seiya);
+        VestirArmadura vestirArmadura2 = new VestirArmadura (mu);
+        seiya.adicionarMovimento(golpear1);
+        seiya.adicionarMovimento(vestirArmadura1);
+        seiya.adicionarMovimento(golpear3);
+        mu.adicionarMovimento(vestirArmadura2);
+        mu.adicionarMovimento(golpear2);
+        seiya.getProximoMovimento().executar();  
+        seiya.getProximoMovimento().executar();
+        seiya.getProximoMovimento().executar();
+        mu.getProximoMovimento().executar();
+        mu.getProximoMovimento().executar();
+        assertEquals(75,mu.getVida(),0.01);
+        assertEquals(80,seiya.getVida(),0.01);
+    }
+     @Test
+    public void testaGetProximoGolpeVesteArmaduraEExecutaGolpe ()throws Exception {
+        GoldSaint mu = new GoldSaint("Mu", "Touro");
+        SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
+        Golpe golpe1 = new Golpe ("Meteoro de Pégasus", 10);
+        seiya.aprenderGolpe(golpe1);
+        Golpear golpear = new Golpear (seiya, mu);
+        VestirArmadura vestirArmadura = new VestirArmadura (seiya);
+        seiya.adicionarMovimento(vestirArmadura);
+        seiya.adicionarMovimento(golpear);
+        seiya.getProximoMovimento().executar();  
+        seiya.getProximoMovimento().executar();
+        assertEquals(70,mu.getVida(),0.01);
+    }
 }
