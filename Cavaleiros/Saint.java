@@ -107,7 +107,7 @@ public abstract class Saint{
         this.movimento.add(movimento);
     }
     public Movimento getProximoMovimento(){
-        int posicao = this.acumuladorProximoMovimento  % movimento.size();
+        int posicao = this.acumuladorProximoMovimento % movimento.size();
         this.acumuladorProximoMovimento++;
         return movimento.get(posicao);
     }
