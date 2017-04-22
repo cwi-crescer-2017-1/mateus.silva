@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 public abstract class Saint{
     private String nome;
-    protected  Armadura armadura;
+    private Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO; 
     private double vida = 100.;
     protected  int qtsSentidosDespertados = 5;
     private int acumuladorProximoGolpe =0;
-    private String nomeDaConstelacao; 
+    private int acumuladorProximoMovimento =0;
     private ArrayList <Movimento> movimento = new ArrayList <Movimento> ();
-    public Saint (String nome, String nomeDaConstelacao) throws Exception{
+    public Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
-      this.nomeDaConstelacao = nomeDaConstelacao;
+      this.armadura = armadura;
     }
     public void vestirArmadura(){
         this.armaduraVestida = true;
@@ -87,6 +87,9 @@ public abstract class Saint{
     public void adicionarMovimento (Movimento movimento){
         this.movimento.add(movimento);
     }
-    
-    
+    public Movimento getProximoMovimento(){
+        int posicao = this.acumuladorProximoMovimento  % movimento.size();
+        this.acumuladorProximoMovimento++;
+        return movimento.get(posicao);
+    }
 }
