@@ -7,28 +7,18 @@ public class Batalha {
     }
    public void iniciar(){
       int turno =1; 
-      final int  dano = 10;
-      if (saint1.getValorDaCategoria () >= saint2.getValorDaCategoria()){
-           saint2.perderVida(dano);
+      if (this.saint1.getValorDaCategoria () >= this.saint2.getValorDaCategoria()){
            turno ++;
        }
-       else {
-           saint1.perderVida(dano);
-          
-       }
-      while (saint1.getStatus() == Status.VIVO && saint2.getStatus() == Status.VIVO){
+      while (this.saint1.getStatus() == Status.VIVO && this.saint2.getStatus() == Status.VIVO){
              if (turno%2==0 ){
-                saint1.perderVida(dano);
-                turno++;
+               this.saint1.getProximoMovimento().executar();
+               turno++;
             }
             else {
-               saint2.perderVida(dano);
+               this.saint2.getProximoMovimento().executar();
                turno++;
             }
       }
    }
 }
-/*Altere a classe Batalha para, no método iniciar, 
-enquanto nenhum Saint estiver morto alternar os movimentos 
-a serem aplicados entre eles, simulando uma batalha por turnos.
- A lógica do ataque inicial deverá ser mantida.*/
