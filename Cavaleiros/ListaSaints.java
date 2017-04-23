@@ -71,39 +71,24 @@ public class ListaSaints{
         return saintComMenorVida;
     }
     public void ordenar (){
-        boolean posicoesSendoTrocadas;    
-        do{
-            posicoesSendoTrocadas = false;
-            for (int i = 0; i<listaSaint.size()-1; i++){
-                Saint saintAtual =  this.listaSaint.get(i);      
-                Saint saintProximo = this.listaSaint.get(i+1);
-                if (saintAtual.getVida()>saintProximo.getVida()){
-                    this.listaSaint.set(i,saintProximo);
-                    this.listaSaint.set(i+1, saintAtual); 
-                    posicoesSendoTrocadas = true;
-                }
-            }  
-        } while (posicoesSendoTrocadas);
+         this.ordenar(TipoOrdenacao.ASCENDENTE);
     }
     public void ordenar (TipoOrdenacao tipoOrdenacao){
-         if (TipoOrdenacao.ASCENDENTE == tipoOrdenacao){
-             ordenar();
-        }
-         else { 
-             boolean  posicoesSendoTrocadas;
-             do{
-                 posicoesSendoTrocadas = false;
-                 for (int i = 0; i<listaSaint.size()-1; i++){
-                     Saint saintAtual =  this.listaSaint.get(i);      
-                     Saint saintProximo = this.listaSaint.get(i+1);
-                     if  (saintAtual.getVida()<saintProximo.getVida()){
-                         this.listaSaint.set(i,saintProximo);
-                         this.listaSaint.set(i+1, saintAtual); 
-                         posicoesSendoTrocadas = true;
-                      }
-                 }  
-             } while (posicoesSendoTrocadas);
-        }
+        boolean ascendente =  TipoOrdenacao.ASCENDENTE == tipoOrdenacao;
+        boolean  posicoesSendoTrocadas;
+        do{
+           posicoesSendoTrocadas = false;
+           for (int i = 0; i<listaSaint.size()-1; i++){
+               Saint saintAtual =  this.listaSaint.get(i);      
+               Saint saintProximo = this.listaSaint.get(i+1);
+               if(ascendente ? saintAtual.getVida() > saintProximo.getVida() :
+                  saintAtual.getVida() < saintProximo.getVida()){
+                  this.listaSaint.set(i,saintProximo);
+                  this.listaSaint.set(i+1, saintAtual); 
+                  posicoesSendoTrocadas = true;
+               }
+           }  
+        } while (posicoesSendoTrocadas);
     }
     public ArrayList <Saint> unir (ArrayList <Saint>  lista){
         ArrayList <Saint> novaListaSaint = new ArrayList();
