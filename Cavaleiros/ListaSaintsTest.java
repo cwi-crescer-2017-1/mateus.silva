@@ -317,10 +317,10 @@ public class ListaSaintsTest{
          lista2.adicionar(saga);
          ArrayList <Saint> listaSaint = lista2.todos();
          ArrayList <Saint> listaSaint2 =lista1.diff(listaSaint);
-         assertEquals(2, listaSaint2.size());
+         assertEquals(0, listaSaint2.size());
     }
     @Test
-    public void diffDoisArraysDe3ObjetosE3ObjetosEmComum()throws Exception{
+    public void diffDe3ObjetosEmComum()throws Exception{
          GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
          SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
@@ -336,25 +336,28 @@ public class ListaSaintsTest{
          assertEquals(0, listaSaint2.size());
     }
      @Test
-    public void diffDoisArraysDe5ObjetosE2ObjetosEmComum()throws Exception{
+    public void diffDe3Objetos()throws Exception{
          GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
          SilverSaint seiya = new SilverSaint ("Seiya","Pégaso"); 
+         BronzeSaint shina = new BronzeSaint ("Shina", "Cobra");
+         GoldSaint mu = new GoldSaint ("Mu", "Touro");
+         GoldSaint shaka = new GoldSaint ("Shaka", "Virgem");
+         SilverSaint hyoga = new SilverSaint ("Hyoga","Cisne"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
-         lista1.adicionar(seiya);
-         lista1.adicionar(seiya);
-         lista1.adicionar(seiya);
-         lista1.adicionar(seiya);
+         lista1.adicionar(saga);
+         lista1.adicionar(hyoga);
+         lista1.adicionar(mu);
+         lista1.adicionar(shaka);
          ListaSaints lista2 = new ListaSaints();
          lista2.adicionar(seiya);
-         lista2.adicionar(seiya);
-         seiya = new SilverSaint ("Seiya", "Touro");
-         lista2.adicionar(seiya);
          lista2.adicionar(saga);
-         lista2.adicionar(saga);
-         ArrayList <Saint> listaSaint = lista2.todos();
-         ArrayList <Saint> listaSaint2 =lista1.diff(listaSaint);
-         assertEquals(3, listaSaint2.size());
+         lista2.adicionar(shaka);
+         lista2.adicionar(shina);
+         ArrayList <Saint> listaSaint1 =lista1.todos();
+         ArrayList <Saint> listaSaint2 =lista2.todos();
+         ArrayList <Saint> listaSaint3 =lista1.diff(listaSaint2);
+         assertEquals(2, listaSaint3.size());
     }
     @Test
     public void intersecDoisArraysDe3ObjetosE1ObjetoEmComum() throws Exception{
