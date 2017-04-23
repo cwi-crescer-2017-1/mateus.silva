@@ -348,7 +348,8 @@ public class ListaSaintsTest{
          ListaSaints lista2 = new ListaSaints();
          lista2.adicionar(seiya);
          lista2.adicionar(seiya);
-         lista2.adicionar(saga);
+         seiya = new SilverSaint ("Seiya", "Touro");
+         lista2.adicionar(seiya);
          lista2.adicionar(saga);
          lista2.adicionar(saga);
          ArrayList <Saint> listaSaint = lista2.todos();
@@ -400,7 +401,8 @@ public class ListaSaintsTest{
          ListaSaints lista2 = new ListaSaints();
          lista2.adicionar(seiya);
          lista2.adicionar(seiya);
-         lista2.adicionar(saga);
+         seiya = new SilverSaint ("Seiya", "Touro");
+         lista2.adicionar(seiya);
          lista2.adicionar(saga);
          lista2.adicionar(saga);
          ArrayList <Saint> listaSaint = lista2.todos();
