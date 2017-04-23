@@ -317,7 +317,7 @@ public class ListaSaintsTest{
          lista2.adicionar(saga);
          ArrayList <Saint> listaSaint = lista2.todos();
          ArrayList <Saint> listaSaint2 =lista1.diff(listaSaint);
-         assertEquals(5, listaSaint2.size());
+         assertEquals(2, listaSaint2.size());
     }
     @Test
     public void diffDoisArraysDe3ObjetosE3ObjetosEmComum()throws Exception{
@@ -333,7 +333,7 @@ public class ListaSaintsTest{
          lista2.adicionar(seiya);
          ArrayList <Saint> listaSaint = lista2.todos();
          ArrayList <Saint> listaSaint2 =lista1.diff(listaSaint);
-         assertEquals(3, listaSaint2.size());
+         assertEquals(0, listaSaint2.size());
     }
      @Test
     public void diffDoisArraysDe5ObjetosE2ObjetosEmComum()throws Exception{
@@ -354,7 +354,7 @@ public class ListaSaintsTest{
          lista2.adicionar(saga);
          ArrayList <Saint> listaSaint = lista2.todos();
          ArrayList <Saint> listaSaint2 =lista1.diff(listaSaint);
-         assertEquals(8, listaSaint2.size());
+         assertEquals(3, listaSaint2.size());
     }
     @Test
     public void intersecDoisArraysDe3ObjetosE1ObjetoEmComum() throws Exception{
