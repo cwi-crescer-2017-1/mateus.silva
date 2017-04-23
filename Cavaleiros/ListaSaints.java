@@ -113,7 +113,7 @@ public class ListaSaints{
             Saint atual = lista.get(i);
             boolean igual = false;
             for (int a = 0 ; a<listaSaint.size ();a++){
-                if (atual==listaSaint.get(a)){
+                if (atual.equals(listaSaint.get(a))){
                     igual = true;
                     break;
                  } 
@@ -129,7 +129,7 @@ public class ListaSaints{
             Saint atual = lista.get(i);
             boolean igual = false;
             for (int a = 0 ; a<listaSaint.size ();a++){
-               if (atual==listaSaint.get(a)){
+               if (atual.equals(listaSaint.get(a))){
                    igual = true;
                    break;
                 } 
