@@ -154,4 +154,18 @@ public class ListaSaints{
                     }
         return novaListaSaint;
     }
+     public String getCSV() {
+        if (this.listaSaint.isEmpty()) {
+            return "";
+        }
+        String separador = System.getProperty("line.separator");
+        StringBuilder builder = new StringBuilder(512);
+        builder.append(this.listaSaint.get(0).getCSV());
+        for (int i = 1; i < this.listaSaint.size(); i++) {
+            Saint saint = this.listaSaint.get(i);
+            builder.append(separador);
+            builder.append(saint.getCSV());
+        }
+        return builder.toString();
+    }
 } 
