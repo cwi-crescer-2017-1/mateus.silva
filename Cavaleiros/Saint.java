@@ -10,7 +10,7 @@ public abstract class Saint{
     private int acumuladorProximoGolpe =0;
     private int acumuladorProximoMovimento =0;
     private ArrayList <Movimento> movimento = new ArrayList <Movimento> ();
-    public Saint (String nome, Armadura armadura) throws Exception{
+    protected Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
        
