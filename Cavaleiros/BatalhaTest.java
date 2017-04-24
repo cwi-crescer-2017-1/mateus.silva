@@ -7,7 +7,6 @@ public class BatalhaTest{
     public void iniciaBatalhaGoldSaintGoldPrata()throws Exception{
         Saint seiya = new SilverSaint ("Seiya", "Pégaso");
         Saint shion = new GoldSaint ("Shion", "Áries");
-        
         Golpe golpe1 = new Golpe ("Meteoro de Pégasus", 10);
         Golpe golpe2 = new Golpe ("Cometa de Pégasus", 5);
         Golpe golpe3 = new Golpe ("Chute de Pégasus", 2);
@@ -20,13 +19,10 @@ public class BatalhaTest{
         shion.aprenderGolpe(golpe4);
         shion.aprenderGolpe(golpe5);
         shion.aprenderGolpe(golpe6);
-        
         Golpear golpear1 = new Golpear (seiya, shion);
         Golpear golpear2 = new Golpear (shion, seiya);
         VestirArmadura seiyaVestirArmadura = new VestirArmadura (seiya);
-        VestirArmadura shionVestirArmadura = new VestirArmadura (shion);
-        
-       
+        VestirArmadura shionVestirArmadura = new VestirArmadura (shion);   
         seiya.adicionarMovimento(golpear1);
         seiya.adicionarMovimento(seiyaVestirArmadura);
         shion.adicionarMovimento(golpear2);
@@ -126,4 +122,27 @@ public class BatalhaTest{
        assertEquals (0, seiya.getVida(), delta );
        assertEquals (100, shina.getVida(), delta );
     }
+        @Test 
+    public void iniciaBatalhaSaint1ComeçaVestindoArmadura ()throws Exception{
+       Saint seiya = new SilverSaint ("Seiya", "Pégaso");
+       Saint shina = new BronzeSaint ("Shina", "Cobra");
+       Golpe golpe1 = new Golpe ("Meteoro de Pégasus", 10);
+       Golpe golpe2 = new Golpe ("Cobra", 8); 
+       seiya.aprenderGolpe(golpe1);
+       shina.aprenderGolpe(golpe2);
+       Golpear golpear1 = new Golpear (seiya, shina);
+       Golpear golpear2 = new Golpear (shina, seiya);
+       VestirArmadura seiyaVestirArmadura = new VestirArmadura (seiya);
+       VestirArmadura shinaVestirArmadura = new VestirArmadura (shina);
+       seiya.adicionarMovimento(seiyaVestirArmadura);
+       seiya.adicionarMovimento(golpear1);
+       shina.adicionarMovimento(golpear2);
+       shina.adicionarMovimento(shinaVestirArmadura);
+       Batalha b = new Batalha(seiya, shina);
+       double delta  = 0.0000001;
+       b.iniciar();
+       assertEquals (44, seiya.getVida(), delta );
+       assertEquals (0, shina.getVida(), delta );
+    }
+    
 }
