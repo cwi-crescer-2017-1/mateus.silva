@@ -12,6 +12,8 @@ public class Batalha {
       final double dano = 10;
       boolean saint1Ataca =false; 
       boolean saintsVivos = this.saint1.getStatus() != Status.MORTO && this.saint2.getStatus() != Status.MORTO;
+      int saint1SemGolpe =  saint1.getGolpes().size();
+      int saint2SemGolpe =  saint2.getGolpes().size();
       if (saintsVivos){
           if (valor1 >= valor2){
               saint2.perderVida(dano);
@@ -20,16 +22,18 @@ public class Batalha {
               saint1Ataca =true;
           }  
       }
-      while (saintsVivos){
-          if (saint1Ataca){
-               this.saint1.getProximoMovimento().executar();
-               saint1Ataca =false;
+      if (saint1SemGolpe!=0 && saint2SemGolpe!=0){
+          while (saintsVivos){
+              if (saint1Ataca){
+                  this.saint1.getProximoMovimento().executar();
+                  saint1Ataca =false;
+                }
+                else {
+                    this.saint2.getProximoMovimento().executar();
+                    saint1Ataca =true;
+                }
+              saintsVivos = this.saint1.getStatus() != Status.MORTO && this.saint2.getStatus() != Status.MORTO;
           }
-          else {
-               this.saint2.getProximoMovimento().executar();
-               saint1Ataca =true;
-            }
-          saintsVivos = this.saint1.getStatus() != Status.MORTO && this.saint2.getStatus() != Status.MORTO;
       }
    }
 }
