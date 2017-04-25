@@ -289,4 +289,26 @@ public class SaintTest{
         seiya.getProximoMovimento().executar();
         assertEquals(70,mu.getVida(),0.01);
     }
+     @Test
+    public void testGetQtdSaintsEDepoisInstanciaMaisDois()throws Exception {
+       Saint mu = new GoldSaint("Mu", "Touro");
+       int numero1= mu.getQtdSaints();
+       Saint mu1 = new GoldSaint("Mu", "Touro");
+       Saint mu2 = new GoldSaint("Mu", "Touro");
+       int numero2  =  mu2.getQtdSaints();
+       assertEquals (numero1+2, numero2);
+    }
+     @Test
+    public void testGetQtdSaintsEDepoisInstanciaMaisDoisFazAssertEInstanciaMais3()throws Exception {
+       Saint mu = new GoldSaint("Mu", "Touro");
+       int numero1= mu.getQtdSaints();
+       Saint mu1 = new GoldSaint("Mu", "Touro");
+       Saint mu2 = new GoldSaint("Mu", "Touro");
+       int numero2  =  mu2.getQtdSaints();
+       assertEquals (numero1+2, numero2);
+       Saint mu3 = new GoldSaint("Mu", "Touro");
+       Saint mu4 = new GoldSaint("Mu", "Touro");
+       Saint mu5 = new GoldSaint("Mu", "Touro");
+       assertEquals (numero1 +5, mu5.getQtdSaints());      
+    }
 }
