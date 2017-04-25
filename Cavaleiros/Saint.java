@@ -10,10 +10,12 @@ public abstract class Saint{
     private int acumuladorProximoGolpe =0;
     private int acumuladorProximoMovimento =0;
     private ArrayList <Movimento> movimento = new ArrayList <Movimento> ();
+    private static int qtdSaints  = 0;
+    
     protected Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
-       
+      Saint.qtdSaints++;
       if (getValorDaCategoria() == 3){
          String constelacao = armadura.getConstelacao().getNomeDaConstelacao();
          if ( !constelacao.equals("Áries") 
@@ -32,6 +34,9 @@ public abstract class Saint{
             throw new Exception("Constelação inválida");
            } 
         }
+    }
+    public static int getQtdSaints(){
+        return Saint.qtdSaints;
     }
     public void vestirArmadura(){
         this.armaduraVestida = true;
