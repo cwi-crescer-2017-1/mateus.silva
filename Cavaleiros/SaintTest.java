@@ -311,4 +311,23 @@ public class SaintTest{
        Saint mu5 = new GoldSaint("Mu", "Touro");
        assertEquals (numero1 +5, mu5.getQtdSaints());      
     }
+    @Test
+    public void testID()throws Exception {
+       Saint mu = new GoldSaint("Mu", "Touro");
+       GoldSaint mu5 = (GoldSaint)mu;
+       Saint mu1 = new GoldSaint("Mu", "Touro");
+       Saint mu2 = new GoldSaint("Mu", "Touro");
+       int iDMu = mu.getId();
+       assertEquals (iDMu, mu2.getQtdSaints()-2);
+    }
+     @Test
+    public void testIDDeObejtoDeTerceiroObjetoCriadoNaSequencia()throws Exception {
+       Saint mu = new GoldSaint("Mu", "Touro");
+       int iDMu = mu.getQtdSaints();
+       Saint shaka = new GoldSaint("Shaka", "Virgem");
+       Saint seiya= new SilverSaint("Seiya", "Pégaso");
+       Saint hyoga = new SilverSaint("Hyoga", "Cisne");
+       int iDHyoga = hyoga.getId();
+       assertEquals (iDHyoga,  iDMu +3);
+    }
 }
