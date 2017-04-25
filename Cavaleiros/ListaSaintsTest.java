@@ -266,27 +266,28 @@ public class ListaSaintsTest{
          assertEquals(0,listaSaint.size());
     }
     @Test
-    public void unirDoisArraysNaoVazios () throws Exception{
+    public void unirDuasListasNaoVazias () throws Exception{
          GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
          SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
          lista1.adicionar(seiya);
          ListaSaints lista2 = new ListaSaints();
          lista2.adicionar(saga);
-         ArrayList <Saint> listaSaint = lista2.todos();
-         ArrayList <Saint> listaSaint2 =lista1.unir(listaSaint);
-         assertEquals(2, listaSaint2.size());
+          ListaSaints resultado = lista1.unir(lista2);
+         ArrayList <Saint> resultado1 = resultado.todos();
+         assertEquals (2, resultado1.size());
+        
     }
     @Test
-    public void unirDoisArraysVazios () throws Exception{
+    public void unirDuasListasVazias() throws Exception{
          ListaSaints lista1 = new ListaSaints();
          ListaSaints lista2 = new ListaSaints();
-         ArrayList <Saint> listaSaint = lista2.todos();
-         ArrayList <Saint> listaSaint2 =lista1.unir(listaSaint);
-         assertEquals(0, listaSaint2.size());
+         ListaSaints resultado = lista1.unir(lista2);
+         ArrayList <Saint> resultado1 = resultado.todos();
+         assertEquals (0, resultado1.size());
     }
     @Test
-    public void unirDoisArraysDeSize5e3 () throws Exception{
+    public void unirDuasListasDeTamanhosDiferentes () throws Exception{
          GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
          SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
          ListaSaints lista1 = new ListaSaints();
@@ -299,10 +300,10 @@ public class ListaSaintsTest{
          lista2.adicionar(saga);
          lista2.adicionar(saga);
          lista2.adicionar(saga);
-         ArrayList <Saint> listaSaint = lista2.todos();
-         ArrayList <Saint> listaSaint2 =lista1.unir(listaSaint);
-         assertEquals(8, listaSaint2.size());
-    }
+         ListaSaints resultado = lista1.unir(lista2);
+         ArrayList <Saint> resultado1 = resultado.todos();
+         assertEquals (8, resultado1.size());
+           }
     @Test
     public void diffNenhumObjetoEmComum() throws Exception{
          GoldSaint saga = new GoldSaint("Saga", "Gêmeos");
@@ -378,9 +379,10 @@ public class ListaSaintsTest{
          lista2.adicionar(saga);
          lista2.adicionar(seiya);
          lista2.adicionar(saga);
-         ArrayList <Saint> listaSaint = lista2.todos();
-         ArrayList <Saint> listaSaint2 =lista1.intersec(listaSaint);
-         assertEquals(1, listaSaint2.size());
+          ListaSaints resultado = lista1.intersec(lista2);
+         ArrayList <Saint> resultado1 = resultado.todos();
+         assertEquals(1, resultado1.size());
+        
     }
     @Test
     public void intersecDoisArraysDe3ObjetosE3ObjetosEmComum()throws Exception{
@@ -394,9 +396,10 @@ public class ListaSaintsTest{
          lista2.adicionar(seiya);
          lista2.adicionar(seiya);
          lista2.adicionar(seiya);
-         ArrayList <Saint> listaSaint = lista2.todos();
-         ArrayList <Saint> listaSaint2 =lista1.intersec(listaSaint);
-         assertEquals(3, listaSaint2.size());
+          ListaSaints resultado = lista1.intersec(lista2);
+         ArrayList <Saint> resultado1 = resultado.todos();
+         assertEquals(3, resultado1.size());
+      
     }
      @Test
     public void intersecDoisArraysDe5ObjetosE2ObjetosEmComum()throws Exception{
@@ -415,9 +418,10 @@ public class ListaSaintsTest{
          lista2.adicionar(seiya);
          lista2.adicionar(saga);
          lista2.adicionar(saga);
-         ArrayList <Saint> listaSaint = lista2.todos();
-         ArrayList <Saint> listaSaint2 =lista1.intersec(listaSaint);
-         assertEquals(2, listaSaint2.size());
+          ListaSaints resultado = lista1.intersec(lista2);
+         ArrayList <Saint> resultado1 = resultado.todos();
+         assertEquals(2, resultado1.size());
+        
     }
      @Test
     public void getCSVComListaVazia() throws Exception {
