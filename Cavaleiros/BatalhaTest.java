@@ -31,7 +31,7 @@ public class BatalhaTest{
         double delta  = 0.0000001;
         b.iniciar();
         assertEquals (0, seiya.getVida(), delta );
-        assertEquals (69, shion.getVida(), delta );
+        assertEquals (39, shion.getVida(), delta );
     }
      @Test 
     public void iniciaBatalhaGoldSaintBronzeSaint()throws Exception{
@@ -53,7 +53,7 @@ public class BatalhaTest{
         double delta  = 0.0000001;
         b.iniciar();
         assertEquals (0, seiya.getVida(), delta );
-        assertEquals (50, shion.getVida(), delta );
+        assertEquals (30, shion.getVida(), delta );
     }
      @Test 
     public void iniciaBatalhaComDoisCavaleirosDaMesmaCategoria()throws Exception{
@@ -74,7 +74,7 @@ public class BatalhaTest{
         Batalha b = new Batalha(mu, shion);
         double delta  = 0.0000001;
         b.iniciar();
-        assertEquals (85, mu.getVida(), delta );
+        assertEquals (25, mu.getVida(), delta );
         assertEquals (0, shion.getVida(), delta );
     }
         @Test 
@@ -96,7 +96,7 @@ public class BatalhaTest{
        Batalha b = new Batalha(seiya, shina);
        double delta  = 0.0000001;
        b.iniciar();
-       assertEquals (60, seiya.getVida(), delta );
+       assertEquals (44, seiya.getVida(), delta );
        assertEquals (0, shina.getVida(), delta );
     }
         @Test 
@@ -141,8 +141,26 @@ public class BatalhaTest{
        Batalha b = new Batalha(seiya, shina);
        double delta  = 0.0000001;
        b.iniciar();
-       assertEquals (44, seiya.getVida(), delta );
+       assertEquals (60, seiya.getVida(), delta );
        assertEquals (0, shina.getVida(), delta );
     }
-    
+      @Test (expected=ArithmeticException.class)
+    public void saintsSemMovimento ()throws Exception{
+       Saint seiya = new SilverSaint ("Seiya", "Pégaso");
+       Saint shina = new BronzeSaint ("Shina", "Cobra");
+       Batalha b = new Batalha(seiya, shina);
+       b.iniciar();
+     }
+       /*@Test (expected=ArithmeticException.class)
+    public void SaintComMovimentosSemDano ()throws Exception{
+       Saint seiya = new SilverSaint ("Seiya", "Pégaso");
+       Saint shina = new BronzeSaint ("Shina", "Cobra");
+       VestirArmadura seiyaVestirArmadura = new VestirArmadura (seiya);
+       VestirArmadura shinaVestirArmadura = new VestirArmadura (shina);
+       seiya.adicionarMovimento(seiyaVestirArmadura);
+       shina.adicionarMovimento(shinaVestirArmadura);
+       Batalha b = new Batalha(seiya, shina);
+       double delta  = 0.0000001;
+       b.iniciar();
+    }*/
 }
