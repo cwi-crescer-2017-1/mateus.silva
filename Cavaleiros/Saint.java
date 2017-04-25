@@ -10,13 +10,13 @@ public abstract class Saint{
     private int acumuladorProximoGolpe =0;
     private int acumuladorProximoMovimento =0;
     private ArrayList <Movimento> movimento = new ArrayList <Movimento> ();
-    private static int qtdSaints  = 0, acumuladorqtdSaints=0;
+    private static int qtdSaints  = 0, acumuladorQtdSaints=0;
     private int  iD; 
     protected Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
      
-      this.iD = ++acumuladorqtdSaints;
+      this.iD = ++acumuladorQtdSaints;
       Saint.qtdSaints++;
       if (getValorDaCategoria() == 3){
          String constelacao = armadura.getConstelacao().getNomeDaConstelacao();
@@ -39,6 +39,12 @@ public abstract class Saint{
     }
     public static int getQtdSaints(){
         return Saint.qtdSaints;
+    }
+    protected void  finalize () throws Throwable {
+          Saint.qtdSaints--;
+    }
+      public static int getAcumuladorQtdSaints() {
+       return Saint.acumuladorQtdSaints;
     }
     public int getId (){
         return this.iD;
