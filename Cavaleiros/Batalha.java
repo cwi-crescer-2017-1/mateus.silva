@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Batalha {   
     private Saint saint1;
     private Saint saint2;
@@ -6,19 +7,29 @@ public class Batalha {
         this.saint2 = saint2;
     }
    public void iniciar(){
-      int turno =1; 
-      if (this.saint1.getValorDaCategoria () >= this.saint2.getValorDaCategoria()){
-           turno ++;
-       }
-      while (this.saint1.getStatus() == Status.VIVO && this.saint2.getStatus() == Status.VIVO){
-             if (turno%2==0 ){
+      int valor1 = this.saint1.getValorDaCategoria ();
+      int valor2 = this.saint2.getValorDaCategoria();
+      final double dano = 10;
+      boolean saint1Ataca =false; 
+      boolean saintsVivos = this.saint1.getStatus() != Status.MORTO && this.saint2.getStatus() != Status.MORTO;
+      if (saintsVivos){
+          if (valor1 >= valor2){
+              saint2.perderVida(dano);
+          }else {
+              saint1.perderVida(dano);
+              saint1Ataca =true;
+          }  
+      }
+      while (saintsVivos){
+          if (saint1Ataca){
                this.saint1.getProximoMovimento().executar();
-               turno++;
-            }
-            else {
+               saint1Ataca =false;
+          }
+          else {
                this.saint2.getProximoMovimento().executar();
-               turno++;
+               saint1Ataca =true;
             }
+          saintsVivos = this.saint1.getStatus() != Status.MORTO && this.saint2.getStatus() != Status.MORTO;
       }
    }
 }
