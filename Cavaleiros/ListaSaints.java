@@ -90,43 +90,22 @@ public class ListaSaints{
            }  
         } while (posicoesSendoTrocadas);
     }
-    public ArrayList <Saint> unir (ArrayList <Saint>  lista){
-        ArrayList <Saint> novaListaSaint = new ArrayList();
-        int tamanhoDaLista1 = listaSaint.size();
+    public ListaSaints unir (ListaSaints  lista){
+        ArrayList <Saint> lista1 = lista.todos();
+        ListaSaints novaListaSaint = new ListaSaints();
         for (int i = 0 ; i<listaSaint.size();i++){
             Saint atual = listaSaint.get(i);
-            novaListaSaint.add(i,atual);
+            novaListaSaint.adicionar(atual);
         }
-        for (int i = 0 ; i<lista.size();i++) {
-            Saint atual = lista.get(i);
-            novaListaSaint.add(tamanhoDaLista1 + i,atual);
+        for (int i = 0 ; i<lista1.size();i++) {
+            Saint atual = lista1.get(i);
+            novaListaSaint.adicionar(atual);
         }
         return novaListaSaint;
     }
-    /*public ArrayList<Saint> diff (ArrayList <Saint>  lista){
-        for (int i = 0 ; i<listaSaint.size();i++) {
-            Saint atual = listaSaint.get(i);
-            boolean igual = false;
-            for (int a = 0 ; a<lista.size ();a++){
-               if (atual.equals(lista.get(a))){
-                   igual = true;
-                   break;
-                } 
-            }
-            if (igual == true){
-                 listaSaint.remove(atual);
-                 i--;
-            }        
-        }
-        ListaSaints resultado = new ListaSaints();
-        for (int i = 0 ; i<listaSaint.size();i++) {
-            Saint atual = listaSaint.get(i);
-            resultado.adicionar(atual);
-        return resultado;
-    }*/
      public ListaSaints diff (ListaSaints lista1){
         ArrayList <Saint> lista = lista1.todos();
-       for (int i = 0 ; i<listaSaint.size();i++) {
+        for (int i = 0 ; i<listaSaint.size();i++) {
             Saint atual = listaSaint.get(i);
             boolean igual = false;
             for (int a = 0 ; a<lista.size ();a++){
