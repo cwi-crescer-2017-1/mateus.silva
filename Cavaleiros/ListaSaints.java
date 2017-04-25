@@ -146,10 +146,11 @@ public class ListaSaints{
             resultado.adicionar(atual);}
         return resultado;
     }
-    public ArrayList<Saint> intersec (ArrayList <Saint>  lista){
-        ArrayList <Saint> novaListaSaint = new ArrayList();
-        for (int i = 0 ; i<lista.size();i++) {
-            Saint atual = lista.get(i);
+    public ListaSaints intersec (ListaSaints  lista){
+         ArrayList <Saint> lista1 = lista.todos();
+         ListaSaints resultado = new ListaSaints();
+        for (int i = 0 ; i<lista1.size();i++) {
+            Saint atual = lista1.get(i);
             boolean igual = false;
             for (int a = 0 ; a<listaSaint.size ();a++){
                if (atual.equals(listaSaint.get(a))){
@@ -158,9 +159,9 @@ public class ListaSaints{
                 } 
             }
             if (igual == true){
-                 novaListaSaint.add(atual);}
+                 resultado.adicionar(atual);}
                     }
-        return novaListaSaint;
+        return resultado;
     }
      public String getCSV() {
         if (this.listaSaint.isEmpty()) {
