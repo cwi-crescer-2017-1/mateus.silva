@@ -144,14 +144,15 @@ public class BatalhaTest{
        assertEquals (60, seiya.getVida(), delta );
        assertEquals (0, shina.getVida(), delta );
     }
-      @Test (expected=ArithmeticException.class)
+      @Test 
     public void saintsSemMovimento ()throws Exception{
        Saint seiya = new SilverSaint ("Seiya", "Pégaso");
        Saint shina = new BronzeSaint ("Shina", "Cobra");
        Batalha b = new Batalha(seiya, shina);
        b.iniciar();
+       assertEquals (90, shina.getVida(),0.001 );
      }
-       /*@Test (expected=ArithmeticException.class)
+    @Test 
     public void SaintComMovimentosSemDano ()throws Exception{
        Saint seiya = new SilverSaint ("Seiya", "Pégaso");
        Saint shina = new BronzeSaint ("Shina", "Cobra");
@@ -162,5 +163,6 @@ public class BatalhaTest{
        Batalha b = new Batalha(seiya, shina);
        double delta  = 0.0000001;
        b.iniciar();
-    }*/
+       assertEquals (90, shina.getVida(), delta );
+    }
 }
