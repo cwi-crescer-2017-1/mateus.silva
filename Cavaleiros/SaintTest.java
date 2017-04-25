@@ -4,6 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 public class SaintTest{
+      @After
+    public void tearDown() {
+       System.gc();
+    }
     @Test
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception{
         Armadura fenix = new Armadura (new Constelacao ("Fenix"), Categoria.BRONZE);
@@ -311,6 +315,12 @@ public class SaintTest{
        Saint mu5 = new GoldSaint("Mu", "Touro");
        assertEquals (numero1 +5, mu5.getQtdSaints());      
     }
+    @Test 
+    public void getQtdSaintsUsandoFinalizeQtdIgualA2() throws Exception {    
+       new BronzeSaint("Shun", "Andrômeda");
+       new SilverSaint("Marin", "Águia");
+       assertEquals(2, Saint.getQtdSaints());          
+    }
     @Test
     public void testID()throws Exception {
        Saint mu = new GoldSaint("Mu", "Touro");
@@ -318,12 +328,12 @@ public class SaintTest{
        Saint mu1 = new GoldSaint("Mu", "Touro");
        Saint mu2 = new GoldSaint("Mu", "Touro");
        int iDMu = mu.getId();
-       assertEquals (iDMu, mu2.getQtdSaints()-2);
+       assertEquals (iDMu, mu2.getAcumuladorQtdSaints()-2);
     }
      @Test
     public void testIDDeObejtoDeTerceiroObjetoCriadoNaSequencia()throws Exception {
        Saint mu = new GoldSaint("Mu", "Touro");
-       int iDMu = mu.getQtdSaints();
+       int iDMu = mu.getAcumuladorQtdSaints();
        Saint shaka = new GoldSaint("Shaka", "Virgem");
        Saint seiya= new SilverSaint("Seiya", "Pégaso");
        Saint hyoga = new SilverSaint("Hyoga", "Cisne");
