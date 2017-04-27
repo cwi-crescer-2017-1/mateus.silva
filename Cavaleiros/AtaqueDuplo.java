@@ -24,12 +24,3 @@ public class AtaqueDuplo implements Movimento{
        }   
     }
 }
-
-
-
-/*
-O golpeador tem 33.3% de chance de desferir um ataque com o dobro do dano 
-(que deve seguir as regras normais de dano, já implementadas previamente).
-Caso o golpeador não consiga desferir o ataque duplo (ou seja, estiver fora dos 33.3%), 
-ele deve desferir um ataque normalmente mas perde 5% de vida. Quando o Saint 
-tiver menos que 1 de vida ele morre (exemplo: 0.99 de vida já é considerado morto).*/
