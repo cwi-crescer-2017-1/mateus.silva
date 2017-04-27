@@ -6,8 +6,8 @@ public class SorteDoDia {
         this.sorteador = sorteador;
     }
     
-    public boolean estouComSorte(){
+    public boolean sortear(){
        int resultado = this.sorteador.sortear();
-       return resultado % 2 == 0;
+       return resultado % 3 == 0;
     }
 }
