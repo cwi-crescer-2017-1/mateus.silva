@@ -4,12 +4,10 @@ public class AtaqueDuploFalso implements Movimento{
     public AtaqueDuploFalso(Saint golpeador, Saint golpeado ){
         this.golpeador = golpeador;
         this.golpeado = golpeado;
-    }
-    
+    }  
     public int testar (int valor){
         return this.valor=valor;
-    }
-    
+    }    
     public void executar() {
        Golpear golpear = new Golpear (golpeador, golpeado);
        if (valor==3){
