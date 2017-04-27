@@ -1,5 +1,5 @@
 public class AtaqueDuplo implements Movimento{
-    Saint golpeador,golpeado;
+    private Saint golpeador,golpeado;
     
     public AtaqueDuplo(Saint golpeador, Saint golpeado ){
         this.golpeador = golpeador;
@@ -7,26 +7,24 @@ public class AtaqueDuplo implements Movimento{
     }
     
     public void executar() {
-       DadoD6 dado = new DadoD6();
-       dado=sortear();
-       boolean ataqueDuplo = false;
-       int fatorDano;
-       if (dado<=2){
-            ataqueDuplo = true;
-            fatorDano = (golpeador.getProximoGolpe().getFatorDano())*2;
+       Dado3 dado = new Dado3();
+       int numeroSorteado = dado.sortear();
+       Golpear golpear = new Golpear (golpeador, golpeado);
+       if (numeroSorteado==3){
+            double vidaAntesDoGolpe = golpeado.getVida();
+            golpear.executar();
+            double vidaDepoisDoGolpe = golpeado.getVida();
+            double fatorDano = vidaAntesDoGolpe - vidaDepoisDoGolpe;
             golpeado.perderVida(fatorDano);
        }
        else {
-            fatorDano = (golpeador.getProximoGolpe().getFatorDano());
-            int  perde5Porcento =  golpeador.getVida()*5/100;
-            golpeado.perderVida(fatorDano);
-            golpeador.perdeVida(perde5Porcento);
-            
-       }
-         
-       // vai dar empate?
+            double  perde5Porcento =  golpeador.getVida()*0.05;
+            golpeador.perderVida(perde5Porcento);
+            golpear.executar(); 
+       }   
     }
 }
+
 
 
 /*
