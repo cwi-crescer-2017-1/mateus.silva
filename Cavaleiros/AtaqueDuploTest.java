@@ -40,4 +40,48 @@ public class AtaqueDuploTest{
        assertEquals (80, seiya.getVida(), 0.001);
        assertEquals (100, shaka.getVida(), 0.01);
     }  
+      @Test 
+ 
+    public void testaAtaqueDuploSeValorDoDadoFor1ComArmaduraVestida() throws Exception {
+       GoldSaint shaka = new GoldSaint ("Shak","Virgem");
+       SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
+       Golpe golpe1 = new Golpe ("Velocidade da Luz", 10);
+       shaka.aprenderGolpe(golpe1);
+       AtaqueDuploFalso shakaAtaqueDuploFalso  = new AtaqueDuploFalso (shaka, seiya);
+       VestirArmadura shakaVeste = new VestirArmadura(shaka);
+       shakaVeste.executar(); 
+       shakaAtaqueDuploFalso.testar(1);
+       shakaAtaqueDuploFalso.executar();
+       assertEquals (60, seiya.getVida(), 0.001);
+       assertEquals (95, shaka.getVida(), 0.01);
+    } 
+     @Test 
+     public void testaAtaqueDuploSeValorDoDadoFor2ComArmaduraVestida() throws Exception {
+       GoldSaint shaka = new GoldSaint ("Shak","Virgem");
+       SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso"); 
+       Golpe golpe1 = new Golpe ("Velocidade da Luz", 10);
+       shaka.aprenderGolpe(golpe1);
+       AtaqueDuploFalso shakaAtaqueDuploFalso  = new AtaqueDuploFalso (shaka, seiya);
+       VestirArmadura shakaVeste = new VestirArmadura(shaka);
+       shakaVeste.executar(); 
+       shakaAtaqueDuploFalso.testar(2);
+       shakaAtaqueDuploFalso.executar();
+       assertEquals (60.0, seiya.getVida(), 0.001);
+       assertEquals (95, shaka.getVida(), 0.01);
+    }  
+     @Test 
+ 
+     public void testaAtaqueDuploValorDoDadoFor3ComArmaduraVestida() throws Exception {
+       GoldSaint shaka = new GoldSaint ("Shak","Virgem");
+       SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
+       Golpe golpe1 = new Golpe ("Velocidade da Luz", 10);
+       shaka.aprenderGolpe(golpe1);
+       AtaqueDuploFalso shakaAtaqueDuploFalso  = new AtaqueDuploFalso (shaka, seiya);
+       VestirArmadura shakaVeste = new VestirArmadura(shaka);
+       shakaVeste.executar(); 
+       shakaAtaqueDuploFalso.testar(3);
+       shakaAtaqueDuploFalso.executar();
+       assertEquals (20, seiya.getVida(), 0.001);
+        assertEquals (100, shaka.getVida(), 0.01);
+    }  
 }
