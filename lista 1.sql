@@ -10,9 +10,9 @@ create table Produto (
 Codigo int identity not null,
 NomeCurto varchar(14) not null,
 NomeDescritivo varchar(20) not null,
-DataCriacao varchar(60),
-LocalNoEstoque varchar(50) ,
-Quantidade varchar(49),
+DataCriacao varchar(10),
+LocalNoEstoque varchar(5) ,
+Quantidade varchar(10),
 Preco real ,
 constraint PK_Produto primary key (codigo))
 
