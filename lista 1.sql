@@ -19,9 +19,9 @@ constraint PK_Produto primary key (codigo))
 insert into Produto 
 ( Nomecurto, NomeDescritivo, dataCriacao, localNoEstoque, quantidade, preco)
 values 
-( 'salto', 'saltoAlto', '28-04-2017', 'B1', '4', ' 435.00') 
+( 'salto', 'saltoAlto', GETDATE(), 'B1', '4', ' 435.00') 
 insert into Produto 
 ( Nomecurto, NomeDescritivo, dataCriacao, localNoEstoque, quantidade, preco)
 values 
-( 'salto', 'saltoBaixo', '28-04-2016', 'A2', '5', ' 44.00') 
+( 'salto', 'saltoBaixo', GETDATE(), 'A2', '5', ' 44.00') 
 select*from Produto;
