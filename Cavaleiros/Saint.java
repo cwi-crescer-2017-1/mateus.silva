@@ -12,6 +12,8 @@ public abstract class Saint{
     private ArrayList <Movimento> movimento = new ArrayList <Movimento> ();
     private static int qtdSaints  = 0, acumuladorQtdSaints=0;
     private int  iD; 
+    private boolean  ataca = false;
+    
     protected Saint (String nome, Armadura armadura) throws Exception{
       this.nome = nome;
       this.armadura = armadura;
@@ -126,5 +128,11 @@ public abstract class Saint{
         int posicao = this.acumuladorProximoMovimento % movimento.size();
         this.acumuladorProximoMovimento++;
         return movimento.get(posicao);
+    }
+    public void setAtaca(boolean ataca){
+        this.ataca = ataca;
+    }
+    public boolean getAtaca(){
+        return this.ataca;
     }
 }

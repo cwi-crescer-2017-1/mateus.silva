@@ -14,26 +14,32 @@ public class Batalha {
       boolean saintsVivos = this.saint1.getStatus() != Status.MORTO && this.saint2.getStatus() != Status.MORTO;
       int saint1SemGolpe =  saint1.getGolpes().size();
       int saint2SemGolpe =  saint2.getGolpes().size();
+      
       if (saintsVivos){
           if (valor1 >= valor2){
               saint2.perderVida(dano);
           }else {
               saint1.perderVida(dano);
-              saint1Ataca =true;
+              saint1.setAtaca(true);
           }  
       }
-      if (saint1SemGolpe!=0 && saint2SemGolpe!=0){
+      if (saint1SemGolpe!=0 || saint2SemGolpe!=0){
           while (saintsVivos){
+              saint1Ataca = saint1.getAtaca(); 
+              if(saint2.getAtaca())  {
+                  saint1Ataca=true; 
+                  saint2.setAtaca(false);
+              }
               if (saint1Ataca){
                   this.saint1.getProximoMovimento().executar();
-                  saint1Ataca =false;
+                  saint1.setAtaca(false);;
                 }
-                else {
-                    this.saint2.getProximoMovimento().executar();
-                    saint1Ataca =true;
-                }
+              else {
+                  this.saint2.getProximoMovimento().executar();
+                  saint1.setAtaca(true);;
+              }
               saintsVivos = this.saint1.getStatus() != Status.MORTO && this.saint2.getStatus() != Status.MORTO;
           }
       }
    }
-}
+ } 
