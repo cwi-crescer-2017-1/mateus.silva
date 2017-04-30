@@ -19,4 +19,16 @@ select IDempregado as ID,
 	 group by cargo
 	 order by total desc
 	
+	-- Contagem 
+
+	select UF, count(1) as [Total de Cidades]
+    from Cidade 
+    group by UF
    
+   -- Alterando Dados
+
+  insert into Departamento values (5, 'Inovação', 'SAO LEOPOLDO');
+ 
+  update Empregado set IDDepartamento = 5
+  where month (dataAdmissao) =  12  and cargo<> 'Atendente'
+ 
