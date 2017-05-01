@@ -33,3 +33,11 @@ from licitacao
 where datepart(WEEKDAY, data_inicio_real) = 1 
 or datepart(WEEKDAY, data_inicio_real) =7
 
+
+--Empresas com sorte
+
+select Empresa_Licitante as [Empresa]
+from licitacao 
+group by  Empresa_Licitante
+having sum(valor_previsto)  > sum(faturamento_1Ano_anterior)*1.50
+or sum(valor_realizado)  > sum(faturamento_1Ano_anterior)*1.50
