@@ -14,13 +14,15 @@ public class GuerraEntreExercitos{
              Batalha guerra = new Batalha (hierarquica, alternada);
              guerra.iniciar();
              boolean saintOrdemHierarquicaMorreu = hierarquica.getStatus() == Status.MORTO;
-             boolean alternada1 = alternada.getStatus() == Status.MORTO;
             if (saintOrdemHierarquicaMorreu){
                  vencedor++;
                 }
                 else{
                  vencedor--;
             }
+             exercitoOrdemHierarquica.remove(i);
+             exercitoOrdemAlternada.remove(i);
+             i--;
         }
     }
     
