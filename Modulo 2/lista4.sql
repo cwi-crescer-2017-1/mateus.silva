@@ -41,3 +41,18 @@ from licitacao
 group by  Empresa_Licitante
 having sum(valor_previsto)  > sum(faturamento_1Ano_anterior)*1.50
 or sum(valor_realizado)  > sum(faturamento_1Ano_anterior)*1.50
+
+
+-- Custo real
+
+ select projeto as [Projeto], 
+ case 
+ when 
+ esfera = 'Federal' then valor_realizado - imposto_federal
+ when 
+ esfera = 'Estadual' then valor_realizado - imposto_estadual
+ when 
+ esfera = 'Municipal' then valor_realizado - imposto_municipal 
+ end  as [Custo Real]
+ from licitacao 
+ 
