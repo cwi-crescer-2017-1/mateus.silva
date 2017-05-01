@@ -56,3 +56,9 @@ or sum(valor_realizado)  > sum(faturamento_1Ano_anterior)*1.50
  end  as [Custo Real]
  from licitacao 
  
+--Investigação
+
+select esfera  as [Esfera]
+from licitacao 
+where identificador = 17255
+-- O motivo não é válido porque o projeto é de esfera Estadual, portanto não afeta o  orçamento do município. 
