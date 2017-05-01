@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class GuerraEntreExercitosTest{
     @Test
-   public void GuerraEntreExercitosDe3Saints() throws Exception {
+   public void GuerraEntreExercitosDe3SaintsOrdemHierarquicaVence() throws Exception {
        GoldSaint shaka = new GoldSaint ("Shaka", "Virgem");
        SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
        BronzeSaint shina = new BronzeSaint ("Shina", "Cobra");
@@ -58,7 +58,7 @@ public class GuerraEntreExercitosTest{
     }
 
     @Test
-   public void GuerraEntreExercitosDeSaintsAlternadaTem1Ouro2PrataHierarquicaTem1Prata2Bronze() throws Exception {
+   public void GuerraEntreExercitosDeSaintsAlternadaTem1Ouro2PrataHierarquicaTem1Prata2BronzeOrdemAlternadaVence() throws Exception {
        GoldSaint shaka = new GoldSaint ("Shaka", "Virgem");
        SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
        BronzeSaint shina = new BronzeSaint ("Shina", "Cobra");
@@ -119,5 +119,18 @@ public class GuerraEntreExercitosTest{
        assertEquals(true, guerra.vencedorEhDaOrdemAlternada());
        assertEquals(0, arrayDeSaintsEmOrdemAlternada.size());
        assertEquals(0, arrayDeSaintsEmOrdemHierarquica.size());
+    }
+    @Test 
+   public void GuerraEntreExercitosSemExercitos () throws Exception {
+       ExercitoQueAtacaEmOrdemAlternada exercito = new ExercitoQueAtacaEmOrdemAlternada ();
+       ArrayList <Saint> arrayDeSaintsEmOrdemAlternada   = new ArrayList ();
+       arrayDeSaintsEmOrdemAlternada  = exercito.ordenar();
+       ExercitoQueAtacaEmOrdemHierarquica exercitoOrdemHierarquica = new ExercitoQueAtacaEmOrdemHierarquica ();
+       ArrayList <Saint> arrayDeSaintsEmOrdemHierarquica = new ArrayList ();
+       arrayDeSaintsEmOrdemHierarquica = exercito.ordenar();
+       GuerraEntreExercitos guerra = new GuerraEntreExercitos (arrayDeSaintsEmOrdemHierarquica ,arrayDeSaintsEmOrdemAlternada);
+       guerra.comecarGuerra();
+       assertEquals(false, guerra.vencedorEhDaOrdemHierarquica());
+       assertEquals(false, guerra.vencedorEhDaOrdemAlternada());
     }
 }
