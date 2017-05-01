@@ -53,6 +53,8 @@ public class GuerraEntreExercitosTest{
        guerra.comecarGuerra();
        assertEquals(true, guerra.vencedorEhDaOrdemHierarquica());
        assertEquals(false, guerra.vencedorEhDaOrdemAlternada());
+       assertEquals(0, arrayDeSaintsEmOrdemAlternada.size());
+       assertEquals(0, arrayDeSaintsEmOrdemHierarquica.size());
     }
 
     @Test
@@ -115,5 +117,7 @@ public class GuerraEntreExercitosTest{
        guerra.comecarGuerra();
        assertEquals(false, guerra.vencedorEhDaOrdemHierarquica());
        assertEquals(true, guerra.vencedorEhDaOrdemAlternada());
+       assertEquals(0, arrayDeSaintsEmOrdemAlternada.size());
+       assertEquals(0, arrayDeSaintsEmOrdemHierarquica.size());
     }
 }
