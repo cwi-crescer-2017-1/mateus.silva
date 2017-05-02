@@ -8,6 +8,9 @@ public class GuerraEntreExercitos{
     }
     
     public void comecarGuerra (){
+        boolean podeComecarAGuerra =  exercitoOrdemAlternada.size() == exercitoOrdemHierarquica.size() 
+        && exercitoOrdemAlternada.size()%3==0;
+        if (podeComecarAGuerra){
         for (int i = 0; i<exercitoOrdemAlternada.size();i++) {
              Saint hierarquica = exercitoOrdemHierarquica.get(i);
              Saint alternada = exercitoOrdemAlternada.get(i);
@@ -25,6 +28,7 @@ public class GuerraEntreExercitos{
              i--;
         }
     }
+    }
     
     public boolean vencedorEhDaOrdemHierarquica (){
         boolean hierarquicaVenceu = false; 
@@ -32,7 +36,7 @@ public class GuerraEntreExercitos{
             hierarquicaVenceu = true;
         }
         return  hierarquicaVenceu;
-    }
+     }
     
       public boolean vencedorEhDaOrdemAlternada (){
         boolean alternadaVenceu = false; 
