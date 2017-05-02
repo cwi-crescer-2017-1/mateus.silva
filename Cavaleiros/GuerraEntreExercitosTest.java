@@ -133,4 +133,62 @@ public class GuerraEntreExercitosTest{
        assertEquals(false, guerra.vencedorEhDaOrdemHierarquica());
        assertEquals(false, guerra.vencedorEhDaOrdemAlternada());
     }
+    
+        @Test
+   public void GuerraEntreExercitosDeTamanhosDiferentes () throws Exception {
+       GoldSaint shaka = new GoldSaint ("Shaka", "Virgem");
+       SilverSaint seiya = new SilverSaint ("Seiya", "Pégaso");
+       BronzeSaint shina = new BronzeSaint ("Shina", "Cobra");
+       GoldSaint mu = new GoldSaint ("Mu", "Touro");
+       SilverSaint hyoga = new SilverSaint ("Hyoga", "Cisne");
+       BronzeSaint iki = new BronzeSaint ("Iki", "Fênix");
+       GoldSaint shion = new GoldSaint ("Shion", "Áries");
+       SilverSaint shiryu = new SilverSaint ("Shiryu", "Dragão");
+       GoldSaint dohko = new GoldSaint ("Dohko", "Libra");
+       ExercitoQueAtacaEmOrdemAlternada exercitoOrdemAlternada = new ExercitoQueAtacaEmOrdemAlternada ();
+       exercitoOrdemAlternada.alistar(shaka);
+       exercitoOrdemAlternada.alistar(seiya);
+       exercitoOrdemAlternada.alistar(shina);
+       exercitoOrdemAlternada.alistar(shion);
+       exercitoOrdemAlternada.alistar(shiryu);
+       exercitoOrdemAlternada.alistar(dohko);
+       ArrayList <Saint> arrayDeSaintsEmOrdemAlternada = new ArrayList ();
+       arrayDeSaintsEmOrdemAlternada  = exercitoOrdemAlternada.ordenar();
+       ExercitoQueAtacaEmOrdemHierarquica exercitoOrdemHierarquica = new ExercitoQueAtacaEmOrdemHierarquica ();
+       exercitoOrdemHierarquica.alistar(mu);
+       exercitoOrdemHierarquica.alistar(hyoga);
+       exercitoOrdemHierarquica.alistar(iki);
+       ArrayList <Saint> arrayDeSaintsEmOrdemHierarquica = new ArrayList ();
+       arrayDeSaintsEmOrdemHierarquica =  exercitoOrdemHierarquica.ordenar();
+       GuerraEntreExercitos guerra = new GuerraEntreExercitos (arrayDeSaintsEmOrdemHierarquica ,arrayDeSaintsEmOrdemAlternada);
+       guerra.comecarGuerra();
+       assertEquals(false, guerra.vencedorEhDaOrdemHierarquica());
+       assertEquals(false, guerra.vencedorEhDaOrdemAlternada());
+       assertEquals(6, arrayDeSaintsEmOrdemAlternada.size());
+       assertEquals(3, arrayDeSaintsEmOrdemHierarquica.size());
+    }
+    
+         @Test
+   public void GuerraEntreExercitosDeTamanhosNaoMultiplosDe3 () throws Exception {
+       GoldSaint shaka = new GoldSaint ("Shaka", "Virgem");
+       BronzeSaint shina = new BronzeSaint ("Shina", "Cobra");
+       GoldSaint mu = new GoldSaint ("Mu", "Touro");
+       SilverSaint hyoga = new SilverSaint ("Hyoga", "Cisne");
+       ExercitoQueAtacaEmOrdemAlternada exercitoOrdemAlternada = new ExercitoQueAtacaEmOrdemAlternada ();
+       exercitoOrdemAlternada.alistar(shaka);
+       exercitoOrdemAlternada.alistar(shina);
+       ArrayList <Saint> arrayDeSaintsEmOrdemAlternada = new ArrayList ();
+       arrayDeSaintsEmOrdemAlternada  = exercitoOrdemAlternada.ordenar();
+       ExercitoQueAtacaEmOrdemHierarquica exercitoOrdemHierarquica = new ExercitoQueAtacaEmOrdemHierarquica ();
+       exercitoOrdemHierarquica.alistar(mu);
+       exercitoOrdemHierarquica.alistar(hyoga);
+       ArrayList <Saint> arrayDeSaintsEmOrdemHierarquica = new ArrayList ();
+       arrayDeSaintsEmOrdemHierarquica =  exercitoOrdemHierarquica.ordenar();
+       GuerraEntreExercitos guerra = new GuerraEntreExercitos (arrayDeSaintsEmOrdemHierarquica ,arrayDeSaintsEmOrdemAlternada);
+       guerra.comecarGuerra();
+       assertEquals(false, guerra.vencedorEhDaOrdemHierarquica());
+       assertEquals(false, guerra.vencedorEhDaOrdemAlternada());
+       assertEquals(2, arrayDeSaintsEmOrdemAlternada.size());
+       assertEquals(2, arrayDeSaintsEmOrdemHierarquica.size());
+    }
 }
