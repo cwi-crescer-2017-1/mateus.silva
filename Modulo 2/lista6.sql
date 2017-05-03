@@ -14,17 +14,17 @@ where datepart (month, datapedido) = 4
 and datepart (year, datapedido) = 2017
 
 -- Estados x Clientes
-select top 1 ci.uf, count(cl.idcliente) as totalclientes 
+select *from (select top 1 ci.uf as [UF] , count(cl.idcliente) as [Total clientes]
 from cidade ci
 inner join cliente cl on cl.idcidade = ci.idcidade 
 group by ci.uf
-order by totalclientes  asc
-
-select top 1 ci.uf, count(cl.idcliente) as totalclientes 
+order by [Total clientes] asc) a
+union 
+select*from  (select top 1 ci.uf as [UF] , count(cl.idcliente) as [Total clientes]
 from cidade ci
 inner join cliente cl on cl.idcidade = ci.idcidade 
 group by ci.uf
-order by totalclientes  desc 
+order by [Total clientes]  desc) b 
 
 
 --- Novo Produto
@@ -40,4 +40,19 @@ where pro.idproduto not in  (select idproduto from pedidoitem) and datepart(year
 
 
 -- Principais Produtos
+
+Liste os 30 produtos que mais geraram lucro em 2016.
+select  nome, (precovenda-precocusto)  as lucro   from produto
+where idproduto in (select idproduto from pedidoitem) 
+group by nome
+
+select*from pedidoitem where idproduto = 1
+
+select*from produto where idproduto = 1
+
+
+select*from pedido where idpedido = 2349
+
+select*from produto 
+select*from cliente 
 
