@@ -14,11 +14,18 @@ where datepart (month, datapedido) = 4
 and datepart (year, datapedido) = 2017
 
 -- Estados x Clientes
+select top 1 ci.uf, count(cl.idcliente) as totalclientes 
+from cidade ci
+inner join cliente cl on cl.idcidade = ci.idcidade 
+group by ci.uf
+order by totalclientes  asc
 
-select uf, count(*) as totalClientes   from cidade
-where idcidade in  (select  idcidade from cliente )--group by idcidade order by count(*) desc  ) 
-group by uf
+select top 1 ci.uf, count(cl.idcliente) as totalclientes 
+from cidade ci
+inner join cliente cl on cl.idcidade = ci.idcidade 
+group by ci.uf
 order by totalclientes  desc 
+
 
 --- Novo Produto
 
@@ -27,3 +34,10 @@ insert into Produto (nome, precocusto , precovenda, situacao)
   values  ('Galocha Maragato', 35.67, 77.95, 'A') 
 
   --Produtos não comprados
+
+select pro.nome, pro.idproduto  from produto pro 
+where pro.idproduto not in  (select idproduto from pedidoitem) and datepart(year, DataCadastro) = 2017
+
+
+-- Principais Produtos
+
