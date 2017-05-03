@@ -41,18 +41,4 @@ where pro.idproduto not in  (select idproduto from pedidoitem) and datepart(year
 
 -- Principais Produtos
 
-Liste os 30 produtos que mais geraram lucro em 2016.
-select  nome, (precovenda-precocusto)  as lucro   from produto
-where idproduto in (select idproduto from pedidoitem) 
-group by nome
-
-select*from pedidoitem where idproduto = 1
-
-select*from produto where idproduto = 1
-
-
-select*from pedido where idpedido = 2349
-
-select*from produto 
-select*from cliente 
-
+-- falta fazer 
