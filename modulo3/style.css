@@ -1,0 +1,27 @@
+
+    p {
+     color : red;
+    }
+   p > strong:first-child {
+     color: green;
+   }
+   p {
+     font-size: 30px
+   }
+   p+p+p+p+p
+   { font size : 50px;
+     color : blue;
+   }
+   p> em {
+     font size : 50px;
+     color : purple;
+   }
+
+  p {
+   font-family: fantasy;
+   }
+  <a href="http://3.bp.blogspot.com/_frPILdvPYyI/TEjagIzYt9I/AAAAAAAADbs/68EZGuq6CPk/s1600/AtlasShrugged.jpg"
+  id="logo">Your logo</a>
+   p {
+  background-color: lightblue;
+ }
