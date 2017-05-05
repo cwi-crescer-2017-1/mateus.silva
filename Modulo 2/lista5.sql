@@ -32,4 +32,13 @@ where nome   in (  select nome from cidade   group by nome, uf  having count(*)>
 
 
 -- Definindo Cidades
--- falta fazer. 
+
+begin transaction 
+update c
+set c.nome = c.nome+'*'
+from cidade c 
+inner join cidade ci on ci.uf like c.uf and ci.nome like c.nome 
+where c.idcidade > ci.idcidade 
+commit
+
+

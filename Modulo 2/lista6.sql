@@ -41,4 +41,10 @@ where pro.idproduto not in  (select idproduto from pedidoitem) and datepart(year
 
 -- Principais Produtos
 
--- falta fazer 
+
+select top 30 ped.quantidade*(pro.precovenda- pro.precocusto ) as lucro, pro.nome
+from pedidoitem ped 
+inner join produto pro  on ped.idproduto = pro.idproduto 
+inner join pedido pedi on ped.idpedido = pedi.idpedido 
+where datepart (year, datapedido) = 2016
+order by lucro desc
