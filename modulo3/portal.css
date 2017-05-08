@@ -1,0 +1,116 @@
+
+.firstblock  {
+  background-color: red;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  text-align : center;
+  line-height: 70px;
+  height: 80px;
+  font-size: 30px;
+
+}
+.titulo1 > p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: red;
+  font-size: 30px;
+  text-align: justify;
+  height: 10%;
+}
+.bloco1 {
+  background-color: white;
+  height: 800px;
+  width: 500px;
+  margin-left:100px;
+  float: left;
+}
+.img > img {
+ float: right;
+  width : 30%;
+}
+.texto1 >P{
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.bloco2 {
+  background-color: white;
+  height: 800px;
+  width: 500px;
+  margin-right: 100px;
+  float: right;
+}
+.texto2 >P{
+  font-size: 20px;
+  line-height: 40px;
+}
+.titulo2 > p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: red;
+  font-size: 30px;
+  text-align: justify;
+  height: 10%;
+}
+.subtitulo2 > p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: silver;
+  font-size: 20px;
+  text-align: justify;
+  height: 10%;
+  clear: both;
+}
+.bloco3 {
+  background-color: white;
+  height: 800px;
+  width: 500px;
+  margin-right: 100px;
+  float: right;
+}
+.texto3 >P{
+  font-size: 20px;
+  line-height: 40px;
+}
+.titulo3 >p{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: red;
+  font-size: 30px;
+  text-align: justify;
+  height: 10%;
+}
+.subtitulo3 > p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: silver;
+  font-size: 20px;
+  text-align: justify;
+  height: 10%;
+  clear: both;
+}
+.texto3 > p::first-letter {
+  font-weight: bold;
+  color: red;
+  font-size: 80px;
+  float: left;
+  margin-top: 25px;
+  margin-right: 5px;
+}
+.texto2 > p::first-letter {
+  font-weight: bold;
+  color: red;
+  font-size: 80px;
+  float: left;
+  margin-top: 25px;
+  margin-right: 5px;
+}
+.texto1 > p::first-letter {
+  font-weight: bold;
+  color: red;
+  font-size: 80px;
+  float: left;
+  margin-top: 25px;
+  margin-right: 5px;
+}
