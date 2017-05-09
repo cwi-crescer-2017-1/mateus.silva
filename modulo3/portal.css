@@ -30,12 +30,12 @@ body{
 }
 .bloco{
   background-color:#fff;
-  margin: 0 22px 30px 22px;
+  margin: 0 2% 2% 0%;
   border: 2px solid silver;
   border-radius: 3px;
-  width: 38%;
-  padding: 5px 60px 20px 40px;
-  float: auto;
+  width: 39%;
+  padding: 1% 5% 2% 3%;
+
 }
 .img > img {
  float: right;
@@ -64,7 +64,7 @@ body{
   float: right;
 }
 .b2 {
-  float: left;
+  float:left;
 }
 .b3 {
   float: right;
@@ -74,5 +74,6 @@ body{
   text-align: right;
 }
 .container {
-  padding: 30px 60px;
+  padding: 2.5% 6%;
+
 }
