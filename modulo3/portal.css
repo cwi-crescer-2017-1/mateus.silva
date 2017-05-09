@@ -1,116 +1,78 @@
 
-.firstblock  {
-  background-color: red;
+body{
+  background-color: #fafafa;
+  margin:0;
+  height: 100vh;
+  width: 100vw;
   font-family: 'Open Sans', sans-serif;
+}
+.firstblock  {
+  background-color: #c4170c;
   font-weight: bold;
   color: white;
   text-align : center;
-  line-height: 70px;
-  height: 80px;
-  font-size: 30px;
-
+  line-height: 300%;
+  font-size: 25px;
 }
-.titulo1 > p {
-  font-family: 'Open Sans', sans-serif;
+.header {
   font-weight: bold;
-  color: red;
+  color: #c4170c;
   font-size: 30px;
   text-align: justify;
   height: 10%;
 }
-.bloco1 {
-  background-color: white;
-  height: 800px;
-  width: 500px;
-  margin-left:100px;
-  float: left;
+.texto> P{
+  color:  #333;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: justify;
+  margin-top: 0;
+}
+.bloco{
+  background-color:#fff;
+  margin: 0 0 30px 30px;
+  border: 2px solid silver;
+  border-radius: 3px;
+  width: 38%;
+  padding: 5px 60px 20px 40px;
+  float: auto;
 }
 .img > img {
  float: right;
   width : 30%;
+  margin: 13px 0 0 13px;
 }
-.texto1 >P{
-  font-size: 20px;
-  line-height: 40px;
-}
-
-.bloco2 {
-  background-color: white;
-  height: 800px;
-  width: 500px;
-  margin-right: 100px;
-  float: right;
-}
-.texto2 >P{
-  font-size: 20px;
-  line-height: 40px;
-}
-.titulo2 > p {
-  font-family: 'Open Sans', sans-serif;
+.subtitulo > p {
   font-weight: bold;
-  color: red;
-  font-size: 30px;
-  text-align: justify;
-  height: 10%;
-}
-.subtitulo2 > p {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  color: silver;
-  font-size: 20px;
+  color: #bbb;
+  font-size: 18px;
   text-align: justify;
   height: 10%;
   clear: both;
+  margin-top: 0;
 }
-.bloco3 {
-  background-color: white;
-  height: 800px;
-  width: 500px;
-  margin-right: 100px;
+.texto > p::first-letter {
+  font-weight: bold;
+  color: #c4170c;
+  font-size: 80px;
+  float: left;
+  margin-top: 17px;
+  margin-right: 5px;
+  text-align: justify;
+}
+.b1 {
   float: right;
 }
-.texto3 >P{
-  font-size: 20px;
-  line-height: 40px;
+.b2 {
+  float: left;
 }
-.titulo3 >p{
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  color: red;
-  font-size: 30px;
-  text-align: justify;
-  height: 10%;
+.b3 {
+  float:right;
 }
-.subtitulo3 > p {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
+.time{
   color: silver;
-  font-size: 20px;
-  text-align: justify;
-  height: 10%;
-  clear: both;
+  text-align: right;
 }
-.texto3 > p::first-letter {
-  font-weight: bold;
-  color: red;
-  font-size: 80px;
-  float: left;
-  margin-top: 25px;
-  margin-right: 5px;
-}
-.texto2 > p::first-letter {
-  font-weight: bold;
-  color: red;
-  font-size: 80px;
-  float: left;
-  margin-top: 25px;
-  margin-right: 5px;
-}
-.texto1 > p::first-letter {
-  font-weight: bold;
-  color: red;
-  font-size: 80px;
-  float: left;
-  margin-top: 25px;
-  margin-right: 5px;
+.container {
+  padding: 30px 60px;
 }
