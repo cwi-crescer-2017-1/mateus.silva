@@ -51,7 +51,7 @@ body{
   clear: both;
   margin-top: 0;
 }
-.texto > p::first-letter {
+.texto>p:first-child:first-letter {
   font-weight: bold;
   color: #c4170c;
   font-size: 80px;
