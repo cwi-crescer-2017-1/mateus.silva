@@ -1,0 +1,31 @@
+body{
+  margin:0;
+}
+.silvio
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+ .bloco .titulo {
+    bottom:0;
+    position: absolute;
+    background-color:  rgba(255, 255, 255, 0.4);
+    width: 100%;
+    height: 20%;
+}
+.bloco p{
+  font-size: 18px;
+  color: white;
+}
+.titulo:hover{
+  height: 220px;
+}
+.titulo:hover .texto{
+  display: block;
+}
+.titulo .texto{
+  position: absolute;
+  display: none;
+}
