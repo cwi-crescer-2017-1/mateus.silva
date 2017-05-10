@@ -28,11 +28,11 @@ img{
   left: 50%;
   transform: translatex(-50%);
 }
-.menu li a:link {
-  text-decoration: none;
+.menu li a:visited  {
+
   color: white;
 }
-.menu li a:visited {
+.menu li a:link {
   text-decoration: none;
 }
 ul{

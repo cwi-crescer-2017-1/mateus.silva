@@ -1,0 +1,81 @@
+body {
+margin:0;
+}
+.cover{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  margin:0;
+}
+img{
+  width: auto;
+  height: auto;
+  margin:0;
+}
+.menu li{
+  display: inline-block;
+  margin: 9px 20px;
+  text-decoration:none;
+  font-size: 20px;
+}
+.menu {
+  position: absolute;
+  border: solid white;
+  border-radius: 10px;
+  background-color:rgba(255, 255, 255, 0.4);
+  top: 31%;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.menu li a:link {
+  text-decoration: none;
+  color: white;
+}
+.menu li a:visited {
+  color: white;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+.barra {
+  position: absolute;
+  background-color: #444444;
+  color: #DDDDDD;
+  top: 45%;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 46%;
+}
+.barra > p{
+  font-size: 20px;
+  margin: 26px 10px;
+  font-weight: bold;
+}
+.conteudo {
+  position: absolute;
+  font-size: 13px;
+  background-color: #EDEDED;
+  color: black;
+  top: 56%;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 44%;
+  padding: 1%;
+  text-align: left;
+  line-height: 16px;
+}
+.mateus{
+ float: left;
+ margin-right: 15px;
+ max-width:200px;
+ overflow: hidden;
+
+}
+p{
+  margin: 0;
+}
+.mateus img {
+ width: 300px;
+}
