@@ -10,35 +10,41 @@
   </head>
   <body>
   <style>
+  h1{
+    margin:  15px;
+  }
+  body{
+    margin: 40px;
+  }
   input[type="submit"] {
     background-color: darkblue;
     font-weight: bold;
     color:white;
   }
     </style>
- <h1> Formulário de Cadastro</h1>
+ <h1> <strong>  Formulário de Cadastro</strong></h1>
  <hr>
 <form>
  <div class="container-fluid">
    <div class="row">
      <div  class="col-md-6">
-        <lable> Nome Completo </lable> <br>
-        <input type="text" class="form-control" placeholder="Ex.Mateus Forgiarini da Silva"><br>
-        <lable>Data De Nascimento </lable> <br>
+        <lable> <strong>Nome Completo</strong> </lable> <br>
+        <input type="text" class="form-control" placeholder="Ex.: Mateus Forgiarini da Silva"><br>
+        <lable><strong>Data de Nascimento </strong></lable> <br>
         <input type="date" class="form-control"><br>
-        <lable> Cidade </lable> <br>
+        <lable> <strong>Cidade</strong> </lable> <br>
         <input type="text" class="form-control">
     </div>
     <div  class="col-md-6">
-        <lable> Email </lable> <br>
-        <input type="email" class="form-control" placeholder="Ex.mateus.silva@cwi.com.br"><br>
-        <lable> Estado </lable> <br>
+        <lable> <strong>Email </strong></lable> <br>
+        <input type="email" class="form-control" placeholder="Ex.: mateus.silva@cwi.com.br"><br>
+        <lable> <strong>Estado</strong> </lable> <br>
         <select required class="form-control">
             <option  disabled selected value=""> Estado</option>
             <option value="1"> Rio Grande do Sul</option>
             <option value="2"> Santa Catarina</option>
         </select><br>
-        <lable> Sexo </lable> <br>
+        <lable> <strong>Sexo</strong> </lable> <br>
         <select required class="form-control">
             <option selected value="1"> Masculino</option>
             <option value="2"> Feminino</option>
