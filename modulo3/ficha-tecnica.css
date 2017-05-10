@@ -3,6 +3,7 @@ margin:0;
 font-family: 'Open Sans', sans-serif;
 background-image: url("https://assets.vg247.it/current//2016/02/street-fighter-5-guida-mosse-trucchi.jpg");
 background-size: cover;
+background-repeat: no-repeat;
 }
 .menu li{
   display: inline-block;
