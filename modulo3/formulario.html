@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <title> strap</title>
+  </head>
+  <body>
+  <style>
+  input[type="submit"] {
+    background-color: darkblue;
+    font-weight: bold;
+    color:white;
+  }
+    </style>
+ <h1> Formulário de Cadastro</h1>
+ <hr>
+<form>
+ <div class="container-fluid">
+   <div class="row">
+     <div  class="col-md-6">
+        <lable> Nome Completo </lable> <br>
+        <input type="text" class="form-control" placeholder="Ex.Mateus Forgiarini da Silva"><br>
+        <lable>Data De Nascimento </lable> <br>
+        <input type="date" class="form-control"><br>
+        <lable> Cidade </lable> <br>
+        <input type="text" class="form-control">
+    </div>
+    <div  class="col-md-6">
+        <lable> Email </lable> <br>
+        <input type="email" class="form-control" placeholder="Ex.mateus.silva@cwi.com.br"><br>
+        <lable> Estado </lable> <br>
+        <select required class="form-control">
+            <option  disabled selected value=""> Estado</option>
+            <option value="1"> Rio Grande do Sul</option>
+            <option value="2"> Santa Catarina</option>
+        </select><br>
+        <lable> Sexo </lable> <br>
+        <select required class="form-control">
+            <option selected value="1"> Masculino</option>
+            <option value="2"> Feminino</option>
+        </select><br>
+
+
+
+    </div>
+  </div>
+    <div class="row" >
+      <div  class="col-md-12 text-right" >
+          <input class="btn btn-default" type="submit" value="Enviar">
+          <input class="btn btn-default" type="reset" value="Limpar">
+     </div>
+    </div>
+
+
+</div>
+</form>
+
+
+<hr>
+  </body>
+</html>
