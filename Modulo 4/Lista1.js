@@ -29,3 +29,26 @@ for (var i = 0; i<array.length; i++)
 
 //------------------------------------------------------------
 //Exercício 3
+
+
+function saudacao(instrutor)  {
+ console.log('olá querido instrutor: ', instrutor)
+}
+function imprime (arrayDeStrings, funcao) {
+  if (typeof funcao === 'function'){
+    for (var i = 0; i < arrayDeStrings.length; i++){
+         funcao(arrayDeStrings[i]);
+       }
+    }
+    else {
+      console.log('TypeError: number is not a function');
+    }
+  }
+
+ console.log(imprime(["Bernardo", "Nunes", "Fabrício", "Ben-hur", "Carlos"],
+ saudacao))
+ console.log(imprime(["Bernardo", "Nunes", "Fabrício", "Ben-hur", "Carlos"],
+ 1233))
+
+ //------------------------------------------------------------
+ //Exercício 4
