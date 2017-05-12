@@ -70,10 +70,7 @@ function imprime (arrayDeStrings, funcao) {
  function fiboSum (numerosDaSequencia) {
    var soma = 0;
    for (var  i = 0; i<numerosDaSequencia; i++){
-      if (i===0) {
-         fiboSum[i] =1;
-         soma+= fiboSum[i]}
-      else if (i===1) {
+      if (i===0||i===1) {
          fiboSum[i] =1;
          soma+= fiboSum[i]}
       else {
