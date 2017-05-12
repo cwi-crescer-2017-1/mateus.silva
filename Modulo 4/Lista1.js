@@ -52,3 +52,17 @@ function imprime (arrayDeStrings, funcao) {
 
  //------------------------------------------------------------
  //Exercício 4
+
+ function adicionar(a,b) {
+   if (arguments.length ===1){
+      return function (b){
+        return a + b;
+      }
+    }
+     return a + b;
+   }
+   console.log(adicionar(3)(4));
+   console.log(adicionar(5642)(8749));
+
+   //------------------------------------------------------------
+   //Exercício 5
