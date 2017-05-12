@@ -84,3 +84,32 @@ function imprime (arrayDeStrings, funcao) {
 }
 console.log(fiboSum(7));
 console.log(fiboSum(3));
+
+//------------------------------------------------------------
+//Exercício 6
+
+function queroCafe (a,b) {
+  var numeros = "";
+ do{
+     posicoesSendoTrocadas = false;
+      for (var i = 0; i<b.length; i++){
+          var precoPosicaoAtual =  b[i];
+          var precoPosicaoProxima = b[i+1];
+          if(precoPosicaoAtual>precoPosicaoProxima){
+              var guardaPreco = b[i];
+              b[i] = b[i+1];
+              b[i+1] = guardaPreco;
+             posicoesSendoTrocadas = true;
+          }
+       }
+    } while (posicoesSendoTrocadas);
+
+    for (var i = 0; i< b.length; i++){
+  	   if (b[i]<=a) {
+         numeros+= b[i]+",";
+        }
+      }
+  return numeros.substring(numeros.length-1, 0);
+}
+
+console.log(queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]));
