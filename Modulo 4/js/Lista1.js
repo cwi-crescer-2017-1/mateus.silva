@@ -15,13 +15,14 @@ console.log(daisyGame(4))
 //Exercício 2
 
 function maiorTexto(array) {
-for (var i = 0; i<array.length; i++)
+  var maiorString = array [0];
+for (var i = 0; i<array.length; i++){
      var string =  array[i];
-     var maiorString = 0;
-     if (string.length> maiorString){
+     //var maiorString = 0;
+     if (string.length> maiorString.length){
        maiorString = string;
      }
-
+}
    return maiorString;
  }
  console.log(maiorTexto(array = ["lala", "lalala", "lalalala"]));
