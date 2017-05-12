@@ -55,11 +55,11 @@ function imprime (arrayDeStrings, funcao) {
 
  function adicionar(a,b) {
    if (arguments.length ===1){
-      return function (b){
-        return a + b;
-      }
+      return function adicionar (b){ // retorna a função adicionar se tiver um argumento,
+        return a + b;                //ou seja, quando houver (a)(b) a função adicionar retorna ela mesma e depois executa a soma.
+      }                              //Desta forma, na primeira chamada usa o argumento "a" e na segunda usa o "b".
     }
-     return a + b;
+   return a + b; // se tiver dois argumentos, executa a soma diretamente.
    }
    console.log(adicionar(3)(4));
    console.log(adicionar(5642)(8749));
