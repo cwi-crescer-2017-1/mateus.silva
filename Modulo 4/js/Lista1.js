@@ -24,8 +24,8 @@ for (var i = 0; i<array.length; i++){
 }
    return maiorString;
  }
- console.log(maiorTexto(array = ["lala", "lalala", "lalalala"]));
- console.log(maiorTexto(array = ["lala", "lalala"]));
+ console.log(maiorTexto(["lala", "lalala", "lalalala"]));
+ console.log(maiorTexto(["lala", "lalala"]));
 
 //------------------------------------------------------------
 //Exercício 3
