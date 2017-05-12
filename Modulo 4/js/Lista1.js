@@ -18,7 +18,6 @@ function maiorTexto(array) {
   var maiorString = array [0];
 for (var i = 0; i<array.length; i++){
      var string =  array[i];
-     //var maiorString = 0;
      if (string.length> maiorString.length){
        maiorString = string;
      }
