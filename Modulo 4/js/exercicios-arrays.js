@@ -21,3 +21,13 @@ console.log(seriesInvalidas(series));
 
 //------------------------------------------------------------------------
 //Exercício 2
+
+function filtrarSeriesPorAno(series, ano) {
+       var novo = series.filter(function(series){ return series.anoEstreia>=ano })
+       return novo;
+}
+console.log(filtrarSeriesPorAno(series, 2017))
+console.log(filtrarSeriesPorAno(series, 2010))
+
+//------------------------------------------------------------------------
+//Exercício 3
