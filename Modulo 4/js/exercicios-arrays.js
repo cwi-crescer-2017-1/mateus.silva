@@ -69,5 +69,22 @@ for (var i=0 in series){
 console.log(mascadaEmSerie(series[0]));
 console.log(mascadaEmSerie(series[1]));
 console.log(mascadaEmSerie(series[2]));
+
 //------------------------------------------------------------------------
-//Exercício 6
+//Exercício 6-A
+function queroGenero (genero) {
+var arrayQueroGenero = [];
+var serieAtual;
+for (var i=0 in series){
+	serieAtual = series[i];
+	for (var a=0 in serieAtual.genero){
+		  if (genero===series[i].genero[a]){
+     			 arrayQueroGenero.push(series[i].titulo)
+}}}
+ return arrayQueroGenero;
+}
+console.log(queroGenero("Suspense"));
+console.log(queroGenero("Crime"));
+
+//------------------------------------------------------------------------
+//Exercício 6-B
