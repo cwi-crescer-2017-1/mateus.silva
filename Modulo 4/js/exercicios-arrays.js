@@ -23,11 +23,21 @@ console.log(seriesInvalidas(series));
 //Exercício 2
 
 function filtrarSeriesPorAno(series, ano) {
-       var novo = series.filter(function(series){ return series.anoEstreia>=ano })
-       return novo;
+       var novoArray = series.filter(function(series){ return series.anoEstreia>=ano })
+       return novoArray;
 }
 console.log(filtrarSeriesPorAno(series, 2017))
 console.log(filtrarSeriesPorAno(series, 2010))
 
 //------------------------------------------------------------------------
 //Exercício 3
+function mediaDeEpisodios (series) {
+soma = 0;
+contador = 0;
+series.forEach(function (series) {contador++; return soma+=series.numeroEpisodios;} )
+return soma/contador;
+}
+console.log(mediaDeEpisodios (series))
+
+//------------------------------------------------------------------------
+//Exercício 4
