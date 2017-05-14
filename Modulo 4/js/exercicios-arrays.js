@@ -112,3 +112,33 @@ console.log(queroTitulo("The"));
 console.log(queroTitulo("of"));
 
 //Exercício 7
+function creditosIlluminatis (serie) {
+  function compare(a, b) {
+      var splitA = a.split(" ");
+      var splitB = b.split(" ");
+      var ultimoA = splitA[splitA.length - 1];
+      var ultimoB = splitB[splitB.length - 1];
+
+      if (ultimoA < ultimoB) return -1;
+      if (ultimoA > ultimoB) return 1;
+      return 0;
+  }
+console.log(serie.titulo);
+  var diretorNomes= serie.diretor;
+  var diretorSort = diretorNomes.sort(compare);
+  console.log("------Diretores--------");
+  for (var i=0 in diretorSort){
+    var imprime = diretorSort[i]
+    console.log(imprime);}
+
+    var elencoNomes = serie.elenco;
+    var elencoSort = elencoNomes.sort(compare);
+    console.log("------Elenco--------");
+    for (var i=0 in elencoSort){
+	     var imprime = elencoSort[i]
+       console.log(imprime);}
+       console.log("")
+}
+creditosIlluminatis(series[0])
+creditosIlluminatis(series[3])
+//Exercício 8
