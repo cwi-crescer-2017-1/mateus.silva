@@ -114,14 +114,16 @@ console.log(queroTitulo("of"));
 //Exercício 7
 function creditosIlluminatis (serie) {
   function compare(a, b) {
-      var splitA = a.split(" ");
-      var splitB = b.split(" ");
+      aSemEspaco = a.trim();
+      bSemEspaco= b.trim();
+      var splitA = aSemEspaco.split(" ");
+      var splitB = bSemEspaco.split(" ");
       var ultimoA = splitA[splitA.length - 1];
       var ultimoB = splitB[splitB.length - 1];
 
       if (ultimoA < ultimoB) return -1;
       if (ultimoA > ultimoB) return 1;
-      return 0;
+
   }
 console.log(serie.titulo);
   var diretorNomes= serie.diretor;
@@ -139,8 +141,8 @@ console.log(serie.titulo);
        console.log(imprime);}
        console.log("")
 }
-creditosIlluminatis(series[0])
-creditosIlluminatis(series[3])
+creditosIlluminatis(series[1])
+creditosIlluminatis(series[2])
 //----------------------------------------------------------------------------------------
 //Exercício 8
 function temAbreviacao (series) {
