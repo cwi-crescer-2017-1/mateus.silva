@@ -58,3 +58,16 @@ for (var i=0 in series){
  console.log(procurarPorNome(series, "Noah Schnapp"))
  //------------------------------------------------------------------------
  //Exercício 5
+ function mascadaEmSerie(serie) {
+   var mascadaElenco = 0;
+   var mascadaDiretores = 0;
+   var mascada = 0;
+	 mascadaElenco= serie.elenco.length*40000;
+	 mascadaDiretores+= serie.diretor.length*100000;
+ return mascada = mascadaElenco + mascadaDiretores;
+}
+console.log(mascadaEmSerie(series[0]));
+console.log(mascadaEmSerie(series[1]));
+console.log(mascadaEmSerie(series[2]));
+//------------------------------------------------------------------------
+//Exercício 6
