@@ -141,4 +141,41 @@ console.log(serie.titulo);
 }
 creditosIlluminatis(series[0])
 creditosIlluminatis(series[3])
+//----------------------------------------------------------------------------------------
 //Exercício 8
+function temAbreviacao (series) {
+    var ComAbreviacao;
+    var contador = 0;
+    var nome;
+    for (var a= 0 in  series){
+	     var serie = series[a];
+    for (var i = 0 in  serie.elenco){
+       nome = serie.elenco[i];
+       var ponto = /\./g;
+       var resultado = nome.match(ponto);
+       if (resultado!== "undefined" && resultado!==null){
+          contador ++;
+     }
+       if (contador ===serie.elenco.length) {
+         ComAbreviacao =serie;
+ }
+}
+}return ComAbreviacao;
+}
+
+function hashtag (serie) {
+  var  hashtag = "#";
+  for (var i = 0 in serie.elenco){
+       var arraySplit = serie.elenco[i].split(" ");
+       for (var a = 0 in arraySplit){
+	     var nome = arraySplit[a];
+	     var encontraPalavra = /\./g;
+	     var palavra = nome.match(encontraPalavra);
+	     if (palavra=="." && nome!=="Jr."){
+	         hashtag += nome.substring(nome.length-1, 0)
+              }
+  }    }
+return hashtag;
+}
+
+console.log(hashtag(temAbreviacao(series)))
