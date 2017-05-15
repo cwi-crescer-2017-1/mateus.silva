@@ -174,7 +174,7 @@ function hashtag (serie) {
 	     var nome = arraySplit[a];
 	     var encontraPalavra = /\./g;
 	     var palavra = nome.match(encontraPalavra);
-	     if (palavra=="." && nome!=="Jr."){
+	     if (palavra=="." && nome===nome.toUpperCase()){
 	         hashtag += nome.substring(nome.length-1, 0)
               }
   }    }
