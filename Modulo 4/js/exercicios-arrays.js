@@ -147,7 +147,7 @@ creditosIlluminatis(series[2])
 //----------------------------------------------------------------------------------------
 //Exercício 8
 function temAbreviacao (series) {
-    var ComAbreviacao;
+    var arrayComAbreviacao;
     var contador = 0;
     var nome;
     for (var a= 0 in  series){
@@ -160,10 +160,10 @@ function temAbreviacao (series) {
           contador ++;
      }
        if (contador ===serie.elenco.length) {
-         ComAbreviacao =serie;
+         arrayComAbreviacao =serie;
  }
 }
-}return ComAbreviacao;
+}return arrayComAbreviacao;
 }
 
 function hashtag (serie) {
