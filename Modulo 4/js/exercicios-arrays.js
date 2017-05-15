@@ -47,13 +47,14 @@ var existeNome = false;
 for (var i=0 in series){
 	serieAtual = series[i];
 	for (var a=0 in serieAtual.elenco){
-		  if (nome===series[i].elenco[a]){
+		  if (series[i].elenco[a].includes(nome)){
      			existeNome =true;
      			break;
 }}}
  return existeNome;
 }
  console.log(procurarPorNome(series, "Mateus"))
+ console.log(procurarPorNome(series, "lalaa"))
  console.log(procurarPorNome(series, "Winona Ryder"))
  console.log(procurarPorNome(series, "Noah Schnapp"))
  //------------------------------------------------------------------------
