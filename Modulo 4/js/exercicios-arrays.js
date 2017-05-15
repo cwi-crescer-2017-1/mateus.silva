@@ -11,7 +11,7 @@ function seriesInvalidas(series){
    for (var a = 0; a <arrayAtributos.length; a++){
      if (series[i].anoEstreia>ano ||
         typeof arrayAtributos[a] ==="undefined" ||  arrayAtributos[a]  === null){
-		          invalidas+=  "Série "+ i +" - ";
+		          invalidas+=  series[i].titulo +" - ";
              break;}
        }
  }
