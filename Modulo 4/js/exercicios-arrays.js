@@ -39,17 +39,9 @@ console.log(mediaDeEpisodios (series))
 //------------------------------------------------------------------------
 //Exercício 4
 function procurarPorNome (series, nome) {
-var serieAtual;
-var existeNome = false;
-for (var i=0 in series){
-	serieAtual = series[i];
-	for (var a=0 in serieAtual.elenco){
-		  if (series[i].elenco[a].includes(nome)){
-     			existeNome =true;
-     			break;
-}}}
- return existeNome;
+  return series.some (serie => serie.elenco.some(elenco => elenco.includes(nome)));
 }
+
  console.log(procurarPorNome(series, "Mateus"))
  console.log(procurarPorNome(series, "lalaa"))
  console.log(procurarPorNome(series, "Winona Ryder"))
