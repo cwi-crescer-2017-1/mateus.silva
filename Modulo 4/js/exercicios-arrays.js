@@ -91,48 +91,26 @@ function creditosIlluminatis (serie) {
       if (ultimoA > ultimoB) return 1;
 
   }
-console.log(serie.titulo);
-  var diretorNomes= serie.diretor;
-  var diretorSort = diretorNomes.sort(compare);
-  console.log("------Diretores--------");
-  for (var i=0 in diretorSort){
-    var imprime = diretorSort[i]
-    console.log(imprime);}
-
-    var elencoNomes = serie.elenco;
-    var elencoSort = elencoNomes.sort(compare);
-    console.log("------Elenco--------");
-    for (var i=0 in elencoSort){
-	     var imprime = elencoSort[i]
-       console.log(imprime);}
-       console.log("")
+    console.log(serie.titulo);
+   var diretorNomes= serie.diretor;
+   var diretorSort = diretorNomes.sort(compare);
+   console.log("------Diretores--------");
+   diretorSort.forEach(diretor => console.log(diretor));
+   var elencoNomes = serie.elenco;
+   var elencoSort = elencoNomes.sort(compare);
+   console.log("------Elenco--------");
+   elencoSort.forEach (ator => console.log(ator));
 }
 creditosIlluminatis(series[1])
 creditosIlluminatis(series[2])
 //----------------------------------------------------------------------------------------
 //Exercício 8
 function temAbreviacao (series) {
-    var arrayComAbreviacao;
-    var contador = 0;
-    var nome;
-    for (var a= 0 in  series){
-	     var serie = series[a];
-    for (var i = 0 in  serie.elenco){
-       nome = serie.elenco[i];
-       var ponto = /\./g;
-       var resultado = nome.match(ponto);
-       if (resultado!== "undefined" && resultado!==null){
-          contador ++;
-     }
-       if (contador ===serie.elenco.length) {
-         arrayComAbreviacao =serie;
- }
-}
-}return arrayComAbreviacao;
+    return series.find(serie => serie.elenco.every (nome =>nome.match(/\./g)));
 }
 
 function hashtag (serie) {
-  var  hashtag = "#";
+  var  hashtag = "#";  
   for (var i = 0 in serie.elenco){
        var arraySplit = serie.elenco[i].split(" ");
        for (var a = 0 in arraySplit){
