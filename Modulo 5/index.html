@@ -8,10 +8,17 @@
     <title>pokemon</title>
 
   </head>
-  <body   ng-controller= "controller1">
-    <input type = "text" ng-model ="pokemon.nome"> </input>
-      <h1> Nome: {{pokemon.nome}}</h1>
-      <input type = "text" ng-model ="pokemon.tipo"> </input>
-        <h1> Tipo: {{pokemon.tipo}}</h1>
+  <body>
+  <div   ng-controller= "controller1">
+      <ul>
+        <li ng-repeat = "pokemon in pokemons">
+        Nome: {{pokemon.nome}} # Tipo: {{pokemon.tipo}}</li>
+    </ul>
+      </div>
   </body>
 </html>
+<!--  Ex. anterior
+<input type = "text" ng-model ="pokemon.nome"> </input>
+ <h1> Nome: {{pokemon.nome}}</h1>
+  <input type = "text" ng-model ="pokemon.tipo"> </input>
+  <h1> Tipo: {{pokemon.tipo}}</h1>
