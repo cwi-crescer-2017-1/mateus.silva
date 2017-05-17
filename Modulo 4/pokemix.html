@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Pokemix</title>
+    <script type="text/javascript" src="js/pokemix.js"></script>
+  </head>
+  <style>
+    img {
+      position: absolute;
+      float: left;
+    }
+    body{
+      margin:0;
+    }
+    input{
+      float:left;
+      width:10%;
+      size: 10px;
+    }
+    button{
+      position: absolute;
+     width: 110%;
+      float: right;
+      text-align: right;
+    }
+
+    #entradaDeDados{
+      position:absolute;
+      margin-left: 30%;
+
+      top: 20px;
+    }
+    #detalhesPokemon{
+      position:absolute;
+      margin-left: 43%;
+      top: 200px;
+    }
+  </style>
+  <body>
+    <div id ="entradaDeDados">
+      <strong> Selecione sua cor preferida  </strong>
+      <input type="color" class="form-control" name="favcolor" id = "corEscolhida" value="#ff0000">
+      <div> <button class="btn btn-primary" type="submit" id= "btnPesquisar" >Deixa a mágica acontecer!</button>  </div>
+  </div>
+<div id= "detalhesPokemon">
+        </div>
+   </div>
+  </body>
+</html>
