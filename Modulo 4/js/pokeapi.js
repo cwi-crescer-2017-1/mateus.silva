@@ -12,22 +12,25 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(json);
        console.log(json.sprites.front_default);
 
-
-
-
        let div = document.getElementById('detalhesPokemon');
-       let nome = document.getElementById('nome');
-       let numero = document.getElementById('numero');
-       let imagem = document.getElementById('imagem');
-       let tipo = document.getElementById('tipo');
+       let nome = document.createElement('p');
+       nome.textContent = "Nome: " + json.name.toUpperCase();
+       let numero = document.createElement('p');
+       numero.textContent = "Número: " + json.id;
        let img = document.createElement('img');
        img.src = json.sprites.front_default;
+       let ul = document.createElement('ul');
+       ul.textContent = "Tipos";
+       let li  = document.createElement('li');
 
+       div.append(nome);
+       div.append(numero);
+       div.append(img);
+       div.append(ul)
+       ul.append(li)
        let arrayTypes = json.types;
-       nome.append(json.name.toUpperCase());
-       numero.append(json.id);
-       imagem.append(img);
-       arrayTypes.forEach( t => { tipo.append(t.type.name);})
+       arrayTypes.forEach( t => {li.appendChild(document.createTextNode(t.type.name));})
+
     })
 }
 })
