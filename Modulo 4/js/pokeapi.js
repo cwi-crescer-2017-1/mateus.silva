@@ -21,15 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
        img.src = json.sprites.front_default;
        let ul = document.createElement('ul');
        ul.textContent = "Tipos";
-       let li  = document.createElement('li');
 
+       console.log(typeof li)
        div.append(nome);
        div.append(numero);
        div.append(img);
        div.append(ul)
-       ul.append(li)
+
        let arrayTypes = json.types;
-       arrayTypes.forEach( t => {li.appendChild(document.createTextNode(t.type.name));})
+       arrayTypes.forEach( t => { let li  = document.createElement('li'); li.appendChild(document.createTextNode(t.type.name)); ul.appendChild(li);})
        arrayStats = json.stats;
        console.log(arrayStats)
        arrayStats.forEach ( s => { var stats = document.createElement('p'); stats.textContent =  s.stat.name.toUpperCase(); div.append(stats);

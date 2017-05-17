@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <title>Pokémon</title>
     <script type="text/javascript" src="js/pokeapi.js"></script>
@@ -11,16 +12,33 @@
     <style>
     body{
       background-image: url("http://tbsila.cdn.turner.com/toonla/images/cnlatam/content/274/showpage/pokemon/ar/main5.png");
+      margin: 0;
     }
-     div{
-       position:absolute;
-       margin-left: 50px;
+    #entradaDeDados{
+      position:absolute;
+      margin-left: 10px;
+      top: 20px;
+    }
+    #detalhesPokemon{
+      margin-left: 50px;
+      top: 100px;
+      position: absolute;
+    }
+     input{
+       float:left;width: 20%;
+       size: 30px;
+     }
+     button{
+       position: absolute;
+      width: 100%;
+       float: right;
      }
     </style>
-    <input type="text" id = "pkmescolhido" name="numeroPokemon" placeholder= "Ex: 5 (Squirtle)">
-    <button type="button" id= "btnPesquisar"> Pesquisar!</button>
+    <div id ="entradaDeDados">
+      <div> <input type="text" class="form-control" id = "pkmescolhido" name="numeroPokemon" placeholder= "Ex: 5 (Squirtle)">  </div>
+      <div>   <button class="btn btn-primary" type="submit" id= "btnPesquisar" ><img src="http://ap.imagensbrasil.org/images/pokebola_by_edwymvagovieso-d4o41kr.png" width= "30";/> Eu escolho você!</button>  </div>
+  </div>
    <div id = "detalhesPokemon">
-
    </div>
   </body>
 </html>
