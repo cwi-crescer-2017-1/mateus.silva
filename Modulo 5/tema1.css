@@ -1,0 +1,40 @@
+body{
+  margin:0;
+  background-image: url("https://pro-rankedboost.netdna-ssl.com/wp-content/uploads/2016/07/Pokemon-Go-PokeBalls.png");
+
+}
+.container{
+  position: absolute;
+margin-left: 50%;
+transform: translateX(-50%);
+width: 30%;
+height: 50%;
+
+}
+
+.inputClass{
+  width: 60%;
+  float: left;
+  height: 30%;
+}
+
+.buttonClass{
+  width: 10%;
+  float: right;
+  margin-right: 30%;
+  height: 30%;
+}
+.tableClass{
+  background-image: url("https://c16bf6dae818f25ef804-3497e1c83042e554e7f05925f38cc356.ssl.cf1.rackcdn.com/571e910e4ab1025c601c101a/572c3889a87402a6708f7661.jpg");
+  background-size: contain;
+  margin-left: 2%;
+  height: 20%;
+  width: 100%;
+  border-style: solid;
+  background-color: white;
+  font-weight: bold;
+  font-family: Baskerville Old Face;
+}
+table, th, td {
+   border: 1px solid black;
+}
