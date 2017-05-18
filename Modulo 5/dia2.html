@@ -9,9 +9,9 @@
     <title>Data</title>
   </head>
   <body>  <div  ng-controller= "controller1">
-    <input type = "text" class="form-control"ng-model="date" placeholder= "dd/MM/yyyy"> </input>
+    <input type = "text" class="form-control"ng-model="date" placeholder= "dd.MM.yyyy"> </input>
      <button  class="btn btn-primary" ng-click ="imprime() "type="button" name="datalocal">Veja a Hora</button>
-    <h1> {{data | date: 'mediumDate'}}</h1>
+    <h1> {{data | date: 'shortDate'}}</h1>
        </div>
   </body>
 </html>
