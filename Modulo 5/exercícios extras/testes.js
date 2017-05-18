@@ -1,15 +1,18 @@
 var modulo = angular.module('poke', []);
 modulo.controller('controller1',['$scope', function($scope) {
-     var pokemons =
-     [{nome: 'BULBASAUR', tipo:'Grama'},
-      {nome: 'IVYSAUR', tipo:'Grama'},
-      {nome: 'VENUSAUR', tipo:'Grama'},
-      {nome: 'CHARMANDER', tipo:'Fogo'},
-      {nome: 'CHARMELEON', tipo:'Fogo'},
-      {nome: 'CHARIZARD', tipo:'Fogo'},
-      {nome: 'SQUIRTLE', tipo:'Água'},
-      {nome: 'WARTORTLE', tipo:'Água'},
-      {nome: 'BLASTOISE', tipo:'Água'},
-      {nome: 'CATERPIE', tipo:'Verme'}];
-   $scope.pokemons= pokemons;
+  $scope.removePokemon = function (pokemon){
+    var remove = $scope.pokemons.indexof(pokemon)
+      $scope.pokemons.splice(remove, 1)}
+
+   $scope.pokemons=   [{nome: 'BULBASAUR', tipo:'Grama', disponivel: true},
+       {nome: 'IVYSAUR', tipo:'Grama', disponivel: true},
+       {nome: 'VENUSAUR', tipo:'Grama', disponivel: true},
+       {nome: 'CHARMANDER', tipo:'Fogo', disponivel: true},
+       {nome: 'CHARMELEON', tipo:'Fogo', disponivel: true},
+       {nome: 'CHARIZARD', tipo:'Fogo', disponivel: true},
+       {nome: 'SQUIRTLE', tipo:'Água', disponivel: true},
+       {nome: 'WARTORTLE', tipo:'Água', disponivel: true},
+       {nome: 'BLASTOISE', tipo:'Água', disponivel: true},
+       {nome: 'CATERPIE', tipo:'Verme', disponivel: true}];
+
  }])
