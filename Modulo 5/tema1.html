@@ -27,7 +27,7 @@
         </tr>
       </theaad>
         <tbody>
-          <tr ng-repeat = "pokemon in pokemons | filter: search">
+          <tr ng-repeat = "pokemon in pokemons | orderBy: 'nome'  | filter: search ">
             <td>{{pokemon.nome}}</td>
             <td>{{pokemon.tipo}}</td>
 

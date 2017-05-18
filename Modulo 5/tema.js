@@ -1,5 +1,5 @@
 var modulo = angular.module('poke', []);
-modulo.controller('controller1', function($scope) {
+modulo.controller('controller1',['$scope', function($scope) {
      var pokemons =
      [{nome: 'BULBASAUR', tipo:'Grama'},
       {nome: 'IVYSAUR', tipo:'Grama'},
@@ -12,4 +12,4 @@ modulo.controller('controller1', function($scope) {
       {nome: 'BLASTOISE', tipo:'Água'},
       {nome: 'CATERPIE', tipo:'Verme'}];
    $scope.pokemons= pokemons;
-  })
+ }])
