@@ -1,14 +1,11 @@
 
 var modulo = angular.module('data', []);
-
 modulo.filter('mascada', function () {
   return function (nome) {
     return nome.replace(/(nunes)/i, "$ $1 $");
   };
 });
-
 modulo.controller('controller1', function($scope, $filter) {
-
 $scope.imprime = function () {
   $scope.data = new Date ($scope.date);
 }
@@ -47,7 +44,6 @@ $scope.imprime = function () {
     }]
   }
 ];
-
 $scope.instrutores = instrutores;
 console.log($filter('mascada')('teste nunes teste'));
 })
