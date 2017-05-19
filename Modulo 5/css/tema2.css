@@ -1,0 +1,36 @@
+body{
+  margin:0;
+  background-image: url("https://www.gitbook.com/@cwisoftware/avatar");
+  padding-top: 100px;
+
+}
+.container{
+  position: absolute;
+margin-left: 50%;
+transform: translateX(-50%);
+width: 30%;
+height: 50%;
+
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+.tableClass{
+  background-image: url("http://economia.culturamix.com/blog/wp-content/gallery/por-que-o-dolar-esta-sempre-mudando-de-valor-6/Por-Que-o-D%C3%B3lar-est%C3%A1-Sempre-Mudando-de-Valor-10.jpg");
+  border-radius: 20px;
+  background-size: contain;*/
+  margin-left: 2%;
+  height: 40%;
+  width: 100%;
+  position: static;
+  background-color: white;
+  font-weight: bold;
+  font-family: Baskerville Old Face;
+  color: black;
+  text-align: center;
+}
+table, th, tr {
+    text-align: center;
+}
