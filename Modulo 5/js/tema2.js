@@ -55,6 +55,13 @@ modulo.controller("mainController", function ($scope) {
       }]
     }
   ];
-$scope.instrutores = instrutores;
 
+var array = []
+instrutores.forEach ((instrutor) =>{if (instrutor.aula.length>1){instrutor.aula.forEach(aula =>
+     {array.push({ 'instrutor': instrutor.nome, 'aula': aula.nome, 'numero': aula.numero })})}
+       else {instrutor.aula.forEach(aula =>
+        {array.push({'instrutor': instrutor.nome, 'aula': aula.nome, 'numero': aula.numero })})}})
+$scope.instrutores = array;
+
+console.log(array);
 });

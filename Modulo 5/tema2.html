@@ -16,9 +16,9 @@
         <th>Nome</th>
       </thead>
       <tbody>
-        <tr ng-repeat="instrutor in instrutores | orderBy: 'numero'">
-          <td id="tabela"ng-repeat="insideArray in instrutor.aula">{{insideArray.numero | numberFixedLen:3 }}--{{insideArray.nome}}</td>
-          <td>{{instrutor.nome|upper|mascada}}</td>
+        <tr ng-repeat="mestres in instrutores| orderBy: 'numero'">
+          <td>{{mestres.numero | numberFixedLen:3 }}--{{mestres.aula}}</td>
+          <td>{{mestres.instrutor|upper|mascada}}</td>
         </tr>
       </tbody>
     </table>
