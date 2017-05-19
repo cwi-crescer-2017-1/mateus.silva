@@ -8,12 +8,16 @@ modulo.filter('ipad', function () {
         return function (variavel, tamanho) {
           if (typeof variavel ==="number"){
                   var numero = variavel.toString();
+                  if (numero.length===tamanho){
+                    return variavel;
+                  }
+                  else {
                    var num = "0"+numero;
                    var numeroTamanho = num;
              while(numeroTamanho.length<tamanho){
                       num ='0'+num;
-                      numeroTamanho++;}    
-            return num;}
+                      numeroTamanho++;}
+            return num;}}
             else {return variavel.toUpperCase();
             }
         };
