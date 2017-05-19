@@ -4,7 +4,8 @@ modulo.filter('mascada', function () {
     return nome.replace(/(nunes)/i, "$ $1 $");
   };
 });
-modulo.filter('numberFixedLen', function () {
+
+modulo.filter('ipad', function () {
         return function (numero, tamanho) {
             var num = parseInt(numero, 10);
              len = parseInt(tamanho, 10);

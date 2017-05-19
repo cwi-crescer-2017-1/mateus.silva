@@ -1,7 +1,7 @@
 body{
+  background-image: url("https://www.mariananassar.com.br/img/about/cwi_logo.jpg");
   margin:0;
-  background-image: url("https://www.gitbook.com/@cwisoftware/avatar");
-  padding-top: 100px;
+
 
 }
 .container{
@@ -12,16 +12,30 @@ width: 30%;
 height: 50%;
 
 }
+.portal{
+  margin-left: 0;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  background-color: silver;
+  text-align: center;
+  line-height: 80px;
+  margin-bottom: 100px;
+  opacity: 1;
+  opacity: 0.8;
+  background: linear-gradient(white 0%, black 100%);
 
-::-webkit-input-placeholder {
+}
+.kit-input-placeholder {
    text-align: center;
 }
 
 .tableClass{
+  opacity: 0.7;
   border-radius: 20px;
   background-size: contain;*/
   margin-left: 2%;
-  height: 40%;
+  height:50%;
   width: 100%;
   position: static;
   background-color: white;
@@ -29,6 +43,10 @@ height: 50%;
   font-family: Baskerville Old Face;
   color: black;
   text-align: center;
+  cursor: pointer;
+  background-color: silver;
+   background: linear-gradient(white 0%, silver 100%);
+
 }
 table, th, tr {
     text-align: center;
