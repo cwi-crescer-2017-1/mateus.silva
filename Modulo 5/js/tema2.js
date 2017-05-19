@@ -7,7 +7,13 @@ modulo.filter('mascada', function () {
 modulo.filter('ipad', function () {
         return function (variavel, tamanho) {
           if (typeof variavel ==="number"){
-            return variavel ='0' +variavel;;}
+                  var numero = variavel.toString();
+                   var num = "0"+numero;
+                   var numeroTamanho = num;
+             while(numeroTamanho.length<tamanho){
+                      num ='0'+num;
+                      numeroTamanho++;}    
+            return num;}
             else {return variavel.toUpperCase();
             }
         };
