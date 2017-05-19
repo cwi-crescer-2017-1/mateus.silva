@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/dia3.js"></script>
+    <title></title>
+  </head>
+  <body ng-controller = "mainController">
+
+    <form novalidade class="formulario" name = "myform" action="index.html" method="post">
+      <label for="nome">Nome</label>
+      <input ng-model ="instrutores.nome" name="nome" min="3"></input>
+      <label for="sobreNome">Sobrenome</label>
+      <input ng-model ="instrutores.sobrenome" name="sobreNome" required></input>
+      <label for="idade">Idade</label>
+      <input ng-model ="instrutores.idade" name="idade" ></input>
+      <label for="email">Email</label>
+      <input ng-model ="instrutores.email"  name="email"> </input>
+      <label for="aula">Aula</label>
+      <input type="checkbox" name="aula" value="true" ng-model = "instrutores.aula">
+      <select class="aulas" name="aulas">
+        <option value="{{aula}}"  ng-repeat = "aula in aulas">{{aula}}</option>
+      </select>
+      <button type="button" name="button" ng-click ="incluir()">Incluir</button>
+
+    </form>
+     <div ng-repeat = "instrutor in instrutores">
+        <h1>{{instrutor.nome}}</h1>
+        <h1>{{instrutor.sobrenome}}</h1>
+        <h1>{{instrutor.idade}}</h1>
+        <h1>{{instrutor.email}}</h1>
+
+
+    </div>
+  </body>
+</html>
