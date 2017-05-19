@@ -19,8 +19,8 @@
       </thead>
       <tbody>
         <tr ng-repeat="mestres in instrutores| orderBy: 'numero'">
-          <td>{{mestres.numero | ipad:3 }}--{{mestres.aula}}</td>
-          <td>{{mestres.instrutor|upper|mascada}}</td>
+          <td>{{mestres.numero | ipad:3 }}--{{mestres.aula | ipad}}</td>
+          <td>{{mestres.instrutor|mascada}}</td>
         </tr>
       </tbody>
     </table>

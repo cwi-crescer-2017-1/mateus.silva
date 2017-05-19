@@ -4,22 +4,13 @@ modulo.filter('mascada', function () {
     return nome.replace(/(nunes)/i, "$ $1 $");
   };
 });
-
 modulo.filter('ipad', function () {
-        return function (numero, tamanho) {
-            var num = parseInt(numero, 10);
-             len = parseInt(tamanho, 10);
-             var num = ''+numero;
-            while ((num.length+1) < tamanho) {
-                num = '0'+num;
+        return function (variavel, tamanho) {
+          if (typeof variavel ==="number"){
+            return variavel ='0' +variavel;;}
+            else {return variavel.toUpperCase();
             }
-            return num;
         };
-    });
-  modulo.filter('upper', function () {
-      return function (nome) {
-        return nome.toUpperCase();
-      };
     });
 modulo.controller("mainController", function ($scope) {
   let instrutores = [{
