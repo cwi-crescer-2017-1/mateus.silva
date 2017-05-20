@@ -11,14 +11,13 @@ $scope.instrutores =  [
     aula: 'OO'
   }
 ];
-
-$scope.incluir = function (){
-    $scope.instrutores.push($scope.novoInstrutor)
- console.log($scope.instrutores)
-};
-
-$scope.copy  = $scope.instrutores;
-
+$scope.incluir = function () {
+   if ($scope.myform.$valid) {
+     $scope.instrutores.push(angular.copy($scope.novoInstrutor));
+     $scope.novoInstrutor = {};
+     console.log($scope.novoInstrutor)
+   }
+ };
 $scope.aulas =  [
   'OO',
   'HTML e CSS',

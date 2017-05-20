@@ -1,6 +1,6 @@
 .body{
     background: linear-gradient(white 0%, silver 100%);
-    margin-bottom: 9%;
+    margin-bottom: 25.5%;
 }
 .container{
   padding-top: 5%;
@@ -21,4 +21,16 @@ input{
 }
 .barra:hover{
 color: black;
+}
+.ng-dirty.ng-invalid.nome{
+  background-color: red;
+}
+.ng-dirty.ng-invalid.email{
+  background-color: red;
+}
+.ng-dirty.ng-invalid.sobrenome{
+  background-color: red;
+}
+.ng-dirty.ng-invalid.idade {
+  background-color: red;
 }

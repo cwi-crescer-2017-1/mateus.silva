@@ -14,16 +14,15 @@
    <div class="container"ng-controller = "mainController">
     <form novalidate class="formulario" name = "myform" action="index.html" method="post">
       <label for="nome">Nome</label>
-      <input class="form-control" ng-model ="novoInstrutor.nome" type="text"name="nome" required ng-minlength="3" ng-maxlength="20"   ></input>
+      <input class="nome" class="form-control" ng-model ="novoInstrutor.nome" type="text"name="nome" required ng-minlength="3" ng-maxlength="20"   ></input>
       <label for="sobreNome">Sobrenome</label>
-      <input class="form-control" ng-model ="novoInstrutor.sobrenome" type="text"name="sobreNome" required ng-maxlength="30"> </input>
+      <input class="sobrenome"class="form-control" ng-model ="novoInstrutor.sobrenome" type="text"name="sobreNome" required ng-maxlength="30"> </input>
       <label for="idade">Idade</label>
-      <input class="form-control" ng-model ="novoInstrutor.idade" type="number"name="idade" ></input>
+      <input class="idade" class="form-control" ng-model ="novoInstrutor.idade" type="number"name="idade" ></input>
       <label for="email">Email</label>
-      <input  class="form-control" ng-model ="novoInstrutor.email" type="email" name="email"> </input>
+      <input  class="email" class="form-control" ng-model ="novoInstrutor.email" type="email" name="email"> </input>
       <label  class="checkbox "for="aula">Aula</label>
-      <input  type="checkbox" name="aula" value="true" ng-model = "novoInstrutor.aula">
-  <br>
+      <input  type="checkbox" name="aula" value="true" ng-model = "novoInstrutor.aula"></input>
       <select class="selectpicker" class="aulas" name="aulas" ng-model = "novoInstrutor.aulas">
         <option value="{{aula}}"  ng-repeat = "aula in aulas">{{aula}}</option>
       </select>
