@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script  src="crud.js"></script>
+    <title>Crud</title>
+  </head>
+  <body ng-controller="mainController">
+    <form novalidate name="myForm">
+      <label for="nome">Nome da aula:</label>
+      <input type="text" name="nome" ng-model ="nome">
+      <button type="button" ng-click= "incluir()" name="button">Incluir</button>
+        <button type="button" ng-click= "mudar()" name="button">Mudar nome</button>
+        <select class="selectpicker" class="aula" name="aula" ng-model = "list">
+          <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
+        </select>
+{{list}}
+    </form>
+     <ul ng-repeat ="aula in todasAsAulas| orderBy: 'nome'">
+       <li>Id: {{aula.id}} Nome: {{aula.nome}} </li>
+     </ul>
+  </body>
+</html>
