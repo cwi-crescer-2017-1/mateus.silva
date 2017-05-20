@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script  src="crud.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <title>Crud</title>
   </head>
   <body ng-controller="mainController">
@@ -11,14 +13,24 @@
       <label for="nome">Nome da aula:</label>
       <input type="text" name="nome" ng-model ="nome">
       <button type="button" ng-click= "incluir()" name="button">Incluir</button>
-        <button type="button" ng-click= "mudar()" name="button">Mudar nome</button>
-        <select class="selectpicker" class="aula" name="aula" ng-model = "list">
-          <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
-        </select>
-{{list}}
+      <button type="button" ng-click= "mudar()" name="button">Mudar nome</button>
+      <select class="selectpicker" class="aula" name="aula" ng-model = "list">
+        <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
+      </select>
     </form>
-     <ul ng-repeat ="aula in todasAsAulas| orderBy: 'nome'">
-       <li>Id: {{aula.id}} Nome: {{aula.nome}} </li>
-     </ul>
+    <table class= "tableClass  table table-hover">
+       <thead>
+         <th>ID</th>
+         <th>Aula</th>
+       </thead>
+       <tbody>
+         <tr ng-repeat ="aula in todasAsAulas| orderBy: 'nome'">
+           <td>{{aula.id}}</td>
+          c{{aula.nome}}</td>
+           <td><input type="button" class="btn btn-primary" name="excluir" ng-click="remover($index)"></td>
+         </tr>
+       </tbody>
+     </table>
+
   </body>
 </html>

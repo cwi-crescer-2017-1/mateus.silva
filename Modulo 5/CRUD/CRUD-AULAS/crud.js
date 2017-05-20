@@ -29,13 +29,15 @@ $scope.list;
 
 $scope.mudar = function (){
       filtrarPorNome()[0].nome = $scope.nome;
-      console.log(filtrarPorNome()[0].nome)
-}
+    }
 
 function filtrarPorNome() {
        var arrayCom1objeto = $scope.todasAsAulas.filter(function(aula){ return aula.nome===$scope.list})
        return arrayCom1objeto;
 }
-console.log($scope.todasAsAulas)
+
+$scope.remover= function (index){
+  $scope.todasAsAulas.splice(index, 1);
+  }
 
 });
