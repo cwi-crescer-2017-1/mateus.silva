@@ -13,10 +13,12 @@
       <label for="nome">Nome da aula:</label>
       <input type="text" name="nome" ng-model ="nome">
       <button type="button" ng-click= "incluir()" name="button">Incluir</button>
-      <button type="button" ng-click= "mudar()" name="button">Mudar nome</button>
+      <label for="aula">Selecione uma aula para trocar o nome</label>
       <select class="selectpicker" class="aula" name="aula" ng-model = "list">
         <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
       </select>
+      <input type="text" name="novoNome" ng-model ="novoNome" placeholder="digite o novo nome">
+      <button type="button" ng-click= "mudar()" name="button">Mudar nome</button>
     </form>
     <table class= "tableClass  table table-hover">
        <thead>
@@ -26,7 +28,7 @@
        <tbody>
          <tr ng-repeat ="aula in todasAsAulas| orderBy: 'nome'">
            <td>{{aula.id}}</td>
-          c{{aula.nome}}</td>
+           <td>{{aula.nome}}</td>
            <td><input type="button" class="btn btn-primary" name="excluir" ng-click="remover($index)"></td>
          </tr>
        </tbody>

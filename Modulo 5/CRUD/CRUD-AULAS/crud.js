@@ -19,7 +19,7 @@ $scope.aulas =
 
 $scope.incluir = function (){
    if (procurarPorNome()){
-      return;}
+      return alert("Aula já cadastrada.");}
   $scope.novaAula = {id:operadorLogico, nome: $scope.nome}
   $scope.todasAsAulas.push(angular.copy($scope.novaAula));
   operadorLogico++;
@@ -28,7 +28,7 @@ $scope.incluir = function (){
 $scope.list;
 
 $scope.mudar = function (){
-      filtrarPorNome()[0].nome = $scope.nome;
+      filtrarPorNome()[0].nome = $scope.novoNome;
     }
 
 function filtrarPorNome() {
