@@ -9,7 +9,9 @@
 
     <title></title>
   </head>
-  <body class="container"ng-controller = "mainController">
+  <body class ="body">
+    <div class="barra">  <p> Adicionar Instrutor </p> </div>
+   <div class="container"ng-controller = "mainController">
     <form novalidate class="formulario" name = "myform" action="index.html" method="post">
       <label for="nome">Nome</label>
       <input class="form-control" ng-model ="novoInstrutor.nome" type="text"name="nome" required ng-minlength="3" ng-maxlength="20"   ></input>
@@ -33,5 +35,7 @@
        </ul>
 
            </div>
+   </div>
+
          </body>
        </html>
