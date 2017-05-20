@@ -11,15 +11,13 @@ $scope.instrutores =  [
     aula: 'OO'
   }
 ];
+
 $scope.incluir = function (){
-    $scope.instrutores.push([$scope.nome,  $scope.sobreNome,  $scope.idade,
-      $scope.email, $scope.aula, $scope.aulas
-    ])
-    console.log ($scope.instrutores)
+    $scope.instrutores.push($scope.novoInstrutor)
+ console.log($scope.instrutores)
 };
 
-
-
+$scope.copy  = $scope.instrutores;
 
 $scope.aulas =  [
   'OO',
@@ -28,6 +26,4 @@ $scope.aulas =  [
   'AngularJS',
   'Banco de Dados I'
 ];
-
-
 });
