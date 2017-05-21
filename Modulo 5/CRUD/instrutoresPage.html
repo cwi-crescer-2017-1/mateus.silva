@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <link rel="stylesheet" href="crud.css">
+    <script  src="crud.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <title>Crud</title>
+  </head>
+  <body ng-controller="mainController">
+    <div class="containerMenu">
+      <div class="buttons">
+       <button class="btn btn-secondary" type="button" name="button"><a ng-href="aulaPage.html{{hash}}">Lista de Aulas</a></button>
+       <button class="btn btn-secondary" type="button" name="button"><a ng-href="instrutoresPage.html{{hash}}" class="button">Lista de Instrutores </a></button>
+      </div>
+    </div>
+    <div class="container2">
+
+      <form  novalidate class="myForm2" name="myForm2" action="index.html" method="post">
+          <div class="nomeInstrutor">
+            <label for="nome">Nome:</label>
+            <input class="form-control " type="text" name="nomeInstrutor" ng-model ="nomeInstrutor"  placeholder="Digite  o nome do instrutor"required ng-minlength="3" ng-maxlength="20"></input>
+          </div>
+          <div class="sobrenome">
+            <label for="nome">Sobrenome:</label>
+            <input class="form-control" type="text" name="sobrenomeInstrutor" ng-model ="sobrenomeInstrutor"  placeholder="max 30 caracteres" ng-maxlength="20"></input>
+          </div>
+          <div class="idade">
+            <label for="idadeInstrutor">Idade:</label>
+            <input class="form-control" type="number" name="idadeInstrutor" ng-model ="idadeInstrutor"  required placeholder="max 90" max="90"></input>
+          </div>
+          <div class="email">
+            <label for="emailInstrutor">Email:</label>
+            <input class="form-control" type="email" name="emailInstrutor" ng-model ="emailInstrutor"  required></input>
+          </div>
+          <div class="checkbox">
+            <label for="dandoAula"><strong>Dando Aula?</strong></label>
+            <input class="form-control" type="checkbox" id="checkbox_id" name="dandoAula"  value="true"ng-model ="dandoAula"></input>
+          </div>
+          <div class="foto">
+            <label for="nome">Foto:</label>
+            <input class="form-control" type="img" name="imgInstrutor" ng-model ="imgInstrutor"></input>
+          </div>
+          <div class="selecione">
+            <label for="aula">Selecione a aula:</label>
+            <select class="selectpicker aulaInstrutor"  multiple  name="aulaInstrutor" ng-model = "aulaInstrutor">
+               <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
+            </select>
+          </div>
+
+          <div class="incluirInstrutor">
+            <button class="btn btn-primary" type="button" ng-click= "incluirInstrutor()" name="button">Incluir instrutor</button>
+          </div>
+       </form>
+<table class= "tableClass  table table-hover table2">
+ <thead>
+   <th>ID</th>
+   <th>Nome</th>
+   <th>Sobrenome</th>
+   <th>Idade</th>
+   <th>Email</th>
+   <th>Dando aula?</th>
+   <th>Aula</th>
+   <th>Foto</th>
+ </thead>
+ <tbody>
+   <tr ng-repeat ="instrutor in instrutores| orderBy: 'nome'">
+     <td>{{instrutor.id}}</td>
+     <td>{{instrutor.nome}}</td>
+     <td>{{instrutor.sobrenome}}</td>
+     <td>{{instrutor.idade}}</td>
+     <td>{{instrutor.email}}</td>
+     <td>{{instrutor.dandoAula}}</td>
+     <td>{{instrutor.aula}}</td>
+     <td><img src="{{instrutor.urlFoto}}"></td>
+     <td><input type="button" class="btn btn-primary" name="excluir" ng-click="removerInstrutor($index)"></td>
+   </tr>
+ </tbody>
+</table>
+</div>
+</body>
+</html>

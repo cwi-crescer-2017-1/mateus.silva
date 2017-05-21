@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script  src="crud.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="crud.css">
+    <title>Crud</title>
+  </head>
+  <body ng-controller="mainController">
+    <div class="containerMenu">
+      <div class="buttons">
+       <button class="btn btn-secondary" type="button" name="button"><a ng-href="aulaPage.html{{hash}}">Lista de Aulas</a></button>
+       <button class="btn btn-secondary" type="button" name="button"><a ng-href="instrutoresPage.html{{hash}}" class="button">Lista de Instrutores </a></button>
+      </div>
+    </div>
+    <div class="back">
+    <div class="container1">
+
+
+    <form novalidate name="myForm1">
+      <div class="form-group row row1">
+      <label for="nome">Nome da aula:</label>
+      <input class="form-control" type="text" name="nome" ng-model ="nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome"></input>
+      <button class="btn btn-primary" type="button" ng-click= "incluir()" name="button">Incluir</button>
+    </div>
+      <div class="form-group row row2">
+      <label for="aula">Selecione uma aula para trocar o nome</label>
+      <select  class="custom-select"  name="aula" ng-model = "list">
+        <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
+      </select>
+      <input class="form-control" type="text" name="novoNome" ng-model ="novoNome" placeholder="digite o novo nome"></input>
+      <button class="btn btn-primary" type="button" ng-click= "mudar()" name="button">Mudar nome</button>
+        </div>
+    </form>
+    <table class= "tableClass  table table-hover table1">
+       <thead>
+         <th>ID</th>
+         <th>Aula</th>
+       </thead>
+       <tbody>
+         <tr ng-repeat ="aula in todasAsAulas| orderBy: 'nome'">
+           <td>{{aula.id}}</td>
+           <td>{{aula.nome}}</td>
+           <td><input type="button" class="btn btn-warning" name="excluir" ng-click="remover($index)" value="Apagar"></td>
+         </tr>
+       </tbody>
+     </table>
+       </div>
+        </div>
+     </body>
+   </html>

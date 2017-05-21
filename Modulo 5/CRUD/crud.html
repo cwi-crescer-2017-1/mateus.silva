@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script  src="crud.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="crud.css">
+    <title>Crud</title>
+  </head>
+  <body ng-controller="mainController">
+    <div class="container1">
+
+
+    <form novalidate name="myForm1">
+      <label for="nome">Nome da aula:</label>
+     <input class="form-control inputNome" type="text" name="nome" ng-model ="nome" required ng-minlength="3" ng-maxlength="20"></input>
+      <button class="btn btn-primary incluirNome" type="button" ng-click= "incluir()" name="button">Incluir</button>
+      <label for="aula">Selecione uma aula para trocar o nome</label>
+      <select class="selectpicker" class="aula" name="aula" ng-model = "list">
+        <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
+      </select>
+      <input class="form-control" type="text" name="novoNome" ng-model ="novoNome" placeholder="digite o novo nome"></input>
+      <button class="btn btn-primary" type="button" ng-click= "mudar()" name="button">Mudar nome</button>
+    </form>
+    <table class= "tableClass  table table-hover table1">
+       <thead>
+         <th>ID</th>
+         <th>Aula</th>
+       </thead>
+       <tbody>
+         <tr ng-repeat ="aula in todasAsAulas| orderBy: 'nome'">
+           <td>{{aula.id}}</td>
+           <td>{{aula.nome}}</td>
+           <td><input type="button" class="btn btn-primary" name="excluir" ng-click="remover($index)"></td>
+         </tr>
+       </tbody>
+     </table>
+       </div>
+       <div class="container2">
+     <form  novalidate class="myForm2" name="myForm2" action="index.html" method="post">
+       <label for="nome">Nome:</label>
+       <input class="form-control" type="text" name="nomeInstrutor" ng-model ="nomeInstrutor"  placeholder="Digite  o nome do instrutor"required ng-minlength="3" ng-maxlength="20"></input>
+       <label for="nome">Sobrenome:</label>
+       <input class="form-control" type="text" name="sobrenomeInstrutor" ng-model ="sobrenomeInstrutor"  placeholder="max 30 caracteres" ng-maxlength="20"></input>
+       <label for="nome">Idade:</label>
+       <input class="form-control" type="number" name="idadeInstrutor" ng-model ="idadeInstrutor"  required placeholder="max 90" max="90"></input>
+       <label for="nome">Email:</label>
+       <input class="form-control email" type="email" name="emailInstrutor" ng-model ="emailInstrutor"  required></input>
+       <label for="nome">Dando Aula:</label>
+       <input class="form-control" type="checkbox" name="dandoAula"  value="true"ng-model ="dandoAula"></input>
+       <label for="aula">Selecione a aula</label>
+       <select class="selectpicker" class="aulaInstrutor" name="aulaInstrutor" ng-model = "aulaInstrutor" multiple>
+         <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
+       </select>
+       <label for="nome">Foto:</label>
+       <input class="form-control" type="img" name="imgInstrutor" ng-model ="imgInstrutor"></input>
+
+       <button class="btn btn-primary incluirInstrutor" type="button" ng-click= "incluirInstrutor()" name="button">Incluir instrutor</button>
+
+     </form>
+     <table class= "tableClass  table table-hover table2">
+        <thead>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Idade</th>
+          <th>Email</th>
+          <th>Dando aula?</th>
+          <th>Aula</th>
+          <th>Foto</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat ="instrutor in instrutores| orderBy: 'nome'">
+            <td>{{instrutor.id}}</td>
+            <td>{{instrutor.nome}}</td>
+            <td>{{instrutor.sobrenome}}</td>
+            <td>{{instrutor.idade}}</td>
+            <td>{{instrutor.email}}</td>
+            <td>{{instrutor.dandoAula}}</td>
+            <td>{{instrutor.aula}}</td>
+            <td><img src="{{instrutor.urlFoto}}"></td>
+            <td><input type="button" class="btn btn-primary" name="excluir" ng-click="removerInstrutor($index)"></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  </body>
+</html>

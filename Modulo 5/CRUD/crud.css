@@ -1,0 +1,106 @@
+body{
+  margin: 0;
+  background-image: url("https://www.mariananassar.com.br/img/about/cwi_logo.jpg");
+
+}
+label {
+  color: black;
+}
+.container1{
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 50%;
+  background: linear-gradient(white 0%, silver 100%);
+  padding: 10px;
+  opacity: 0.9;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+.container2 {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 50%;
+  background: linear-gradient(white 0%, silver 100%);
+  padding: 10px;
+  opacity: 0.9;
+  border-style: solid;
+  border-radius: 15px;
+}
+.row1{
+  position: absolute;
+  margin-left: 5px;
+}
+.row2{
+  float: right;
+  margin-right: 5px;
+}
+
+.container2
+  input[type="text"] {
+    width: 250px;
+}
+input[type="number"] {
+  width: 200px;
+}
+input[type="email"] {
+  width: 300px;
+}
+  input[type="img"] {
+    width: 300px;
+}
+input[type="checkbox"] {
+  width: 160px;
+}
+.nomeInstrutor{
+
+  float: left;
+}
+.sobrenome {
+  float: right;
+}
+.idade{
+  float: left;
+}
+.email{
+  float: right;
+}
+.checkbox{
+  float: left;
+}
+.selecione{
+float: left;
+}
+.foto{
+float: right;
+}
+.incluirInstrutor {
+  margin-top:30px;
+float: right;
+}
+.containerMenu{
+  width:100%;
+  background: linear-gradient(white 0%, silver 100%);
+  padding: 10px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+a:link {
+  text-decoration: none;
+}
+
+ a:visited  {
+  color: black;
+}
+.buttons {
+margin-left: 36.5%;
+}
+.buttons button{
+  padding: 10px;
+  width: 200px;
+}
+button a {
+  font-size: 20px;
+}
