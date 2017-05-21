@@ -21,7 +21,7 @@ label {
 .container2 {
   margin-left: 50%;
   transform: translateX(-50%);
-  width: 40%;
+  width: 50%;
   height: 50%;
   background: linear-gradient(white 0%, silver 100%);
   padding: 10px;
@@ -40,13 +40,13 @@ label {
 
 .container2
   input[type="text"] {
-    width: 250px;
+    width: 300px;
 }
 input[type="number"] {
   width: 200px;
 }
 input[type="email"] {
-  width: 300px;
+  width: 350px;
 }
   input[type="img"] {
     width: 300px;
@@ -103,4 +103,8 @@ margin-left: 36.5%;
 }
 button a {
   font-size: 20px;
+}
+td img {
+  height: 30px;
+  width: 30px;
 }

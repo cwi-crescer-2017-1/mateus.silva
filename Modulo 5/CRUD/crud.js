@@ -10,13 +10,13 @@ $scope.aulas =
      };
 $scope.instrutores =[{
     id: 0,                            // Gerado
-    nome: 'Nome',                     // Obrigatório (length = min 3, max 20)
-    sobrenome: 'Sobrenome',           // Opcional (length = max 30)
+    nome: "Bernardo",                     // Obrigatório (length = min 3, max 20)
+    sobrenome: "Rezende",           // Opcional (length = max 30)
     idade: 25,                        // Obrigatório (max 90)
-    email: 'email@cwi.com.br',        // Obrigatório (type=email)
+    email: "bernardo@cwi.com.br",        // Obrigatório (type=email)
     dandoAula: true,                  // true ou false
     aula: [1, 4],                     // Opcional (array)
-    urlFoto: ''  // Opcional (porém tem uma default de livre escolha)
+    urlFoto: "Bernardo.png"  // Opcional (porém tem uma default de livre escolha)
   }];
 
  $scope.todasAsAulas = [$scope.aulas];
@@ -24,7 +24,7 @@ $scope.instrutores =[{
  var operadorLogico = 1;
 
  function procurarPorNome () {
-    return $scope.todasAsAulas.some (aula => aula.nome.includes($scope.nome));
+    return $scope.todasAsAulas.some (aula => aula.nome.toUpperCase().includes($scope.nome.toUpperCase()));
  }
 
 $scope.incluir = function (){
@@ -39,8 +39,10 @@ $scope.incluir = function (){
 }
 $scope.list;
 
+
 $scope.mudar = function (){
-    filtrarPorNome()[0].nome = $scope.novoNome;
+    var objeto =   filtrarPorNome()[0]
+    objeto.nome = $scope.novoNome;
     }
 
 
@@ -74,10 +76,33 @@ $scope.remover= function (index){
      }
   }
   function procurarPorInstrutor () {
-     return $scope.instrutores.some (instrutor=> instrutor.nome.includes($scope.nomeInstrutor));
+     return $scope.instrutores.some (instrutor=> instrutor.nome.toUpperCase().includes($scope.nomeInstrutor.toUpperCase()));
   }
-  $scope.removerInstrutor= function (index){
-     $scope.instrutores.splice(index, 1);
+
+    $scope.mudarInstrutor = function (){
+      var objeto =   filtrarPorNomeInstrutor()[0] ;
+       objeto.nome = $scope.nomeInstrutor
+        objeto.sobrenome = $scope.sobrenomeInstrutor;
+        objeto.idade =  $scope.idadeInstrutor;
+        objeto.email = $scope.emailInstrutor;
+        objeto.dandoAula = $scope.dandoAula;
+        objeto.aula = $scope.aulaInstrutor;
+        objeto.urlFoto = $scope.imgInstrutor;
+      }
+
+    function filtrarPorNomeInstrutor() {
+         var arrayCom1objeto = $scope.instrutores.filter(function (instrutor) {return instrutor.nome===$scope.listInstrutores})
+         return arrayCom1objeto;
     }
-    console.log($scope.todasAsAulas)
+
+    $scope.listInstrutores;
+
+    $scope.removerInstrutor= function (index){
+      if ($scope.instrutores[index].dandoAula){
+        return alert("Não é possível excluir este instrutor. Está dando aula.");
+      }
+       $scope.instrutores.splice(index, 1);
+      }
+
+    console.log($scope.instrutorTroca)
 });

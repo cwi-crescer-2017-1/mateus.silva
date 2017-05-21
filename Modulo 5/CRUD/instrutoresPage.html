@@ -51,13 +51,19 @@
                <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
             </select>
           </div>
-
           <div class="incluirInstrutor">
             <button class="btn btn-primary" type="button" ng-click= "incluirInstrutor()" name="button">Incluir instrutor</button>
-          </div>
+         </div>
+
+            <label for="instrutor">Selecione um instrutor para alterar os dados:</label>
+            <select  class="custom-select"  name="instrutorTroca" ng-model = "listInstrutores">
+              <option value="{{instrutor.nome}}"  ng-repeat = "instrutor in instrutores">{{instrutor.nome}}</option>
+            </select>
+            <button class="btn btn-primary" type="button" ng-click= "mudarInstrutor()" name="button">Alerar informações do instrutor</button>
        </form>
 <table class= "tableClass  table table-hover table2">
  <thead>
+  <th>Foto</th>
    <th>ID</th>
    <th>Nome</th>
    <th>Sobrenome</th>
@@ -65,10 +71,11 @@
    <th>Email</th>
    <th>Dando aula?</th>
    <th>Aula</th>
-   <th>Foto</th>
+
  </thead>
  <tbody>
    <tr ng-repeat ="instrutor in instrutores| orderBy: 'nome'">
+     <td><img src="{{instrutor.urlFoto}}"></td>
      <td>{{instrutor.id}}</td>
      <td>{{instrutor.nome}}</td>
      <td>{{instrutor.sobrenome}}</td>
@@ -76,8 +83,7 @@
      <td>{{instrutor.email}}</td>
      <td>{{instrutor.dandoAula}}</td>
      <td>{{instrutor.aula}}</td>
-     <td><img src="{{instrutor.urlFoto}}"></td>
-     <td><input type="button" class="btn btn-primary" name="excluir" ng-click="removerInstrutor($index)"></td>
+     <td><input type="button" class="btn btn-primary" name="excluir" value="Apagar"ng-click="removerInstrutor($index)"></td>
    </tr>
  </tbody>
 </table>
