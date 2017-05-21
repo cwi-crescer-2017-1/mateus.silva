@@ -28,7 +28,7 @@
       <div class="form-group row row2">
       <label for="aula">Selecione uma aula para trocar o nome</label>
       <select  class="custom-select"  name="aula" ng-model = "list">
-        <option value="{{aula.nome}}"  ng-repeat = "aula in todasAsAulas">{{aula.nome}}</option>
+        <option value="{{aula.nome}}"  ng-repeat = "aula in aulas">{{aula.nome}}</option>
       </select>
       <input class="form-control" type="text" name="novoNome" ng-model ="novoNome" placeholder="digite o novo nome"></input>
       <button class="btn btn-primary" type="button" ng-click= "mudar()" name="button">Mudar nome</button>
@@ -40,7 +40,7 @@
          <th>Aula</th>
        </thead>
        <tbody>
-         <tr ng-repeat ="aula in todasAsAulas| orderBy: 'nome'">
+         <tr ng-repeat ="aula in aulas| orderBy: 'nome'">
            <td>{{aula.id}}</td>
            <td>{{aula.nome}}</td>
            <td><input type="button" class="btn btn-warning" name="excluir" ng-click="remover($index)" value="Apagar"></td>
