@@ -72,6 +72,9 @@ $scope.instrutores =[{
  }
 
 $scope.incluir = function (){
+  if (typeof $scope.nome === "undefined"){
+    alert ("É necessário preencher o nome da aula para incluir aula.")
+  }
    if (procurarPorNome()){
       return alert("Aula já cadastrada.");}
    if ($scope.myForm1.$valid){
@@ -120,6 +123,18 @@ $scope.remover= function (id){
 }
 
  $scope.incluirInstrutor = function (){
+   if (typeof $scope.nomeInstrutor==="undefined"){
+     alert ("É necessário preencher o nome para incluir instrutor.")
+   }
+   if (typeof $scope.sobrenomeInstrutor==="undefined"){
+     alert ("É necessário preencher o sobrenome para incluir instrutor.")
+   }
+   if (typeof $scope.idadeInstrutor==="undefined"){
+     alert ("É necessário preencher a idade para incluir instrutor.")
+   }
+   if (typeof $scope.emailInstrutor==="undefined"){
+     alert ("É necessário preencher o email para incluir instrutor.")
+   }
    var b
      if (procurarPorInstrutor()){
         return alert("Instrutor  já cadastrado.");}
@@ -142,9 +157,9 @@ $scope.remover= function (id){
         $scope.instrutores.push(angular.copy($scope.novoInstrutor));
         $scope.novoInstrutor = {};
         alert("Inclusão realizada.")
+}
+     }
 
-     }
-     }
   function procurarPorInstrutor () {
      return $scope.instrutores.some (instrutor=> instrutor.nome.toUpperCase().includes($scope.nomeInstrutor.toUpperCase()));
   }
