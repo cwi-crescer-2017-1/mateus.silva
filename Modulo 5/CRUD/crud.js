@@ -1,5 +1,6 @@
 var modulo = angular.module ("myApp", []);
 
+
 modulo.controller("mainController", function ($scope, $filter){
 
 $scope.aulas =
@@ -84,12 +85,16 @@ $scope.list;
 
 
 $scope.mudar = function (){
+  console.log(typeof $scope.nome);
+   if (typeof $scope.nome==="undefined"){
+     return alert("É necessário incluir um nome válido para alterar o nome.")
+   }
     var objeto =   filtrarPorNome()[0]
-    objeto.nome = $scope.nome;
-    }
+   objeto.nome = $scope.nome;
+}
 
 function procurarAula (index) {
-    return $scope.instrutores.some (instrutor => instrutor.aula.includes($scope.aulas[index].nome));
+    return $scope.instrutores.some (instrutor => instrutor.aula.includes($scope.aulas[index].id));
     }
 
 function filtrarPorNome() {
@@ -101,18 +106,15 @@ function filtrarPorID(id) {
      return arrayCom1objeto;
 }
 
-$scope.remover= function (index,id){
-   if (procurarAula(index)){
-     return alert("Não é possível excluir esta aula. Está sendo utilizada.");
-   }
-   if (index === 0){
-     var  array = filtrarPorID(id);
-     var itemIndex = $scope.aulas.indexOf(array[0]);
-      $scope.aulas.splice(itemIndex, 1);
-       alert("Remoção executada com sucesso.")
+
+$scope.remover= function (id){
+  var  array = filtrarPorID(id);
+  var itemIndex = $scope.aulas.indexOf(array[0]);
+  if (procurarAula(itemIndex)){
+        return alert("Não é possível excluir esta aula. Está sendo utilizada.");
    }
    else {
-    $scope.aulas.splice(index, 1);
+    $scope.aulas.splice(itemIndex, 1);
      alert("Remoção executada com sucesso.")
     }
 }
@@ -131,9 +133,10 @@ $scope.remover= function (index,id){
        console.log($scope.aulaInstrutor)
        $scope.aulaInstrutor= null
      }
+
      if  ($scope.myForm2.$valid){
         $scope.novoInstrutor = {id:$scope.instrutores.length, nome: $scope.nomeInstrutor, sobrenome: $scope.sobrenomeInstrutor,
-        idade: $scope.idadeInstrutor, email:$scope.emailInstrutor, dandoAula: $scope.dandoAula, aula:  $scope.aulaInstrutor, urlFoto: $scope.imgInstrutor}
+        idade: $scope.idadeInstrutor, email:$scope.emailInstrutor, dandoAula: $scope.dandoAula, aula:  $scope.aulaInstrutor.map(Number), urlFoto: $scope.imgInstrutor}
         $scope.instrutores.push(angular.copy($scope.novoInstrutor));
         $scope.novoInstrutor = {};
         alert("Inclusão realizada.")
@@ -149,13 +152,48 @@ $scope.remover= function (index,id){
 
   $scope.mudarInstrutor = function (){
       var objeto =   filtrarPorNomeInstrutor()[0] ;
-       objeto.nome = $scope.nomeInstrutor
-       objeto.sobrenome = $scope.sobrenomeInstrutor;
-       objeto.idade =  $scope.idadeInstrutor;
-       objeto.email = $scope.emailInstrutor;
-       objeto.dandoAula = $scope.dandoAula;
-       objeto.aula = $scope.aulaInstrutor;
-       objeto.urlFoto = $scope.imgInstrutor;
+      if (typeof $scope.nomeInstrutor==="undefined"){
+        objeto.nome =objeto.nome;
+      }
+      else {
+        objeto.nome = $scope.nomeInstrutor
+      }
+      if (typeof $scope.sobrenomeInstrutor==="undefined"){
+        objeto.sobrenome =objeto.sobrenome;
+      }
+      else {
+        objeto.sobrenome = $scope.sobrenomeInstrutor
+      }
+      if (typeof $scope.idadeInstrutor==="undefined"){
+        objeto.idade =objeto.idade;
+      }
+      else {
+        objeto.idade = $scope.idadeInstrutor
+      }
+      if (typeof $scope.emailInstrutor==="undefined"){
+        objeto.email =objeto.email;
+      }
+      else {
+        objeto.email= $scope.emailInstrutor
+      }
+      if (typeof $scope.dandoAula==="undefined"){
+        objeto.dandoAula =objeto.dandoAula;
+      }
+      else {
+        objeto.dandoAula = $scope.dandoAula
+      }
+      if (typeof $scope.aulaInstrutor==="undefined"){
+        objeto.aula =objeto.aula;
+      }
+      else {
+        objeto.aula = $scope.aulaInstrutor
+      }
+      if (typeof $scope.imgInstrutor==="undefined"){
+        objeto.urlFoto =objeto.urlFoto;
+      }
+      else {
+        objeto.urlFoto = $scope.imgInstrutor
+      }
        alert("Alteração realizada.")
 
       }
@@ -167,7 +205,7 @@ $scope.remover= function (index,id){
 
     $scope.listInstrutores;
 
-$scope.removerInstrutor= function (index, id){
+$scope.removerInstrutor= function ( id){
      var  array = filtrarPorIDInstrutor(id);
      var itemIndex = $scope.instrutores.indexOf(array[0]);
      if ($scope.instrutores[itemIndex].dandoAula){

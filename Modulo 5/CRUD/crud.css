@@ -105,21 +105,20 @@ margin-right:150px;
 
 .containerMenu{
   width:100%;
-  background: linear-gradient(white 0%, silver 100%);
+  background: radial-gradient( white 0%, black  80%  );
   padding: 10px;
   opacity: 0.9;
   margin-bottom: 30px;
   text-align: center;
   font-size: 40px;
   font-weight: bold;
-  font-family: Elephant;
-}
-a:link {
-  text-decoration: none;
+  font-family: Goudy Stout;
+  text-shadow: 4px 4px 8px #000000;
+  color: white;
 }
 
- a:visited  {
-  color: black;
+table{
+  font-family: Segoe UI;
 }
 
 td img {
@@ -131,12 +130,12 @@ td img {
     width: 400px;
 }
 input.ng-dirty.ng-invalid{
-  background-color: red;
+
+   background: linear-gradient( white 0% , red 120%);
 }
 input.ng-dirty.ng-valid{
-  background-color: green;
+     background: linear-gradient( white 0% , green 120%);
   color: black;
-  background-image: url("http://www.clker.com/cliparts/6/d/6/3/l/M/check-mark.svg");
 }
 
 .nomeInstrutor input[type="text"] {
@@ -146,9 +145,20 @@ input.ng-dirty.ng-valid{
     width: 314px;
 }
 img:hover{
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 input[type="button"]:hover{
-  background-color: red;
+background: linear-gradient( white 0%, red 120%  );
+border-color: red;
+
+}
+input[type="button"]{
+ background: linear-gradient( black 0%, white 120%  );
+ border-color: black;
+}
+
+button[type="button"]{
+  background: linear-gradient( black 0%, white 120%  );
+   border-color: black;
 }
