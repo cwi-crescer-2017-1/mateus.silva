@@ -129,14 +129,16 @@ $scope.remover= function (id){
      if (typeof $scope.imgInstrutor==="undefined"){
        $scope.imgInstrutor = "img/Default.png";
      }
-     if ($scope.aulaInstrutor[0]==="null"){
-       console.log($scope.aulaInstrutor)
-       $scope.aulaInstrutor= null
-     }
 
+     if (typeof $scope.aulaInstrutor==="undefined"){
+     $scope.aulaInstrutor =null;
+    }
+    else {
+   $scope.aulaInstrutor = $scope.aulaInstrutor.map(Number)
+    }
      if  ($scope.myForm2.$valid){
         $scope.novoInstrutor = {id:$scope.instrutores.length, nome: $scope.nomeInstrutor, sobrenome: $scope.sobrenomeInstrutor,
-        idade: $scope.idadeInstrutor, email:$scope.emailInstrutor, dandoAula: $scope.dandoAula, aula:  $scope.aulaInstrutor.map(Number), urlFoto: $scope.imgInstrutor}
+        idade: $scope.idadeInstrutor, email:$scope.emailInstrutor, dandoAula: $scope.dandoAula, aula:  $scope.aulaInstrutor, urlFoto: $scope.imgInstrutor}
         $scope.instrutores.push(angular.copy($scope.novoInstrutor));
         $scope.novoInstrutor = {};
         alert("Inclusão realizada.")
