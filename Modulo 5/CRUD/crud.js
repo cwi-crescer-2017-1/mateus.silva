@@ -88,10 +88,12 @@ $scope.list;
 
 
 $scope.mudar = function (){
-  console.log(typeof $scope.nome);
-   if (typeof $scope.nome==="undefined"){
+  if (typeof $scope.nome==="undefined"){
      return alert("É necessário incluir um nome válido para alterar o nome.")
    }
+  if (procurarPorNome()){
+     return alert("Aula já cadastrada.");}
+
     var objeto =   filtrarPorNome()[0]
    objeto.nome = $scope.nome;
 }
@@ -124,16 +126,16 @@ $scope.remover= function (id){
 
  $scope.incluirInstrutor = function (){
    if (typeof $scope.nomeInstrutor==="undefined"){
-     alert ("É necessário preencher o nome para incluir instrutor.")
+    return alert ("É necessário preencher o nome para incluir instrutor.")
    }
    if (typeof $scope.sobrenomeInstrutor==="undefined"){
-     alert ("É necessário preencher o sobrenome para incluir instrutor.")
+     return alert ("É necessário preencher o sobrenome para incluir instrutor.")
    }
    if (typeof $scope.idadeInstrutor==="undefined"){
-     alert ("É necessário preencher a idade para incluir instrutor.")
+     return alert ("É necessário preencher a idade para incluir instrutor.")
    }
    if (typeof $scope.emailInstrutor==="undefined"){
-     alert ("É necessário preencher o email para incluir instrutor.")
+     return alert ("É necessário preencher o email para incluir instrutor.")
    }
    var b
      if (procurarPorInstrutor()){
@@ -156,7 +158,8 @@ $scope.remover= function (id){
         idade: $scope.idadeInstrutor, email:$scope.emailInstrutor, dandoAula: $scope.dandoAula, aula:  $scope.aulaInstrutor, urlFoto: $scope.imgInstrutor}
         $scope.instrutores.push(angular.copy($scope.novoInstrutor));
         $scope.novoInstrutor = {};
-        alert("Inclusão realizada.")
+        alert("Inclusão realizada.");
+
 }
      }
 
@@ -236,4 +239,5 @@ $scope.removerInstrutor= function ( id){
        return arrayCom1objeto;
   }
     console.log($scope.aulas)
+
 });
