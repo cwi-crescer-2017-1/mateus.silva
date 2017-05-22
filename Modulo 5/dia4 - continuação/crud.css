@@ -1,0 +1,164 @@
+body{
+  margin: 0;
+  background-image: url("https://www.mariananassar.com.br/img/about/cwi_logo.jpg");
+
+}
+label {
+  color: black;
+}
+
+.container1 {
+  margin: 0;
+  width: 30%;
+  height: 50%;
+  background: linear-gradient(white 0%, silver 100%);
+  padding: 10px;
+  opacity: 0.9;
+  border-style: solid;
+  border-radius: 15px;
+
+  float: left;
+}
+
+.container2 {
+margin: 0;
+  width: 65%;
+  height: 50%;
+  background: linear-gradient(white 0%, silver 100%);
+  padding: 10px;
+  opacity: 0.9;
+  border-style: solid;
+  border-radius: 15px;
+  float: right;
+}
+.row1{
+  margin-left: 5px;
+
+}
+.row2{
+margin-left: 5px;
+width: 100%;
+}
+.row .nome {
+  position: absolute;
+}
+.incluir {
+float: right;
+margin-right: 40px;
+}
+input[type="text"] {
+    width: 220px;
+}
+input[type="number"] {
+  width: 100px;
+}
+input[type="email"] {
+  width: 300px;
+
+}
+  input[type="img"] {
+    width: 300px;
+}
+input[type="checkbox"] {
+  width: 160px;
+}
+.nomeInstrutor{
+
+  float: left;
+}
+.sobrenome {
+  float: left;
+}
+.idade{
+  float: left;
+}
+.email{
+  float: left;
+margin-top: 10px;
+}
+.checkbox{
+ float: left;
+ margin-top: 12px;
+}
+.selecione{
+  margin-top: 10px;
+width: 30%;
+float: right;
+height: 30%;
+
+}
+.selecioneInstrutor{
+ margin-top: 10px;
+  float: left;
+
+}
+.foto{
+float: left;
+margin-top: 10px;
+
+}
+.incluirInstrutor {
+height: 40px;
+float: right;
+margin-right:150px;
+}
+
+.containerMenu{
+  width:100%;
+  background: radial-gradient( white 0%, black  80%  );
+  padding: 10px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Goudy Stout;
+  text-shadow: 4px 4px 8px #000000;
+  color: white;
+}
+
+table{
+  font-family: Segoe UI;
+}
+
+td img {
+  height: 30px;
+  width: 30px;
+}
+
+.nome input[type="text"] {
+    width: 400px;
+}
+input.ng-dirty.ng-invalid{
+
+   background: linear-gradient( white 0% , red 120%);
+}
+input.ng-dirty.ng-valid{
+     background: linear-gradient( white 0% , green 120%);
+  color: black;
+}
+
+.nomeInstrutor input[type="text"] {
+    width: 300px;
+}
+.sobrenome input[type="text"] {
+    width: 314px;
+}
+img:hover{
+  width: 80px;
+  height: 80px;
+}
+input[type="button"]:hover{
+background: linear-gradient( white 0%, red 120%  );
+border-color: red;
+
+}
+input[type="button"]{
+ background: linear-gradient( black 0%, white 120%  );
+ border-color: black;
+}
+
+button[type="button"]{
+  background: linear-gradient( black 0%, white 120%  );
+   border-color: black;
+}
