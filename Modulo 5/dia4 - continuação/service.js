@@ -4,6 +4,7 @@ modulo.factory('aulaService', function ($http) {
 
   function getTodasAsAulas() {
     return $http.get(urlBase + '/aula');
+    //retorna uma promise/ nunca o valor
   };
 
 
@@ -12,12 +13,14 @@ modulo.factory('aulaService', function ($http) {
   };
 
   function atualizar(aula) {
-    return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
+  //  return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
+  return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
   };
 
   function criar(aula) {
     //aula.id = ++idAtual;
-    return  $http.post(urlBase + '/aula' + aula);
+    console.log(aula)
+     $http.post(urlBase + '/aula', aula);
 };
 
   // function remover (aula){
@@ -34,3 +37,9 @@ modulo.factory('aulaService', function ($http) {
   //  delete: remover
   };
 });
+
+
+// app.js para config
+// segmentar arquivo
+//nome e email poder excluir usuario = nao precisa fazer validacao
+// colocar disable cache

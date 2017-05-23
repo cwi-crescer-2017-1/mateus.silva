@@ -9,6 +9,7 @@ modulo.config(function($routeProvider){
 });
 
 modulo.controller('AulaController', function ($scope, $routeParams, aulaService) {
+  //modulo.controller('AulaController', function ($scope, aulaService) {
 
   $scope.id = $routeParams.idUrl;
 
@@ -17,26 +18,27 @@ modulo.controller('AulaController', function ($scope, $routeParams, aulaService)
   $scope.update = update;
 
   // Ações executadas quando criar a controller
-  findById($scope.id); // buscar aula por id (passado na url)
+//  findById($scope.id); // buscar aula por id (passado na url)
   list(); // listar aulas
-
+console.log($scope.aulas)
   // Funções internas
 
   function create(aula) {
-    aulaService.create(aula).then (function (response){
-      $scope.aula= response.data;
-    });
+    aulaService.create(aula);
+    list();
   };
 
   function findById(id) {
     aulaService.findById(id).then(function (response) {
       $scope.aula = response.data;
+      // ver i o que está retornando
     });
   };
 
   function list() {
     aulaService.list().then(function (response) {
       $scope.aulas = response.data;
+      console.log($scope.aulas)
     });
   }
 
@@ -45,7 +47,6 @@ modulo.controller('AulaController', function ($scope, $routeParams, aulaService)
       list();
     });
   };
-
 //  function delete(aula){
   //  aulaService.delete(aula).then(function(response) {
   //    $scope.aulas = response.data;
