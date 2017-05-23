@@ -19,9 +19,11 @@
     {
       "id": 4,
       "nome": "Banco de Dados I"
+    },
+    {
+      "id": 5
     }
   ],
-
   "instrutor": [
     {
       "id": 0,
@@ -30,7 +32,10 @@
       "idade": 25,
       "email": "email@cwi.com.br",
       "dandoAula": true,
-      "aula": [1, 4],
+      "aula": [
+        1,
+        4
+      ],
       "urlFoto": "http://foto.com/3.png"
     }
   ]

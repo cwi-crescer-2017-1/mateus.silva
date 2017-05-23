@@ -7,16 +7,22 @@
                     <div class="form-group row row1">
                         <label for="nome">Nome da aula:</label>
                         <div class="incluirbutton">
-                          <input class="form-control nome" type="text" name="nome" ng-model ="nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome"></input>
-                              <button class="btn btn-primary incluir" type="button" ng-click= "incluir()" name="button">Incluir</button>
+                          <!--<input class="form-control nome" type="text" name="nome" ng-model ="nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome"></input>
+                              <button class="btn btn-primary incluir" type="button" ng-click= "incluir()" name="button">Incluir</button>--->
+                          <input class="form-control nome" type="text" name="nome" ng-model ="aulaNova.nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome"></input>
+                            <button class="btn btn-primary incluir" type="button" ng-click= "create(aulaNova)" name="button">Criar</button>
+
                        </div>
                    </div>
                   <div class="form-group row row2">
-                      <label for="aula">Selecione uma aula para trocar o nome:</label>
-                      <select  class="custom-select  selecionaAulas"  name="aula" ng-model = "list">
+                  <!--   <label for="aula">Selecione uma aula para trocar o nome:</label>
+                       <select  class="custom-select  selecionaAulas"  name="aula" ng-model = "list">
                           <option value="{{aula.nome}}"  ng-repeat = "aula in aulas">{{aula.nome}}</option>
                       </select>
-                      <button class="btn btn-primary" type="button" ng-click= "mudar()" name="button">Mudar nome</button>
+                      <button class="btn btn-primary" type="button" ng-click= "mudar()" name="button">Mudar nome</button>-->
+                      <p>Atualizar</p>
+<input type="text"  ng-model="aula.nome"></input>
+<button ng-click="update(aula)">Atualizar</button>
                   </div>
               </form>
         <table class= "tableClass  table table-hover table1">
@@ -28,7 +34,7 @@
            <tr ng-repeat ="aula in aulas| orderBy: 'nome'">
                <td>{{aula.id}}</td>
                <td>{{aula.nome}}</td>
-               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="remover(aula.id)" value="Apagar"></td>
+               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="remover(aula)" value="Apagar"></td>
            </tr>
          </tbody>
        </table>
