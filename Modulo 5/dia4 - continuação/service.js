@@ -20,12 +20,12 @@ modulo.factory('aulaService', function ($http) {
   function criar(aula) {
     //aula.id = ++idAtual;
     console.log(aula)
-     $http.post(urlBase + '/aula', aula);
+   $http.post(urlBase + '/aula', aula);
 };
 
-  // function remover (aula){
-  //   return $http.delete(urlBase+'/aula'+'/'+aula.id, aula)
-  // };
+  function remover (aula){
+     return $http.delete(urlBase+'/aula'+'/'+aula.id)
+  };
 
 
 
@@ -33,7 +33,8 @@ modulo.factory('aulaService', function ($http) {
     list: getTodasAsAulas,
     findById: getAulaPorId,
     update: atualizar,
-    create: criar
+    create: criar,
+    deleteClass: remover
   //  delete: remover
   };
 });
@@ -41,5 +42,7 @@ modulo.factory('aulaService', function ($http) {
 
 // app.js para config
 // segmentar arquivo
-//nome e email poder excluir usuario = nao precisa fazer validacao
+//nome/instrutor/aula e email(caso seja o mesmo) e poder excluir usuario = nao precisa fazer validacao
 // colocar disable cache
+// sucesso quando está dentro do then
+//toastr alertas

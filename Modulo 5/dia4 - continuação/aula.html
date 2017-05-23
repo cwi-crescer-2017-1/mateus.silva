@@ -10,7 +10,7 @@
                           <!--<input class="form-control nome" type="text" name="nome" ng-model ="nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome"></input>
                               <button class="btn btn-primary incluir" type="button" ng-click= "incluir()" name="button">Incluir</button>--->
                           <input class="form-control nome" type="text" name="nome" ng-model ="aulaNova.nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome"></input>
-                            <button class="btn btn-primary incluir" type="button" ng-click= "create(aulaNova)" name="button">Criar</button>
+                         <button class="btn btn-primary incluir" type="button" ng-click= "create(aulaNova)" name="button">Criar</button>
 
                        </div>
                    </div>
@@ -34,7 +34,7 @@
            <tr ng-repeat ="aula in aulas| orderBy: 'nome'">
                <td>{{aula.id}}</td>
                <td>{{aula.nome}}</td>
-               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="remover(aula)" value="Apagar"></td>
+               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="deleteClass(aula)" value="Apagar"></td>
            </tr>
          </tbody>
        </table>

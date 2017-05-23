@@ -14,13 +14,14 @@ modulo.controller('AulaController', function ($scope, $routeParams, aulaService)
   $scope.id = $routeParams.idUrl;
 
   // ações de click
+ $scope.deleteClass = deleteClass;
   $scope.create = create;
   $scope.update = update;
+  console.log($scope.delete);
 
-  // Ações executadas quando criar a controller
 //  findById($scope.id); // buscar aula por id (passado na url)
   list(); // listar aulas
-console.log($scope.aulas)
+
   // Funções internas
 
   function create(aula) {
@@ -42,11 +43,30 @@ console.log($scope.aulas)
     });
   }
 
+    function deleteClass(aula){
+    aulaService.deleteClass(aula).then(function(response) {
+      list();
+    });
+  }
+
   function update(aula) {
     aulaService.update(aula).then(function () {
       list();
     });
-  };
+  }
+// angular.copy(aula) para nao aperecer na tela
+//    $scope.mudar = function (){
+  //    if (typeof $scope.nome==="undefined"){
+  //       return alert("É necessário incluir um nome válido para alterar o nome.")
+  //     }
+  //    if (procurarPorNome()){
+  //       return alert("Aula já cadastrada.");}
+
+  //      var objeto =   filtrarPorNome()[0]
+  //     objeto.nome = $scope.nome;
+//    }
+
+
 //  function delete(aula){
   //  aulaService.delete(aula).then(function(response) {
   //    $scope.aulas = response.data;
