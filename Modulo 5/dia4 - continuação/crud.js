@@ -18,7 +18,7 @@ modulo.controller('AulaController', function ($scope, $routeParams, aulaService)
   $scope.create = create;
   $scope.update = update;
   console.log($scope.delete);
-
+ $scope.aulaNova = { };
 //  findById($scope.id); // buscar aula por id (passado na url)
   list(); // listar aulas
 
@@ -50,29 +50,14 @@ modulo.controller('AulaController', function ($scope, $routeParams, aulaService)
   }
 
   function update(aula) {
-    aulaService.update(aula).then(function () {
-      list();
-    });
+    $scope.aulaNova = angular.copy(aula) ;
+    console.log(aula);
+    // aulaService.update(aula).then(function () {
+    //   list();
+    // });
   }
 // angular.copy(aula) para nao aperecer na tela
-//    $scope.mudar = function (){
-  //    if (typeof $scope.nome==="undefined"){
-  //       return alert("É necessário incluir um nome válido para alterar o nome.")
-  //     }
-  //    if (procurarPorNome()){
-  //       return alert("Aula já cadastrada.");}
 
-  //      var objeto =   filtrarPorNome()[0]
-  //     objeto.nome = $scope.nome;
-//    }
-
-
-//  function delete(aula){
-  //  aulaService.delete(aula).then(function(response) {
-  //    $scope.aulas = response.data;
-
-  //  })
-  //}
 });
   /*
 

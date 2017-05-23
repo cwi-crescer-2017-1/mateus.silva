@@ -13,7 +13,8 @@ modulo.factory('aulaService', function ($http) {
   };
 
   function atualizar(aula) {
-  //  return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
+    console.log(aula);
+
   return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
   };
 
