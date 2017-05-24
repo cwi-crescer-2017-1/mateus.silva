@@ -1,5 +1,3 @@
-
-
      <div class="container">
          <div class="back">
              <div class="container1">
@@ -7,20 +5,12 @@
                     <div class="form-group row row1">
                         <label for="nome">Nome da aula:</label>
                         <div class="incluirbutton">
-                          <!--<input class="form-control nome" type="text" name="nome" ng-model ="nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome"></input>
-                              <button class="btn btn-primary incluir" type="button" ng-click= "incluir()" name="button">Incluir</button>--->
                           <input class="form-control nome" type="text" name="nome" ng-model="aulaNova.nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome">
-                         <button class="btn btn-primary incluir" type="button" ng-click= "create(aulaNova)" name="button">Criar</button>
-
+                         <button class="btn btn-primary incluir" type="button" ng-click= "salvar(aulaNova)" name="button">Salvar</button>
                        </div>
                    </div>
                   <div class="form-group row row2">
                    <label for="aula">Selecione uma aula para trocar o nome:</label>
-                    <!--   <select  class="custom-select  selecionaAulas"  name="aula" ng-model = "list">
-                          <option ng-value="{{aula}}"  ng-repeat = "aula in aulas">{{aula.nome}}</option>
-                      </select>
-                      <button class="btn btn-primary" type="button" ng-click= "update(list)" name="button">Mudar nome</button>-->
-
                   </div>
               </form>
         <table class= "tableClass  table table-hover table1">
@@ -33,9 +23,7 @@
                <td>{{aula.id}}</td>
                <td>{{aula.nome}}</td>
                <td><input type="button" class="btn btn-primary" name="excluir" ng-click="deleteClass(aula)" value="Apagar"></td>
-               <td><input type="button" class="btn btn-primary" name="atualizar" ng-click="update(aula)" value="Editar"></td>
-
-
+               <td><input type="button" class="btn btn-primary" name="editar" ng-click="editar(aula)" value="Editar"></td>
            </tr>
          </tbody>
        </table>
