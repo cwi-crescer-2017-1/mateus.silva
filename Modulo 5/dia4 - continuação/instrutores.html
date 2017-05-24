@@ -3,47 +3,40 @@
     <form  novalidate class="myForm2" name="myForm2" action="index.html" method="post">
         <div class="nomeInstrutor">
             <label for="nome">Nome:</label>
-            <input class="form-control " type="text" name="nomeInstrutor" ng-model ="nomeInstrutor"  placeholder="Digite  o nome do instrutor"required ng-minlength="3" ng-maxlength="20"></input>
+            <input class="form-control " type="text" name="nomeInstrutor" ng-model ="instrutorNovo.nome"  placeholder="Digite  o nome do instrutor"required ng-minlength="3" ng-maxlength="20"></input>
         </div>
         <div class="sobrenome">
             <label for="nome">Sobrenome:</label>
-            <input class="form-control" type="text" name="sobrenomeInstrutor" ng-model ="sobrenomeInstrutor"  placeholder="max 30 caracteres" ng-maxlength="20"></input>
+            <input class="form-control" type="text" name="sobrenomeInstrutor" ng-model ="instrutorNovo.sobrenome"  placeholder="max 30 caracteres" ng-maxlength="20"></input>
         </div>
         <div class="idade">
             <label for="idadeInstrutor">Idade:</label>
-            <input class="form-control" type="number" name="idadeInstrutor" ng-model ="idadeInstrutor"  required placeholder="max 90" max="90"></input>
+            <input class="form-control" type="number" name="idadeInstrutor" ng-model ="instrutorNovo.idade"  required placeholder="max 90" max="90"></input>
         </div>
         <div class="email">
             <label for="emailInstrutor">Email:</label>
-            <input class="form-control" type="email" name="emailInstrutor" ng-model ="emailInstrutor" placeholder="digite o email" required></input>
+            <input class="form-control" type="email" name="emailInstrutor" ng-model ="instrutorNovo.email" placeholder="digite o email" required></input>
         </div>
         <div class="foto">
             <label for="nome">Foto:</label>
-            <input class="form-control" type="img" name="imgInstrutor" ng-model ="imgInstrutor" placeholder="digite a url"></input>
+            <input class="form-control" type="img" name="imgInstrutor" ng-model ="instrutorNovo.img" placeholder="digite a url"></input>
         </div>
     <div class="terceiraLinha">
        <div class="checkbox">
           <label for="dandoAula"><strong>Dando Aula?</strong></label>
-          <input class="form-control" type="checkbox" id="checkbox_id" name="dandoAula"  value="true"ng-model ="dandoAula"></input>
+          <input class="form-control" type="checkbox" id="checkbox_id" name="dandoAula"  value="true"ng-model ="instrutorNovo.dandoAula"></input>
        </div>
        <div class="selecione">
           <label for="aula">Selecione a aula:</label>
-          <select class="selectpicker form-control aulaInstrutor"  multiple  name="aulaInstrutor" ng-model = "aulaInstrutor">
+          <select class="selectpicker form-control aulaInstrutor"  multiple  name="aulaInstrutor" ng-model = "aulas">
                <option value = "null">nenhuma</option>
                <option value="{{aula.id}}"  ng-repeat = "aula in aulas">{{aula.nome}}</option>
           </select>
        </div>
-       <div class="selecioneInstrutor">
-           <label for="instrutor">Selecione um instrutor para alterar os dados:</label>
-            <select  class="custom-select"  name="instrutorTroca" ng-model = "listInstrutores">
-              <option value="{{instrutor.nome}}"  ng-repeat = "instrutor in instrutores">{{instrutor.nome}}</option>
-           </select>
-         </div>
      </div>
          <div class="incluirInstrutor">
-            <button class="btn btn-primary" type="button" ng-click= "incluirInstrutor()" name="button">Incluir instrutor</button>
+            <button class="btn btn-primary" type="button" ng-click= "salvar(instrutorNovo)" name="button">Salvar</button>
          </div>
-            <button class="btn btn-primary mudarInstrutor" type="button" ng-click= "mudarInstrutor()" name="button">Alerar informações do instrutor</button>
    </form>
 <table class= "tableClass  table table-hover table2">
    <thead>
@@ -66,9 +59,10 @@
      <td>{{instrutor.email}}</td>
      <td>{{instrutor.dandoAula}}</td>
      <td>
-     <div ng-repeat ="aula in instrutor.aula | orderBy: 'nome'">{{aulas[aula].nome}}</div>
+     <div ng-repeat ="aula in instrutores.aula | orderBy: 'nome'">{{aulaNova[aula].nome}}</div>
      </td>
-     <td><input type="button" class="btn btn-primary" name="excluir" value="Apagar"ng-click="removerInstrutor( instrutor.id)"></td>
+     <td><input type="button" class="btn btn-primary" name="editar" value="Editar"ng-click="editar(instrutor)"></td>
+     <td><input type="button" class="btn btn-primary" name="excluir" value="Apagar"ng-click="deleteClass(instrutor)"></td>
    </tr>
  </tbody>
 </table>
