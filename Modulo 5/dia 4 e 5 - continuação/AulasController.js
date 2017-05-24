@@ -1,13 +1,3 @@
-var modulo = angular.module ("myApp", ["ngRoute"]);
-
-modulo.config(function($routeProvider){
-     $routeProvider
-     .when ("/aula", {
-       templateUrl: "aula.html", controller: "AulaController"})
-      .when ("/instrutores", {
-      templateUrl: "instrutores.html", controller:"InstrutoresController"}).otherwise({redirectTo:"/index"})
-});
-
 modulo.controller('AulaController', function ($scope, aulaService) {
 
   $scope.deleteAula = deleteAula;

@@ -136,12 +136,7 @@ td img {
 }
 
 
-.nomeInstrutor input[type="text"] {
-    width: 300px;
-}
-.sobrenome input[type="text"] {
-    width: 321px;
-}
+
 img:hover{
   width: 80px;
   height: 80px;
@@ -192,4 +187,10 @@ margin-left: 25%;
   input.ng-not-empty.ng-valid{
        background-color:rgba(0,255,0,0.3);
     color: black;
+  }
+  .nomeInstrutor input[type="text"] {
+      width: 300px;
+  }
+  .sobrenome input[type="text"] {
+      width: 321px;
   }

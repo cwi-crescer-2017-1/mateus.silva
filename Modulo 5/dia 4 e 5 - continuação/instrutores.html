@@ -60,8 +60,8 @@
      <td>{{instrutor.email}}</td>
      <td>{{instrutor.dandoAula}}</td>
      <td>
-     <div ng-repeat ="aula in instrutor.aula | orderBy: 'nome'">{{aulas[aula].nome}}</div>
-   </td>
+         <div ng-repeat ="aula in instrutor.aula | orderBy: 'nome'">{{aulas[aula].nome}}</div>
+     </td>
      <td><input type="button" class="btn btn-primary" name="editar" value="Editar"ng-click="editar(instrutor)"></td>
      <td><input type="button" class="btn btn-primary" name="excluir" value="Excluir"ng-click="deleteClass(instrutor)"></td>
    </tr>
