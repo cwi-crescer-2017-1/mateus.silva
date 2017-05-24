@@ -6,12 +6,10 @@
                         <label for="nome">Nome da aula:</label>
                         <div class="incluirbutton">
                           <input class="form-control nome" type="text" name="nome" ng-model="aulaNova.nome" required ng-minlength="3" ng-maxlength="20" placeholder="digite o nome">
-                         <button class="btn btn-primary incluir" type="button" ng-click= "salvar(aulaNova)" name="button">Salvar</button>
+                         <button class="btn btn-primary incluir" type="button" ng-click= "salvarAula(aulaNova)" name="button">Salvar</button>
                        </div>
                    </div>
-                  <div class="form-group row row2">
-                   <label for="aula">Selecione uma aula para trocar o nome:</label>
-                  </div>
+
               </form>
         <table class= "tableClass  table table-hover table1">
              <thead>
@@ -22,8 +20,8 @@
            <tr ng-repeat ="aula in aulas| orderBy: 'nome'">
                <td>{{aula.id}}</td>
                <td>{{aula.nome}}</td>
-                  <td><input type="button" class="btn btn-primary" name="editar" ng-click="editar(aula)" value="Editar"></td>
-               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="deleteClass(aula)" value="Excluir"></td>
+                  <td><input type="button" class="btn btn-primary editar" name="editar" ng-click="editarAula(aula)" value="Editar"></td>
+               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="deleteAula(aula)" value="Excluir"></td>
 
            </tr>
          </tbody>

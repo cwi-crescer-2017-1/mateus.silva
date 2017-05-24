@@ -8,62 +8,61 @@ modulo.config(function($routeProvider){
       templateUrl: "instrutores.html", controller:"InstrutoresController"}).otherwise({redirectTo:"/index"})
 });
 
-modulo.controller('AulaController', function ($scope, $routeParams, aulaService) {
+modulo.controller('AulaController', function ($scope, aulaService) {
 
-  $scope.id = $routeParams.idUrl;
+  $scope.deleteAula = deleteAula;
+  $scope.createAula = createAula;
+  $scope.updateAula = updateAula;
+  $scope.salvarAula = salvarAula;
+  $scope.editarAula = editarAula;
 
-  $scope.deleteClass = deleteClass;
-  $scope.create = create;
-  $scope.update = update;
-  $scope.salvar = salvar;
-  $scope.editar = editar;
-
-  function salvar (aula){
+  function salvarAula (aula){
+    if  ($scope.myForm1.$invalid){
+            return alert ("É necessário preencher o nome da aula.");
+    }
     if (typeof aula.id ==="number"){
-       update(aula);
+           updateAula(aula);
+           $scope.aulaNova ={};
+           listAula();
        alert("Alteração realizada com sucesso.")
     }
-    else
-      {  if  ($scope.myForm1.$valid){
-                create(instrutor);
-                $scope.instrutorNovo ={}
-                 alert("Inclusão realizada com sucesso.")
-        }
-        else { alert ("É necessário preencher o nome da aula.")}
-     }
-    list();
-    $scope.aulaNova ={}
+    else  {
+          createAula(aula);
+          $scope.aulaNova ={};
+          listAula();
+          alert("Inclusão realizada com sucesso.")
   }
+}
 
-list();
+listAula();
 
-  function create(aula) {
-    aulaService.create(aula).then (function (response){
-    list();})
+  function createAula(aula) {
+       aulaService.createAula(aula).then (function (response){
+       listAula();})
   };
 
 
-  function list() {
-    aulaService.list().then(function (response) {
-      $scope.aulas = response.data;
+  function listAula() {
+       aulaService.listAula().then(function (response) {
+       $scope.aulas = response.data;
     });
   }
 
-    function deleteClass(aula){
-    aulaService.deleteClass(aula).then(function(response) {
-      list();
-      alert("Remoção realizada com sucesso.")
+    function deleteAula(aula){
+        aulaService.deleteAula(aula).then(function(response) {
+        listAula();
+        alert("Remoção realizada com sucesso.")
 
     });
   }
 
-   function update (aula){
-     aulaService.update(aula).then(function (response) {
-        list();
+   function updateAula (aula){
+        aulaService.updateAula(aula).then(function (response) {
+        listAula();
    })};
 
-  function editar (aula) {
-    $scope.aulaNova = angular.copy(aula);
+  function editarAula (aula) {
+        $scope.aulaNova = angular.copy(aula);
   }
 
 });

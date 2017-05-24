@@ -13,6 +13,10 @@
             <label for="idadeInstrutor">Idade:</label>
             <input class="form-control" type="number" name="idadeInstrutor" ng-model ="instrutorNovo.idade"  required placeholder="max 90" max="90"></input>
         </div>
+        <div class="checkbox">
+           <label for="dandoAula"><strong>Dando Aula?</strong></label>
+           <input class="form-control" type="checkbox" id="checkbox_id" name="dandoAula"  value="true"ng-model ="instrutorNovo.dandoAula"></input>
+        </div>
         <div class="email">
             <label for="emailInstrutor">Email:</label>
             <input class="form-control" type="email" name="emailInstrutor" ng-model ="instrutorNovo.email" placeholder="digite o email" required></input>
@@ -22,14 +26,11 @@
             <input class="form-control" type="img" name="imgInstrutor" ng-model ="instrutorNovo.img" placeholder="digite a url"></input>
         </div>
     <div class="terceiraLinha">
-       <div class="checkbox">
-          <label for="dandoAula"><strong>Dando Aula?</strong></label>
-          <input class="form-control" type="checkbox" id="checkbox_id" name="dandoAula"  value="true"ng-model ="instrutorNovo.dandoAula"></input>
-       </div>
+
        <div class="selecione">
           <label for="aula">Selecione a aula:</label>
-          <select class="selectpicker form-control aulaInstrutor"  multiple  name="aulaInstrutor" ng-model = "aulas">
-               <option value = "null">nenhuma</option>
+          <select class="selectpicker form-control aulaInstrutor"  multiple  name="aulaInstrutor" ng-model = "instrutorNovo.aula">
+               <option value = "">nenhuma</option>
                <option value="{{aula.id}}"  ng-repeat = "aula in aulas">{{aula.nome}}</option>
           </select>
        </div>
@@ -51,7 +52,7 @@
  </thead>
  <tbody>
    <tr ng-repeat ="instrutor in instrutores| orderBy: 'nome'">
-     <td><img src="{{instrutor.urlFoto}}"></td>
+     <td> <img  ng-src="{{instrutor.urlFoto}}"></td>
      <td>{{instrutor.id}}</td>
      <td>{{instrutor.nome}}</td>
      <td>{{instrutor.sobrenome}}</td>

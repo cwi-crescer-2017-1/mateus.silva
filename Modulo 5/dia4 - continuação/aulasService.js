@@ -6,25 +6,25 @@ modulo.factory('aulaService', function ($http) {
     return $http.get(urlBase + '/aula');
   };
 
-  function atualizar(aula) {
+  function atualizarAula(aula) {
     console.log(aula);
 
   return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
   };
 
-  function criar(aula) {
+  function criarAula(aula) {
    return $http.post(urlBase + '/aula', aula);
 };
 
-  function remover (aula){
+  function removerAula (aula){
      return $http.delete(urlBase+'/aula'+'/'+aula.id)
   };
 
   return {
-    list: getTodasAsAulas,
-    update: atualizar,
-    create: criar,
-    deleteClass: remover
+    listAula: getTodasAsAulas,
+    updateAula: atualizarAula,
+    createAula: criarAula,
+    deleteAula: removerAula
   };
 });
 
