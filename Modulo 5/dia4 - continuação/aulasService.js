@@ -6,11 +6,6 @@ modulo.factory('aulaService', function ($http) {
     return $http.get(urlBase + '/aula');
   };
 
-
-  function getAulaPorId(id) {
-    return $http.get(urlBase + '/aula' + '/' + id);
-  };
-
   function atualizar(aula) {
     console.log(aula);
 
@@ -18,7 +13,7 @@ modulo.factory('aulaService', function ($http) {
   };
 
   function criar(aula) {
-   $http.post(urlBase + '/aula', aula);
+   return $http.post(urlBase + '/aula', aula);
 };
 
   function remover (aula){
@@ -27,7 +22,6 @@ modulo.factory('aulaService', function ($http) {
 
   return {
     list: getTodasAsAulas,
-    findById: getAulaPorId,
     update: atualizar,
     create: criar,
     deleteClass: remover

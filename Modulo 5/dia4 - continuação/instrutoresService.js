@@ -11,7 +11,7 @@ modulo.factory('instrutoresService', function ($http) {
  };
 
   function criar(instrutor) {
-   $http.post(urlBase, instrutor);
+  return $http.post(urlBase, instrutor);
 };
 
   function remover (instrutor){

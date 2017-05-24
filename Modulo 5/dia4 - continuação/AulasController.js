@@ -5,7 +5,7 @@ modulo.config(function($routeProvider){
      .when ("/aula", {
        templateUrl: "aula.html", controller: "AulaController"})
       .when ("/instrutores", {
-      templateUrl: "instrutores.html", controller:"InstrutoresController"}).otherwise({redirectTo:"/menu"})
+      templateUrl: "instrutores.html", controller:"InstrutoresController"}).otherwise({redirectTo:"/index"})
 });
 
 modulo.controller('AulaController', function ($scope, $routeParams, aulaService) {
@@ -19,13 +19,18 @@ modulo.controller('AulaController', function ($scope, $routeParams, aulaService)
   $scope.editar = editar;
 
   function salvar (aula){
-    console.log(typeof aula.id);
     if (typeof aula.id ==="number"){
        update(aula);
+       alert("Alteração realizada com sucesso.")
     }
-    else {
-        create(aula);
-    }
+    else
+      {  if  ($scope.myForm1.$valid){
+                create(instrutor);
+                $scope.instrutorNovo ={}
+                 alert("Inclusão realizada com sucesso.")
+        }
+        else { alert ("É necessário preencher o nome da aula.")}
+     }
     list();
     $scope.aulaNova ={}
   }
@@ -33,15 +38,10 @@ modulo.controller('AulaController', function ($scope, $routeParams, aulaService)
 list();
 
   function create(aula) {
-    aulaService.create(aula);
-    list();
+    aulaService.create(aula).then (function (response){
+    list();})
   };
 
-  function findById(id) {
-    aulaService.findById(id).then(function (response) {
-      $scope.aula = response.data;
-    });
-  };
 
   function list() {
     aulaService.list().then(function (response) {
@@ -52,11 +52,13 @@ list();
     function deleteClass(aula){
     aulaService.deleteClass(aula).then(function(response) {
       list();
+      alert("Remoção realizada com sucesso.")
+
     });
   }
 
    function update (aula){
-     aulaService.update(aula).then(function () {
+     aulaService.update(aula).then(function (response) {
         list();
    })};
 

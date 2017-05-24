@@ -22,8 +22,9 @@
            <tr ng-repeat ="aula in aulas| orderBy: 'nome'">
                <td>{{aula.id}}</td>
                <td>{{aula.nome}}</td>
-               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="deleteClass(aula)" value="Apagar"></td>
-               <td><input type="button" class="btn btn-primary" name="editar" ng-click="editar(aula)" value="Editar"></td>
+                  <td><input type="button" class="btn btn-primary" name="editar" ng-click="editar(aula)" value="Editar"></td>
+               <td><input type="button" class="btn btn-primary" name="excluir" ng-click="deleteClass(aula)" value="Excluir"></td>
+
            </tr>
          </tbody>
        </table>

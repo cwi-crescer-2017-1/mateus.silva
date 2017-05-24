@@ -19,9 +19,6 @@
     {
       "id": 4,
       "nome": "Banco de Dados I"
-    },
-    {
-      "id": 5
     }
   ],
   "instrutor": [
@@ -32,7 +29,10 @@
       "idade": 30,
       "email": "bernardo@cwi.com.br",
       "dandoAula": false,
-      "aula": [0, 3],
+      "aula": [
+        0,
+        3
+      ],
       "urlFoto": "img/Bernardo.png"
     },
     {
@@ -40,29 +40,36 @@
       "nome": "André",
       "sobrenome": "Nunes",
       "idade": 30,
-     "email": "andre@cwi.com.br",
+      "email": "andre@cwi.com.br",
       "dandoAula": false,
-      "aula": [1],
+      "aula": [
+        1
+      ],
       "urlFoto": "img/nunes.png"
     },
     {
-        "id": 2,
-        "nome": "Pedro",
-        "sobrenome": "Henrique Pires",
-        "idade": 20,
-        "email": "php@cwi.com.br",
-        "dandoAula": false,
-        "aula": [2],
-        "urlFoto": "img/php.png"
-      },
-      {
-          "id": 3,
-          "nome": "Everton",
-          "sobrenome": "Zanatta",
-          "idade": 27,
-          "email": "everton@cwi.com.br",
-          "dandoAula": true,
-          "aula": [4],
-          "urlFoto": "img/zanatta.png"
-        }
-  ]}
+      "id": 2,
+      "nome": "Pedro",
+      "sobrenome": "Henrique Pires",
+      "idade": 20,
+      "email": "php@cwi.com.br",
+      "dandoAula": false,
+      "aula": [
+        2
+      ],
+      "urlFoto": "img/php.png"
+    },
+    {
+      "id": 3,
+      "nome": "Everton",
+      "sobrenome": "Zanatta",
+      "idade": 27,
+      "email": "everton@cwi.com.br",
+      "dandoAula": true,
+      "aula": [
+        4
+      ],
+      "urlFoto": "img/zanatta.png"
+    }
+  ]
+}

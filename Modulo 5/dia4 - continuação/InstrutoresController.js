@@ -1,4 +1,4 @@
-modulo.controller('InstrutoresController', function ($scope, $routeParams, instrutoresService) {
+modulo.controller('InstrutoresController', function ($scope, $routeParams, instrutoresService, aulaService) {
 
   $scope.id = $routeParams.idUrl;
 
@@ -9,29 +9,30 @@ modulo.controller('InstrutoresController', function ($scope, $routeParams, instr
    $scope.editar = editar;
 
  function salvar (instrutor){
-    console.log(typeof instrutor.id);
+    if (typeof instrutor.urlFoto==="undefined"){
+      $scope.instrutorNovo.img = "img/default.png";
+    }
     if (typeof instrutor.id ==="number"){
        update(instrutor);
-    }
-    else {
-        create(instrutor);
-    }
-    list();
-   $scope.instrutorNovo ={}
+       alert("Alteração realizada com sucesso.")
+        $scope.instrutorNovo ={}
+      }
+     else {  if  ($scope.myForm2.$valid){
+                     create(instrutor);
+                     $scope.instrutorNovo ={}
+        }
+            else { alert ("É necessário preencher os campos obrigatórios.")}
+     }
+  list();
  }
 
 list();
 
   function create(instrutor) {
-    instrutoresService.create(instrutor);
-    list();
+    instrutoresService.create(instrutor).then (function (response){
+    list();})
   };
 
-//  function findById(id) {
-  ///  aulaService.findById(id).then(function (response) {
-  //    $scope.aula = response.data;
-  //  });
-//  };
 
   function list() {
     instrutoresService.list().then(function (response) {
@@ -42,15 +43,18 @@ list();
    function deleteClass(instrutor){
   instrutoresService.deleteClass(instrutor).then(function(response) {
       list();
+      alert("Remoção realizada com sucesso.")
+
    });
   }
 
   function update (instrutor){
-      instrutoresService.update(instrutor).then(function () {
+      instrutoresService.update(instrutor).then(function (response) {
      list();
    })};
 
   function editar (instrutor) {
+      console.log($scope.aulas);
     $scope.instrutorNovo = angular.copy(instrutor);
   }
 
