@@ -27,9 +27,3 @@ modulo.factory('aulaService', function ($http) {
     deleteAula: removerAula
   };
 });
-
-
-// app.js para config
-// segmentar arquivo
-
-//toastr alertas

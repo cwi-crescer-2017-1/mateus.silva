@@ -54,8 +54,6 @@ list();
       instrutoresService.deleteClass(instrutor).then(function(response) {
       list();
       alert("Remoção realizada com sucesso.")
-      //$scope.instrutorNovo ={}
-
 
    });
   }

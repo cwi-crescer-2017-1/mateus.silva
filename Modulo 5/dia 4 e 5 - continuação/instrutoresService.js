@@ -25,11 +25,3 @@ modulo.factory('instrutoresService', function ($http) {
     deleteClass: remover
   };
 });
-
-
-// app.js para config
-// segmentar arquivo
-//nome/instrutor/aula e email(caso seja o mesmo) e poder excluir usuario = nao precisa fazer validacao
-// colocar disable cache
-// sucesso quando está dentro do then
-//toastr alertas
