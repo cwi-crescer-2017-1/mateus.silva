@@ -234,14 +234,10 @@ namespace Repositorio
                         SalarioUS = funcionario.Cargo.Salario.ToString("C", CultureInfo.CreateSpecificCulture("en-US")),
                         QuantidadeMesmoCargo = QuantidadeMesmoCargoArray.Count()
                        };
-
-                }
-
-               
+                }    
             }
 
             return MaiorDeTodos;
-
         }
     }
 }
