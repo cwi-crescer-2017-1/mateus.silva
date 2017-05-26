@@ -111,16 +111,31 @@ namespace Repositorio
                return  Funcionarios.Where(funcionario => turnos.Contains(funcionario.TurnoTrabalho)).ToList();
             }
             
-        }        
+        }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
-            throw new NotImplementedException();
+
+            return Funcionarios.Where(funcionario =>
+            { if ((CalcularIdade(funcionario.DataNascimento)) <= (idade + 5) &&
+                    (CalcularIdade(funcionario.DataNascimento)) >=(idade - 5)){
+                    return true;
+
+                }
+                else { return false; }
+
+            }).ToList();
         }
 
         private int CalcularIdade(DateTime dataNascimento)
         {
-            throw new NotImplementedException();
+           var idade = (DateTime.Today.Year - dataNascimento.Year);
+
+            if (dataNascimento > DateTime.Today.AddYears(-idade))
+            {
+                idade--;
+            }
+            return idade;
         }
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
