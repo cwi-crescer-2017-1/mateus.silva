@@ -140,7 +140,26 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            throw new NotImplementedException();
+            double soma = 0;
+            if (turno == null)
+            {
+                foreach (var funcionario in Funcionarios)
+                {
+                    soma+= funcionario.Cargo.Salario;
+                }
+                return soma / Funcionarios.Count();
+            }
+            else
+            {
+                var lista = Funcionarios.Where(funcionario => funcionario.TurnoTrabalho.Equals(turno)).ToList();
+                
+                foreach (var funcionario in lista)
+                {
+                    soma+= funcionario.Cargo.Salario;
+                    
+                }
+                return soma / lista.Count(); 
+            }
         }
 
         public IList<Funcionario> AniversariantesDoMes()
