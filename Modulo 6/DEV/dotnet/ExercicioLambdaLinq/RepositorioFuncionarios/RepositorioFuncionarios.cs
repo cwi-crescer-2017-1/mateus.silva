@@ -181,12 +181,69 @@ namespace Repositorio
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
-            throw new NotImplementedException();
+            var manha = 0;
+            var tarde = 0;
+            var noite = 0;
+            foreach (var funcionario in Funcionarios)
+            {
+                if (funcionario.TurnoTrabalho.Equals(TurnoTrabalho.Manha)) {
+                    manha++;
+                }
+                if (funcionario.TurnoTrabalho.Equals(TurnoTrabalho.Tarde)) {
+                    tarde++;
+                }
+                if (funcionario.TurnoTrabalho.Equals(TurnoTrabalho.Noite)) {
+                    noite++;
+                }
+            }
+            var listaNova = new List<Object>();
+            listaNova.Add( new { Turno =TurnoTrabalho.Manha, Quantidade = manha });
+            listaNova.Add(new { Turno = TurnoTrabalho.Tarde, Quantidade = tarde });
+            listaNova.Add ( new { Turno = TurnoTrabalho.Noite, Quantidade = noite });
+            return listaNova;
         }
 
         public dynamic FuncionarioMaisComplexo()
         {
-            throw new NotImplementedException();
+            object MaiorDeTodos = null;
+            var maior = 0;
+             foreach (var funcionario in Funcionarios)
+            {
+                var nome = funcionario.Nome;
+                var consoantes = 0;
+                for (int i = 0; i < nome.Length; i++)
+                {
+                    
+                    char c = nome.ElementAt(i);
+
+                    if (c != 'a' || c != 'e' || c != 'i' || c != 'o' || c != 'u')
+                    {
+                        consoantes++;
+                    }
+
+                }
+                if (consoantes > maior)
+                {
+                     MaiorDeTodos =new
+                    {
+                        Nome = funcionario.Nome,
+                        DataNascimento = funcionario.DataNascimento,
+                        SalarioRS = funcionario.Cargo.Salario,
+                        SalarioUS = funcionario.Cargo.Salario,
+                        QuantidadeMesmoCargo = 0
+                    };
+
+                }
+
+               
+            }
+
+            return MaiorDeTodos;
+
         }
     }
 }
+
+//listaNova.Add( new { TurnoTrabalho.Manha, Quantidade = manha });
+         //   listaNova.Add(new { TurnoTrabalho.Tarde, Quantidade = tarde });
+          //  listaNova.Add( new { TurnoTrabalho.Noite, Quantidade = noite });
