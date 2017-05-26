@@ -151,20 +151,23 @@ namespace Repositorio
             }
             else
             {
-                var lista = Funcionarios.Where(funcionario => funcionario.TurnoTrabalho.Equals(turno)).ToList();
+                var funcionariosDoMesmoTurno = Funcionarios.Where(funcionario => funcionario.TurnoTrabalho.Equals(turno)).ToList();
                 
-                foreach (var funcionario in lista)
+                foreach (var funcionario in funcionariosDoMesmoTurno)
                 {
                     soma+= funcionario.Cargo.Salario;
                     
                 }
-                return soma / lista.Count(); 
+                return soma / funcionariosDoMesmoTurno.Count(); 
             }
         }
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            return Funcionarios.Where(funcionario => funcionario.DataNascimento.Month == DateTime.Today.Month).ToList();
+
+
+
         }
 
         public IList<dynamic> BuscaRapida()
