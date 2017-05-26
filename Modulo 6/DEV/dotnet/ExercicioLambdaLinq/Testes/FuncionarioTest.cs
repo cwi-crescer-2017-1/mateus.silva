@@ -152,7 +152,7 @@ namespace Testes
             Assert.AreEqual("10/10/1980", funcionarioComplex.DataNascimento);
             Assert.AreEqual("R$ 550,50", funcionarioComplex.SalarioRS);
             Assert.AreEqual("$550.50", funcionarioComplex.SalarioUS);
-            Assert.AreEqual(1, funcionarioComplex.QuantidadeMesmoCargo);
+           Assert.AreEqual(1, funcionarioComplex.QuantidadeMesmoCargo);
         }
     }
 }

@@ -224,14 +224,16 @@ namespace Repositorio
                 }
                 if (consoantes > maior)
                 {
-                     MaiorDeTodos =new
+                    var QuantidadeMesmoCargoArray = Funcionarios.Where(f => f.Cargo.Titulo.Contains(funcionario.Cargo.Titulo)).ToList();
+
+                    MaiorDeTodos = new
                     {
                         Nome = funcionario.Nome,
-                        DataNascimento = funcionario.DataNascimento,
-                        SalarioRS = funcionario.Cargo.Salario,
-                        SalarioUS = funcionario.Cargo.Salario,
-                        QuantidadeMesmoCargo = 0
-                    };
+                        DataNascimento = funcionario.DataNascimento.ToShortDateString(),
+                        SalarioRS =  funcionario.Cargo.Salario.ToString("C", CultureInfo.CurrentCulture),
+                        SalarioUS = funcionario.Cargo.Salario.ToString("C", CultureInfo.CreateSpecificCulture("en-US")),
+                        QuantidadeMesmoCargo = QuantidadeMesmoCargoArray.Count()
+                       };
 
                 }
 
@@ -243,7 +245,3 @@ namespace Repositorio
         }
     }
 }
-
-//listaNova.Add( new { TurnoTrabalho.Manha, Quantidade = manha });
-         //   listaNova.Add(new { TurnoTrabalho.Tarde, Quantidade = tarde });
-          //  listaNova.Add( new { TurnoTrabalho.Noite, Quantidade = noite });
