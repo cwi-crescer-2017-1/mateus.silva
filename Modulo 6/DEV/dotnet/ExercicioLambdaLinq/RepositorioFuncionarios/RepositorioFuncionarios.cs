@@ -166,13 +166,17 @@ namespace Repositorio
         {
             return Funcionarios.Where(funcionario => funcionario.DataNascimento.Month == DateTime.Today.Month).ToList();
 
-
-
         }
 
         public IList<dynamic> BuscaRapida()
         {
-            throw new NotImplementedException();
+            var listaNova = new List<Object> ();
+            foreach (var funcionario in Funcionarios)
+            {
+                listaNova.Add(new  { NomeFuncionario = funcionario.Nome, TituloCargo = funcionario.Cargo.Titulo });
+              
+            }
+            return listaNova;
         }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
