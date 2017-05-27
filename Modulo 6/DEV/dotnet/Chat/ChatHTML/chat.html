@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+      </script>
+      <script src="modulo.js"></script>
+      <script src="chatService.js"></script>
+<script src="chat.js"></script>
+    <title>Chat</title>
+  </head>
+  <body ng-controller ="mainController">
+   <div class="main">
+     <ul ng-repeat ="frase in frases">
+       <li>{{frase.Frase| mascada}}</li>
+     </ul>
+
+   </div>
+      <input type="text" class="form-control"name="input" value="" ng-model = "input">
+      <button type="button" class="form-control" ng-click ="enviarMensagem(input)" name="button">Enviar</button>
+
+
+  </body>
+
+
+
+
+
+
+
+</html>
