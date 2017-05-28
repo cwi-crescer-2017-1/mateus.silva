@@ -8,14 +8,17 @@
     <title>Chat</title>
   </head>
   <body ng-controller ="mainController">
+    <div class="header">
+      <p>Chat do Crescer</p>
+    </div>
        <div class="main" id="main" >
              <ul ng-repeat ="frase in frases">
                 <li> <img class="img" ng-src = "{{frase.Img}}">{{frase.Frase| mascada}}</li>
              </ul>
        </div>
        <div class="inputButton">
-            <input class="form-control" type="text" class="form-control"name="input" value="" ng-model = "input">
-            <button class="form-control"  type="button" class="form-control" ng-click ="enviarMensagem(input)" name="button">Enviar</button>
+            <input class="form-control" type="text" class="form-control"name="input" value="" ng-model = "input.frase" placeholder="digite aqui sua mensagem">
+            <button class="form-control"  type="button" class="form-control" ng-click ="enviarMensagem(input.frase)" name="button">Enviar</button>
        </div>
   </body>
   <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>

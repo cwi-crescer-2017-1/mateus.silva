@@ -14,7 +14,7 @@ namespace WebApiChat.Controllers
         private static List<Texto> frases = new List<Texto>();
 
      
-        public IEnumerable<Texto> Get()
+        public List<Texto> Get()
         {
             return frases;
         }

@@ -3,7 +3,7 @@ modulo.filter("mascada", function (){
     if (texto ==="undefined"){
         return;
     }
-    if (texto.includes("nunes")){
+   if (texto.toLowerCase().includes("nunes")){
         return texto.replace(/(nunes)/i, "$$$$$$$$$ $$$$$$$$$")
     }
     else {
@@ -11,32 +11,33 @@ modulo.filter("mascada", function (){
     }
   }
 });
+
+
 modulo.controller("mainController", function ($scope, $filter, chatService){
 
-
 setInterval(function (){
-      var scroll= document.getElementById("main");
+    var scroll= document.getElementById("main");
       scroll.scrollTop = scroll.scrollHeight;
-      buscarMensagens()}, 2000);
+      buscarMensagens()}, 1000);
 
 
   $scope.enviarMensagem = function (input){
+    if (input=== undefined){
+      input = "";
+    }
     let usuario = window.localStorage.getItem("nome")
     let img = window.localStorage.getItem("img")
       chatService.enviarMensagem(input, usuario, img).then(function (response){
       buscarMensagens();
+            $scope.input = {};
     })};
-
 
 
   function buscarMensagens (){
       chatService.buscarMensagens().then(function(response){
       $scope.frases = response.data;
-      console.log(window.localStorage.getItem("img"));
-      console.log(typeof $scope.url);
+
   })};
-
-
 
   //window.localStorage.clear();
   $scope.url = window.localStorage.getItem("img")
