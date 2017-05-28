@@ -10,10 +10,11 @@ namespace WebApiChat.Controllers
 {
     public class ChatController : ApiController
     {
-  
+        private static int Id = 0;
         private static List<Texto> frases = new List<Texto>();
+        private static object @lock = new object();
 
-     
+
         public List<Texto> Get()
         {
             return frases;
@@ -21,6 +22,8 @@ namespace WebApiChat.Controllers
 
         public IHttpActionResult Post(Texto frase)
         {
+            lock (@lock)
+            frase.ID = Id++;
             frases.Add(frase);
             return Ok();
         }
