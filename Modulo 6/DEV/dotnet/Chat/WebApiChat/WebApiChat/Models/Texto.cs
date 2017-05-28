@@ -7,7 +7,8 @@ namespace WebApiChat.Models
 {
     public class Texto
     {
-        public int ID { get; set; }
+        public string Usuario { get; set; }
+        public string Img { get; set; }
         public string Frase { get; set; }
         public Texto(string frase)
         {

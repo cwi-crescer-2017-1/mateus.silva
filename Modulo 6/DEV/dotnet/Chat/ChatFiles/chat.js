@@ -1,13 +1,13 @@
 modulo.filter("mascada", function (){
-  return function (texto){
+    return function (texto){
     if (texto ==="undefined"){
-      return;
+        return;
     }
     if (texto.includes("nunes")){
-      return texto.replace(/(nunes)/i, "$$$$$$$$$ $$$$$$$$$")
+        return texto.replace(/(nunes)/i, "$$$$$$$$$ $$$$$$$$$")
     }
     else {
-      return texto;
+        return texto;
     }
   }
 });
@@ -21,7 +21,9 @@ setInterval(function (){
 
 
   $scope.enviarMensagem = function (input){
-      chatService.enviarMensagem(input).then(function (response){
+    let usuario = window.localStorage.getItem("nome")
+    let img = window.localStorage.getItem("img")
+      chatService.enviarMensagem(input, usuario, img).then(function (response){
       buscarMensagens();
     })};
 
@@ -30,18 +32,19 @@ setInterval(function (){
   function buscarMensagens (){
       chatService.buscarMensagens().then(function(response){
       $scope.frases = response.data;
+      console.log(window.localStorage.getItem("img"));
+      console.log(typeof $scope.url);
   })};
 
 
 
   //window.localStorage.clear();
-
+  $scope.url = window.localStorage.getItem("img")
 
   if (window.localStorage.getItem("nome")=== null){
-      let   usuario = prompt ("Digite seu nome.");
+      let usuario = prompt ("Digite seu nome.");
       let foto = prompt("Insira uma foto.");
       window.localStorage.setItem("nome", usuario)
       window.localStorage.setItem("img", foto)
-      $scope.url = foto;
-  }
+    }
 });
