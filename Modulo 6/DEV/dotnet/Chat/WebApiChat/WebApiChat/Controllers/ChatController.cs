@@ -11,10 +11,7 @@ namespace WebApiChat.Controllers
     public class ChatController : ApiController
     {
         public static int Id = 0;
-        private static List<Texto> frases = new List<Texto>()
-        {
-            new Texto ("afafffddf"), new Texto("afafffddf")
-    };
+        private static List<Texto> frases = new List<Texto>();
 
      
         public IEnumerable<Texto> Get()
@@ -24,7 +21,7 @@ namespace WebApiChat.Controllers
 
         public IHttpActionResult Post(Texto frase)
         {
-            //frase.Id = Id++;
+              frase.ID = Id++;
               frases.Add(frase);
             return Ok();
         }
