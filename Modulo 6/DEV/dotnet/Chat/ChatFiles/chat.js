@@ -1,19 +1,4 @@
-modulo.filter("mascada", function (){
-    return function (texto){
-    if (texto ==="undefined"){
-        return;
-    }
-   if (texto.indexOf(/(nunes)/i)<0){
-        return texto.replace(/(nunes)/i, "$$$$$$$$$ $$$$$$$$$")
-    }
-    else {
-        return texto;
-    }
-  }
-});
-
-
-modulo.controller("mainController", function ($scope, $filter, chatService){
+modulo.controller("mainController", function ($scope, chatService){
 
 setInterval(function (){
     var scroll= document.getElementById("main");
