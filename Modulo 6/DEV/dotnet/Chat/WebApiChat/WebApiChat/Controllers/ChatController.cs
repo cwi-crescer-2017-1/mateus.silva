@@ -26,7 +26,7 @@ namespace WebApiChat.Controllers
            
             lock (@lock)
             frase.ID = Id++;
-            string pattern = @"\bnunes\b";
+            string pattern = "(?i)nunes(?i)";
             string replacement = "$$$$$$$$$ $$$$$$$$$";
             Regex rgx = new Regex(pattern);
             frase.Frase = rgx.Replace(frase.Frase, replacement);
