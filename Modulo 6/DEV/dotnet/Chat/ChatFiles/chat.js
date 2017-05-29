@@ -3,7 +3,7 @@ modulo.filter("mascada", function (){
     if (texto ==="undefined"){
         return;
     }
-   if (texto.toLowerCase().includes("nunes")){
+   if (texto.indexOf(/(nunes)/i)<0){
         return texto.replace(/(nunes)/i, "$$$$$$$$$ $$$$$$$$$")
     }
     else {
@@ -25,8 +25,8 @@ setInterval(function (){
     if (input=== undefined){
       input = "";
     }
-    let usuario = window.localStorage.getItem("nome")
-    let img = window.localStorage.getItem("img")
+    var usuario = window.localStorage.getItem("nome")
+    var  img = window.localStorage.getItem("img")
       chatService.enviarMensagem(input, usuario, img).then(function (response){
       buscarMensagens();
             $scope.input = {};
@@ -43,8 +43,8 @@ setInterval(function (){
   $scope.url = window.localStorage.getItem("img")
 
   if (window.localStorage.getItem("nome")=== null){
-      let usuario = prompt ("Digite seu nome.");
-      let foto = prompt("Insira uma foto.");
+      var usuarioNome = prompt ("Digite seu nome.");
+     var usuariofoto = prompt("Insira uma foto.");
       window.localStorage.setItem("nome", usuario)
       window.localStorage.setItem("img", foto)
     }

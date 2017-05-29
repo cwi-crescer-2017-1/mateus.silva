@@ -1,6 +1,6 @@
 modulo.factory("chatService", function ($http){
 
-let url = "http://localhost:61611/api/chat";
+var url = "http://localhost:61611/api/chat";
 
 
 function get (){
