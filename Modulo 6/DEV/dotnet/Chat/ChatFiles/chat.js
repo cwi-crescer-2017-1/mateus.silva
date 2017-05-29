@@ -3,8 +3,8 @@ modulo.filter("mascada", function (){
     if (texto ==="undefined"){
         return;
     }
-   if (texto.toLowerCase().includes("nunes")){
-        return texto.replace(/(nunes)/i, "$$$$$$$$$ $$$$$$$$$")
+   if (texto.toLowerCase().includes("nunes") || texto.toLowerCase().includes("andré")){
+        return texto.replace(texto, "$$$$$$$$$ $$$$$$$$$")
     }
     else {
         return texto;
