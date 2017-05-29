@@ -24,7 +24,7 @@ setInterval(function (){
 
   })};
 
-  window.localStorage.clear();
+  //window.localStorage.clear();
   $scope.url = window.localStorage.getItem("img")
 
   if (window.localStorage.getItem("nome")=== null){
