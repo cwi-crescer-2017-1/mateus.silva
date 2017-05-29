@@ -24,13 +24,13 @@ setInterval(function (){
 
   })};
 
-  //window.localStorage.clear();
+  window.localStorage.clear();
   $scope.url = window.localStorage.getItem("img")
 
   if (window.localStorage.getItem("nome")=== null){
-      var usuarioNome = prompt ("Digite seu nome.");
-     var usuariofoto = prompt("Insira uma foto.");
+      var usuario = prompt ("Digite seu nome.");
+     var img= prompt("Insira uma foto.");
       window.localStorage.setItem("nome", usuario)
-      window.localStorage.setItem("img", foto)
+      window.localStorage.setItem("img", img)
     }
 });
