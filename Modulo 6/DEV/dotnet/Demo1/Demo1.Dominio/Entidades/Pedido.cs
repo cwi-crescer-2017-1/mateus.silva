@@ -12,4 +12,6 @@ namespace Demo1.Dominio.Entidades
         public string NomeCliente { get; set; }
         public List<ItemPedido> Itens { get; set; }
     }
+
+
 }
