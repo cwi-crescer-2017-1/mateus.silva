@@ -20,11 +20,28 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText = @"UPDATE PEDIDO SET 
-                    NomeCliente =@nomeCliente Itens = @itens WHERE Id = @id";
+                    NomeCliente  WHERE Id = @id";
 
                     comando.Parameters.AddWithValue("@nomecliente", pedido.NomeCliente);
-                    comando.Parameters.AddWithValue("@itens", pedido.Itens);
                     comando.ExecuteNonQuery();
+                }
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = @"UPDATE ItemPedido SET ProdutoId =@idproduto, Quantidade = @quantidade WHERE id =@id";
+                    foreach (var item in pedido.Itens)
+                    {
+                        var idProduto = item.ProdutoId;
+                        var quantidade = item.Quantidade;
+
+                        //comando.CommandText = @"UPDATE Produto SET 
+                      //  Estoque = (SELECT Estoque FROM Produto  WHERE id =  @idProduto) - @quantidade   WHERE Id = @idProduto";
+                      //  comando.Parameters.AddWithValue("@idProduto", item.ProdutoId);
+
+                        comando.Parameters.AddWithValue("@id",  item.Id);
+                        comando.Parameters.AddWithValue("@idProduto", idProduto);
+                        comando.Parameters.AddWithValue("@quantidade", quantidade);
+                        comando.ExecuteNonQuery();
+                    }
                 }
             }        
         }
@@ -120,13 +137,13 @@ namespace Demo1.Infraestrutura.Repositorios
                 conexao.Open();
                 using (var comando = conexao.CreateCommand())
                 {
-                    comando.CommandText = @"SELECT  NomeCliente WHERE Id = @id";
-                   comando.Parameters.AddWithValue("@id", id);
+                    comando.CommandText = @"SELECT  NomeCliente FROM Pedido WHERE Id = @id";
+                    comando.Parameters.AddWithValue("@id", id);
                     var dataReader = comando.ExecuteReader();
                     while (dataReader.Read())
                     {
                         pedido = new Pedido();
-                        pedido.Id = (int)dataReader ["Id"];
+                      //  pedido.Id = (int)dataReader ["Id"];
                         pedido.NomeCliente = (string)dataReader["NomeCliente"];
                         foreach (var item in pedido.Itens)
                         {
