@@ -36,28 +36,33 @@ namespace Demo1.Infraestrutura.Repositorios
                 conexao.Open();
                 using (var comando = conexao.CreateCommand())
                 {
-                    //comando.CommandText = @"  INSERT INTO ItemPedido (ProdutoId, Quantidade) VALUES
-                    //( @idProduto, @quantidade) INSERT INTO Pedido (NomeCliente, Itens) VALUES 
-                   // (@nomeCliente, @itens)";
-                    comando.CommandText = @"  INSERT INTO ItemPedido (Id, ProdutoId, Quantidade) VALUES
-                    (@id,  @idProduto, @quantidade) INSERT INTO Pedido (NomeCliente) VALUES 
+                    comando.CommandText = @" INSERT INTO Pedido (NomeCliente) VALUES 
                     (@nomeCliente)";
+                    comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
+                    comando.ExecuteNonQuery();
+                }
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = @"  INSERT INTO ItemPedido ( ProdutoId, Quantidade) VALUES
+                    ( @idProduto, @quantidade) ";
                     foreach (var item in pedido.Itens)
                     {
                         var idProduto = item.ProdutoId;
                         var quantidade = item.Quantidade;
+
+                        comando.CommandText = @"UPDATE Produto SET 
+                        Estoque = (SELECT Estoque FROM Produto  WHERE id =  @idProduto) - @quantidade   WHERE Id = @idProduto";
+                        comando.Parameters.AddWithValue("@idProduto", item.ProdutoId);
+                       
+                        comando.ExecuteNonQuery();
+
+
                         comando.Parameters.AddWithValue("@id", pedido.Id);
                         comando.Parameters.AddWithValue("@idProduto", idProduto);
                         comando.Parameters.AddWithValue("@quantidade", quantidade);
                     }
-                    comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
-                    //comando.Parameters.AddWithValue("@itens", pedido.Itens);
-                    comando.Parameters.AddWithValue("@idPedido", pedido.Id);
-
-                 
-                    comando.ExecuteNonQuery();
-
                 }
+                   
             }
         }
 
@@ -116,7 +121,7 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText = @"SELECT  NomeCliente WHERE Id = @id";
-                    comando.Parameters.AddWithValue("@id", id);
+                   comando.Parameters.AddWithValue("@id", id);
                     var dataReader = comando.ExecuteReader();
                     while (dataReader.Read())
                     {
