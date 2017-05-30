@@ -32,7 +32,9 @@ namespace EditoraCrescer
                 };
 
                 contexto.Livros.Add(livro);
+                contexto.SaveChanges();
             }
         }
     }
-    }
+
+}
