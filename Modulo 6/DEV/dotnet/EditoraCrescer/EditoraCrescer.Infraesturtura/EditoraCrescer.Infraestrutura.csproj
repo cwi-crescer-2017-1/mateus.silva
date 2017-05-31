@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201705311303091_CorrecaoNomeTabelaRevisor.Designer.cs">
       <DependentUpon>201705311303091_CorrecaoNomeTabelaRevisor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705311644314_adicionarForeignKey.cs" />
+    <Compile Include="Migrations\201705311644314_adicionarForeignKey.Designer.cs">
+      <DependentUpon>201705311644314_adicionarForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\RepositorioAutor.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705311303091_CorrecaoNomeTabelaRevisor.resx">
       <DependentUpon>201705311303091_CorrecaoNomeTabelaRevisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311644314_adicionarForeignKey.resx">
+      <DependentUpon>201705311644314_adicionarForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
