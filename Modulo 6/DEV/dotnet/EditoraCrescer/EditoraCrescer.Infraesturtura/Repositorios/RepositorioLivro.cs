@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
@@ -13,9 +14,11 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
     
          private Contexto contexto = new Contexto();
 
-         public List<Livro> Obter()
+         public dynamic Obter()
          {
-             return contexto.Livros.ToList();
+            return contexto.Livros.Select
+                (x => new { x.Isbn, x.Titulo, x.Capa, x.Autor.Nome, x.Genero}).
+                ToList();
          }
     
         public Livro Obter(int isbn)
