@@ -54,6 +54,7 @@
     <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
+    <Compile Include="Mappings\RevisorMap.cs" />
     <Compile Include="Migrations\201705301944487_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301944487_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301944487_CriacaoDoBanco.cs</DependentUpon>
@@ -61,6 +62,10 @@
     <Compile Include="Migrations\201705310211595_updateAutorRepositorio.cs" />
     <Compile Include="Migrations\201705310211595_updateAutorRepositorio.Designer.cs">
       <DependentUpon>201705310211595_updateAutorRepositorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705311303091_CorrecaoNomeTabelaRevisor.cs" />
+    <Compile Include="Migrations\201705311303091_CorrecaoNomeTabelaRevisor.Designer.cs">
+      <DependentUpon>201705311303091_CorrecaoNomeTabelaRevisor.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705310211595_updateAutorRepositorio.resx">
       <DependentUpon>201705310211595_updateAutorRepositorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311303091_CorrecaoNomeTabelaRevisor.resx">
+      <DependentUpon>201705311303091_CorrecaoNomeTabelaRevisor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
