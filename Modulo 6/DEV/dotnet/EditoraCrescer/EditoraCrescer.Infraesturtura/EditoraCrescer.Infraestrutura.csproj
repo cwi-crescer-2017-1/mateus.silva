@@ -71,6 +71,14 @@
     <Compile Include="Migrations\201705311644314_adicionarForeignKey.Designer.cs">
       <DependentUpon>201705311644314_adicionarForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705311901370_adicionarCapa.cs" />
+    <Compile Include="Migrations\201705311901370_adicionarCapa.Designer.cs">
+      <DependentUpon>201705311901370_adicionarCapa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705311959387_ArrumarFks.cs" />
+    <Compile Include="Migrations\201705311959387_ArrumarFks.Designer.cs">
+      <DependentUpon>201705311959387_ArrumarFks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\RepositorioAutor.cs" />
@@ -95,6 +103,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705311644314_adicionarForeignKey.resx">
       <DependentUpon>201705311644314_adicionarForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311901370_adicionarCapa.resx">
+      <DependentUpon>201705311901370_adicionarCapa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311959387_ArrumarFks.resx">
+      <DependentUpon>201705311959387_ArrumarFks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

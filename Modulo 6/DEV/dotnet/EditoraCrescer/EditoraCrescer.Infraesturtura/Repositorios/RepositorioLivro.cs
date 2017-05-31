@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
-   public  class RepositorioLivro
+   public  class RepositorioLivro : IDisposable
     {
 
     
@@ -18,19 +18,44 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
              return contexto.Livros.ToList();
          }
     
+        public Livro Obter(int isbn)
+        {
+            return contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
+        }
+
+        public Livro Obter(string genero)
+        {
+            return contexto.Livros.FirstOrDefault(a => a.Genero.Contains(genero));
+        }
+
          public void Criar(Livro livro)
          {
             contexto.Livros.Add(livro);
             contexto.SaveChanges();
          }
 
-         public void Remover(int id)
+         public void Remover(int isbn)
          {
-            var livro = contexto.Livros.FirstOrDefault(a => (a.Isbn == id));
+            var livro = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
             contexto.Livros.Remove(livro);
             contexto.SaveChanges();
         }
 
+        public  void Alterar   (int isbn, Livro livro)
+        {
+            ////if (isbn!=livro.Isbn)
+            ////{
+            ////    return; };
 
+             var livroBuscado = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
+             livroBuscado = livro;
+             contexto.Entry(livroBuscado).State = System.Data.Entity.EntityState.Modified;
+             contexto.SaveChanges();
+        }  
+
+         public void Dispose()
+         {    
+            contexto.Dispose();
+         }
     }
 }
