@@ -12,7 +12,7 @@ namespace EditoraCrescer.Api.Controllers
 {
     public class LivrosController : ApiController
     {
-        private LivroRepositorio repositorio = new LivroRepositorio();
+        private RepositorioLivro repositorio = new RepositorioLivro();
 
         public IHttpActionResult Get()
         {
@@ -23,7 +23,7 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult Post(Livro livro)
         {
             repositorio.Criar(livro);
-            return Ok();
+            return Ok(livro);
         }
 
          public IHttpActionResult Delete (int id)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
-   public  class LivroRepositorio
+   public  class RepositorioLivro
     {
 
     
@@ -27,8 +27,6 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
          public void Remover(int id)
          {
             var livro = contexto.Livros.FirstOrDefault(a => (a.Isbn == id));
-
-
             contexto.Livros.Remove(livro);
             contexto.SaveChanges();
         }

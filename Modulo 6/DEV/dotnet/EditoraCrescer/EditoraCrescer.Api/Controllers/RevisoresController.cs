@@ -4,35 +4,31 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using EditoraCrescer.Infraestrutura.Entidades;
+using EditoraCrescer.Infraesturtura.Entidades;
 using EditoraCrescer.Infraesturtura.Repositorios;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    public class AutoresController : ApiController
+    public class RevisoresController : ApiController
     {
-
-        private  RepositorioAutor repositorio = new RepositorioAutor();
+        private RepositorioRevisor  repositorio = new RepositorioRevisor();
 
         public IHttpActionResult Get()
         {
-            var autores = repositorio.Obter();
-            return Ok(autores);
-        }
+           var revisor =  repositorio.Obter();
+           return Ok(revisor);
 
-        public IHttpActionResult Post(Autor autor)
+        }
+        public IHttpActionResult Post(Revisor revisor)
         {
-            repositorio.Criar(autor);
-            return Ok(autor);
+            repositorio.Criar(revisor);
+            return Ok(revisor);
 
         }
-
         public IHttpActionResult Delete(int id)
         {
             repositorio.Remover(id);
             return Ok();
-
         }
-
     }
 }

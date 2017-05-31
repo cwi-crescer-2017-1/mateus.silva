@@ -7,7 +7,7 @@ using EditoraCrescer.Infraestrutura.Entidades;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
-   public  class AutorRepositorio
+   public  class RepositorioAutor
     {
         private Contexto contexto = new Contexto();
         public List<Autor> Obter()
