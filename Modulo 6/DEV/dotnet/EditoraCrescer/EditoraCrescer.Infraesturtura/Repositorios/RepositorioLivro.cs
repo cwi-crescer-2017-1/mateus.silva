@@ -17,7 +17,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
          public dynamic Obter()
          {
             return contexto.Livros.Select
-                (x => new { x.Isbn, x.Titulo, x.Capa, x.Autor.Nome, x.Genero}).
+                (l => new { l.Isbn, l.Titulo, l.Capa, l.Autor.Nome, l.Genero}).
                 ToList();
          }
     
@@ -26,12 +26,15 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             return contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
         }
 
-        public Livro Obter(string genero)
+        public dynamic Obter(string genero)
         {
-            return contexto.Livros.FirstOrDefault(a => a.Genero.Contains(genero));
+            var livro = contexto.Livros.Select(l => new { l.Isbn, l.Titulo, l.Capa, l.Autor.Nome, l.Genero })
+           .FirstOrDefault(a => a.Genero.Contains(genero));
+            return livro;
+
         }
 
-         public void Criar(Livro livro)
+        public void Criar(Livro livro)
          {
             contexto.Livros.Add(livro);
             contexto.SaveChanges();
