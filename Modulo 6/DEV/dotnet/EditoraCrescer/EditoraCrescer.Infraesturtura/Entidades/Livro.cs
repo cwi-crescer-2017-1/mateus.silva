@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EditoraCrescer.Infraesturtura.Entidades;
 
 namespace EditoraCrescer.Infraestrutura.Entidades
 {
@@ -15,5 +16,8 @@ namespace EditoraCrescer.Infraestrutura.Entidades
         public DateTime DataPublicacao { get; set; }
         public int IdAutor { get; set; }
         public Autor Autor { get; set; }
+        public Revisor revisor { get; set; }
+        public int IdRevisor {get;set;}
+        public DateTime DataRevisao { get; set; }
     }
 }
