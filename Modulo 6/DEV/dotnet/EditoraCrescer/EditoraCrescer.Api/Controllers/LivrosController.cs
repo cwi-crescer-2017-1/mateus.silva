@@ -33,7 +33,7 @@ namespace EditoraCrescer.Api.Controllers
         [Route("lancamentos")]
         public IHttpActionResult GetLivroDosUltimos7Dias()
         {
-            var livros = repositorio.obterLivrosDaSemana();
+            var livros = repositorio.obterLivrosDosUltimos7Dias();
             return Ok(new { dado = livros });
         }
 
@@ -65,6 +65,10 @@ namespace EditoraCrescer.Api.Controllers
             return Ok();
         }
 
-         
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }

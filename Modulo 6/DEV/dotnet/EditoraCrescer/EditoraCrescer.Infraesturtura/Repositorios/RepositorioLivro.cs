@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Globalization;
+using System.Collections;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
@@ -35,20 +36,35 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         }
 
-        public dynamic obterLivrosDaSemana()
+        public dynamic obterLivrosDosUltimos7Dias()
         
         {
-            // ; ;  DateTime.Now.Day
-            //Livro y = contexto.Livros.FirstOrDefault(a => a.Genero.Contains("aventura"));
-            //var b = y.DataPublicacao.Day - DateTime.Now.Day;
-            //  if (y.DataPublicacao.Day < DateTime.Now.Day)
-            //  {
-            //   var a = 2 + 1;
-            // }
 
-              return contexto.Livros.Where(l => DateTime.Now.Day - l.DataPublicacao.Day == 27);
-     //Select(l => new { l.Isbn, l.Titulo, l.Capa, l.Autor.Nome, l.Genero }).ToList();
-          
+            return contexto.Livros.ToList().Where(l =>
+            {
+                if (l.DataPublicacao.Month == DateTime.Now.Month && DateTime.Now.Year == l.DataPublicacao.Year)
+                {
+                    return DateTime.Now.Day - l.DataPublicacao.Day <= 7;
+                }
+                else if ((DateTime.Now.Month - l.DataPublicacao.Month == 1) && DateTime.Now.Year == l.DataPublicacao.Year)
+                {
+                    if (l.DataPublicacao.Day > 7)
+                    {
+                        return Math.Abs(l.DataPublicacao.Day - DateTime.Now.Day - l.DataPublicacao.Day) <= 7;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+
+            }).Select
+                (x => new { x.Isbn, x.Titulo, x.Capa,  x.Genero });      
+
         }
 
         public void Criar(Livro livro)
@@ -78,5 +94,9 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
          {    
             contexto.Dispose();
          }
+
+      
+
+
     }
 }
