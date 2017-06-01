@@ -26,6 +26,7 @@ height: 0;
 img {
   width: 80px;
   height: 100px;
+  margin-left: 15px;
 }
 .lancamentosDiv{
   margin-top: 80px;
@@ -44,10 +45,36 @@ img {
 }
 .lancamentos {
   margin :0;
-  margin-top: 50px;
+  margin-top: 60px;
+
 }
 ul{
    list-style-type:none;
-  width: 150px;
+  width: 200px;
   float: left;
+}
+.todosOsLivrosDiv{
+  margin-top: 300px;
+  width: 100%;
+  text-align: center;
+}
+.todosOsLivrosDiv p{
+  line-height: 60px;
+  font-family: Goudy Stout;
+  color: white;
+  opacity: 0.7;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
+  background: rgba(0, 0, 0, .2);
+  font-size: 30px;
+  text-align: center;
+ margin-top: -10px;
+}
+li{
+  font-family: Goudy Stout;
+  color: white;
+  width: 200px;
+}
+.todos {
+  margin :0;
+  margin-top: 60px;
 }
