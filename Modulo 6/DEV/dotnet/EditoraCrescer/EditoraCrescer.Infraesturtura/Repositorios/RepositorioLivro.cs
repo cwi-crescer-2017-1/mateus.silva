@@ -39,31 +39,10 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         public dynamic obterLivrosDosUltimos7Dias()
         
         {
-
-            return contexto.Livros.ToList().Where(l =>
-            {
-                if (l.DataPublicacao.Month == DateTime.Now.Month && DateTime.Now.Year == l.DataPublicacao.Year)
-                {
-                    return DateTime.Now.Day - l.DataPublicacao.Day <= 7;
-                }
-                else if ((DateTime.Now.Month - l.DataPublicacao.Month == 1) && DateTime.Now.Year == l.DataPublicacao.Year)
-                {
-                    if (l.DataPublicacao.Day > 7)
-                    {
-                        return Math.Abs(l.DataPublicacao.Day - DateTime.Now.Day - l.DataPublicacao.Day) <= 7;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-
-            }).Select
-                (x => new { x.Isbn, x.Titulo, x.Capa,  x.Genero });      
+            var data = DateTime.Now.AddDays(-7);
+            return contexto.Livros.Where (l=> l.DataPublicacao >= data)
+            .Select
+            (x => new { x.Isbn, x.Titulo, x.Capa, x.Autor.Nome, x.Genero }).ToList();      
 
         }
 
