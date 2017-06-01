@@ -29,15 +29,21 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dado = livro });
         }
 
+        [HttpGet]
+        [Route("lancamentos")]
+        public IHttpActionResult GetLivroDosUltimos7Dias()
+        {
+            var livros = repositorio.obterLivrosDaSemana();
+            return Ok(new { dado = livros });
+        }
+
         [Route("{isbn:int}")]
         public IHttpActionResult Put(int isbn, Livro livro)
         {
                 repositorio.Alterar(isbn, livro);
                 return Ok(new { dado = livro }); 
         }
-
     
-
         [Route("{genero}")]
         public IHttpActionResult Get(string genero)
         {

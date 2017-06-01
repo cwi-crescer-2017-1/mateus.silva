@@ -35,15 +35,21 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         }
 
-        //public dynamic obterLivrosDaSemana()
+        public dynamic obterLivrosDaSemana()
+        
+        {
+            // ; ;  DateTime.Now.Day
+            //Livro y = contexto.Livros.FirstOrDefault(a => a.Genero.Contains("aventura"));
+            //var b = y.DataPublicacao.Day - DateTime.Now.Day;
+            //  if (y.DataPublicacao.Day < DateTime.Now.Day)
+            //  {
+            //   var a = 2 + 1;
+            // }
 
-      //  {
-         // ///  Calendar c;
-         //   var semana =  c.GetWeekOfYear(DateTime.Now, DateTime.Now.Day); 
-         //   var livro = contexto.Livros.Where(l => l.DataPublicacao.Date <= DateTime.Now.DayOfWeek).
-         //       Select(l => new { l.Isbn, l.Titulo, l.Capa, l.Autor.Nome, l.Genero });
-       //   / 
-       // }
+              return contexto.Livros.Where(l => DateTime.Now.Day - l.DataPublicacao.Day == 27);
+     //Select(l => new { l.Isbn, l.Titulo, l.Capa, l.Autor.Nome, l.Genero }).ToList();
+          
+        }
 
         public void Criar(Livro livro)
          {
