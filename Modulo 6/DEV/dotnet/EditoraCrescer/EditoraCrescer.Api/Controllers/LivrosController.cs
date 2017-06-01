@@ -38,10 +38,18 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [Route("{isbn:int}")]
-        public IHttpActionResult Put(int isbn, Livro livro)
+        public HttpResponseMessage Put(int isbn, Livro livro)
         {
+            if (isbn!= livro.Isbn)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Id não confere com livro passado" } });
+            }
+            if (!repositorio.verificaExistenciaDelivro(isbn))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Livro não existe" } });
+            }
                 repositorio.Alterar(isbn, livro);
-                return Ok(new { dado = livro }); 
+            return Request.CreateResponse(HttpStatusCode.OK, new { dado = livro });
         }
     
         [Route("{genero}")]
@@ -59,14 +67,20 @@ namespace EditoraCrescer.Api.Controllers
         }
 
          [Route("{isbn}")]
-         public IHttpActionResult Delete (int isbn)
+         public HttpResponseMessage Delete (int isbn)
          {
-           repositorio.Remover(isbn);
-            return Ok();
+            if (!repositorio.verificaExistenciaDelivro(isbn))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Livro não existe" } });
+            }
+            repositorio.Remover(isbn);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         protected override void Dispose(bool disposing)
         {
+
             repositorio.Dispose();
             base.Dispose(disposing);
         }

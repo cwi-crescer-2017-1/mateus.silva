@@ -62,20 +62,18 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         public  void Alterar(int isbn, Livro livro)
         {
             var livroBuscado = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
-            if (isbn == livro.Isbn && livroBuscado!=null)
-            {
-                contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
-                contexto.SaveChanges();
-            }
+            contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
+            contexto.SaveChanges();
+            
         }  
 
+        public bool verificaExistenciaDelivro(int isbn)
+        {
+            return contexto.Livros.Count(l => (l.Isbn == isbn))>0;
+        }
          public void Dispose()
          {    
             contexto.Dispose();
          }
-
-      
-
-
     }
 }
