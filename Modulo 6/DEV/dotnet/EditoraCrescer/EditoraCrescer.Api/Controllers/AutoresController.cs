@@ -48,14 +48,12 @@ namespace EditoraCrescer.Api.Controllers
         {
             repositorio.Criar(autor);
             return Ok(new { dado = autor });
-
         }
         [Route("{id:int}")]
         public IHttpActionResult Delete(int id)
         {
             repositorio.Remover(id);
             return Ok();
-
         }
 
     }
