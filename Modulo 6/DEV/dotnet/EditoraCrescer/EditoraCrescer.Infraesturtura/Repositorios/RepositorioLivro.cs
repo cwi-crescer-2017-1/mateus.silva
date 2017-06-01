@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Globalization;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
@@ -34,6 +35,16 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         }
 
+        //public dynamic obterLivrosDaSemana()
+
+      //  {
+         // ///  Calendar c;
+         //   var semana =  c.GetWeekOfYear(DateTime.Now, DateTime.Now.Day); 
+         //   var livro = contexto.Livros.Where(l => l.DataPublicacao.Date <= DateTime.Now.DayOfWeek).
+         //       Select(l => new { l.Isbn, l.Titulo, l.Capa, l.Autor.Nome, l.Genero });
+       //   / 
+       // }
+
         public void Criar(Livro livro)
          {
             contexto.Livros.Add(livro);
@@ -47,16 +58,14 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             contexto.SaveChanges();
         }
 
-        public  void Alterar   (int isbn, Livro livro)
+        public  void Alterar(int isbn, Livro livro)
         {
-            ////if (isbn!=livro.Isbn)
-            ////{
-            ////    return; };
-
-             var livroBuscado = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
-             livroBuscado = livro;
-             contexto.Entry(livroBuscado).State = System.Data.Entity.EntityState.Modified;
-             contexto.SaveChanges();
+            var livroBuscado = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
+            if (isbn == livro.Isbn && livroBuscado!=null)
+            {
+                contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
+                contexto.SaveChanges();
+            }
         }  
 
          public void Dispose()

@@ -32,8 +32,8 @@ namespace EditoraCrescer.Api.Controllers
         [Route("{isbn:int}")]
         public IHttpActionResult Put(int isbn, Livro livro)
         {
-            repositorio.Alterar(isbn, livro);
-            return Ok(new { dado = livro });
+                repositorio.Alterar(isbn, livro);
+                return Ok(new { dado = livro }); 
         }
 
     
