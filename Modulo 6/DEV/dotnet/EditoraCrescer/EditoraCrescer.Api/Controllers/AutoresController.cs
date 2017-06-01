@@ -38,10 +38,20 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [Route("{id:int}")]
-        public IHttpActionResult Put(int id, Autor autor)
+        public HttpResponseMessage Put(int id, Autor autor)
         {
+
+            if (id != autor.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Id não confere com autor passado" } });
+            }
+            if (!repositorio.verificaExistenciaDeAutor(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Autor não existe" } });
+            }      
             repositorio.Alterar(id, autor);
-            return Ok(new { dado = autor });
+            return Request.CreateResponse(HttpStatusCode.OK, new { dado = autor });
+
         }
 
         public IHttpActionResult Post(Autor autor)
@@ -50,10 +60,16 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dado = autor });
         }
         [Route("{id:int}")]
-        public IHttpActionResult Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+
+            if (!repositorio.verificaExistenciaDeAutor(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Autor não existe" } });
+            }
+                            
             repositorio.Remover(id);
-            return Ok();
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
     }

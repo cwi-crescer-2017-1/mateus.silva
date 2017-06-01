@@ -37,13 +37,14 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public void Alterar(int id, Revisor revisor)
         {
-            var revisorBuscado = contexto.Revisores.FirstOrDefault(revi => (revi.Id == id));
+            var revisorBuscado = contexto.Revisores.FirstOrDefault(revi => (revi.Id == id));    
+            contexto.Entry(revisorBuscado).CurrentValues.SetValues(revisor);
+            contexto.SaveChanges();   
+        }
 
-            if (id == revisor.Id && revisorBuscado != null)
-            {
-                contexto.Entry(revisorBuscado).CurrentValues.SetValues(revisor);
-                contexto.SaveChanges();
-            }
+        public bool verificaExistenciaDeRevisor(int id)
+        {
+            return contexto.Revisores.Count(r => (r.Id == id)) > 0;
         }
 
     }

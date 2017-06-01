@@ -43,11 +43,15 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         public void Alterar(int id, Autor autor)
         {
             var autorBuscado = contexto.Autores.FirstOrDefault(a => (a.Id == id));
-            if (id == autor.Id && autorBuscado!= null)
-            {
+           
                 contexto.Entry(autorBuscado).CurrentValues.SetValues(autor);
                 contexto.SaveChanges();
-            }
+            
+        }
+
+        public bool verificaExistenciaDeAutor(int id)
+        {
+            return contexto.Autores.Count(a => (a.Id == id)) > 0;
         }
     }
 }

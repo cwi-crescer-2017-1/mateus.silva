@@ -33,16 +33,31 @@ namespace EditoraCrescer.Api.Controllers
 
         }
         [Route("{id}")]
-        public IHttpActionResult Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            if (!repositorio.verificaExistenciaDeRevisor(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Revisor não existe" } });
+            }
             repositorio.Remover(id);
-            return Ok();
+           return Request.CreateResponse(HttpStatusCode.OK);
         }
         [Route("{id}")]
-        public IHttpActionResult Put (int id, Revisor revisor)
+        public HttpResponseMessage Put (int id, Revisor revisor)
         {
+
+            if (id != revisor.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Id não confere com revisor passado" } });
+            }
+            if (!repositorio.verificaExistenciaDeRevisor(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Revisor não existe" } });
+            }
+            
             repositorio.Alterar(id, revisor);
-            return Ok(new { dado = revisor});
+            return Request.CreateResponse(HttpStatusCode.OK, new { dado = revisor });
+
         }
     }
 }
