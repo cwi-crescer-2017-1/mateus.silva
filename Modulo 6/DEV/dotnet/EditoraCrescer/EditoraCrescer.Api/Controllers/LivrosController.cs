@@ -26,7 +26,7 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult Get(int quantidadePular, int quantidadeTrazer)
         {
             var livros = repositorio.Paginacao(quantidadePular, quantidadeTrazer);
-            return Ok(livros);
+            return Ok(new { dado = livros });
         }
      
 

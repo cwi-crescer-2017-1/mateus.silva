@@ -77,8 +77,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         {
             return contexto.Livros.OrderBy(a=> a.DataPublicacao).Skip(p).Take(t).ToList();
         }
-
-
+        
          public void Dispose()
          {    
             contexto.Dispose();

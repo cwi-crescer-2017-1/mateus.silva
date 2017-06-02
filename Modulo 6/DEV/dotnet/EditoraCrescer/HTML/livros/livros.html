@@ -1,6 +1,6 @@
  <div class = "lancamentosDiv">  <p> Lançamentos </p>  </div>
  <div class="lancamentos"  >
-       <ul ng-repeat ="livro in livros.dado">
+       <ul id ="ul" ng-repeat ="livro in livrosLancamentos">
         <a class="btn btn-default  b1" href="#!/detalhe/{{livro.Isbn}}">
                <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
          <li>Titulo: {{livro.Titulo}}</li>
@@ -12,7 +12,7 @@
  </div>
  <div class = "todosOsLivrosDiv">  <p> Todos os Livros </p>  </div>
    <div class="todos"  >
-         <ul ng-repeat ="livro in livrosTodos.dado">
+         <ul ng-repeat ="livro in livros">
           <a class="btn btn-default  b1" href="#!/detalhe/{{livro.Isbn}}">
                  <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
            <li>Titulo: {{livro.Titulo}}</li>
@@ -21,3 +21,14 @@
            <li>Isbn: {{livro.Isbn}}</li>
          </ul>
    </div>
+ <div class="paginacao">
+   <div class="pagina">
+     <label for="quantidadePular">Página</label>
+         <input type="number" class="form-control" name="quantidadePular" ng-model="parametros.quantidadePular">
+   </div>
+   <div class="livroPorPagina">
+     <label for="quantidadeTrazer">Livros por página</label>
+     <input type="number" class="form-control" name="quantidadeTrazer" ng-model="parametros.quantidadeTrazer">
+   </div>
+     <button type="submit" class="btn btn-primary" ng-click ="buscar(parametros)">Buscar</button>
+  </div>

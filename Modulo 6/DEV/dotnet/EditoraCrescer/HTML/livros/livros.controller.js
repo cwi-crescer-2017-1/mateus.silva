@@ -1,20 +1,27 @@
-modulo.controller("LivrosController", function ($scope, livrosService){
+modulo.controller("LivrosController", function ($scope, livrosService, $http){
+
 buscarLancamentos();
 buscarTodosOsLivros ();
-console.log($scope.livros);
+$scope.buscar = buscar;
+
 
 
 function buscarLancamentos (){
       livrosService.buscarLancamentos().then(function(response){
-      $scope.livros = response.data;
+      $scope.livrosLancamentos = response.data.dado;
     })};
 
 
-    function buscarTodosOsLivros (){
+function buscarTodosOsLivros (){
           livrosService.buscarTodosOsLivros().then(function(response){
-          $scope.livrosTodos = response.data;
+          $scope.livros = response.data.dado;
         })};
 
+
+function buscar (parametros){
+      livrosService.buscar(parametros).then(function(response){
+        $scope.livros = response.data.dado;
+    })};
 
 
 });
