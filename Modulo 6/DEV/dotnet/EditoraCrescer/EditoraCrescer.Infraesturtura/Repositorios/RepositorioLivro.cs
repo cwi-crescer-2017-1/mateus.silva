@@ -25,7 +25,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
     
         public Livro Obter(int isbn)
         {
-            return contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
+            return contexto.Livros.Include(x => x.Autor).FirstOrDefault(a => (a.Isbn == isbn));
+           
         }
 
         public dynamic Obter(string genero)
@@ -71,6 +72,13 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         {
             return contexto.Livros.Count(l => (l.Isbn == isbn))>0;
         }
+
+        public IEnumerable Paginacao (int p, int t)
+        {
+            return contexto.Livros.OrderBy(a=> a.DataPublicacao).Skip(p).Take(t).ToList();
+        }
+
+
          public void Dispose()
          {    
             contexto.Dispose();

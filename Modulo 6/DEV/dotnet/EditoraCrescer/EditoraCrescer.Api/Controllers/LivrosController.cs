@@ -21,6 +21,14 @@ namespace EditoraCrescer.Api.Controllers
             var livros = repositorio.Obter();
             return Ok(new { dado = livros });
         }
+        
+        [Route("{quantidadePular:int}/{quantidadeTrazer:int}")]
+        public IHttpActionResult Get(int quantidadePular, int quantidadeTrazer)
+        {
+            var livros = repositorio.Paginacao(quantidadePular, quantidadeTrazer);
+            return Ok(livros);
+        }
+     
 
 
         [Route("{isbn:int}")]
@@ -78,6 +86,9 @@ namespace EditoraCrescer.Api.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+
+    
 
         protected override void Dispose(bool disposing)
         {
