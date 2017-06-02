@@ -1,12 +1,11 @@
- <div class = "lancamentosDiv">  <p> Lançamentos </p>  </div>
+
+
+     <div class = "lancamentosDiv">  <p> Lançamentos </p>  </div>
  <div class="lancamentos"  >
        <ul id ="ul" ng-repeat ="livro in livrosLancamentos">
         <a class="btn btn-default  b1" href="#!/detalhe/{{livro.Isbn}}">
                <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
-         <li>Titulo: {{livro.Titulo}}</li>
-         <li>Autor: {{livro.Nome}}</li>
-         <li>Genero: {{livro.Genero}}</li>
-         <li>Isbn: {{livro.Isbn}}</li>
+         <li>Título: {{livro.Titulo}}</li>
        </ul>
 
  </div>

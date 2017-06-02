@@ -103,3 +103,7 @@ li{
  height: 300px;
  align-items: center;
 }
+.voltar a{
+  margin-left: 50%;
+  transform: translatex(-25%);
+}
