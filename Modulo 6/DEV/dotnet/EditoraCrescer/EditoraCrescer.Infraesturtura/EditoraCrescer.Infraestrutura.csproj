@@ -50,11 +50,16 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
+    <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\Permissao.cs" />
     <Compile Include="Entidades\Revisor.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
+    <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\201705301944487_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301944487_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301944487_CriacaoDoBanco.cs</DependentUpon>
@@ -79,11 +84,24 @@
     <Compile Include="Migrations\201705311959387_ArrumarFks.Designer.cs">
       <DependentUpon>201705311959387_ArrumarFks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706030142133_CriacaoDePermissaoEUsuario.cs" />
+    <Compile Include="Migrations\201706030142133_CriacaoDePermissaoEUsuario.Designer.cs">
+      <DependentUpon>201706030142133_CriacaoDePermissaoEUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706030216022_CriacaoDePermissaoEUsuario1.cs" />
+    <Compile Include="Migrations\201706030216022_CriacaoDePermissaoEUsuario1.Designer.cs">
+      <DependentUpon>201706030216022_CriacaoDePermissaoEUsuario1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706030221143_CriacaoDePermissaoEUsuario2.cs" />
+    <Compile Include="Migrations\201706030221143_CriacaoDePermissaoEUsuario2.Designer.cs">
+      <DependentUpon>201706030221143_CriacaoDePermissaoEUsuario2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\RepositorioAutor.cs" />
     <Compile Include="Repositorios\RepositorioLivro.cs" />
     <Compile Include="Repositorios\RepositorioRevisor.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -109,6 +127,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705311959387_ArrumarFks.resx">
       <DependentUpon>201705311959387_ArrumarFks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706030142133_CriacaoDePermissaoEUsuario.resx">
+      <DependentUpon>201706030142133_CriacaoDePermissaoEUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706030216022_CriacaoDePermissaoEUsuario1.resx">
+      <DependentUpon>201706030216022_CriacaoDePermissaoEUsuario1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706030221143_CriacaoDePermissaoEUsuario2.resx">
+      <DependentUpon>201706030221143_CriacaoDePermissaoEUsuario2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
