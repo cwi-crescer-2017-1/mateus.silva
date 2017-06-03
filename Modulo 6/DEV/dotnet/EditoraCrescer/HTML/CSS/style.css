@@ -113,7 +113,8 @@ li{
   margin-left: 50%;
   transform: translatex(-25%);
 }
-.header a{
+.button a{
+
   float: right;
 }
 .login {

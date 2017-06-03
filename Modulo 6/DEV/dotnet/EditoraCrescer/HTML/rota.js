@@ -12,5 +12,9 @@ modulo.config(function($routeProvider) {
         templateUrl: "/login/login.html",
         controller: "LoginController"
       })
+      .when ("/registrar", {
+        templateUrl: "/login/registrar.html",
+        controller: "RegistrarController"
+      })
       .otherwise("/livros");
 });
