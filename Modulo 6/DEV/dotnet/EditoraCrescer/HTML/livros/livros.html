@@ -12,7 +12,7 @@
  <div class = "todosOsLivrosDiv">  <p> Todos os Livros </p>  </div>
    <div class="todos"  >
          <ul ng-repeat ="livro in livros">
-          <a class="btn btn-default  b1" href="#!/detalhe/{{livro.Isbn}}">
+          <a class="btn btn-default  b1" ng-href="#!/detalhe/{{livro.Isbn}}">
                  <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
            <li>Titulo: {{livro.Titulo}}</li>
            <li>Autor: {{livro.Nome}}</li>

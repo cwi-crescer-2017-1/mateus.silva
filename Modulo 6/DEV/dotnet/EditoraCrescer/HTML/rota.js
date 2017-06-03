@@ -8,5 +8,9 @@ modulo.config(function($routeProvider) {
         templateUrl: "/livros/detalhe.html",
         controller: "LivroDetalheController"
       })
+      .when ("/login", {
+        templateUrl: "/login/login.html",
+        controller: "LoginController"
+      })
       .otherwise("/livros");
 });

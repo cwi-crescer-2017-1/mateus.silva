@@ -9,11 +9,18 @@
     <title>HomePage</title>
   </head>
   <body>
-<div class="header"><p> Editora Crescer </p></div>
+<div class="header"><p> Editora Crescer </p>
+  <a class="btn btn-default  b1" ng-href="#!/login">
+   Login</a>
+</div>
+<div class="view">
+
+
+
 
 
      <ng-view></ng-view>
-
+</div>
 
   </body>
   <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -21,6 +28,7 @@
  <script src="modulo.js"></script>
   <script src="rota.js"></script>
   <script src="livros/livros.controller.js"></script>
+    <script src="login/login.controller.js"></script>
   <script src="livros/livros.service.js"></script>
     <script src="livros/livro.detalhe.service.js"></script>
   <script src="livros/livro.detalhe.controller.js"></script>
