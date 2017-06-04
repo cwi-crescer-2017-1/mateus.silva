@@ -17,6 +17,12 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             var usrAdmin = new Usuario("admin", "admin@cwi.com.br", "123456");
             usrAdmin.AtribuirPermissoes("Administrador");
             _usuarios.Add(usrAdmin.Email, usrAdmin);
+            var revisor  = new Usuario("revisor", "revisor@cwi.com.br", "123456");
+            revisor.AtribuirPermissoes("Revisor");
+            _usuarios.Add(revisor.Email, revisor);
+            var publicador = new Usuario("publicador", "publicador@cwi.com.br", "123456");
+            publicador.AtribuirPermissoes("Publicador");
+            _usuarios.Add(publicador.Email, publicador);
         }
 
         public UsuarioRepositorio()

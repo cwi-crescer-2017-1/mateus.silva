@@ -45,6 +45,9 @@
      <td>{{livro.Autor}}</td>
      <td><input type="button" class="btn btn-primary" name="editar" value="Editar"ng-click="editar(livro)"></td>
      <td><input type="button" class="btn btn-primary" name="excluir" value="Excluir"ng-click="deletar(livro)"></td>
+     <td ng-if="auth.possuiPermissao('Publicador')"><input type="button" class="btn btn-primary" name="publicar" value="Publicar"ng-click="publicar(livro)"></td></p>
+     <td ng-if="auth.possuiPermissao('Revisor')"> <input type="button" class="btn btn-primary" name="revisar" value="Revisar"ng-click="revisor(livro)"></td>
+
    </tr>
  </tbody>
 </table>

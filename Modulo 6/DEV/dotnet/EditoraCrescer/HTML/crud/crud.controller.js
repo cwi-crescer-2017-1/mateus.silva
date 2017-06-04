@@ -1,4 +1,6 @@
-modulo.controller ("CrudController", function ($scope, crudService){
+modulo.controller ("CrudController", function ($scope, crudService, authService){
+
+  $scope.auth = authService;
 
 listar ();
 $scope.salvar = salvar;
@@ -39,7 +41,7 @@ $scope.deletar = deletar;
       listar();
     })
     }
-  
+
 
 
 
