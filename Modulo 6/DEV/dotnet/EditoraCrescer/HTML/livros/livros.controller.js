@@ -1,4 +1,5 @@
-modulo.controller("LivrosController", function ($scope, livrosService, $http){
+modulo.controller("LivrosController", function ($scope, livrosService, authService, $http){
+
 
 buscarLancamentos();
 buscarTodosOsLivros ();

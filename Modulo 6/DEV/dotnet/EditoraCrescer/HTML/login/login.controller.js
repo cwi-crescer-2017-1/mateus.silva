@@ -1,10 +1,15 @@
 modulo.controller("LoginController", function ($scope, authService){
+let usuario = $scope.senha;
+console.log($scope.usuario);
+$scope.login  =login;
 
-$scope.login = function (usuario){
+
+function login (usuario){
 
   authService.login(usuario)
     .then(
       function (response) {
+        console.log(usuario);
         console.log(response);
         alert('Login com sucesso!');
 
@@ -12,7 +17,7 @@ $scope.login = function (usuario){
       function (response) {
         console.log(response);
         alert('Erro no Login!');
-      });  
+      });
 }
 
 });
