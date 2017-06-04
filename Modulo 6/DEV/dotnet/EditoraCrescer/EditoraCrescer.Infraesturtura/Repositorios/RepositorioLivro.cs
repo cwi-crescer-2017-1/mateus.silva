@@ -26,7 +26,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
     
         public Livro Obter(int isbn)
         {
-            return contexto.Livros.Include(x => x.Autor).FirstOrDefault(a => (a.Isbn == isbn));
+            return contexto.Livros.Include(x => x.Autor).Include(x => x.Revisor).FirstOrDefault(a => (a.Isbn == isbn));
            
         }
 
@@ -40,7 +40,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public dynamic obterLivrosNaoPublicados()
         {
-             return contexto.Livros.Where(l => l.DataPublicacao == null);
+             return contexto.Livros.Include(x => x.Autor).Include(x => x.Revisor).Where(l => l.DataPublicacao == null);
         }
         public dynamic obterLivrosDosUltimos7Dias()
         
@@ -56,8 +56,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
          {
             if (livro.Revisor == null)
             {
-                livro.Revisor =  new Revisor ();
-               // contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
+                livro.Revisor = new Revisor();
+                livro.Revisor.Nome = "";
             }
             contexto.Livros.Add(livro);
             contexto.SaveChanges();
@@ -72,8 +72,11 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public  void Alterar(int isbn, Livro livro)
         {
-            var livroBuscado = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
-            contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
+            // var livroBuscado = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
+            //  contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
+            contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
+            contexto.Entry(livro.Autor).State = System.Data.Entity.EntityState.Modified;
+            contexto.Entry(livro.Revisor).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
             
         }  

@@ -1,29 +1,31 @@
+<div ng-if="auth.isAutenticadoPromise()">  <button   class="btn btn-default  logoutb" ng-click="logout()">Logout</button></div>
+
 
 <div class="container">
-    <form  novalidate class="myForm2" name="myForm2">
-        <div class="nomeInstrutor">
-            <label for="nome">Título do Livro:</label>
+    <form  novalidate class="crud" name="crud">
+        <div class="crudDiv">
+            <label for="titulo">Título do Livro:</label>
             <input class="form-control " type="text" name="titulo" ng-model ="livro.Titulo"  placeholder="Digite  o título do livro"required ng-minlength="3" ng-maxlength="20"></input>
         </div>
-        <div class="sobrenome">
-            <label for="nome">Descricão:</label>
+        <div class="crudDiv">
+            <label for="descricao">Descricão:</label>
             <input class="form-control" type="text" name="descricao" ng-model ="livro.Descricao"  placeholder="digite a descricão do livro" ng-maxlength="20"></input>
         </div>
-        <div class="idade">
-            <label for="idadeInstrutor">Gênero:</label>
+        <div class="crudDiv d2">
+            <label for="genero">Gênero:</label>
             <input class="form-control" type="text" name="genero" ng-model ="livro.Genero"  required placeholder="max 90" max="90"></input>
         </div>
-        <div class="idade">
-            <label for="idadeInstrutor">Nome do autor:</label>
+        <div class="crudDiv d2">
+            <label for="autor">Nome do autor:</label>
             <input class="form-control" type="text" name="autor" ng-model ="livro.Autor.Nome"  required placeholder="max 90" max="90"></input>
         </div>
 
-        <div class="capa">
-            <label for="emailInstrutor">Capa do livro:</label>
+        <div class="capa crudDiv d2">
+            <label for="capa">Capa do livro:</label>
             <input class="form-control" type="img" name="capa" ng-model ="livro.Capa" placeholder="digite o email" required></input>
         </div>
-        </div>
-           <div class="incluirInstrutor">
+          
+           <div class="d2">
               <button class="btn btn-primary" type="button" ng-click= "salvar(livro)" name="button">salvar</button>
           </div>
    </form>
@@ -42,11 +44,11 @@
      <td>{{livro.Titulo}}</td>
      <td>{{livro.Descricao}}</td>
      <td>{{livro.Genero}}</td>
-     <td>{{livro.Autor}}</td>
+     <td>{{livro.Autor.Nome}}</td>
      <td><input type="button" class="btn btn-primary" name="editar" value="Editar"ng-click="editar(livro)"></td>
      <td><input type="button" class="btn btn-primary" name="excluir" value="Excluir"ng-click="deletar(livro)"></td>
      <td ng-if="auth.possuiPermissao('Publicador')"><input type="button" class="btn btn-primary" name="publicar" value="Publicar"ng-click="publicar(livro)"></td></p>
-     <td ng-if="auth.possuiPermissao('Revisor')"> <input type="button" class="btn btn-primary" name="revisar" value="Revisar"ng-click="revisor(livro)"></td>
+     <td ng-if="auth.possuiPermissao('Revisor')"> <input type="button" class="btn btn-primary" name="revisar" value="Revisar"ng-click="revisar(livro)"></td>
 
    </tr>
  </tbody>

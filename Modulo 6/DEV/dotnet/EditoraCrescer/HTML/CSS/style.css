@@ -1,6 +1,8 @@
+
+
 body{
     margin: 0;
-    background: linear-gradient(135deg, #044f48, #2a7561);
+ background: #c1bdba;
     padding: 0;
     height:800px;
 }
@@ -113,13 +115,46 @@ li{
   margin-left: 50%;
   transform: translatex(-25%);
 }
-.button a{
 
-  float: right;
-}
 .login {
   margin-left: 50%;
   transform: translatex(-50%);
   margin-top: 80px;
+  width: 40%;
+}
+.loginb{
+  float: right;
+  background-color: silver;
+}
+.logoutb{
+  float: right;
+  background-color: silver;
+}
+form {
+  color: #13232f;
+
+}
+.crud{
+  margin-left: 50%;
+  transform: translatex(-50%);
+  margin-top: 80px;
   width: 50%;
+}
+.crudDiv {
+  width: 50%;
+  float: left;
+}
+.d2{
+  width:25%;
+}
+.salvar{
+  float: left;
+}
+.d2 button{
+  margin-top: 25px;
+}
+table{
+  margin-left: 57%;
+  transform: translatex(-50%);
+  width: 80%;
 }

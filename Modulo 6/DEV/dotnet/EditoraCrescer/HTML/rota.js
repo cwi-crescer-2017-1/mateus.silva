@@ -18,7 +18,12 @@ modulo.config(function($routeProvider) {
       })
       .when ("/crud", {
         templateUrl: "/crud/crud.html",
-        controller: "CrudController"
+        controller: "CrudController",
+        resolve: {
+        autenticado: function (authService) {
+         return authService.isAutenticadoPromise();
+       }
+     }
       })
       .otherwise("/livros");
 });
