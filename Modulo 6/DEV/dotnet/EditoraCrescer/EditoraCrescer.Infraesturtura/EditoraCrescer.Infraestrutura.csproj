@@ -96,6 +96,26 @@
     <Compile Include="Migrations\201706030221143_CriacaoDePermissaoEUsuario2.Designer.cs">
       <DependentUpon>201706030221143_CriacaoDePermissaoEUsuario2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706031300175_update.cs" />
+    <Compile Include="Migrations\201706031300175_update.Designer.cs">
+      <DependentUpon>201706031300175_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706031447487_adicionarDbSetParaUsuarioEPermissao.cs" />
+    <Compile Include="Migrations\201706031447487_adicionarDbSetParaUsuarioEPermissao.Designer.cs">
+      <DependentUpon>201706031447487_adicionarDbSetParaUsuarioEPermissao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706031644225_guidToInt.cs" />
+    <Compile Include="Migrations\201706031644225_guidToInt.Designer.cs">
+      <DependentUpon>201706031644225_guidToInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706040031132_alterarDataParaPodeSerNulo.cs" />
+    <Compile Include="Migrations\201706040031132_alterarDataParaPodeSerNulo.Designer.cs">
+      <DependentUpon>201706040031132_alterarDataParaPodeSerNulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706040033015_DataDeRevisaoPodeSerNula.cs" />
+    <Compile Include="Migrations\201706040033015_DataDeRevisaoPodeSerNula.Designer.cs">
+      <DependentUpon>201706040033015_DataDeRevisaoPodeSerNula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\RepositorioAutor.cs" />
@@ -136,6 +156,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706030221143_CriacaoDePermissaoEUsuario2.resx">
       <DependentUpon>201706030221143_CriacaoDePermissaoEUsuario2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706031300175_update.resx">
+      <DependentUpon>201706031300175_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706031447487_adicionarDbSetParaUsuarioEPermissao.resx">
+      <DependentUpon>201706031447487_adicionarDbSetParaUsuarioEPermissao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706031644225_guidToInt.resx">
+      <DependentUpon>201706031644225_guidToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706040031132_alterarDataParaPodeSerNulo.resx">
+      <DependentUpon>201706040031132_alterarDataParaPodeSerNulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706040033015_DataDeRevisaoPodeSerNula.resx">
+      <DependentUpon>201706040033015_DataDeRevisaoPodeSerNula.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Globalization;
 using System.Collections;
+using EditoraCrescer.Infraesturtura.Entidades;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
@@ -37,6 +38,10 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         }
 
+        public dynamic obterLivrosNaoPublicados()
+        {
+             return contexto.Livros.Where(l => l.DataPublicacao == null);
+        }
         public dynamic obterLivrosDosUltimos7Dias()
         
         {
@@ -49,6 +54,11 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public void Criar(Livro livro)
          {
+            if (livro.Revisor == null)
+            {
+                livro.Revisor =  new Revisor ();
+               // contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
+            }
             contexto.Livros.Add(livro);
             contexto.SaveChanges();
          }
@@ -77,6 +87,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         {
             return contexto.Livros.OrderBy(a=> a.DataPublicacao).Skip(p).Take(t).ToList();
         }
+
+       
         
          public void Dispose()
          {    

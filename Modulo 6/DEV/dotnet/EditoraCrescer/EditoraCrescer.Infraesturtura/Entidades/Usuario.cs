@@ -18,17 +18,18 @@ namespace EditoraCrescer.Infraesturtura.Entidades
         public string Email { get;  set;}
         public string Senha { get;  set;}
         public List<Permissao> Permissoes { get; set;}
-   protected Usuario() { }
+
+        protected Usuario() { }
 
         public Usuario(string nome, string email, string senha)
         {
             Nome = nome;
             Email = email;
-         //   Id = 0;
+            Id = Guid.NewGuid();
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
-            //AtribuirPermissoes("Colaborador");
+            AtribuirPermissoes("Colaborador");
         }
 
         public string ResetarSenha()

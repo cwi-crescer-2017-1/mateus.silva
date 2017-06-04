@@ -9,20 +9,15 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 {
     public class UsuarioRepositorio
     {
-
+        Contexto contexto = new Contexto();
         static readonly Dictionary<string, Usuario> _usuarios = new Dictionary<string, Usuario>();
 
-        //static UsuarioRepositorio()
-        //{
-        //    // YWRtaW5AY3dpLmNvbS5icjoxMjM0NTY=
-        //    var usrAdmin = new Usuario("admin", "admin@cwi.com.br", "123456");
-        //    usrAdmin.AtribuirPermissoes("Administrador");
-        //    _usuarios.Add(usrAdmin.Email, usrAdmin);
-
-        //    // Z2lvdmFuaUBjd2kuY29tLmJyOjEyMzQ1Ng==
-        //    var usrGiovani = new Usuario("giovani", "giovani@cwi.com.br", "123456");
-        //    _usuarios.Add(usrGiovani.Email, usrGiovani);
-        //}
+        static UsuarioRepositorio()
+        {    
+            var usrAdmin = new Usuario("admin", "admin@cwi.com.br", "123456");
+            usrAdmin.AtribuirPermissoes("Administrador");
+            _usuarios.Add(usrAdmin.Email, usrAdmin);
+        }
 
         public UsuarioRepositorio()
         {
@@ -32,6 +27,10 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         public void Criar(Usuario usuario)
         {
             _usuarios.Add(usuario.Email, usuario);
+            contexto.Usuario.Add( usuario);
+            contexto.SaveChanges();
+
+
         }
 
         public void Alterar(Usuario usuario)
