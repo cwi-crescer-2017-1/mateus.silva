@@ -72,8 +72,6 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public  void Alterar(int isbn, Livro livro)
         {
-            // var livroBuscado = contexto.Livros.FirstOrDefault(a => (a.Isbn == isbn));
-            //  contexto.Entry(livroBuscado).CurrentValues.SetValues(livro);
             contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
             contexto.Entry(livro.Autor).State = System.Data.Entity.EntityState.Modified;
             contexto.Entry(livro.Revisor).State = System.Data.Entity.EntityState.Modified;
@@ -88,12 +86,23 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public IEnumerable Paginacao (int p, int t)
         {
-            return contexto.Livros.OrderBy(a=> a.DataPublicacao).Skip(p).Take(t).ToList();
+            var seteDiasAtras = DateTime.Now.AddDays(-7);
+            return contexto.Livros.Where(x => x.DataPublicacao != null &&
+                         DbFunctions.TruncateTime(x.DataPublicacao.Value) < seteDiasAtras).OrderBy(a=> a.DataPublicacao).Skip(p).Take(t).ToList();
         }
 
-       
-        
-         public void Dispose()
+        public int ObterQuantidadeLivrosPublicadosExcetoLancamentos()
+         {
+            var seteDiasAtras = DateTime.Now.AddDays(-7);
+             return contexto.Livros
+                     .Where(x => x.DataPublicacao != null &&
+                         DbFunctions.TruncateTime(x.DataPublicacao.Value) < seteDiasAtras)
+                     .Count();
+         }
+
+
+
+    public void Dispose()
          {    
             contexto.Dispose();
          }

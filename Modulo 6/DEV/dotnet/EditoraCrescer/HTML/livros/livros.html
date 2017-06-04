@@ -20,14 +20,7 @@
            <li>Isbn: {{livro.Isbn}}</li>
          </ul>
    </div>
+
  <div class="paginacao">
-   <div class="pagina">
-     <label for="quantidadePular">Página</label>
-         <input type="number" class="form-control" name="quantidadePular" ng-model="parametros.quantidadePular">
-   </div>
-   <div class="livroPorPagina">
-     <label for="quantidadeTrazer">Livros por página</label>
-     <input type="number" class="form-control" name="quantidadeTrazer" ng-model="parametros.quantidadeTrazer">
-   </div>
-     <button type="submit" class="btn btn-primary" ng-click ="buscar(parametros)">Buscar</button>
-  </div>
+     <ul uib-pagination total-items="totalItems"  ng-model="currentPage" ng-change="pageChanged()"></ul>{{totalItems}}
+</div>

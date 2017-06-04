@@ -6,17 +6,19 @@ function get (){
    return $http.get (`${url}/lancamentos`);
 };
 
-function getAll(){
- return $http.get (url);
+
+
+function getNaoPuclicados(){
+ return $http.get(`${url}/naopublicados`);
 };
 
-function paginacao(parametros) {
-      return $http.get(`${url}/${parametros.quantidadePular}/${parametros.quantidadeTrazer}`)
+function paginacao(page) {
+      return $http.get(`${url}/${page}/${10}`)
 };
 
 return{
   buscar :paginacao,
   buscarLancamentos: get,
-  buscarTodosOsLivros: getAll
+  naopublicados : getNaoPuclicados
 }
 });
