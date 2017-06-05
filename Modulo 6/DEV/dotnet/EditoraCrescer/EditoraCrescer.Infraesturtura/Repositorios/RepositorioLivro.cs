@@ -58,12 +58,11 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             if (livro.Revisor == null)
             {
                 livro.Revisor = new Revisor();
-                livro.Revisor.Nome = "";
             }
+            
             if (livro.Autor == null)
             {
-                livro.Autor = new Autor();
-                livro.Autor.Nome = "";
+                livro.Autor = new Autor();    
             }
 
             contexto.Livros.Add(livro);
@@ -99,6 +98,14 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             (x => new { x.Isbn, x.Titulo, x.Capa, x.Autor.Nome, x.Genero }).ToList(); 
         }
 
+        public IEnumerable PaginacaoLancamentos(int p, int t)
+        {
+            var seteDiasAtras = DateTime.Now.AddDays(-7);
+            return contexto.Livros.Where(x => x.DataPublicacao != null &&
+                         DbFunctions.TruncateTime(x.DataPublicacao.Value) > seteDiasAtras).OrderBy(a => a.DataPublicacao).Skip(p).Take(t).Select
+            (x => new { x.Isbn, x.Titulo, x.Capa, x.Autor.Nome, x.Genero }).ToList();
+        }
+
         public int ObterQuantidadeLivrosPublicadosExcetoLancamentos()
          {
             var seteDiasAtras = DateTime.Now.AddDays(-7);
@@ -108,9 +115,18 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
                      .Count();
          }
 
+        public int ObterQuantidadeLivrosPublicadosLancamentos()
+        {
+            var seteDiasAtras = DateTime.Now.AddDays(-7);
+            return contexto.Livros
+                    .Where(x => x.DataPublicacao != null &&
+                        DbFunctions.TruncateTime(x.DataPublicacao.Value) > seteDiasAtras)
+                    .Count();
+        }
 
 
-    public void Dispose()
+
+        public void Dispose()
          {    
             contexto.Dispose();
          }

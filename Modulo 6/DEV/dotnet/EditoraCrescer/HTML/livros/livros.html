@@ -7,6 +7,10 @@
         <li>Título: {{livro.Titulo}}</li>
      </ul>
  </div>
+ <div class="paginacao1">
+     <p class ="uib-custom-pagination" uib-pagination total-items="totalItemsLancamentos" items-per-page="1"    previous-text = "Anterior" next-text = "Próximo" ng-model="currentPageLancamentos" ng-change="pageChangedLancamentos()"></p>
+</div>
+
  <div class = "todosOsLivrosDiv">  <p> Coleção Antiga </p>  </div>
    <div class="todos"  >
          <ul ng-repeat ="livro in livros">

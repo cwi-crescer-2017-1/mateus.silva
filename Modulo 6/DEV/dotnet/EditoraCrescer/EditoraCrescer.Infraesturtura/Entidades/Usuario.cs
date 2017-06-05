@@ -12,7 +12,7 @@ namespace EditoraCrescer.Infraesturtura.Entidades
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
 
-        public Guid Id { get; set;} // identificador global único
+        public Guid Id { get; set;} 
       
         public string Nome { get; set; }
         public string Email { get;  set;}

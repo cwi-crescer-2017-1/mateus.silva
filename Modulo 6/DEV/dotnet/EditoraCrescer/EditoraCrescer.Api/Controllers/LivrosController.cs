@@ -24,12 +24,19 @@ namespace EditoraCrescer.Api.Controllers
 
         [HttpGet]
         [Route("excetoLancamentos")]
-        public IHttpActionResult GetExcentoLancamentos()
+        public IHttpActionResult GetExcetoLancamentos()
         {
             var livros = repositorio.ObterQuantidadeLivrosPublicadosExcetoLancamentos();
             return Ok(new { dado = livros });
         }
 
+        [HttpGet]
+        [Route("sohLancamentos")]
+        public IHttpActionResult GetSohQuantidadeLancamentos()
+        {
+            var livros = repositorio.ObterQuantidadeLivrosPublicadosLancamentos();
+            return Ok(new { dado = livros });
+        }
 
         [HttpGet]
         [Route("naopublicados")]
@@ -46,7 +53,12 @@ namespace EditoraCrescer.Api.Controllers
             var livros = repositorio.Paginacao(quantidadePular, quantidadeTrazer);
             return Ok(new { dado = livros });
         }
-     
+        [Route("sohLancamentos/{quantidadePular:int}/{quantidadeTrazer:int}")]
+        public IHttpActionResult GetSohLancamentos(int quantidadePular, int quantidadeTrazer)
+        {
+            var livros = repositorio.PaginacaoLancamentos(quantidadePular, quantidadeTrazer);
+            return Ok(new { dado = livros });
+        }
 
 
         [Route("{isbn:int}")]

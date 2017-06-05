@@ -1,21 +1,21 @@
 body{
-    margin: 0;
+  margin: 0;
   background-image: url("https://images2.alphacoders.com/261/26102.jpg");
- background-repeat: no-repeat;
-    padding: 0;
-    height:800px;
-
+  background-repeat: no-repeat;
+  padding: 0;
+  height:800px;
+  position:sticky;
 }
-
-li img {
+li img
+{
   background: rgba(0, 0, 0, .5);
 }
 div{
   width: 100%;
   float: left;
 }
-
-.header  p{
+.header  p
+{
   margin-left: 50%;
   transform: translatex(-50%);
   position: absolute;
@@ -28,54 +28,55 @@ div{
   background: rgba(26, 27, 28, .8);
   font-size: 30px;
   text-align: center;
-
 }
-img {
+img
+{
   width: 80px;
   height: 100px;
   margin-left: 15px;
-
 }
 .lancamentosDiv{
   margin-top: 80px;
   width: 100%;
 }
-.lancamentosDiv p{
+.lancamentosDiv p
+{
   line-height: 60px;
   font-family: Goudy Stout;
   color: white;
   opacity: 0.7;
   font-size: 30px;
   text-align: center;
- margin-top: -10px;
- box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
- background: rgba(26, 27, 28, .8);
+  margin-top: -10px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
 }
-.lancamentos {
-  margin :0;
-  margin-top: 60px;
+.lancamentos
+{
 
+  margin-top: 30px;
 }
-ul{
-   list-style-type:none;
+ul
+{
+  list-style-type:none;
   width: 20%;
   float: left;
   margin-left: -8px;
 }
-
-.todosOsLivrosDiv p{
+.todosOsLivrosDiv p
+{
   box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
   background: rgba(26, 27, 28, .8);
   line-height: 60px;
   font-family: Goudy Stout;
   color: white;
   opacity: 0.7;
-
   font-size: 30px;
   text-align: center;
   margin-top: -10px;
 }
-li{
+li
+{
   font-family: arial;
   color: white;
   width: 200px;
@@ -83,30 +84,35 @@ li{
 }
 .todos {
   margin :0;
-  margin-top: 60px;
+  margin-top: 30px;
 }
-
-.pagina input{
+.pagina input
+{
   width: 7%;
 }
-.livroPorPagina input{
+.livroPorPagina input
+{
   width: 7%;
 }
 
-.detalhes{
+.detalhes
+{
   margin-top: 20px;
 }
 
-.detalhes li{
+.detalhes li
+{
  width: 200px;
  margin-left: 220%;
 }
-.detalhes img{
+.detalhes img
+{
  width: 200px;
  height: 300px;
 
 }
-.home a{
+.home a
+{
   position: relative;
   height: 60px;
   width: 150px;
@@ -118,7 +124,8 @@ li{
   background: rgba(26, 27, 28, .8);
   color: white;
 }
-.logoutb{
+.logoutb
+{
   position: relative;
   height: 60px;
   width: 100px;
@@ -130,15 +137,15 @@ li{
   background: rgba(26, 27, 28, .8);
   color: white;
 }
-
-
-.login {
+.login
+{
   margin-left: 50%;
   transform: translatex(-50%);
   margin-top: 80px;
   width: 40%;
 }
-.loginb{
+.loginb
+{
   position: relative;
   height: 60px;
   width: 100px;
@@ -150,13 +157,14 @@ li{
   background: rgba(26, 27, 28, .8);
   color: white;
 }
-.logoutb{
+.logoutb
+{
   float: right;
   background-color: silver;
 }
-form {
+form
+{
   color: white;
-
 }
 .crud{
   margin-left: 50%;
@@ -164,65 +172,96 @@ form {
   margin-top: 80px;
   width: 50%;
 }
-.crudDiv {
+.crudDiv
+{
   width: 50%;
   float: left;
 }
-.d2{
+.d2
+{
   width:25%;
 }
-.salvar{
+.salvar
+{
   float: left;
 }
-.d2 button{
+.d2 button
+{
   margin-top: 25px;
 }
-table{
+table
+{
   margin-left: 57%;
   transform: translatex(-50%);
   width: 80%;
   color:white;
 }
-.paginacao {
-width:225px;
-margin-left: 41%;
+.paginacao
+{
+   width:225px;
+   margin-left: 41%;
 }
-
-.btn-primary {
-   box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
-  background: rgba(26, 27, 28, .8);
-  border-color: black;
-  color: white;
+.paginacao1
+{
+   width:300px;
+   margin-left: 39%;
 }
-
-.btn-default{
+.btn-primary
+{
   box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
   background: rgba(26, 27, 28, .8);
   border-color: black;
   color: white;
 }
-.pagination>li>a, .pagination>li>span {
-    position: relative;
-    float: left;
-    padding: 6px 12px;
-    margin-left: -1px;
-    line-height: 1.42857143;
-    color: white;
-    background: rgba(26, 27, 28, .8);
-    border-color: black;
-    border: 1px solid black;
+.btn-default
+{
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  border-color: black;
+  color: white;
 }
-.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-    z-index: 3;
-    color: white;
-    cursor: default;
-     background: rgba(26, 27, 28, .8);
-      border-color: black;
-    border-color: black;
+.pagination>li>a, .pagination>li>span
+{
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: white;
+  background: rgba(26, 27, 28, .8);
+  border-color: black;
+  border: 1px solid black;
 }
-.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover
+{
+  z-index: 3;
+  color: white;
+  cursor: default;
+  background: rgba(26, 27, 28, .8);
+  border-color: black;
+  border-color: black;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover
+{
   color: white;
   cursor: not-allowed;
-background: rgba(26, 27, 28, .8);
+  background: rgba(26, 27, 28, .8);
   border-color:black;
+}
+.texto
+{
+  margin-left: 20px;
+}
+.texto li
+{
+  width: 320%;
+}
+
+.lancamentos img{
+  height: 200px;
+  width: 150px;
+  margin-left: 0px;
+}
+.lancamentos ul{
+    margin-left: 38%;
 }

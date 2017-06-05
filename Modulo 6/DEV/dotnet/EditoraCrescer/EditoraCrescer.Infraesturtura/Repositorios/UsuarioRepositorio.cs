@@ -35,14 +35,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             _usuarios.Add(usuario.Email, usuario);
             contexto.Usuario.Add( usuario);
             contexto.SaveChanges();
-
-
         }
 
-       
-        public Usuario Obter(string email)
-        {
-            return _usuarios.Where(u => u.Key == email).Select(u => u.Value).FirstOrDefault();
-        }
+        
     }
 }
