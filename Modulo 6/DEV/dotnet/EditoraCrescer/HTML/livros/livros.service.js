@@ -8,8 +8,8 @@ function get (){
 
 
 
-function getNaoPuclicados(){
- return $http.get(`${url}/naopublicados`);
+function getExcetoLancamentos(){
+ return $http.get(`${url}/excetolancamentos`);
 };
 
 function paginacao(page) {
@@ -19,6 +19,6 @@ function paginacao(page) {
 return{
   buscar :paginacao,
   buscarLancamentos: get,
-  naopublicados : getNaoPuclicados
+  excetoLancamentos : getExcetoLancamentos
 }
 });

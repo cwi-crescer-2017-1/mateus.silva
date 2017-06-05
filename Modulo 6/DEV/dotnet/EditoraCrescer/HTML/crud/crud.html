@@ -5,26 +5,26 @@
     <form  novalidate class="crud" name="crud">
         <div class="crudDiv">
             <label for="titulo">Título do Livro:</label>
-            <input class="form-control " type="text" name="titulo" ng-model ="livro.Titulo"  placeholder="Digite  o título do livro"required ng-minlength="3" ng-maxlength="20"></input>
+            <input class="form-control " type="text" name="titulo" ng-model ="livro.Titulo"></input>
         </div>
         <div class="crudDiv">
             <label for="descricao">Descricão:</label>
-            <input class="form-control" type="text" name="descricao" ng-model ="livro.Descricao"  placeholder="digite a descricão do livro" ng-maxlength="20"></input>
+            <input class="form-control" type="text" name="descricao" ng-model ="livro.Descricao"  ></input>
         </div>
         <div class="crudDiv d2">
             <label for="genero">Gênero:</label>
-            <input class="form-control" type="text" name="genero" ng-model ="livro.Genero"  required placeholder="max 90" max="90"></input>
+            <input class="form-control" type="text" name="genero" ng-model ="livro.Genero"  ></input>
         </div>
         <div class="crudDiv d2">
             <label for="autor">Nome do autor:</label>
-            <input class="form-control" type="text" name="autor" ng-model ="livro.Autor.Nome"  required placeholder="max 90" max="90"></input>
+            <input class="form-control" type="text" name="autor" ng-model ="livro.Autor.Nome" ></input>
         </div>
 
         <div class="capa crudDiv d2">
             <label for="capa">Capa do livro:</label>
-            <input class="form-control" type="img" name="capa" ng-model ="livro.Capa" placeholder="digite o email" required></input>
+            <input class="form-control" type="img" name="capa" ng-model ="livro.Capa" ></input>
         </div>
-          
+
            <div class="d2">
               <button class="btn btn-primary" type="button" ng-click= "salvar(livro)" name="button">salvar</button>
           </div>

@@ -23,8 +23,8 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpGet]
-        [Route("naopublicados")]
-        public IHttpActionResult GetNaoPublicados()
+        [Route("excetoLancamentos")]
+        public IHttpActionResult GetExcentoLancamentos()
         {
             var livros = repositorio.ObterQuantidadeLivrosPublicadosExcetoLancamentos();
             return Ok(new { dado = livros });

@@ -1,11 +1,11 @@
 modulo.controller("LivrosController", function ($scope, livrosService, authService, $http){
 
-naopublicados();
+excetoLancamentos();
 buscarLancamentos();
 buscar();
 
-  function naopublicados(){
-    livrosService.naopublicados().then(function(response){
+  function excetoLancamentos(){
+    livrosService.excetoLancamentos().then(function(response){
       $scope.totalItems = response.data.dado;
     })
   }
@@ -25,6 +25,7 @@ buscar();
     }
         livrosService.buscar(page).then(function(response){
         $scope.livros = response.data.dado;
+        console.log($scope.livros);
 })};
 
 

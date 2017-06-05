@@ -32,7 +32,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public dynamic Obter(string genero)
         {
-            var livro = contexto.Livros.Select(l => new { l.Isbn, l.Titulo, l.Capa, l.Autor.Nome, l.Genero })
+            var livro = contexto.Livros.Select(l => new { l.Isbn, l.Titulo, l.Capa, Autor = l.Autor.Nome, l.Genero })
            .FirstOrDefault(a => a.Genero.Contains(genero));
             return livro;
 
@@ -88,7 +88,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         {
             var seteDiasAtras = DateTime.Now.AddDays(-7);
             return contexto.Livros.Where(x => x.DataPublicacao != null &&
-                         DbFunctions.TruncateTime(x.DataPublicacao.Value) < seteDiasAtras).OrderBy(a=> a.DataPublicacao).Skip(p).Take(t).ToList();
+                         DbFunctions.TruncateTime(x.DataPublicacao.Value) < seteDiasAtras).OrderBy(a=> a.DataPublicacao).Skip(p).Take(t).Select
+            (x => new { x.Isbn, x.Titulo, x.Capa, x.Autor.Nome, x.Genero }).ToList(); 
         }
 
         public int ObterQuantidadeLivrosPublicadosExcetoLancamentos()

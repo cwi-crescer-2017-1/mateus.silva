@@ -1,36 +1,31 @@
-
-
 body{
     margin: 0;
- background: #c1bdba;
+  background-image: url("https://images2.alphacoders.com/261/26102.jpg");
+ background-repeat: no-repeat;
     padding: 0;
     height:800px;
+
 }
 
+li img {
+  background: rgba(0, 0, 0, .5);
+}
 div{
   width: 100%;
   float: left;
 }
-.header{
-  height: 0;
-   width: 100%;
-  margin-top: 0px;
-  text-align: center;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
-  background: rgba(0, 0, 0, .5);
 
-}
-.header p{
+.header  p{
   margin-left: 50%;
   transform: translatex(-50%);
   position: absolute;
-  width: 50%;
+  width: 100%;
   line-height: 60px;
   font-family: Goudy Stout;
   color: white;
   opacity: 0.7;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
-  background: rgba(0, 0, 0, .5);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
   font-size: 30px;
   text-align: center;
 
@@ -39,6 +34,7 @@ img {
   width: 80px;
   height: 100px;
   margin-left: 15px;
+
 }
 .lancamentosDiv{
   margin-top: 80px;
@@ -49,11 +45,11 @@ img {
   font-family: Goudy Stout;
   color: white;
   opacity: 0.7;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
-  background: rgba(0, 0, 0, .2);
   font-size: 30px;
   text-align: center;
  margin-top: -10px;
+ box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+ background: rgba(26, 27, 28, .8);
 }
 .lancamentos {
   margin :0;
@@ -62,28 +58,28 @@ img {
 }
 ul{
    list-style-type:none;
-  width: 200px;
+  width: 20%;
   float: left;
+  margin-left: -8px;
 }
-.todosOsLivrosDiv{
-  width: 100%;
-  text-align: center;
-}
+
 .todosOsLivrosDiv p{
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
   line-height: 60px;
   font-family: Goudy Stout;
   color: white;
   opacity: 0.7;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
-  background: rgba(0, 0, 0, .2);
+
   font-size: 30px;
   text-align: center;
   margin-top: -10px;
 }
 li{
-  font-family: Goudy Stout;
+  font-family: arial;
   color: white;
   width: 200px;
+  font-size: 15px;
 }
 .todos {
   margin :0;
@@ -98,22 +94,29 @@ li{
 }
 
 .detalhes{
-  margin-left: 50%;
-  transform: translatex(-25%);
-  margin-top: 80px;
-
+  margin-top: 20px;
 }
+
 .detalhes li{
- width: 600px;
+ width: 200px;
+ margin-left: 220%;
 }
 .detalhes img{
  width: 200px;
  height: 300px;
- align-items: center;
+
 }
-.voltar a{
-  margin-left: 50%;
-  transform: translatex(-25%);
+.home a{
+  position: relative;
+  height: 60px;
+  width: 150px;
+  float: left;
+  background-color: silver;
+  line-height: 40px;
+  font-size: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  color: white;
 }
 
 .login {
@@ -123,15 +126,23 @@ li{
   width: 40%;
 }
 .loginb{
+  position: relative;
+  height: 60px;
+  width: 100px;
   float: right;
   background-color: silver;
+  line-height: 40px;
+  font-size: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  color: white;
 }
 .logoutb{
   float: right;
   background-color: silver;
 }
 form {
-  color: #13232f;
+  color: white;
 
 }
 .crud{
@@ -157,4 +168,48 @@ table{
   margin-left: 57%;
   transform: translatex(-50%);
   width: 80%;
+  color:white;
+}
+.paginacao {
+width:225px;
+margin-left: 41%;
+}
+
+.btn-primary {
+   box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  border-color: black;
+  color: white;
+}
+
+.btn-default{
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  border-color: black;
+  color: white;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: white;
+    background: rgba(26, 27, 28, .8);
+    border-color: black;
+    border: 1px solid black;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: white;
+    cursor: default;
+     background: rgba(26, 27, 28, .8);
+      border-color: black;
+    border-color: black;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+  color: white;
+  cursor: not-allowed;
+background: rgba(26, 27, 28, .8);
+  border-color:black;
 }

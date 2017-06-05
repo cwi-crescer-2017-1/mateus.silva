@@ -9,7 +9,7 @@
        </ul>
 
  </div>
- <div class = "todosOsLivrosDiv">  <p> Todos os Livros </p>  </div>
+ <div class = "todosOsLivrosDiv">  <p> Coleção Antiga </p>  </div>
    <div class="todos"  >
          <ul ng-repeat ="livro in livros">
           <a class="btn btn-default  b1" ng-href="#!/detalhe/{{livro.Isbn}}">
@@ -22,5 +22,8 @@
    </div>
 
  <div class="paginacao">
-     <ul uib-pagination total-items="totalItems"  ng-model="currentPage" ng-change="pageChanged()"></ul>{{totalItems}}
+
+
+
+     <p class ="uib-custom-pagination" uib-pagination total-items="totalItems"    previous-text = "Anterior" next-text = "Próximo" ng-model="currentPage" ng-change="pageChanged()"></p>{{totalItems}}
 </div>

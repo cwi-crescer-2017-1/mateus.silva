@@ -1,15 +1,16 @@
+<div class="home">
+  <a class="btn btn-default  b1" ng-href="#!/livros">
+   Home Page</a>
+</div>
 <div class ="detalhes">
   <ul >
       <li><img class="img" ng-src = "{{detalheLivro.dado.Capa}}"></li>
       <li>Titulo: {{detalheLivro.dado.Titulo}}</li>
-      <li>Isbn: {{detalheLivro.dado.Descricao}}</li>
+      <li>Descrição: {{detalheLivro.dado.Descricao}}</li>
       <li>Genero: {{detalheLivro.dado.Genero}}</li>
       <li>Data de publicação: {{detalheLivro.dado.DataPublicacao}}</li>
       <li>Id do Autor: {{detalheLivro.dado.IdAutor}}</li>
       <li>Autor: {{detalheLivro.dado.Autor.Nome}}</li>
+      <li>Isbn: {{detalheLivro.dado.Isbn}}</li>
   </ul>
-</div>
-<div class="voltar">
-  <a class="btn btn-default  b1" ng-href="#!/livros">
-   Voltar</a>
 </div>
