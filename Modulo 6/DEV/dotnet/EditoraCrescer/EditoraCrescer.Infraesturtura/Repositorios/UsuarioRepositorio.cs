@@ -37,6 +37,9 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             contexto.SaveChanges();
         }
 
-        
+        public Usuario Obter(string email)
+        {
+            return _usuarios.Where(u => u.Key == email).Select(u => u.Value).FirstOrDefault();
+        }
     }
 }
