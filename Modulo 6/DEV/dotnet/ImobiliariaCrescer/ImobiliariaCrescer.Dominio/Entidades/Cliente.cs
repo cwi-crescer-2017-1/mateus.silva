@@ -15,6 +15,6 @@ namespace ImobiliariaCrescer.Dominio.Entidades
         public int Telefone { get; set; }
         public string Endereco { get; set;}
         public char Genero { get; set; }
-        public DateTime Data { get; set;}
+        public DateTime DataDeNascimento { get; set;}
     }
 }
