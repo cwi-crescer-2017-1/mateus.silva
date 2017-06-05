@@ -10,5 +10,14 @@ namespace EditoraCrescer.Infraesturtura.Entidades
     {
         public string Nome { get; set; }
         public int Id { get; set; }
+
+        public Revisor(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+        }
+        public Revisor()
+        {
+        }
     }
 }

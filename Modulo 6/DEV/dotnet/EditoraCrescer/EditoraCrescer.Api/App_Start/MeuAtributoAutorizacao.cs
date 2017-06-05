@@ -55,7 +55,6 @@ namespace EditoraCrescer.Api.App_Start
 
 
             }
-            //base.OnAuthorization(actionContext);
         }
 
 

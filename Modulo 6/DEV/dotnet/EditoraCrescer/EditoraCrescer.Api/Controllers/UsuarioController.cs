@@ -49,26 +49,6 @@ namespace EditoraCrescer.Api.Controllers
             return ResponderOK();
         }
 
-        [HttpPost, Route("resetarsenha")]
-        public HttpResponseMessage ResetarSenha(string email)
-        {
-            var usuario = _usuarioRepositorio.Obter(email);
-            if (usuario == null)
-                return ResponderErro(new string[] { "Usuário não encontrado." });
-
-            var novaSenha = usuario.ResetarSenha();
-
-            if (usuario.Validar())
-            {
-                _usuarioRepositorio.Alterar(usuario);
-                // EmailService.Enviar(usuario.Email, "Crescer 2017-1", $"Olá! sua senha foi alterada para: {novaSenha}");
-            }
-            else
-                return ResponderErro(usuario.Mensagens);
-
-            return ResponderOK();
-        }
-
         // Exige que o usuário se autentique
         [BasicAuthorization]
         [HttpGet, Route("usuario")]

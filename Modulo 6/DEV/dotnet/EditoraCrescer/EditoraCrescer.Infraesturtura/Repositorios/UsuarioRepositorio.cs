@@ -39,20 +39,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         }
 
-        public void Alterar(Usuario usuario)
-        {
-            _usuarios[usuario.Email] = usuario;
-        }
-        public void Excluir(Usuario usuario)
-        {
-            _usuarios[usuario.Email] = usuario;
-        }
-
-        public IEnumerable<Usuario> Listar()
-        {
-            return _usuarios.Select(u => u.Value);
-        }
-
+       
         public Usuario Obter(string email)
         {
             return _usuarios.Where(u => u.Key == email).Select(u => u.Value).FirstOrDefault();

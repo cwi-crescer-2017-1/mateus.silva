@@ -10,8 +10,9 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
    public  class RepositorioAutor
     {
         private Contexto contexto = new Contexto();
+       
 
-        public List<Autor> Obter()
+            public List<Autor> Obter()
         {
             return contexto.Autores.ToList();
         }

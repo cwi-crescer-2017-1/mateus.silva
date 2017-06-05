@@ -118,6 +118,19 @@ li{
   background: rgba(26, 27, 28, .8);
   color: white;
 }
+.logoutb{
+  position: relative;
+  height: 60px;
+  width: 100px;
+  float: right;
+  background-color: silver;
+  line-height: 40px;
+  font-size: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  color: white;
+}
+
 
 .login {
   margin-left: 50%;

@@ -1,7 +1,7 @@
-modulo.controller ("CrudController", function ($scope, crudService, authService){
+modulo.controller ("CrudController", function ($scope, toastr, crudService, authService){
 
-  $scope.auth = authService;
- $scope.logout = authService.logout;
+$scope.auth = authService;
+$scope.logout = authService.logout;
 listar ();
 $scope.salvar = salvar;
 $scope.editar = editar;
@@ -26,9 +26,11 @@ $scope.publicar = publicar;
   function salvar (livro){
      if (typeof livro.Isbn ==="number"){
            update(livro);
+            toastr.success("Atualização executada com sucesso");
       }
       else {
            criar(livro);
+           toastr.success("Livro criado com sucesso");
       }
        listar();
        $scope.livro ={}
@@ -40,6 +42,7 @@ $scope.publicar = publicar;
 
   function deletar (livro){
     crudService.deletar (livro).then(function (response){
+        toastr.success("Exclusão realizada  com sucesso");
       listar();
     })
     }
@@ -52,17 +55,16 @@ function revisar (livro){
 }
 
 function publicar (livro){
-  console.log(livro);
-  console.log(new Date().getDay);
     if (livro.DataRevisao==null){
-      return alert("livro deve ser revisado");
+       return toastr.warning("O livro deve ser revisado antes da publicação.");
     }
     var data = new Date();
     if (data.getDay() ===0 || data.getDay()===6){
-      return alert("livro nao pode ser publicado no sabado")
+      return toastr.error("As publicações não podem ocorrer no final de semana.");
     }
-
     livro.DataPublicacao= data;
-     update(livro);}
+     toastr.success("Publicação realizada  com sucesso");
+    update(livro);
+  }
 
 })

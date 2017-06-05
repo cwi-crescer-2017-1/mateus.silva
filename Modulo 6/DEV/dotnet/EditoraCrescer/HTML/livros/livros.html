@@ -1,29 +1,23 @@
 <a class="btn btn-default loginb" ng-href="#!/login">Login</a>
-
      <div class = "lancamentosDiv">  <p> Lançamentos </p>  </div>
  <div class="lancamentos"  >
-       <ul id ="ul" ng-repeat ="livro in livrosLancamentos">
+     <ul id ="ul" ng-repeat ="livro in livrosLancamentos">
         <a class="btn btn-default  b1" href="#!/detalhe/{{livro.Isbn}}">
-               <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
-         <li>Título: {{livro.Titulo}}</li>
-       </ul>
-
+        <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
+        <li>Título: {{livro.Titulo}}</li>
+     </ul>
  </div>
  <div class = "todosOsLivrosDiv">  <p> Coleção Antiga </p>  </div>
    <div class="todos"  >
          <ul ng-repeat ="livro in livros">
-          <a class="btn btn-default  b1" ng-href="#!/detalhe/{{livro.Isbn}}">
-                 <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
+           <a class="btn btn-default  b1" ng-href="#!/detalhe/{{livro.Isbn}}">
+           <li> <img class="img" ng-src = "{{livro.Capa}}"></li></a>
            <li>Titulo: {{livro.Titulo}}</li>
            <li>Autor: {{livro.Nome}}</li>
            <li>Genero: {{livro.Genero}}</li>
            <li>Isbn: {{livro.Isbn}}</li>
          </ul>
    </div>
-
  <div class="paginacao">
-
-
-
-     <p class ="uib-custom-pagination" uib-pagination total-items="totalItems"    previous-text = "Anterior" next-text = "Próximo" ng-model="currentPage" ng-change="pageChanged()"></p>{{totalItems}}
+     <p class ="uib-custom-pagination" uib-pagination total-items="totalItems"    previous-text = "Anterior" next-text = "Próximo" ng-model="currentPage" ng-change="pageChanged()"></p>
 </div>

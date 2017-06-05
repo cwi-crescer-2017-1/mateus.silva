@@ -1,15 +1,13 @@
 modulo.factory('crudService', function ($http) {
 
-  var url = "http://localhost:52372/api/livros"
+var url = "http://localhost:52372/api/livros"
 
 
-  function getAll(){
+function getAll(){
    return $http.get(`${url}/naopublicados`);
   };
 
-
-  function post(livro){
-
+function post(livro){
    return $http.post (url, livro);
   };
 
@@ -21,9 +19,7 @@ function deletar (livro){
   return $http.delete(url+"/"+ livro.Isbn)
 }
 
-
-
-  return {
+return {
      listar: getAll,
      criar: post,
      update: put,

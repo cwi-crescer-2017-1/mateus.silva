@@ -10,5 +10,15 @@ namespace EditoraCrescer.Infraestrutura.Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public Autor(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+        }
+        public Autor()
+        {
+
+        }
     }
+   
 }

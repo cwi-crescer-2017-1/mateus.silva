@@ -1,4 +1,4 @@
-var modulo = angular.module ("myApp", ["ngRoute", "auth", "ui.bootstrap"]);
+var modulo = angular.module ("myApp", ["ngRoute", "auth",  "toastr","ui.bootstrap"]);
 
 angular.module("myApp").constant("authConfig", {
 

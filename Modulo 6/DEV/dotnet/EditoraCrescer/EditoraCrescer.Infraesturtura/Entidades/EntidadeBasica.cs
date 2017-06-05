@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraesturtura.Entidades
 {
-    
-
-   
+       
         public abstract class EntidadeBasica
         {
             public List<string> Mensagens { get; private set; }

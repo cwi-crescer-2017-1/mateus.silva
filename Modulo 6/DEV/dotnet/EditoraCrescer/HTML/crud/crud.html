@@ -1,6 +1,4 @@
-<div ng-if="auth.isAutenticadoPromise()">  <button   class="btn btn-default  logoutb" ng-click="logout()">Logout</button></div>
-
-
+<button   class="btn btn-default  logoutb" ng-click="logout()">Logout</button>
 <div class="container">
     <form  novalidate class="crud" name="crud">
         <div class="crudDiv">
@@ -19,12 +17,10 @@
             <label for="autor">Nome do autor:</label>
             <input class="form-control" type="text" name="autor" ng-model ="livro.Autor.Nome" ></input>
         </div>
-
         <div class="capa crudDiv d2">
             <label for="capa">Capa do livro:</label>
             <input class="form-control" type="img" name="capa" ng-model ="livro.Capa" ></input>
         </div>
-
            <div class="d2">
               <button class="btn btn-primary" type="button" ng-click= "salvar(livro)" name="button">salvar</button>
           </div>
@@ -36,7 +32,6 @@
        <th>Descricão</th>
        <th>Gênero</th>
        <th>Autor</th>
-
  </thead>
  <tbody>
    <tr ng-repeat ="livro in livros">
@@ -49,7 +44,6 @@
      <td><input type="button" class="btn btn-primary" name="excluir" value="Excluir"ng-click="deletar(livro)"></td>
      <td ng-if="auth.possuiPermissao('Publicador')"><input type="button" class="btn btn-primary" name="publicar" value="Publicar"ng-click="publicar(livro)"></td></p>
      <td ng-if="auth.possuiPermissao('Revisor')"> <input type="button" class="btn btn-primary" name="revisar" value="Revisar"ng-click="revisar(livro)"></td>
-
    </tr>
  </tbody>
 </table>

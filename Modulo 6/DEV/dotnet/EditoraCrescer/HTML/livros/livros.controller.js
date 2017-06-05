@@ -25,7 +25,6 @@ buscar();
     }
         livrosService.buscar(page).then(function(response){
         $scope.livros = response.data.dado;
-        console.log($scope.livros);
 })};
 
 

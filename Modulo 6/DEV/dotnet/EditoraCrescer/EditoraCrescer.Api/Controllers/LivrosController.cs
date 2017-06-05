@@ -31,6 +31,13 @@ namespace EditoraCrescer.Api.Controllers
         }
 
 
+        [HttpGet]
+        [Route("naopublicados")]
+        public IHttpActionResult GetNaoPublicados()
+        {
+            var livros = repositorio.obterLivrosNaoPublicados();
+            return Ok(new { dado = livros });
+        }
 
 
         [Route("{quantidadePular:int}/{quantidadeTrazer:int}")]

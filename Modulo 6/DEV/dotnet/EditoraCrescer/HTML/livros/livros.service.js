@@ -6,8 +6,6 @@ function get (){
    return $http.get (`${url}/lancamentos`);
 };
 
-
-
 function getExcetoLancamentos(){
  return $http.get(`${url}/excetolancamentos`);
 };

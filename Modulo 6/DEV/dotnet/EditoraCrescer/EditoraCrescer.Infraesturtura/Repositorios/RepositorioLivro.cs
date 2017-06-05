@@ -11,6 +11,7 @@ using EditoraCrescer.Infraesturtura.Entidades;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
+
    public  class RepositorioLivro : IDisposable
     {
 
@@ -59,6 +60,12 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
                 livro.Revisor = new Revisor();
                 livro.Revisor.Nome = "";
             }
+            if (livro.Autor == null)
+            {
+                livro.Autor = new Autor();
+                livro.Autor.Nome = "";
+            }
+
             contexto.Livros.Add(livro);
             contexto.SaveChanges();
          }
