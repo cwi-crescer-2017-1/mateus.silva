@@ -59,9 +59,14 @@
     <Compile Include="Migrations\201706060042498_CorrecaoDaTabelaClientes.Designer.cs">
       <DependentUpon>201706060042498_CorrecaoDaTabelaClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706060102574_retirarIdDoPedido.cs" />
+    <Compile Include="Migrations\201706060102574_retirarIdDoPedido.Designer.cs">
+      <DependentUpon>201706060102574_retirarIdDoPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\ProdutoRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -82,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706060042498_CorrecaoDaTabelaClientes.resx">
       <DependentUpon>201706060042498_CorrecaoDaTabelaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706060102574_retirarIdDoPedido.resx">
+      <DependentUpon>201706060102574_retirarIdDoPedido.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
