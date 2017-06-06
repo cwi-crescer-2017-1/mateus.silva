@@ -1,1 +1,20 @@
-<p> você está logado </p>
+
+  <body>
+    <div  class="container">
+    <input type = "text" class="form-control"ng-model="search.Nome" placeholder= "buscar cliente"> </input>
+    <table class= "tableClass  table table-hover">
+      <thead>
+        <tr>
+            <th>Nome</th>
+        </tr>
+      </theaad>
+        <tbody>
+          <tr ng-repeat = "cliente in clientes | filter: search">
+            <td>{{cliente.Nome}}</td>
+            <td><input type="button" class="btn btn-primary" name="cliente" value="Selecionar"></td>
+
+          </tr>
+        </tbody>
+  </table>
+      </div>
+  </body>

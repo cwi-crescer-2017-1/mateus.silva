@@ -1,6 +1,6 @@
 modulo.controller("LoginController", function ($scope, authService, toastr){
 let usuario = $scope.senha;
-console.log($scope.usuario);
+
 $scope.login  =login;
 
 function login (usuario){
