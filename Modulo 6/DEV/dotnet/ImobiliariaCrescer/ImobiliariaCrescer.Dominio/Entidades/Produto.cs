@@ -8,10 +8,10 @@ namespace ImobiliariaCrescer.Dominio.Entidades
 {
     public class Produto
     {
-        public int  Id { get; private set; }
-        public string Nome { get; private set; }
-        public string Tipo { get; private set; }
-        public int Quantidade { get; private set; }
-        public decimal PrecoDaDiaria { get; private set;}
+        public int  Id { get;  set; }
+        public string Nome { get; set; }
+        public string Tipo { get;  set; }
+        public int Quantidade { get; set; }
+        public decimal PrecoDaDiaria { get; set;}
     }
 }

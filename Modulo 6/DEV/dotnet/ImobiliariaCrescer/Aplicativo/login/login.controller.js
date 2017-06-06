@@ -1,18 +1,17 @@
-modulo.controller("LoginController", function ($scope){
-// let usuario = $scope.senha;
-// console.log($scope.usuario);
-// $scope.login  =login;
-//
-//
-// function login (usuario){
-//
-//   authService.login(usuario)
-//     .then(
-//       function (response) {
-// //  toastr.success("Login executado com sucesso.")
-//       },
-//       function (response) {
-//     //  toastr.error("Erro no login!");
-//       });
-//
+modulo.controller("LoginController", function ($scope, authService, toastr){
+let usuario = $scope.senha;
+console.log($scope.usuario);
+$scope.login  =login;
+
+function login (usuario){
+
+  authService.login(usuario)
+     .then(
+      function (response) {
+  toastr.success("Login executado com sucesso.")
+       },
+       function (response) {
+       toastr.error("Erro no login!");
+      });
+}
 });
