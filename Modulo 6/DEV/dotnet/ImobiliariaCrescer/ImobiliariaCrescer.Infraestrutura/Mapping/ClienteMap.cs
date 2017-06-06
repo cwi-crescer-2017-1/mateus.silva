@@ -12,8 +12,9 @@ namespace ImobiliariaCrescer.Infraestrutura.Mapping
     {
         public ClienteMap ()
         {
-            ToTable("Cliente");
+            ToTable("Clientes");
             HasKey(x => x.Id);
+
         }
 
     }

@@ -55,12 +55,15 @@
     <Compile Include="Migrations\201706052339559_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201706052339559_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706060042498_CorrecaoDaTabelaClientes.cs" />
+    <Compile Include="Migrations\201706060042498_CorrecaoDaTabelaClientes.Designer.cs">
+      <DependentUpon>201706060042498_CorrecaoDaTabelaClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\ProdutoRepositorio.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositorios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ImobiliariaCrescer.Dominio\ImobiliariaCrescer.Dominio.csproj">
       <Project>{9D586FEC-83A0-4ECB-B0BB-5F3603A913D1}</Project>
@@ -68,12 +71,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706052339559_CriacaoDoBanco.resx">
       <DependentUpon>201706052339559_CriacaoDoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706060042498_CorrecaoDaTabelaClientes.resx">
+      <DependentUpon>201706060042498_CorrecaoDaTabelaClientes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
