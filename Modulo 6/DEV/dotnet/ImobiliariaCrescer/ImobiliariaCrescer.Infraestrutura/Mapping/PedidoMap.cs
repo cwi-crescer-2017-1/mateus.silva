@@ -14,7 +14,10 @@ namespace ImobiliariaCrescer.Infraestrutura.Mapping
         {
             ToTable("Pedidos");
             HasKey(x => x.Id);
-            HasRequired(x => x.Cliente).WithMany().HasForeignKey(x => x.IdCliente);
+            HasRequired(x => x.Cliente).WithMany().
+            Map(x => x.MapKey ("IdCliente"));
+                
+                
         }
     }
 }

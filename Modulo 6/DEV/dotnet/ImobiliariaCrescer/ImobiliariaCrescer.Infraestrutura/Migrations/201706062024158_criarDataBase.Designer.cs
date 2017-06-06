@@ -7,13 +7,13 @@ namespace ImobiliariaCrescer.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CorrecaoDaTabelaClientes : IMigrationMetadata
+    public sealed partial class criarDataBase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CorrecaoDaTabelaClientes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(criarDataBase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706060042498_CorrecaoDaTabelaClientes"; }
+            get { return "201706062024158_criarDataBase"; }
         }
         
         string IMigrationMetadata.Source

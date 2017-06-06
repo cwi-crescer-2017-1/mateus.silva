@@ -8,14 +8,13 @@ namespace ImobiliariaCrescer.Dominio.Entidades
 {
     public class Pedido
     {
-        public int Id { get; set; }
-        public Cliente Cliente { get; set; }
-        public int IdCliente { get; set; }
-        public List<Produto> Itens { get; set; }
-        public DateTime DataDoPedido { get; set; }
-        public decimal ValorTotal { get; set; }
-        public decimal? Multa { get; set; }
-        public DateTime DataDeEntrega {get; set;}
-        public DateTime DataPrevistaDeEntrega {get; set;}
+        public int Id { get; private set; }
+        public Cliente Cliente { get; private set; }
+        public List<ProdutoPedido> Itens { get; private set;}
+        public DateTime DataDoPedido { get; private set; }
+        public decimal ValorTotal { get; private set; }
+        public decimal? Multa { get; private set; }
+        public DateTime DataDeEntrega {get; private set;}
+        public DateTime DataPrevistaDeEntrega {get; private set;}
     }
 }
