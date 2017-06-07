@@ -21,6 +21,21 @@ namespace Api.Controllers
             return Ok(new { dado = produtos });
         }
 
+        [HttpGet]
+        [Route("pacotes")]
+        public IHttpActionResult GetPacotes()
+        {
+            var pacotes = repositorio.ObterPacotes();
+            return Ok(new { dado = pacotes });
+        }
+        [HttpGet]
+        [Route("opcionais")]
+        public IHttpActionResult GetOpcionais()
+        {
+            var opcionais = repositorio.ObterOpcionais();
+            return Ok(new { dado = opcionais});
+        }
+
         [Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {

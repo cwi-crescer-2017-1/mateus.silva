@@ -21,6 +21,7 @@ namespace Api.Controllers
             var clientes = repositorio.Obter();
             return Ok(new { dado = clientes });
         }
+
        [Route("{id}")]
        public IHttpActionResult Get(int id)
        {
