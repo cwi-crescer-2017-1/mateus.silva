@@ -7,7 +7,9 @@ function listarClientes (){
    $scope.clientes= response.data.dado;
   })};
 
-
+function selecionar (cliente){
+  
+}
 
 
 });

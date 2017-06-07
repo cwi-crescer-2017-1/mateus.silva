@@ -16,6 +16,11 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             return contexto.Clientes.ToList();
         }
 
+        public dynamic ObterPorID(int id)
+        {
+            return contexto.Clientes.FirstOrDefault(x => x.Id == id);
+        }
+
         public void Criar (Cliente cliente)
         {
             contexto.Clientes.Add(cliente);

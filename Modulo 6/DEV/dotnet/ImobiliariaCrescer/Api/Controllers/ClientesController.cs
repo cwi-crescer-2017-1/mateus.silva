@@ -12,21 +12,27 @@ namespace Api.Controllers
     [RoutePrefix("api/clientes")]
     public class ClientesController : ApiController
     {
-      
-            private ClienteRepositorio repositorio = new ClienteRepositorio();
+
+        private ClienteRepositorio repositorio = new ClienteRepositorio();
 
 
-            public IHttpActionResult Get()
-            {
-                var clientes = repositorio.Obter();
-                return Ok(new { dado = clientes });
-            }
+        public IHttpActionResult Get()
+        {
+            var clientes = repositorio.Obter();
+            return Ok(new { dado = clientes });
+        }
+       [Route("{id}")]
+       public IHttpActionResult Get(int id)
+       {
+            var cliente = repositorio.ObterPorID(id);
+            return Ok(new {dado = cliente});
+       }
 
-            public IHttpActionResult Post(Cliente cliente)
-            {
-                repositorio.Criar(cliente);
-                return Ok(new { dado = cliente });
-            }
+        public IHttpActionResult Post(Cliente cliente)
+       {
+          repositorio.Criar(cliente);
+          return Ok(new { dado = cliente });
+       }
 
         
     }

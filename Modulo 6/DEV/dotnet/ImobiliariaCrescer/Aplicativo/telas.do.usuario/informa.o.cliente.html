@@ -5,14 +5,13 @@
     <table class= "tableClass  table table-hover">
       <thead>
         <tr>
-            <th>Nome</th>
+            <th>Nome do CLiente</th>
         </tr>
       </theaad>
         <tbody>
           <tr ng-repeat = "cliente in clientes | filter: search">
             <td>{{cliente.Nome}}</td>
-            <td><input type="button" class="btn btn-primary" name="cliente" value="Selecionar"></td>
-
+            <td><a class="btn btn-default  b1" value"Selecionar" ng-href="#!/clientes/{{cliente.Id}}"></td>
           </tr>
         </tbody>
   </table>

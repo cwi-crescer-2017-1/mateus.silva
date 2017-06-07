@@ -4,6 +4,10 @@ modulo.config(function($routeProvider) {
         templateUrl: "/login/login.html",
         controller: "LoginController"
         })
+        .when ("/clientes/:Id", {
+          templateUrl: "/telas.do.usuario/escolha.do.produto.html",
+          controller: "EscolhaDoProdutoController"
+        })
       .when ("/informaOCliente", {
         templateUrl: "telas.do.usuario/informa.o.cliente.html",
         controller: "InformaOClienteController",
