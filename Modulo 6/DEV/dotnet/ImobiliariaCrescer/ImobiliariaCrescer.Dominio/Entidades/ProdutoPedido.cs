@@ -18,6 +18,10 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             Produto = produto;
             Quantidade = produto.Quantidade;
         }
+        public ProdutoPedido()
+        {
+
+        }
     }
 
 

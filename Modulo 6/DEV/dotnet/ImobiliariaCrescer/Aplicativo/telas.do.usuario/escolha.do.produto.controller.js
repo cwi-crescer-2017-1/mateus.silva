@@ -4,7 +4,9 @@ var id= $routeParams.Id;
 buscarClientePorId(id);
 buscarPacotes();
 buscarOpcionais();
-
+$scope.fazerPedido = fazerPedido;
+cliente = $scope.cliente;
+console.log(cliente);
 
 
 function buscarClientePorId (id){
@@ -22,4 +24,18 @@ function buscarClientePorId (id){
         escolhaDoProdutoService.buscarOpcionais().then(function (response){
         $scope.opcionais= response.data.dado;
       })};
+
+function fazerPedido (){
+        escolhaDoProdutoService.fazerPedido().then(function (response){
+          $scope.pedido = response.data.dado;
+    })
+
+
+
+
+
+}
+
+
+
 });

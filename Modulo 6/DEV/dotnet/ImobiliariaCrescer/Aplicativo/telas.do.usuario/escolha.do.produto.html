@@ -1,5 +1,5 @@
 
-<p>       {{cliente.Nome}}               </p>
+<p>       {{cliente}}               </p>
 
 <table class= "table table-hover table1">
    <thead>
@@ -15,7 +15,7 @@
      <td>{{pacote.Tipo}}</td>
      <td>{{pacote.Quantidade}}</td>
      <td>{{pacote.PrecoDaDiaria}}</td>
-     <td><input type="button" class="btn btn-primary" name="editar" value="Add"></td>
+     <td><input type="button" class="btn btn-primary" name="editar" value="Add" ng-click ="add(pacote, cliente)"></td>
    </tr>
  </tbody>
 </table>
@@ -33,7 +33,7 @@
      <td>{{opcional.Tipo}}</td>
      <td>{{opcional.Quantidade}}</td>
      <td>{{opcional.PrecoDaDiaria}}</td>
-     <td><input type="button" class="btn btn-primary" name="editar" value="Add"></td>
+     <td><input type="button" class="btn btn-primary" name="editar" value="Add" ng-click ="add(opcional, cliente)"></td>
    </tr>
  </tbody>
 </table>

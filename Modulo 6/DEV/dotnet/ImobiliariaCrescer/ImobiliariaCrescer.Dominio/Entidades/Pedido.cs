@@ -23,14 +23,17 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             Cliente = cliente;
             Itens = itens;
             DataDoPedido = DateTime.Now;
-            ValorTotal = itens.Sum(x => x.Quantidade*x.Produto.PrecoDaDiaria);
+            ValorTotal = itens.Sum(x => x.Quantidade * x.Produto.PrecoDaDiaria);
             Multa = 0;
             DataDeEntrega = DateTime.Now;
             DataPrevistaDeEntrega = DateTime.Now;
 
         }
 
+        public Pedido()
+        {
 
+        }
 
     }
 }

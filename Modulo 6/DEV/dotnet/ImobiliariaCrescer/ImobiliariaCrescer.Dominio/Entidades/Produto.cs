@@ -13,5 +13,11 @@ namespace ImobiliariaCrescer.Dominio.Entidades
         public string Tipo { get;  set; }
         public int Quantidade { get; set; }
         public decimal PrecoDaDiaria { get; set;}
+
+        public Produto()
+        {
+
+        }
     }
+
 }

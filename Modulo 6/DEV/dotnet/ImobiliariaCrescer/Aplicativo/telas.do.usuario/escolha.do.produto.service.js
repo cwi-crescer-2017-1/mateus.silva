@@ -15,11 +15,15 @@ function getOpcionais(){
  return $http.get(url+ "produtos/opcionais");
 };
 
+function postPedido (pedido){
+  return $http.post(url+ "pedidos/", pedido);
+}
 
 return{
   buscarClientePorId:getPorId,
   buscarPacotes: getPacotes,
-  buscarOpcionais: getOpcionais
+  buscarOpcionais: getOpcionais,
+  fazerPedido: postPedido
 }
 
 })
