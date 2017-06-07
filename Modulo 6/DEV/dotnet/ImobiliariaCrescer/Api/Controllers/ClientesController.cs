@@ -35,7 +35,12 @@ namespace Api.Controllers
           return Ok(new { dado = cliente });
        }
 
-        
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
+        }
+
     }
 
 }
