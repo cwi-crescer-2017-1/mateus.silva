@@ -86,7 +86,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
         public dynamic RelatorioDeAtrasos()
         {
             var pedidos = contexto.Pedidos.ToList();
-            return pedidos.Where(x => (x.DataDeEntrega.Value - x.DataDoPedido).TotalDays > 0).ToList();
+            return pedidos.Where(x => (x.DataDeEntrega.Value - x.DataPrevistaDeEntrega).TotalDays > 0).ToList();
         }
          
         private void RealizarBaixaEstoque()

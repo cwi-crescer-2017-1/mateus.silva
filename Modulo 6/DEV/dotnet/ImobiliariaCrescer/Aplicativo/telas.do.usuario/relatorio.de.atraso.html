@@ -1,0 +1,20 @@
+<div  class="realtorioDeAtraso">
+      <table class= "table table-hover">
+        <thead>
+            <tr>
+                <th>Pedido ID</th>
+                <th>Cliente</th>
+                <th>Multa</th>
+                <th>Valor Total</th>
+            </tr>
+         </theaad>
+         <tbody>
+              <tr ng-repeat="relatorio in relatorios">
+                <td>{{relatorio.Id}}</td>
+                <td>{{relatorio.Cliente.Nome}}</td>
+                <td>{{relatorio.Multa}}</td>
+                <td>{{relatorio.ValorTotal}}</td>
+              </tr>
+        </tbody>
+       </table>
+</div>

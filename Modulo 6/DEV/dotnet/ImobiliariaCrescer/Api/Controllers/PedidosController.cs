@@ -47,7 +47,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        [Route("RelatorioDeAtrasos")]
+        [Route("relatoriodeatrasos")]
         public IHttpActionResult GetRelatorioDeAtrasos()
         {
             var relatorioDeAtrasos = repositorio.RelatorioDeAtrasos();

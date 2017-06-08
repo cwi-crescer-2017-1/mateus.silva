@@ -12,6 +12,10 @@ modulo.config(function($routeProvider) {
         templateUrl: "/telas.do.usuario/relatorio.de.locacao.html",
         controller: "RelatorioDeLocacaoController"
           })
+      .when ("/relatorioDeAtraso", {
+        templateUrl: "/telas.do.usuario/relatorio.de.atraso.html",
+        controller: "RelatorioDeAtrasoController"
+              })
       .when ("/cadastro", {
         templateUrl: "/telas.do.usuario/cadastro.html",
         controller: "cadastroController"
