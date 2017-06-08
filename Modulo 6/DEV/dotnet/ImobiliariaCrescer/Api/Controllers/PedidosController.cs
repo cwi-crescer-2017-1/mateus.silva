@@ -38,10 +38,21 @@ namespace Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { dado = pedido });
         }
       
+        [HttpGet]
+        [Route ("relatoriodelocacaomensal")]
+        public IHttpActionResult GetRelatorioDeLocacaoMensal()
+        {
+            var relatorio = repositorio.RelatorioDeLocacaoMensal();
+            return Ok (new { dado = relatorio });
+        }
 
-
-
-
+        [HttpGet]
+        [Route("RelatorioDeAtrasos")]
+        public IHttpActionResult GetRelatorioDeAtrasos()
+        {
+            var relatorioDeAtrasos = repositorio.RelatorioDeAtrasos();
+            return Ok(new { dado = relatorioDeAtrasos });
+        }
 
     }
 }

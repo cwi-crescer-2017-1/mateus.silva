@@ -14,7 +14,8 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public dynamic Obter()
         {
-            return contexto.Pedidos.Include(x=> x.Cliente).Include(x => x.Itens).ToList();
+           
+            return contexto.Pedidos.Include(x=> x.Cliente).Include(x => x.Itens.Select(y => y.Produto)).Where(x=> x.DataDeEntrega == null).ToList();
         }
 
         public void FazerPedido(Pedido p)
@@ -49,6 +50,13 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
 
             pedido.DataDeEntrega = DateTime.Now;
+
+            var diferencaEmDias = (pedido.DataDeEntrega.Value - pedido.DataPrevistaDeEntrega).TotalDays;
+
+            if (diferencaEmDias > 0)
+            {
+                pedido.Multa = pedido.ValorTotal * Convert.ToDecimal(diferencaEmDias);
+            }
             contexto.Entry(pedido).State = System.Data.Entity.EntityState.Modified;
 
             
@@ -67,6 +75,20 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             contexto.SaveChanges();
         }
 
+
+        
+        public dynamic RelatorioDeLocacaoMensal()
+        {
+            var pedidos = contexto.Pedidos.ToList();
+            return pedidos.Where(x => (DateTime.Now - x.DataDoPedido).TotalDays < 31).ToList();
+        }
+
+        public dynamic RelatorioDeAtrasos()
+        {
+            var pedidos = contexto.Pedidos.ToList();
+            return pedidos.Where(x => (x.DataDeEntrega.Value - x.DataDoPedido).TotalDays > 0).ToList();
+        }
+         
         private void RealizarBaixaEstoque()
         {
 
