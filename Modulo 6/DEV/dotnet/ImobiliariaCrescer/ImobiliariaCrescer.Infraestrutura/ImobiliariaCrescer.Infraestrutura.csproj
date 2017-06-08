@@ -56,13 +56,9 @@
     <Compile Include="Migrations\201706062024158_criarDataBase.Designer.cs">
       <DependentUpon>201706062024158_criarDataBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706080214382_colocarDataDeEntregaComoNulo.cs" />
-    <Compile Include="Migrations\201706080214382_colocarDataDeEntregaComoNulo.Designer.cs">
-      <DependentUpon>201706080214382_colocarDataDeEntregaComoNulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706080222087_reverterUltimaMigration.cs" />
-    <Compile Include="Migrations\201706080222087_reverterUltimaMigration.Designer.cs">
-      <DependentUpon>201706080222087_reverterUltimaMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201706081255222_colocarDataDeEntregaComoNula.cs" />
+    <Compile Include="Migrations\201706081255222_colocarDataDeEntregaComoNula.Designer.cs">
+      <DependentUpon>201706081255222_colocarDataDeEntregaComoNula.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,11 +83,8 @@
     <EmbeddedResource Include="Migrations\201706062024158_criarDataBase.resx">
       <DependentUpon>201706062024158_criarDataBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706080214382_colocarDataDeEntregaComoNulo.resx">
-      <DependentUpon>201706080214382_colocarDataDeEntregaComoNulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706080222087_reverterUltimaMigration.resx">
-      <DependentUpon>201706080222087_reverterUltimaMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706081255222_colocarDataDeEntregaComoNula.resx">
+      <DependentUpon>201706081255222_colocarDataDeEntregaComoNula.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,7 +14,7 @@ namespace ImobiliariaCrescer.Dominio.Entidades
         public DateTime DataDoPedido { get; set; }
         public decimal ValorTotal { get;set; }
         public decimal? Multa { get;  set; }
-        public DateTime DataDeEntrega {get;  set;}
+        public DateTime? DataDeEntrega {get;  set;}
         public DateTime DataPrevistaDeEntrega {get;  set;}
 
 
@@ -23,9 +23,7 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             Cliente = cliente;
             Itens = itens;
             DataDoPedido = DateTime.Now;
-            ValorTotal = itens.Sum(x => x.Quantidade * x.Produto.PrecoDaDiaria);
-            Multa = 0;
-            DataDeEntrega = DateTime.Now;
+            ValorTotal = itens.Sum(x => x.Produto.PrecoDaDiaria);
             DataPrevistaDeEntrega = entrega;
 
         }

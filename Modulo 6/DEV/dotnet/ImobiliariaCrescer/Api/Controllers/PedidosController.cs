@@ -27,6 +27,21 @@ namespace Api.Controllers
             return Ok(new { dado = pedido});
         }
 
+        [Route("{id:int}")]
+        public HttpResponseMessage Put(int id, Pedido pedido)
+        {
+            if (id != pedido.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Id não confere com produto passado" } });
+            }           
+            repositorio.Alterar(id,pedido);
+            return Request.CreateResponse(HttpStatusCode.OK, new { dado = pedido });
+        }
+      
+
+
+
+
 
     }
 }

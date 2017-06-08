@@ -7,13 +7,13 @@ namespace ImobiliariaCrescer.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class reverterUltimaMigration : IMigrationMetadata
+    public sealed partial class colocarDataDeEntregaComoNula : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(reverterUltimaMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(colocarDataDeEntregaComoNula));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706080222087_reverterUltimaMigration"; }
+            get { return "201706081255222_colocarDataDeEntregaComoNula"; }
         }
         
         string IMigrationMetadata.Source

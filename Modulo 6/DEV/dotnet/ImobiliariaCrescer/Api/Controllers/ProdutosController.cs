@@ -76,8 +76,12 @@ namespace Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-
-
+        [Route("{pedido}")]
+        public HttpResponseMessage Devolver(Pedido pedido)
+        {
+            repositorio.Devolver(pedido);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
         protected override void Dispose(bool disposing)
         {

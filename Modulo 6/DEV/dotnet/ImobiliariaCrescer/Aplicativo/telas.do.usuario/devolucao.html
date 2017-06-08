@@ -1,0 +1,39 @@
+<body>
+    <div  class="devolucao">
+    <input type = "text" class="form-control"ng-model="search.Id" placeholder= "buscar pedido"> </input>
+    <table class= "tableDevolucao table table-hover">
+      <thead>
+        <tr>
+            <th>Pedido</th>
+        </tr>
+      </theaad>
+        <tbody>
+          <tr ng-repeat = "pedido in pedidos | filter: search">
+            <td>{{pedido.Id}}</td>
+            <td><a class="btn btn-default  b1" value"Selecionar" ng-click="selecionar(pedido)">Selecionar</td>
+
+          </tr>
+        </tbody>
+  </table>
+      </div>
+      <body>
+          <div  class="devolucao1">
+          <table class= "tableDevolucao table table-hover">
+            <thead>
+              <tr>
+                  <th>Pedido ID</th>
+                  <th>Cliente</th>
+                  <th>Multa</th>
+                  <th>Valor Total</th>
+              </tr>
+            </theaad>
+              <tbody>
+                  <td>{{pedidoSelecionado.Id}}</td>
+                  <td>{{pedidoSelecionado.Cliente.Nome}}</td>
+                  <td>{{pedidoSelecionado.Multa}}</td>
+                  <td>{{pedidoSelecionado.ValorTotal}}</td>
+                  <td><a class="btn btn-default  b1" value"devolver" ng-click="devolver(pedidoSelecionado)">Devolver</td>
+                </tr>
+              </tbody>
+        </table>
+            </div>

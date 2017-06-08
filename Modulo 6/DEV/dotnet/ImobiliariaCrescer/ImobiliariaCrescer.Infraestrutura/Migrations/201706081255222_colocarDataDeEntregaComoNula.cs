@@ -3,7 +3,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class colocarDataDeEntregaComoNulo : DbMigration
+    public partial class colocarDataDeEntregaComoNula : DbMigration
     {
         public override void Up()
         {

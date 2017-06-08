@@ -15,3 +15,31 @@ body{
   border-radius: 15px;
 
 }
+
+
+.devolucao {
+  margin-top: 50px;
+  transform: translatex(25%);
+  margin: 0;
+  width: 20%;
+  height: 50%;
+  background: linear-gradient(white 0%, silver 100%);
+  padding: 10px;
+  opacity: 0.9;
+  border-style: solid;
+  border-radius: 15px;
+  float:left;
+}
+.devolucao1 {
+  margin-top: 50px;
+  transform: translatex(25%);
+  margin: 0;
+  width: 40%;
+  height: 50%;
+  background: linear-gradient(white 0%, silver 100%);
+  padding: 10px;
+  opacity: 0.9;
+  border-style: solid;
+  border-radius: 15px;
+  float:left;
+}
