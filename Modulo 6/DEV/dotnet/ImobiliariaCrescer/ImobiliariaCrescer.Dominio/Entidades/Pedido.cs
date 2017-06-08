@@ -18,7 +18,7 @@ namespace ImobiliariaCrescer.Dominio.Entidades
         public DateTime DataPrevistaDeEntrega {get;  set;}
 
 
-        public Pedido(Cliente cliente, List<ProdutoPedido> itens)
+        public Pedido(Cliente cliente, List<ProdutoPedido> itens, DateTime entrega)
         {
             Cliente = cliente;
             Itens = itens;
@@ -26,7 +26,7 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             ValorTotal = itens.Sum(x => x.Quantidade * x.Produto.PrecoDaDiaria);
             Multa = 0;
             DataDeEntrega = DateTime.Now;
-            DataPrevistaDeEntrega = DateTime.Now;
+            DataPrevistaDeEntrega = entrega;
 
         }
 
@@ -35,5 +35,9 @@ namespace ImobiliariaCrescer.Dominio.Entidades
 
         }
 
+        public DateTime SetDataDoPedido()
+        {
+            return DateTime.Now;
+        }
     }
 }

@@ -8,6 +8,10 @@ modulo.config(function($routeProvider) {
           templateUrl: "/telas.do.usuario/escolha.do.produto.html",
           controller: "EscolhaDoProdutoController"
         })
+        .when ("/cadastro", {
+          templateUrl: "/telas.do.usuario/cadastro.html",
+          controller: "cadastroController"
+        })
       .when ("/informaOCliente", {
         templateUrl: "telas.do.usuario/informa.o.cliente.html",
         controller: "InformaOClienteController",

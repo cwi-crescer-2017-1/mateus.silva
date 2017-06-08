@@ -1,0 +1,27 @@
+
+<div class="container">
+    <form  novalidate class="cadastro" name="cadastro">
+        <div class="cadastro">
+            <label for="titulo">Nome completo do cliente:</label>
+            <input class="form-control " type="text" name="nome" ng-model ="cliente.Nome"></input>
+        </div>
+        <div class="">
+            <label for="cpf">CPF:</label>
+            <input class="form-control" type="text" name="cpf" ng-model ="cliente.Cpf"  ></input>
+        </div>
+        <div class="">
+            <label for="rg">RG:</label>
+            <input class="form-control" type="text" name="rg" ng-model ="cliente.Rg"  ></input>
+        </div>
+        <div class="">
+            <label for="endereco">Endereco:</label>
+            <input class="form-control" type="text" name="endereco" ng-model ="cliente.Endereco" ></input>
+        </div>
+        <div class="">
+            <label for="data">Data de Nascimento</label>
+            <input class="form-control" type="date" name="data" ng-model ="cliente.DataDeNascimento" ></input>
+        </div>
+           <div class="d2">
+              <button class="btn btn-primary" type="button" ng-click= "cadastrar(cliente)" name="button">salvar</button>
+          </div>
+   </form>

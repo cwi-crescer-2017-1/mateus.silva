@@ -23,14 +23,15 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
             public dynamic ObterPacotes()
             {
-            return contexto.Produtos.Where(p => p.Tipo.Contains("Casa")||
-                   p.Tipo.Contains("Apartamento")|| p.Tipo.Contains("Cabana")
-                   || p.Tipo.Contains("Suíte")).ToList();
+            return contexto.Produtos.Where(p => p.Tipo.Contains("Casa") &&p.Quantidade>0||
+                   p.Tipo.Contains("Apartamento") && p.Quantidade > 0 ||
+                   p.Tipo.Contains("Cabana") && p.Quantidade > 0
+                   || p.Tipo.Contains("Suíte") && p.Quantidade > 0).ToList();
             }
 
             public dynamic ObterOpcionais()
             {
-            return contexto.Produtos.Where(p => p.Tipo.Contains("Opcionais")).ToList();
+            return contexto.Produtos.Where(p => p.Tipo.Contains("Opcionais") && p.Quantidade>0).ToList();
             }
 
             public void CriarProduto(Produto produto)

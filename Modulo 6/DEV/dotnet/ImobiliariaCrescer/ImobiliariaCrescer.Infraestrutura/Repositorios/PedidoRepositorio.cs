@@ -17,34 +17,30 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             return contexto.Pedidos.Include(x=> x.Cliente).Include(x => x.Itens).ToList();
         }
 
-        public void FazerPedido(Pedido pedido)
+        public void FazerPedido(Pedido p)
         {
             ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
-
+            Pedido pedido = new Pedido(p.Cliente, p.Itens, p.DataPrevistaDeEntrega);
             contexto.Entry(pedido.Cliente).State = EntityState.Unchanged;
             contexto.Pedidos.Add(pedido);
-
+           
             foreach (var item in pedido.Itens)
             {
                 contexto.Entry(item.Produto).State = EntityState.Unchanged;
             }
-            
-           
 
             foreach (var item in pedido.Itens)
             {
                 var produto = produtoRepositorio.ObterPorId(item.Produto.Id);
                 if (produto.Quantidade > 0)
                 {
-                    var saldo = produto.Quantidade - item.Produto.Quantidade;
+                    var saldo = produto.Quantidade - 1;
                     produto.Quantidade = saldo;
                 }
 
                 produtoRepositorio.Alterar(produto.Id, produto);
-
+                contexto.SaveChanges();
             }
-            contexto.SaveChanges();
-
 
         }
 
