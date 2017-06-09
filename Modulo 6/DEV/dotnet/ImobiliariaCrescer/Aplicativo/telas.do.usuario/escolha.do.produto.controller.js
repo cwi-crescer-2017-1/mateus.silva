@@ -16,8 +16,8 @@ $scope.mostrarBotaoDeFazerPedido = mostrarBotaoDeFazerPedido;
 cliente = $scope.cliente;
 
 function mostrarOpcionais(){
-    if (!$scope.produtos.length==0)
-    return true;
+  if (!$scope.produtos.length==0)
+  return true;
 }
 
 function mostrarPacotes (){
@@ -50,9 +50,9 @@ function selecionar (pacote){
 }
 
 function add (opcional){
-if (opcional.Nome.includes("Piscina de chão") && $scope.produtos[0].Produto.Tipo.includes("Apartamento")){
- toastr.success("Opcional não está disponível para apartamentos")
-};
+  if (opcional.Nome.includes("Piscina de chão") && $scope.produtos[0].Produto.Tipo.includes("Apartamento")){
+     toastr.success("Opcional não está disponível para apartamentos")
+  };
   $scope.produtos.push({Produto:opcional})
   buscarOpcionais(); ;
 }
@@ -61,8 +61,6 @@ function fazerPedido (){
   var  pedido = {Cliente:$scope.cliente,Itens: $scope.produtos, DataPrevistaDeEntrega: $scope.data}
   escolhaDoProdutoService.fazerPedido(pedido).then(function (response){
   $scope.pedido = response.data.dado;
-})
-
-}
+})};
 
 });

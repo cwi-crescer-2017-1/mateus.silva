@@ -5,7 +5,7 @@ listarClientes();
 
 function listarClientes (){
   informaOUsuarioService.listarClientes().then(function (response){
-   $scope.clientes= response.data.dado;
+  $scope.clientes= response.data.dado;
   })};
 
 

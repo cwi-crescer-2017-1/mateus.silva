@@ -17,7 +17,6 @@ function colocarDataDeEntrega (pedido){
 function buscarPedidos (){
   devolucaoService.buscarPedidos().then(function (response){
   $scope.pedidos=  response.data.dado;
-  })
-}
+  })}
 
 });

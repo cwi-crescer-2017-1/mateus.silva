@@ -1,24 +1,23 @@
 <div class="menu">
-<div class="m">
-  <a class="btn btn-default  bi" ng-href="#!/cadastro">Cadastrar</a>
-</div>
-<div class="m">
-  <a class="btn btn-default  bi" ng-href="#!/informaOCliente">Buscar Cliente </a>
-</div>
-<div class="m">
-  <a class="btn btn-default  bi" ng-href="#!/devolucao">Devolução </a>
-</div>
-<div class="m">
-  <a class="btn btn-default  b" ng-href="#!/relatorioDeAtraso">Relatório de Atraso </a>
-</div>
-<div ng-if="auth.possuiPermissao('Gerente')">
+  <div class="m">
+    <a class="btn btn-default  bi" ng-href="#!/cadastro">Cadastrar</a>
+  </div>
+  <div class="m">
+    <a class="btn btn-default  bi" ng-href="#!/informaOCliente">Buscar Cliente </a>
+  </div>
+  <div class="m">
+    <a class="btn btn-default  bi" ng-href="#!/devolucao">Devolução </a>
+  </div>
+  <div class="m">
+    <a class="btn btn-default  b" ng-href="#!/relatorioDeAtraso">Relatório de Atraso </a>
+  </div>
+  <div ng-if="auth.possuiPermissao('Gerente')">
     <a class="btn btn-default  b" ng-href="#!/relatorioDeLocacao">Relatório de Locação </a>
-</div>
-<div class="">
+  </div>
+  <div class="">
     <a  class="btn btn-default  b" ng-click="logout()">Logout</a>
+  </div>
 </div>
-</div>
-
 <div class="container containerProduto">
     <div class="pedido"    ng-if="mostrarBotaoDeFazerPedido()">
        <a class=" " ng-href="#!/informaOCliente"><button type="button" name="button" class="btn btn-primary" ng-click="fazerPedido()">Fechar Pedido</button></a>
@@ -29,38 +28,38 @@
       <input type = "text" name="pacote" class="form-control"ng-model="search.Nome" placeholder= "buscar pacote"> </input>
       <label for="imovel">Selecione o imóvel</label>
       <input type = "text" name="imovel" class="form-control"ng-model="search.Tipo" placeholder= "buscar tipo de imóvel"> </input>
-<table class= "table table-hover table1"  ng-if="mostrarPacotes()">
-   <thead>
+    <table class= "table table-hover table1"  ng-if="mostrarPacotes()">
+     <thead>
        <th>Pacote</th>
        <th>Tipo</th>
        <th>Quantidade</th>
        <th>Valor da Diária</th>
- </thead>
- <tbody>
-   <tr ng-repeat ="pacote in  pacotes | filter: search">
-     <td>{{pacote.Nome}}</td>
-     <td>{{pacote.Tipo}}</td>
-     <td>{{pacote.Quantidade}}</td>
-     <td>{{pacote.PrecoDaDiaria}}</td>
-     <td><input type="button" class="btn btn-primary" name="editar" value="Selecionar" ng-click ="selecionar(pacote)"></td>
-   </tr>
- </tbody>
-</table>
-<table class= "table table-hover table2"  ng-if="mostrarOpcionais()">
-   <thead>
+     </thead>
+     <tbody>
+       <tr ng-repeat ="pacote in  pacotes | filter: search">
+         <td>{{pacote.Nome}}</td>
+         <td>{{pacote.Tipo}}</td>
+         <td>{{pacote.Quantidade}}</td>
+         <td>{{pacote.PrecoDaDiaria}}</td>
+         <td><input type="button" class="btn btn-primary" name="editar" value="Selecionar" ng-click ="selecionar(pacote)"></td>
+       </tr>
+     </tbody>
+    </table>
+    <table class= "table table-hover table2"  ng-if="mostrarOpcionais()">
+     <thead>
        <th>Nome</th>
        <th>Tipo</th>
        <th>Quantidade</th>
        <th>Valor da Diária</th>
- </thead>
- <tbody>
-   <tr ng-repeat ="opcional in  opcionais">
-     <td>{{opcional.Nome}}</td>
-     <td>{{opcional.Tipo}}</td>
-     <td>{{opcional.Quantidade}}</td>
-     <td>{{opcional.PrecoDaDiaria}}</td>
-     <td><input type="button" class="btn btn-primary" name="editar" value="Add" ng-click ="add(opcional, cliente)"></td>
-   </tr>
- </tbody>
-</table>
+     </thead>
+     <tbody>
+       <tr ng-repeat ="opcional in  opcionais">
+         <td>{{opcional.Nome}}</td>
+         <td>{{opcional.Tipo}}</td>
+         <td>{{opcional.Quantidade}}</td>
+         <td>{{opcional.PrecoDaDiaria}}</td>
+         <td><input type="button" class="btn btn-primary" name="editar" value="Add" ng-click ="add(opcional, cliente)"></td>
+       </tr>
+     </tbody>
+    </table>
 </div>
