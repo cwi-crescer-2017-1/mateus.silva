@@ -51,10 +51,6 @@ namespace Api.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Id não confere com produto passado" } });
             }
-            //if (!repositorio.verificaExistenciaDeProduto(id))
-            //{
-            //    return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Produto não existe" } });
-            //}
             repositorio.Alterar(id, produto);
             return Request.CreateResponse(HttpStatusCode.OK, new { dado = produto });
         }
@@ -68,20 +64,11 @@ namespace Api.Controllers
         [Route("{id}")]
         public HttpResponseMessage Delete(int id)
         {
-            //if (!repositorio.verificaExistenciaDelivro(isbn))
-            //{
-            //    return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Livro não existe" } });
-            //}
             repositorio.Remover(id);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("{pedido}")]
-        public HttpResponseMessage Devolver(Pedido pedido)
-        {
-            repositorio.Devolver(pedido);
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
+    
 
         protected override void Dispose(bool disposing)
         {

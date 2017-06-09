@@ -1,5 +1,5 @@
-<body>
-    <div  class="devolucao">
+<div class="container1">
+  <div  class="devolucao">
     <input type = "text" class="form-control"ng-model="search.Id" placeholder= "buscar pedido"> </input>
     <table class= "tableDevolucao table table-hover">
       <thead>
@@ -11,14 +11,12 @@
           <tr ng-repeat = "pedido in pedidos | filter: search">
             <td>{{pedido.Id}}</td>
             <td><a class="btn btn-default  b1" value"Selecionar" ng-click="selecionar(pedido)">Selecionar</td>
-
           </tr>
         </tbody>
-  </table>
-      </div>
-      <body>
-          <div  class="devolucao1">
-          <table class= "tableDevolucao table table-hover">
+     </table>
+   </div>
+   <div  class="devolucao1">
+        <table class= "tableDevolucao table table-hover">
             <thead>
               <tr>
                   <th>Pedido ID</th>
@@ -36,4 +34,5 @@
                 </tr>
               </tbody>
         </table>
-            </div>
+    </div>
+</div>

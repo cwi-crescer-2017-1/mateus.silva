@@ -20,62 +20,26 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public void FazerPedido(Pedido p)
         {
-            ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
             Pedido pedido = new Pedido(p.Cliente, p.Itens, p.DataPrevistaDeEntrega);
             contexto.Entry(pedido.Cliente).State = EntityState.Unchanged;
             contexto.Pedidos.Add(pedido);
-           
+   
             foreach (var item in pedido.Itens)
             {
                 contexto.Entry(item.Produto).State = EntityState.Unchanged;
             }
-
-            foreach (var item in pedido.Itens)
-            {
-                var produto = produtoRepositorio.ObterPorId(item.Produto.Id);
-                if (produto.Quantidade > 0)
-                {
-                    var saldo = produto.Quantidade - 1;
-                    produto.Quantidade = saldo;
-                }
-
-                produtoRepositorio.Alterar(produto.Id, produto);
-                contexto.SaveChanges();
-            }
-
+            RealizarBaixaEstoque(pedido);
+            contexto.SaveChanges();
         }
 
         public void Alterar(int id, Pedido pedido)
         {
-            ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
-
             pedido.DataDeEntrega = DateTime.Now;
-
-            var diferencaEmDias = (pedido.DataDeEntrega.Value - pedido.DataPrevistaDeEntrega).TotalDays;
-
-            if (diferencaEmDias > 0)
-            {
-                pedido.Multa = pedido.ValorTotal * Convert.ToDecimal(diferencaEmDias);
-            }
+            AplicaMulta(pedido);   
             contexto.Entry(pedido).State = System.Data.Entity.EntityState.Modified;
-
-            
-            foreach (var item in pedido.Itens)
-            {
-                var produto = produtoRepositorio.ObterPorId(item.Produto.Id);
-                if (produto.Quantidade > 0)
-                {
-                    var saldo = produto.Quantidade + 1;
-                    produto.Quantidade = saldo;
-                }
-
-                produtoRepositorio.Alterar(produto.Id, produto);
-                contexto.SaveChanges();
-            }
+            Devolver(pedido);
             contexto.SaveChanges();
         }
-
-
         
         public dynamic RelatorioDeLocacaoMensal()
         {
@@ -85,15 +49,54 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public dynamic RelatorioDeAtrasos()
         {
+           
             var pedidos = contexto.Pedidos.ToList();
-            return pedidos.Where(x => (x.DataDeEntrega.Value - x.DataPrevistaDeEntrega).TotalDays > 0).ToList();
+            return pedidos.Where(x => (x.DataPrevistaDeEntrega - DateTime.Now).TotalDays <0 ||
+             (x.DataPrevistaDeEntrega - x.DataDeEntrega.Value).TotalDays < 0).ToList();
         }
-         
-        private void RealizarBaixaEstoque()
+
+
+        private void RealizarBaixaEstoque(Pedido pedido)
         {
-
+            ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
+            foreach (var item in pedido.Itens)
+            {
+                var produto = produtoRepositorio.ObterPorId(item.Produto.Id);
+                if (produto.Quantidade > 0)
+                {
+                    var saldo = produto.Quantidade - 1;
+                    produto.Quantidade = saldo;
+                }
+                produtoRepositorio.Alterar(produto.Id, produto);
+                contexto.SaveChanges();
+            }
         }
 
+        private void Devolver(Pedido pedido)
+        {
+            ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
+            foreach (var item in pedido.Itens)
+            {
+                var produto = produtoRepositorio.ObterPorId(item.Produto.Id);
+                if (produto.Quantidade > 0)
+                {
+                    var saldo = produto.Quantidade + 1;
+                    produto.Quantidade = saldo;
+                }
+                produtoRepositorio.Alterar(produto.Id, produto);
+                contexto.SaveChanges();
+            }
+        }
+
+
+        private void AplicaMulta(Pedido pedido)
+        {
+            var diferencaEmDias = (pedido.DataDeEntrega.Value - pedido.DataPrevistaDeEntrega).TotalDays;
+            if (diferencaEmDias > 0)
+            {
+                pedido.Multa = pedido.ValorTotal * Convert.ToDecimal(diferencaEmDias);
+            }
+        }
         public void Dispose()
         {
             contexto.Dispose();

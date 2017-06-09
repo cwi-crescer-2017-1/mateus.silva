@@ -6,6 +6,7 @@ modulo.controller("cadastroController", function ($scope, toastr,  cadastroServi
   function cadastrar (cliente){
     cadastroService.cadastrar(cliente).then(function (response){
         toastr.success("Cliente cadastrado com sucesso.")
+        $scope.cliente ={};
     })};
 
 

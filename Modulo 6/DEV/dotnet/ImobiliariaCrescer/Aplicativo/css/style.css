@@ -1,19 +1,39 @@
 body{
   margin: 0;
+  background: rgba(26, 27, 28, .8);
 }
 
+.header  p
+{
+  margin-left: 50%;
+  transform: translatex(-50%);
+  position: absolute;
+  width: 100%;
+  line-height: 60px;
+  font-family: Goudy Stout;
+  color: white;
+  opacity: 0.7;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  font-size: 30px;
+  text-align: center;
+}
 .container {
-  margin-top: 50px;
   transform: translatex(25%);
   margin: 0;
   width: 65%;
-  height: 50%;
   background: linear-gradient(white 0%, silver 100%);
   padding: 10px;
   opacity: 0.9;
   border-style: solid;
   border-radius: 15px;
-
+  margin-top: 80px;
+ position: fixed;
+}
+.container1 {
+   margin-top: 80px;
+   position: fixed;
+     transform: translatex(55%);
 }
 
 
@@ -21,7 +41,7 @@ body{
   margin-top: 50px;
   transform: translatex(25%);
   margin: 0;
-  width: 20%;
+  width: 30%;
   height: 50%;
   background: linear-gradient(white 0%, silver 100%);
   padding: 10px;
@@ -34,7 +54,7 @@ body{
   margin-top: 50px;
   transform: translatex(25%);
   margin: 0;
-  width: 40%;
+  width: 60%;
   height: 50%;
   background: linear-gradient(white 0%, silver 100%);
   padding: 10px;
@@ -42,4 +62,42 @@ body{
   border-style: solid;
   border-radius: 15px;
   float:left;
+}
+.b{
+  position: relative;
+  height: 60px;
+  width: 210px;
+  float: right;
+  background-color: silver;
+  line-height: 40px;
+  font-size: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  color: white;
+}
+.bi{
+  position: relative;
+  height: 60px;
+  width: 150px;
+  float: left;
+  background-color: silver;
+  line-height: 40px;
+  font-size: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .9);
+  background: rgba(26, 27, 28, .8);
+  color: white;
+}
+.b3{
+  transform: translatex(120%);
+  margin-top: 100px;
+  width: 200px;
+  position: fixed;
+  height: 60px;
+  color: black;
+}
+.containerProduto {
+  margin-top: 200px;
+}
+.pedido{
+  float: right;
 }

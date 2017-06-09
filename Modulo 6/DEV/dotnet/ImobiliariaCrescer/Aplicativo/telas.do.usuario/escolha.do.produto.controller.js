@@ -12,7 +12,7 @@ $scope.mostrarPacotes =mostrarPacotes;
 $scope.mostrarOpcionais = mostrarOpcionais;
 $scope.mostrarBotaoDeFazerPedido = mostrarBotaoDeFazerPedido;
 cliente = $scope.cliente;
-console.log($scope.produtos.length==0);
+
 function mostrarOpcionais(){
     if (!$scope.produtos.length==0)
     return true;
@@ -48,24 +48,16 @@ function selecionar (pacote){
 }
 
 function add (opcional){
-  console.log($scope.data==undefined);
-  $scope.produtos.push({Produto:opcional}) ;
+  $scope.produtos.push({Produto:opcional})
+  buscarOpcionais(); ;
 }
 
 function fazerPedido (){
   var  pedido = {Cliente:$scope.cliente,Itens: $scope.produtos, DataPrevistaDeEntrega: $scope.data}
-
-   console.log(pedido);
   escolhaDoProdutoService.fazerPedido(pedido).then(function (response){
- $scope.pedido = response.data.dado;
+  $scope.pedido = response.data.dado;
 })
 
 }
-
-
-
-
-
-
 
 });

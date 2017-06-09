@@ -59,23 +59,23 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
                 contexto.Dispose();
             }
 
-        public void Devolver(Pedido p)
-        {
-            ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
-            foreach (var item in p.Itens)
-            {
-                var produto = produtoRepositorio.ObterPorId(item.Produto.Id);
-                if (produto.Quantidade > 0)
-                {
-                    var saldo = produto.Quantidade + 1;
-                    produto.Quantidade = saldo;
-                }
+        //public void Devolver(Pedido p)
+        //{
+        //    ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
+        //    foreach (var item in p.Itens)
+        //    {
+        //        var produto = produtoRepositorio.ObterPorId(item.Produto.Id);
+        //        if (produto.Quantidade > 0)
+        //        {
+        //            var saldo = produto.Quantidade + 1;
+        //            produto.Quantidade = saldo;
+        //        }
 
-                produtoRepositorio.Alterar(produto.Id, produto);
-                contexto.SaveChanges();
-            }
+        //        produtoRepositorio.Alterar(produto.Id, produto);
+        //        contexto.SaveChanges();
+        //    }
 
-        }
+        //}
     }
 }
 

@@ -1,11 +1,11 @@
-<div class="data">
+<div class="b3">
   <label for="data">Selecione a Data de Entrega</label>
-  <input type="date"  name="data" ng-model="data" value="">
+  <input type="date"  class="form-control"  name="data" ng-model="data" value="">
+  <div class="pedido"    ng-if="mostrarBotaoDeFazerPedido()">
+    <button type="button" name="button" class="btn btn-primary" ng-click="fazerPedido()">Fechar Pedido</button>
+  </div>
 </div>
-<div class=""    ng-if="mostrarBotaoDeFazerPedido()">
-  <button type="button" name="button" class="btn btn-primary" ng-click="fazerPedido()">Fechar Pedido</button>
-</div>
-<div class="container">
+<div class="container containerProduto">
 <table class= "table table-hover table1"  ng-if="mostrarPacotes()">
    <thead>
        <th>Nome</th>
