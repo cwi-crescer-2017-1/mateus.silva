@@ -1,19 +1,34 @@
+<div class="menu">
+<div class="m">
+  <a class="btn btn-default  bi" ng-href="#!/cadastro">Cadastrar</a>
+</div>
+<div class="m">
+  <a class="btn btn-default  bi" ng-href="#!/informaOCliente">Buscar Cliente </a>
+</div>
+<div class="m">
+  <a class="btn btn-default  bi" ng-href="#!/devolucao">Devolução </a>
+</div>
+<div class="m">
+  <a class="btn btn-default  b" ng-href="#!/relatorioDeAtraso">Relatório de Atraso </a>
+</div>
 <div ng-if="auth.possuiPermissao('Gerente')">
-  <a class="btn btn-default  b" ng-href="#!/relatorioDeLocacao">Relatório de Locação </a>
+    <a class="btn btn-default  b" ng-href="#!/relatorioDeLocacao">Relatório de Locação </a>
 </div>
 <div class="">
-  <a  class="btn btn-default  b" ng-click="logout()">Logout</a>
+    <a  class="btn btn-default  b" ng-click="logout()">Logout</a>
 </div>
-<div class="b3">
-  <label for="data">Selecione a Data de Entrega</label>
-  <input type="date"  class="form-control"  name="data" ng-model="data" value="">
-  <div class="pedido"    ng-if="mostrarBotaoDeFazerPedido()">
-     <a class="btn btn-default  bi" ng-href="#!/informaOCliente"><button type="button" name="button" class="btn btn-primary" ng-click="fazerPedido()">Fechar Pedido</button></a>
-  </div>
 </div>
+
 <div class="container containerProduto">
-  <input type = "text" class="form-control"ng-model="search.Nome" placeholder= "buscar pacote"> </input>
-  <input type = "text" class="form-control"ng-model="search.Tipo" placeholder= "buscar tipo de imóvel"> </input>
+    <div class="pedido"    ng-if="mostrarBotaoDeFazerPedido()">
+       <a class=" " ng-href="#!/informaOCliente"><button type="button" name="button" class="btn btn-primary" ng-click="fazerPedido()">Fechar Pedido</button></a>
+    </div>
+      <label for="data">Selecione a Data de Entrega</label>
+      <input type="date"  class="form-control"  name="data" ng-model="data" value="">
+      <label for="pacote">Selecione o pacote</label>
+      <input type = "text" name="pacote" class="form-control"ng-model="search.Nome" placeholder= "buscar pacote"> </input>
+      <label for="imovel">Selecione o imóvel</label>
+      <input type = "text" name="imovel" class="form-control"ng-model="search.Tipo" placeholder= "buscar tipo de imóvel"> </input>
 <table class= "table table-hover table1"  ng-if="mostrarPacotes()">
    <thead>
        <th>Pacote</th>

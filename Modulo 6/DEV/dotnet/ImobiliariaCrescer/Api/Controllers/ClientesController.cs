@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Api.Models;
 
 namespace Api.Controllers
 {
@@ -29,11 +30,18 @@ namespace Api.Controllers
             return Ok(new {dado = cliente});
        }
 
-        public IHttpActionResult Post(Cliente cliente)
+        public HttpResponseMessage Post(ClienteModel model)
        {
+          var cliente = new Cliente (model.Id, model.Nome, model.Cpf, model.Rg, model.Endereco, model.Genero, model.DataDeNascimento);
+          ClienteRepositorio clienter = new ClienteRepositorio();
+          if(clienter.VerificarCpf(cliente.Cpf))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "CPF já está sendo usado" } });
+            }
           repositorio.Criar(cliente);
-          return Ok(new { dado = cliente });
-       }
+            
+          return Request.CreateResponse(HttpStatusCode.OK, new { dado = cliente });
+        }
 
         protected override void Dispose(bool disposing)
         {

@@ -47,6 +47,13 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        [Route("relatoriodelocacaomensalvalor")]
+        public IHttpActionResult GetRelatorioDeLocacaoMensalValor()
+        {
+            var relatorio = repositorio.RelatorioDeLocacaoMensalValorTotal();
+            return Ok(new { dado = relatorio });
+        }
+        [HttpGet]
         [Route("relatoriodeatrasos")]
         public IHttpActionResult GetRelatorioDeAtrasos()
         {

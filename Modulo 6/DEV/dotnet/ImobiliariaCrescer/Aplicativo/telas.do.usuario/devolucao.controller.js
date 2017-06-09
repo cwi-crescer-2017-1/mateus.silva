@@ -1,5 +1,6 @@
-modulo.controller("DevolucaoController", function ($scope, $routeParams, devolucaoService){
-
+modulo.controller("DevolucaoController", function ($scope, $routeParams, authService, devolucaoService){
+$scope.logout = authService.logout;
+$scope.auth = authService;
 buscarPedidos();
 $scope.selecionar = selecionar;
 $scope.colocarDataDeEntrega = colocarDataDeEntrega;

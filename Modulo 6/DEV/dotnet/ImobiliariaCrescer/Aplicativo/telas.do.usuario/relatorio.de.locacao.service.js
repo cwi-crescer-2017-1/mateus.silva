@@ -8,7 +8,11 @@ var url = "http://localhost:63184/api/pedidos/relatoriodelocacaomensal";
    return $http.get(url);
   };
 
+  function soma(){
+   return $http.get(url+"valor");
+  };
 return{
-  buscarRelatorio:get
+  buscarRelatorio:get,
+  buscarSoma: soma
 }
 });

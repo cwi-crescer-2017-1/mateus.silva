@@ -3,7 +3,9 @@ body{
   background: rgba(26, 27, 28, .8);
 
 }
-
+.menu{
+  float: left;
+}
 .header  p
 {
   margin-left: 50%;
@@ -20,7 +22,7 @@ body{
 
 }
 .container {
-  transform: translatex(25%);
+  transform: translatex(15%);
   margin: 0;
   width: 65%;
   background: linear-gradient(white 0%, silver 100%);
@@ -29,6 +31,7 @@ body{
   border-style: solid;
   border-radius: 15px;
   margin-top: 80px;
+  float: left;
 }
 .container1 {
    margin-top: 80px;
@@ -78,7 +81,7 @@ body{
 .bi{
   position: relative;
   height: 60px;
-  width: 150px;
+  width: 210px;
   float: left;
   background-color: silver;
   line-height: 40px;
@@ -89,15 +92,19 @@ body{
 }
 .b3{
   transform: translatex(120%);
-  margin-top: 100px;
-  width: 200px;
-  position: fixed;
+  width: 510px;
+  position: relative;
   height: 60px;
   color: black;
+
 }
+
 .containerProduto {
-  margin-top: 200px;
+  margin-top: 50px;
 }
 .pedido{
   float: right;
+}
+.l{
+  float: left;
 }

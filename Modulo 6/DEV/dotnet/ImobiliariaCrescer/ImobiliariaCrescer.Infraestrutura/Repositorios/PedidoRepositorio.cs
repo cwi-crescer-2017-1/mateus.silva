@@ -47,12 +47,18 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             return pedidos.Where(x => (DateTime.Now - x.DataDoPedido).TotalDays < 31).ToList();
         }
 
+        public dynamic RelatorioDeLocacaoMensalValorTotal()
+        {
+            var pedidos = contexto.Pedidos.Include(x => x.Cliente).ToList();
+            var soma = pedidos.Where(x => (DateTime.Now - x.DataDoPedido).TotalDays < 31).ToList();
+            return soma.Sum(x => x.ValorTotal);
+        }
+
         public dynamic RelatorioDeAtrasos()
         {
-
             var pedidos = contexto.Pedidos.Include(x => x.Cliente).ToList();
-            return pedidos.Where(x => (x.DataPrevistaDeEntrega - DateTime.Now).TotalDays <0 ||
-             (x.DataPrevistaDeEntrega - x.DataDeEntrega.Value).TotalDays < 0).ToList();
+             return pedidos.Where(x => (x.DataPrevistaDeEntrega - DateTime.Now).TotalDays < 0).OrderBy(x=> x.DataPrevistaDeEntrega).ToList();
+          
         }
 
 

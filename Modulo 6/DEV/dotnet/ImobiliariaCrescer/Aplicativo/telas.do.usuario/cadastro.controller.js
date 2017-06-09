@@ -1,6 +1,7 @@
-modulo.controller("cadastroController", function ($scope, toastr,  cadastroService){
+modulo.controller("cadastroController", function ($scope, toastr, authService, cadastroService){
   $scope.cliente;
-
+  $scope.logout = authService.logout;
+  $scope.auth = authService;
   $scope.cadastrar = cadastrar;
 
   function cadastrar (cliente){

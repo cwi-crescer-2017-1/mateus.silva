@@ -26,7 +26,21 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             contexto.Clientes.Add(cliente);
             contexto.SaveChanges();
         }
+        public bool VerificarCpf(string Cpf)
+        {
+            var array=  contexto.Clientes.Where(x => x.Cpf.Contains(Cpf));
+            if (array.Count() > 0)
+            {
+                return true;
 
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        
         public void Dispose()
         {
             contexto.Dispose();

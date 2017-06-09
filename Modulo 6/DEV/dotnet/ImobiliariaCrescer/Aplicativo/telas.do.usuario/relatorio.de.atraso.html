@@ -1,4 +1,23 @@
-
+<div class="menu">
+<div class="m">
+  <a class="btn btn-default  bi" ng-href="#!/cadastro">Cadastrar</a>
+</div>
+<div class="m">
+  <a class="btn btn-default  bi" ng-href="#!/informaOCliente">Buscar Cliente </a>
+</div>
+<div class="m">
+  <a class="btn btn-default  bi" ng-href="#!/devolucao">Devolução </a>
+</div>
+<div class="m">
+  <a class="btn btn-default  b" ng-href="#!/relatorioDeAtraso">Relatório de Atraso </a>
+</div>
+<div ng-if="auth.possuiPermissao('Gerente')">
+    <a class="btn btn-default  b" ng-href="#!/relatorioDeLocacao">Relatório de Locação </a>
+</div>
+<div class="">
+    <a  class="btn btn-default  b" ng-click="logout()">Logout</a>
+</div>
+</div>
 <div  class="container">
       <table class= "table table-hover">
         <thead>

@@ -1,4 +1,4 @@
-modulo.controller("EscolhaDoProdutoController", function ($scope, authService, $routeParams, escolhaDoProdutoService){
+modulo.controller("EscolhaDoProdutoController", function ($scope,toastr, authService, $routeParams, escolhaDoProdutoService){
 $scope.logout = authService.logout;
 $scope.auth = authService;
 
@@ -50,6 +50,9 @@ function selecionar (pacote){
 }
 
 function add (opcional){
+if (opcional.Nome.includes("Piscina de chão") && $scope.produtos[0].Produto.Tipo.includes("Apartamento")){
+ toastr.success("Opcional não está disponível para apartamentos")
+};
   $scope.produtos.push({Produto:opcional})
   buscarOpcionais(); ;
 }
