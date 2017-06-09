@@ -37,5 +37,7 @@ namespace ImobiliariaCrescer.Dominio.Entidades
         {
             return DateTime.Now;
         }
+
+     
     }
 }

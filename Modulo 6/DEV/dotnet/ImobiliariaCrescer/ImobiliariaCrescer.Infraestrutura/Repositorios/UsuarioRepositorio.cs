@@ -15,7 +15,11 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         static UsuarioRepositorio()
         {
-         
+
+            var colaborador = new Usuario("Colaborador", "colaborador@cwi.com.br", "123456");
+            colaborador.AtribuirPermissoes("Colaborador");
+            _usuarios.Add(colaborador.Email, colaborador);
+
             var gerente = new Usuario("Gerente", "gerente@cwi.com.br", "123456");
             gerente.AtribuirPermissoes("Gerente");
             _usuarios.Add(gerente.Email, gerente);

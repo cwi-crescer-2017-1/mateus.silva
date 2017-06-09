@@ -9,4 +9,5 @@ angular.module("myApp").constant("authConfig", {
     urlPrivado: '/crud',
 
     urlLogout: '/livros'
+
 });

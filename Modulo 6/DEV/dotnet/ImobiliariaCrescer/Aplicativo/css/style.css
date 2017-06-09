@@ -1,13 +1,13 @@
 body{
   margin: 0;
   background: rgba(26, 27, 28, .8);
+
 }
 
 .header  p
 {
   margin-left: 50%;
   transform: translatex(-50%);
-  position: absolute;
   width: 100%;
   line-height: 60px;
   font-family: Goudy Stout;
@@ -17,6 +17,7 @@ body{
   background: rgba(26, 27, 28, .8);
   font-size: 30px;
   text-align: center;
+
 }
 .container {
   transform: translatex(25%);
@@ -28,7 +29,6 @@ body{
   border-style: solid;
   border-radius: 15px;
   margin-top: 80px;
- position: fixed;
 }
 .container1 {
    margin-top: 80px;

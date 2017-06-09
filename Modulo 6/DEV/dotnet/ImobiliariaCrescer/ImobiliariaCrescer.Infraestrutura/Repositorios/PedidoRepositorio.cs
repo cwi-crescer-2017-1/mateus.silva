@@ -43,14 +43,14 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
         
         public dynamic RelatorioDeLocacaoMensal()
         {
-            var pedidos = contexto.Pedidos.ToList();
+            var pedidos = contexto.Pedidos.Include(x => x.Cliente).ToList();
             return pedidos.Where(x => (DateTime.Now - x.DataDoPedido).TotalDays < 31).ToList();
         }
 
         public dynamic RelatorioDeAtrasos()
         {
-           
-            var pedidos = contexto.Pedidos.ToList();
+
+            var pedidos = contexto.Pedidos.Include(x => x.Cliente).ToList();
             return pedidos.Where(x => (x.DataPrevistaDeEntrega - DateTime.Now).TotalDays <0 ||
              (x.DataPrevistaDeEntrega - x.DataDeEntrega.Value).TotalDays < 0).ToList();
         }
@@ -94,9 +94,12 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             var diferencaEmDias = (pedido.DataDeEntrega.Value - pedido.DataPrevistaDeEntrega).TotalDays;
             if (diferencaEmDias > 0)
             {
-                pedido.Multa = pedido.ValorTotal * Convert.ToDecimal(diferencaEmDias);
+              pedido.Multa  = pedido.ValorTotal * Convert.ToDecimal(diferencaEmDias);
+                var  novoValor = pedido.ValorTotal + pedido.Multa;
+                pedido.ValorTotal = (decimal)novoValor;
             }
         }
+   
         public void Dispose()
         {
             contexto.Dispose();

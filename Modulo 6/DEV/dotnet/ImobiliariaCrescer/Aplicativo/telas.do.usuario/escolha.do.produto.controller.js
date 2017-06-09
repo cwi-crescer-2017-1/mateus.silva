@@ -1,4 +1,6 @@
-modulo.controller("EscolhaDoProdutoController", function ($scope, $routeParams, escolhaDoProdutoService){
+modulo.controller("EscolhaDoProdutoController", function ($scope, authService, $routeParams, escolhaDoProdutoService){
+$scope.logout = authService.logout;
+$scope.auth = authService;
 
 var id= $routeParams.Id;
 buscarClientePorId(id);
