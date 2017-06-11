@@ -17,4 +17,5 @@ namespace Api.Models
         public DateTime? DataDeEntrega { get; set; }
         public DateTime DataPrevistaDeEntrega { get;  set; }
     }
+
 }

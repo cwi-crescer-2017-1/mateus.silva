@@ -27,16 +27,16 @@ namespace Api.Controllers
         [BasicAuthorization]
         public IHttpActionResult Post(PedidoModel pedidoModel)
         {
-            Pedido pedido = new Pedido(pedidoModel.Cliente, pedidoModel.Itens, pedidoModel.DataPrevistaDeEntrega);
+            Pedido pedido = new Pedido( pedidoModel.Cliente, pedidoModel.Itens, pedidoModel.DataPrevistaDeEntrega);
             repositorio.FazerPedido(pedido);
             return Ok(new { dado = pedido});
         }
 
         [BasicAuthorization]
         [Route("{id:int}")]
-        public HttpResponseMessage Put(int id, Pedido pedido)
-
+        public HttpResponseMessage Put(int id, PedidoModel pedidoModel)
         {
+            Pedido pedido = new Pedido(pedidoModel.Id, pedidoModel.Cliente, pedidoModel.Itens, pedidoModel.DataPrevistaDeEntrega);
             if (id != pedido.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Id não confere com produto passado" } });

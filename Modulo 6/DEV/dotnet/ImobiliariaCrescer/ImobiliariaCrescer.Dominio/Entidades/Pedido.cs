@@ -8,17 +8,28 @@ namespace ImobiliariaCrescer.Dominio.Entidades
 {
     public class Pedido
     {
-        public int Id { get;  set;}
-        public Cliente Cliente { get;  set;}
-        public List<ProdutoPedido> Itens { get; set;}
-        public DateTime DataDoPedido { get; set;}
-        public decimal ValorTotal { get;set;}
-        public decimal? Multa { get;  set;}
-        public DateTime? DataDeEntrega {get;  set;}
-        public DateTime DataPrevistaDeEntrega {get;  set;}
+        public int Id { get;  private set;}
+        public Cliente Cliente { get; private set;}
+        public List<ProdutoPedido> Itens { get; private set;}
+        public DateTime DataDoPedido { get; private set;}
+        public decimal ValorTotal { get; private set;}
+        public decimal? Multa { get;  private set;}
+        public DateTime? DataDeEntrega {get;  private set;}
+        public DateTime DataPrevistaDeEntrega {get; private  set;}
 
 
-        public Pedido(Cliente cliente, List<ProdutoPedido> itens, DateTime entrega)
+        public Pedido(int id, Cliente cliente, List<ProdutoPedido> itens, DateTime entrega)
+        {
+            Id = id;
+            Cliente = cliente;
+            Itens = itens;
+            DataDoPedido = DateTime.Now;
+            ValorTotal = itens.Sum(x => x.Produto.PrecoDaDiaria);
+            DataPrevistaDeEntrega = entrega;
+
+        }
+
+        public Pedido( Cliente cliente, List<ProdutoPedido> itens, DateTime entrega)
         {
             Cliente = cliente;
             Itens = itens;
@@ -28,16 +39,29 @@ namespace ImobiliariaCrescer.Dominio.Entidades
 
         }
 
-        public Pedido()
+        protected Pedido()
         {
 
         }
 
-        public DateTime SetDataDoPedido()
+        public void   SetDataDeEntrega()
         {
-            return DateTime.Now;
+            DataDeEntrega= DateTime.Now;
         }
 
-     
+
+
+        public  void AplicaMulta()
+        {
+            var diferencaEmDias = (DataDeEntrega.Value - DataPrevistaDeEntrega).TotalDays;
+            if (diferencaEmDias > 0)
+            {
+                Multa = ValorTotal * Convert.ToDecimal(diferencaEmDias);
+                var novoValor = ValorTotal + Multa;
+                ValorTotal = (decimal)novoValor;
+            }
+        }
+
+
     }
 }

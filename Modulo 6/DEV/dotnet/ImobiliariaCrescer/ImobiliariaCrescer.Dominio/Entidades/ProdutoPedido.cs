@@ -13,9 +13,15 @@ namespace ImobiliariaCrescer.Dominio.Entidades
         public int Quantidade { get; set; } = 1;
 
 
-        public ProdutoPedido()
+        protected ProdutoPedido()
         {
 
+        }
+
+        public ProdutoPedido(int id, Produto produto)
+        {
+            Id = id;
+            Produto = produto;
         }
     }
 

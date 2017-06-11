@@ -1,7 +1,6 @@
 modulo.controller("EscolhaDoProdutoController", function ($scope,toastr, authService, $routeParams, escolhaDoProdutoService){
 $scope.logout = authService.logout;
 $scope.auth = authService;
-
 var id= $routeParams.Id;
 buscarClientePorId(id);
 buscarPacotes();
@@ -11,22 +10,17 @@ $scope.fazerPedido = fazerPedido;
 $scope.add = add;
 $scope.produtos =[];
 $scope.mostrarPacotes =mostrarPacotes;
-$scope.mostrarOpcionais = mostrarOpcionais;
-$scope.mostrarBotaoDeFazerPedido = mostrarBotaoDeFazerPedido;
+$scope.orcamento = orcamento;
+$scope.mostrarBotaoDeOrcamento = mostrarBotaoDeOrcamento;
 cliente = $scope.cliente;
-
-function mostrarOpcionais(){
-  if (!$scope.produtos.length==0)
-  return true;
-}
 
 function mostrarPacotes (){
   if ($scope.produtos.length==0)
   return true;
 }
 
-function mostrarBotaoDeFazerPedido(){
-  if ($scope.data!=undefined && mostrarOpcionais())
+function mostrarBotaoDeOrcamento(){
+  if ($scope.data!=undefined &&   $scope.mostrarOpcionais == true)
   return true;
 }
 
@@ -46,6 +40,7 @@ function buscarOpcionais(){
 })};
 
 function selecionar (pacote){
+  $scope.mostrarOpcionais = true;
   $scope.produtos.push({Produto:pacote}) ;
 }
 
@@ -57,10 +52,18 @@ function add (opcional){
   buscarOpcionais(); ;
 }
 
+function orcamento(){
+  $scope.gerarOrcamento = true;
+  $scope.mostrarOpcionais = false;
+  $scope.valorTotal = 0;
+  $scope.produtos.forEach ( p =>{ $scope.valorTotal+=p.Produto.PrecoDaDiaria})
+}
+
 function fazerPedido (){
   var  pedido = {Cliente:$scope.cliente,Itens: $scope.produtos, DataPrevistaDeEntrega: $scope.data}
   escolhaDoProdutoService.fazerPedido(pedido).then(function (response){
   $scope.pedido = response.data.dado;
 })};
+
 
 });

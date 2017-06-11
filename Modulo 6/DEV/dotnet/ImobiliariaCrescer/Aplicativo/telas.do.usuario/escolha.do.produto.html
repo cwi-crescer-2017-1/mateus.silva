@@ -19,15 +19,17 @@
   </div>
 </div>
 <div class="container containerProduto">
-    <div class="pedido"    ng-if="mostrarBotaoDeFazerPedido()">
-       <a class=" " ng-href="#!/informaOCliente"><button type="button" name="button" class="btn btn-primary" ng-click="fazerPedido()">Fechar Pedido</button></a>
+    <div class="pedido"    ng-if="mostrarBotaoDeOrcamento()">
+      <button type="button" name="button" class="btn btn-primary" ng-click="orcamento()">Gerar Orcamento</button>
     </div>
+    <div class=""  ng-hide="gerarOrcamento">
       <label for="data">Selecione a Data de Entrega</label>
       <input type="date"  class="form-control"  name="data" ng-model="data" value="">
       <label for="pacote">Selecione o pacote</label>
       <input type = "text" name="pacote" class="form-control"ng-model="search.Nome" placeholder= "buscar pacote"> </input>
       <label for="imovel">Selecione o imóvel</label>
       <input type = "text" name="imovel" class="form-control"ng-model="search.Tipo" placeholder= "buscar tipo de imóvel"> </input>
+    </div>
     <table class= "table table-hover table1"  ng-if="mostrarPacotes()">
      <thead>
        <th>Pacote</th>
@@ -45,7 +47,7 @@
        </tr>
      </tbody>
     </table>
-    <table class= "table table-hover table2"  ng-if="mostrarOpcionais()">
+    <table class= "table table-hover table2"  ng-if="mostrarOpcionais">
      <thead>
        <th>Nome</th>
        <th>Tipo</th>
@@ -62,4 +64,27 @@
        </tr>
      </tbody>
     </table>
+<div  class="" ng-if="gerarOrcamento">
+  <a  ng-href="#!/informaOCliente">
+    <button type="button" name="button" class="btn btn-primary" ng-click="fazerPedido()">Finalizar Reserva</button>
+  </a>
+     <table class= "tableDevolucao table table-hover">
+         <thead>
+           <tr>
+               <th>Produto Id</th>
+               <th>Nome</th>
+               <th>Tipo</th>
+               <th>Preco da diárial</th>
+           </tr>
+         </theaad>
+           <tbody ng-repeat="produto in produtos">
+               <td>{{produto.Produto.Id}}</td>
+               <td>{{produto.Produto.Nome}}</td>
+               <td>{{produto.Produto.Tipo}}</td>
+               <td>{{produto.Produto.PrecoDaDiaria}}</td>
+             </tr>
+           </tbody>
+     </table>
+ </div>
+ <p> <strong>Valor Total = {{valorTotal}} </strong></p>
 </div>

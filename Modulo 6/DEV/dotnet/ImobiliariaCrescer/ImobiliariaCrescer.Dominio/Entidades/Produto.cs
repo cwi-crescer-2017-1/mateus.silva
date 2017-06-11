@@ -19,13 +19,13 @@ namespace ImobiliariaCrescer.Dominio.Entidades
 
         }
 
-        public Produto (int id, string nome, string tipo, int quantidade, decimal preco)
+        public Produto (int id, string nome, string tipo, int quantidade, decimal precoDaDiaria)
         {
             Id = id;
             Nome = nome;
             Tipo = tipo;
             Quantidade = quantidade;
-            PrecoDaDiaria = preco;
+            PrecoDaDiaria = precoDaDiaria;
         }
 
         public void baixarEstoqueProduto()

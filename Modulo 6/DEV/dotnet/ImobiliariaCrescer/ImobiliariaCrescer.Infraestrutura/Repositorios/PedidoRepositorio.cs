@@ -33,8 +33,8 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public void Alterar(int id, Pedido pedido)
         {
-            pedido.DataDeEntrega = DateTime.Now;
-            AplicaMulta(pedido);   
+            pedido.SetDataDeEntrega();
+            pedido.AplicaMulta();   
             contexto.Entry(pedido).State = System.Data.Entity.EntityState.Modified;
             Devolver(pedido);
             contexto.SaveChanges();
@@ -91,18 +91,6 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             }
         }
 
-
-        private void AplicaMulta(Pedido pedido)
-        {
-            var diferencaEmDias = (pedido.DataDeEntrega.Value - pedido.DataPrevistaDeEntrega).TotalDays;
-            if (diferencaEmDias > 0)
-            {
-              pedido.Multa  = pedido.ValorTotal * Convert.ToDecimal(diferencaEmDias);
-                var  novoValor = pedido.ValorTotal + pedido.Multa;
-                pedido.ValorTotal = (decimal)novoValor;
-            }
-        }
-   
         public void Dispose()
         {
             contexto.Dispose();
