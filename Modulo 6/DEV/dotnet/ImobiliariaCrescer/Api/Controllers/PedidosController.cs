@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Api.App_Start;
+using Api.Models;
 using ImobiliariaCrescer.Dominio.Entidades;
 using ImobiliariaCrescer.Infraestrutura.Repositorios;
 
@@ -15,20 +17,25 @@ namespace Api.Controllers
     {
         private PedidoRepositorio repositorio = new PedidoRepositorio();
 
+        [BasicAuthorization]
         public IHttpActionResult Get()
         {
             var pedidos = repositorio.Obter();
             return Ok(new { dado = pedidos});
         }
 
-        public IHttpActionResult Post(Pedido pedido)
+        [BasicAuthorization]
+        public IHttpActionResult Post(PedidoModel pedidoModel)
         {
+            Pedido pedido = new Pedido(pedidoModel.Cliente, pedidoModel.Itens, pedidoModel.DataPrevistaDeEntrega);
             repositorio.FazerPedido(pedido);
             return Ok(new { dado = pedido});
         }
 
+        [BasicAuthorization]
         [Route("{id:int}")]
         public HttpResponseMessage Put(int id, Pedido pedido)
+
         {
             if (id != pedido.Id)
             {
@@ -37,7 +44,8 @@ namespace Api.Controllers
             repositorio.Alterar(id,pedido);
             return Request.CreateResponse(HttpStatusCode.OK, new { dado = pedido });
         }
-      
+
+        [BasicAuthorization]
         [HttpGet]
         [Route ("relatoriodelocacaomensal")]
         public IHttpActionResult GetRelatorioDeLocacaoMensal()
@@ -46,6 +54,7 @@ namespace Api.Controllers
             return Ok (new { dado = relatorio });
         }
 
+        [BasicAuthorization]
         [HttpGet]
         [Route("relatoriodelocacaomensalvalor")]
         public IHttpActionResult GetRelatorioDeLocacaoMensalValor()
@@ -53,6 +62,8 @@ namespace Api.Controllers
             var relatorio = repositorio.RelatorioDeLocacaoMensalValorTotal();
             return Ok(new { dado = relatorio });
         }
+
+        [BasicAuthorization]
         [HttpGet]
         [Route("relatoriodeatrasos")]
         public IHttpActionResult GetRelatorioDeAtrasos()

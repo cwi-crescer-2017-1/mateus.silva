@@ -21,7 +21,7 @@ namespace ImobiliariaCrescer.Dominio.Entidades
         {
                 
         }
-        public Cliente(int id, string nome, string cpf, string rg, string endereco, char genero, DateTime nascimento)
+        public Cliente( int id, string nome, string cpf, string rg, string endereco, char genero, DateTime nascimento)
         {
             Id = id;
             Nome = nome;
@@ -30,7 +30,10 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             Endereco = endereco;
             Genero = genero;
             DataDeNascimento = nascimento;
-    }
+         }
 
+
+
+    
     }
 }

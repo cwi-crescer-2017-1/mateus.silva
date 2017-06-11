@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Api.Models;
+using Api.App_Start;
 
 namespace Api.Controllers
 {
@@ -16,22 +17,24 @@ namespace Api.Controllers
 
         private ClienteRepositorio repositorio = new ClienteRepositorio();
 
-
+        [BasicAuthorization]
         public IHttpActionResult Get()
         {
             var clientes = repositorio.Obter();
             return Ok(new { dado = clientes });
         }
 
-       [Route("{id}")]
-       public IHttpActionResult Get(int id)
-       {
+        [BasicAuthorization]
+        [Route("{id}")]
+        public IHttpActionResult Get(int id)
+        {
             var cliente = repositorio.ObterPorID(id);
             return Ok(new {dado = cliente});
-       }
+        }
 
+        [BasicAuthorization]
         public HttpResponseMessage Post(ClienteModel model)
-       {
+        {
           var cliente = new Cliente (model.Id, model.Nome, model.Cpf, model.Rg, model.Endereco, model.Genero, model.DataDeNascimento);
           ClienteRepositorio clienter = new ClienteRepositorio();
           if(clienter.VerificarCpf(cliente.Cpf))

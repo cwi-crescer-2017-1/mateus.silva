@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.Dominio"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.Api", "Api\ImobiliariaCrescer.Api.csproj", "{D1F8F758-449E-47F0-B775-ED4824642BBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.Testes", "ImobiliariaCrescer.Testes\ImobiliariaCrescer.Testes.csproj", "{F119209F-51B5-4B14-90F3-09DD6EE6CBB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D1F8F758-449E-47F0-B775-ED4824642BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1F8F758-449E-47F0-B775-ED4824642BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1F8F758-449E-47F0-B775-ED4824642BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F119209F-51B5-4B14-90F3-09DD6EE6CBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F119209F-51B5-4B14-90F3-09DD6EE6CBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F119209F-51B5-4B14-90F3-09DD6EE6CBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F119209F-51B5-4B14-90F3-09DD6EE6CBB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,8 +15,5 @@ namespace Api.Models
         public string Endereco { get; set; }
         public char Genero { get; set; }
         public DateTime DataDeNascimento { get; set; }
-
-
-
     }
 }

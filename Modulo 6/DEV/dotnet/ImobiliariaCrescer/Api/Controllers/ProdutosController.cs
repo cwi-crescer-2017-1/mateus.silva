@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Api.App_Start;
+using Api.Models;
 using ImobiliariaCrescer.Dominio.Entidades;
 using ImobiliariaCrescer.Infraestrutura.Repositorios;
 
@@ -14,13 +16,14 @@ namespace Api.Controllers
     {
         private ProdutoRepositorio repositorio = new ProdutoRepositorio();
 
-
+        [BasicAuthorization]
         public IHttpActionResult Get()
         {
             var produtos = repositorio.Obter();
             return Ok(new { dado = produtos });
         }
 
+        [BasicAuthorization]
         [HttpGet]
         [Route("pacotes")]
         public IHttpActionResult GetPacotes()
@@ -28,6 +31,8 @@ namespace Api.Controllers
             var pacotes = repositorio.ObterPacotes();
             return Ok(new { dado = pacotes });
         }
+
+        [BasicAuthorization]
         [HttpGet]
         [Route("opcionais")]
         public IHttpActionResult GetOpcionais()
@@ -36,6 +41,7 @@ namespace Api.Controllers
             return Ok(new { dado = opcionais});
         }
 
+        [BasicAuthorization]
         [Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {
@@ -43,10 +49,12 @@ namespace Api.Controllers
             return Ok(new { dado = produto });
         }
 
-
+        [BasicAuthorization]
         [Route("{id:int}")]
-        public HttpResponseMessage Put(int id, Produto produto)
+        public HttpResponseMessage Put(int id, ProdutoModel produtoModel)
         {
+            var produto = new Produto(produtoModel.Id, produtoModel.Nome, produtoModel.Tipo, produtoModel.Quantidade, produtoModel.PrecoDaDiaria);
+
             if (id != produto.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, new { mensagem = new string[] { "Id não confere com produto passado" } });
@@ -55,12 +63,15 @@ namespace Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { dado = produto });
         }
 
-        public IHttpActionResult Post(Produto produto)
+        [BasicAuthorization]
+        public IHttpActionResult Post(ProdutoModel produtoModel)
         {
+            var produto = new Produto(produtoModel.Id, produtoModel.Nome, produtoModel.Tipo, produtoModel.Quantidade, produtoModel.PrecoDaDiaria);
             repositorio.CriarProduto(produto);
             return Ok(new { dado = produto });
         }
 
+        [BasicAuthorization]
         [Route("{id}")]
         public HttpResponseMessage Delete(int id)
         {
