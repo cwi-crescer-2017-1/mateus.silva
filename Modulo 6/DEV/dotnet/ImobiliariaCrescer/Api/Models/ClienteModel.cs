@@ -11,9 +11,9 @@ namespace Api.Models
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Rg { get; set; }
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
         public string Endereco { get; set; }
-        public char Genero { get; set; }
+        public string Genero { get; set; }
         public DateTime DataDeNascimento { get; set; }
     }
 }

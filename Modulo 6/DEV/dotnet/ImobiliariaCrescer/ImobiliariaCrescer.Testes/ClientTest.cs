@@ -14,11 +14,12 @@ namespace ImobiliariaCrescer.Testes
             string nome = "Mateus";
             string cpf = "02701870071";
             string rg = "0193453291";
+            string telefone = "05199924262160";
             string endereco = "Sapucaia do Sul, rua Mario Bandeira, 42";
-            char genero = 'M';
+            string genero = "Masculino";
             DateTime nascimento = DateTime.Parse("26-03-1990");
 
-            var cliente = new Cliente(id, nome, cpf, rg, endereco, genero, nascimento);
+            var cliente = new Cliente(id, nome, cpf, rg, telefone, endereco, genero, nascimento);
 
             Assert.AreEqual(nome, cliente.Nome);
             Assert.AreEqual(cpf, cliente.Cpf);
@@ -35,12 +36,12 @@ namespace ImobiliariaCrescer.Testes
             string nome = "Mateus";
             string cpf = "02701870071";
             string rg = "0193453291";
+            string telefone = "05199924262160";
             string endereco = "Sapucaia do Sul, rua Mario Bandeira, 42";
-            char genero = 'M';
+            string genero = "Masculino";
             DateTime nascimento = DateTime.Parse("26-03-1990");
 
-            var cliente = new Cliente(id, nome, cpf, rg, endereco, genero, nascimento);
-
+            var cliente = new Cliente(id, nome, cpf, rg, telefone, endereco, genero, nascimento);
             Assert.AreNotEqual("Jose", cliente.Nome);
             Assert.AreNotEqual("4324323", cliente.Cpf);
             Assert.AreNotEqual("334334", cliente.Rg);

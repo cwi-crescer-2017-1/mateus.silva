@@ -50,8 +50,10 @@
     <Compile Include="Contexto.cs" />
     <Compile Include="Mapping\ClienteMap.cs" />
     <Compile Include="Mapping\PedidoMap.cs" />
+    <Compile Include="Mapping\PermissaoMap.cs" />
     <Compile Include="Mapping\ProdutoMap.cs" />
     <Compile Include="Mapping\ProdutoPedidoMap.cs" />
+    <Compile Include="Mapping\UsuarioMap.cs" />
     <Compile Include="Migrations\201706062024158_criarDataBase.cs" />
     <Compile Include="Migrations\201706062024158_criarDataBase.Designer.cs">
       <DependentUpon>201706062024158_criarDataBase.cs</DependentUpon>
@@ -63,6 +65,18 @@
     <Compile Include="Migrations\201706091158551_cpfString.cs" />
     <Compile Include="Migrations\201706091158551_cpfString.Designer.cs">
       <DependentUpon>201706091158551_cpfString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706112322001_AdicionarGenero.cs" />
+    <Compile Include="Migrations\201706112322001_AdicionarGenero.Designer.cs">
+      <DependentUpon>201706112322001_AdicionarGenero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706112344288_telefoneString.cs" />
+    <Compile Include="Migrations\201706112344288_telefoneString.Designer.cs">
+      <DependentUpon>201706112344288_telefoneString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706112351580_mapUsuarios.cs" />
+    <Compile Include="Migrations\201706112351580_mapUsuarios.Designer.cs">
+      <DependentUpon>201706112351580_mapUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +106,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706091158551_cpfString.resx">
       <DependentUpon>201706091158551_cpfString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706112322001_AdicionarGenero.resx">
+      <DependentUpon>201706112322001_AdicionarGenero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706112344288_telefoneString.resx">
+      <DependentUpon>201706112344288_telefoneString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706112351580_mapUsuarios.resx">
+      <DependentUpon>201706112351580_mapUsuarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

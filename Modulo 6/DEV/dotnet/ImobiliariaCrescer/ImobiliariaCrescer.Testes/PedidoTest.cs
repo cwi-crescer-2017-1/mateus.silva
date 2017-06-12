@@ -19,11 +19,12 @@ namespace ImobiliariaCrescer.Testes
             string nome = "Mateus";
             string cpf = "02701870071";
             string rg = "0193453291";
+            string telefone = "05199924262160";
             string endereco = "Sapucaia do Sul, rua Mario Bandeira, 42";
-            char genero = 'M';
+            string genero = "Masculino";
             DateTime nascimento = DateTime.Parse("26-03-1990");
 
-            var cliente = new Cliente(id, nome, cpf, rg, endereco, genero, nascimento);
+            var cliente = new Cliente(id, nome, cpf, rg, telefone, endereco, genero, nascimento);
             var produto1 = new Produto(1, "Sauna", "Economy", 10, 100);
             var produto2 = new Produto(2, "Frigobar", "Opcional", 10, 10);
             var item1 = new ProdutoPedido(1, produto1);
@@ -50,11 +51,12 @@ namespace ImobiliariaCrescer.Testes
             string nome = "Mateus";
             string cpf = "02701870071";
             string rg = "0193453291";
+            string telefone = "05199924262160";
             string endereco = "Sapucaia do Sul, rua Mario Bandeira, 42";
-            char genero = 'M';
+            string genero = "Masculino";
             DateTime nascimento = DateTime.Parse("26-03-1990");
 
-            var cliente = new Cliente(id, nome, cpf, rg, endereco, genero, nascimento);
+            var cliente = new Cliente(id, nome, cpf, rg, telefone, endereco, genero, nascimento);
             var produto1 = new Produto(1, "Sauna", "Economy", 10, 100);
             var produto2 = new Produto(2, "Frigobar", "Opcional", 10, 10);
             var item1 = new ProdutoPedido(1, produto1);
@@ -84,11 +86,12 @@ namespace ImobiliariaCrescer.Testes
             string nome = "Mateus";
             string cpf = "02701870071";
             string rg = "0193453291";
+            string telefone = "05199924262160";
             string endereco = "Sapucaia do Sul, rua Mario Bandeira, 42";
-            char genero = 'M';
+            string genero = "Masculino";
             DateTime nascimento = DateTime.Parse("26-03-1990");
 
-            var cliente = new Cliente(id, nome, cpf, rg, endereco, genero, nascimento);
+            var cliente = new Cliente(id, nome, cpf, rg, telefone, endereco, genero, nascimento);
             var produto1 = new Produto(1, "Sauna", "Economy", 10, 100);
             var produto2 = new Produto(2, "Frigobar", "Opcional", 10, 10);
             var item1 = new ProdutoPedido(1, produto1);
@@ -116,11 +119,12 @@ namespace ImobiliariaCrescer.Testes
             string nome = "Mateus";
             string cpf = "02701870071";
             string rg = "0193453291";
+            string telefone = "05199924262160";
             string endereco = "Sapucaia do Sul, rua Mario Bandeira, 42";
-            char genero = 'M';
+            string genero = "Masculino";
             DateTime nascimento = DateTime.Parse("26-03-1990");
 
-            var cliente = new Cliente(id, nome, cpf, rg, endereco, genero, nascimento);
+            var cliente = new Cliente(id, nome, cpf, rg, telefone, endereco, genero, nascimento);
             var produto1 = new Produto(1, "Sauna", "Economy", 10, 100);
             var produto2 = new Produto(2, "Frigobar", "Opcional", 10, 10);
             var item1 = new ProdutoPedido(1, produto1);

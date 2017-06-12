@@ -8,15 +8,13 @@ using ImobiliariaCrescer.Dominio.Entidades;
 
 namespace ImobiliariaCrescer.Infraestrutura.Mapping
 {
-    public class ClienteMap : EntityTypeConfiguration<Cliente>
+    public class PermissaoMap : EntityTypeConfiguration<Permissao>
     {
-        public ClienteMap ()
+        public PermissaoMap()
         {
-            ToTable("Clientes");
+            ToTable("Permissoes");
             HasKey(x => x.Id);
+            Property(p => p.Nome).HasMaxLength(300);
         }
-
     }
-
-    
 }

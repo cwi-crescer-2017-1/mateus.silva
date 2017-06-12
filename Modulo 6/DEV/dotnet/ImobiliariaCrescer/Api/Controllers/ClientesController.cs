@@ -35,7 +35,7 @@ namespace Api.Controllers
         [BasicAuthorization]
         public HttpResponseMessage Post(ClienteModel model)
         {
-          var cliente = new Cliente (model.Id, model.Nome, model.Cpf, model.Rg, model.Endereco, model.Genero, model.DataDeNascimento);
+          var cliente = new Cliente (model.Id, model.Nome, model.Cpf, model.Rg, model.Telefone, model.Endereco, model.Genero, model.DataDeNascimento);
           ClienteRepositorio clienter = new ClienteRepositorio();
           if(clienter.VerificarCpf(cliente.Cpf))
             {

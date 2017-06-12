@@ -40,6 +40,16 @@
             <label for="data">Data de Nascimento</label>
             <input class="form-control" type="date" name="data" ng-model ="cliente.DataDeNascimento" ></input>
         </div>
+        <div class="">
+            <label for="telefone">Telefone</label>
+            <input class="form-control" type="text" name="telefone" ng-model ="cliente.Telefone" ></input>
+        </div>
+        <label for="genero">Gênero</label>
+        <select name = "genero" ng-model="cliente.Genero" >
+             <option value = "Masculino">Masculino</option>
+             <option value= "Femino">Feminino</option>
+             <option value= "Não informado">Prefiro não informar</option>
+        </select>
            <div class="d2">
               <button class="btn btn-primary" type="button" ng-click= "cadastrar(cliente)" name="button">salvar</button>
           </div>

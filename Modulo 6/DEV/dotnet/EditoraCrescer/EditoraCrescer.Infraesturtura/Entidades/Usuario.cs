@@ -29,7 +29,7 @@ namespace EditoraCrescer.Infraesturtura.Entidades
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
-            AtribuirPermissoes("Colaborador");
+            AtribuirPermissoes("Gerente");
         }
 
         public string ResetarSenha()

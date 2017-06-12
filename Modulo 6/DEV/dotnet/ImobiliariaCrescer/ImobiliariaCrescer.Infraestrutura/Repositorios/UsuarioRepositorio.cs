@@ -29,12 +29,13 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
         {
 
         }
-        //public void Criar(Usuario usuario)
-        //{
-        //    _usuarios.Add(usuario.Email, usuario);
-        //    contexto.Usuario.Add(usuario);
-        //    contexto.SaveChanges();
-        //}
+
+        public void Criar(Usuario usuario)
+        {
+            _usuarios.Add(usuario.Email, usuario);
+            contexto.Usuario.Add(usuario);
+            contexto.SaveChanges();
+        }
 
 
         public Usuario Obter(string email)

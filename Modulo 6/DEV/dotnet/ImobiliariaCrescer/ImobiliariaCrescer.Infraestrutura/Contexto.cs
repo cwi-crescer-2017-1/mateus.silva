@@ -23,12 +23,19 @@ namespace ImobiliariaCrescer.Infraestrutura
 
         public DbSet<ProdutoPedido> ProdutoPedido { get; set; }
 
+        public DbSet<Usuario> Usuario { get; set; }
+
+        public DbSet<Permissao> Permissao { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ClienteMap());
             modelBuilder.Configurations.Add(new PedidoMap());
             modelBuilder.Configurations.Add(new ProdutoMap());
             modelBuilder.Configurations.Add(new ProdutoPedidoMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new PermissaoMap());
+        
         }
     }
 }

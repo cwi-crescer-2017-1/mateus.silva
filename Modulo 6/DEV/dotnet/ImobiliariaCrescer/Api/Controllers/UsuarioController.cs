@@ -24,32 +24,32 @@ namespace Api.Controllers
                 _usuarioRepositorio = new UsuarioRepositorio();
             }
 
-            //[HttpPost, Route("registrar")]
-            //public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
-            //{
-            //    if (_usuarioRepositorio.Obter(model.Email) == null)
-            //    {
-            //        var usuario = new Usuario(model.Nome, model.Email, model.Senha);
+        [HttpPost, Route("registrar")]
+        public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
+        {
+            if (_usuarioRepositorio.Obter(model.Email) == null)
+            {
+                var usuario = new Usuario(model.Nome, model.Email, model.Senha);
 
-            //        if (usuario.Validar())
-            //        {
-            //            _usuarioRepositorio.Criar(usuario);
-            //        }
-            //        else
-            //        {
-            //            return ResponderErro(usuario.Mensagens);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        return ResponderErro("Usuário já existe.");
-            //    }
+                if (usuario.Validar())
+                {
+                    _usuarioRepositorio.Criar(usuario);
+                }
+                else
+                {
+                    return ResponderErro(usuario.Mensagens);
+                }
+            }
+            else
+            {
+                return ResponderErro("Usuário já existe.");
+            }
 
-            //    return ResponderOK();
-            //}
+            return ResponderOK();
+        }
 
-            // Exige que o usuário se autentique
-            [BasicAuthorization]
+        // Exige que o usuário se autentique
+        [BasicAuthorization]
             [HttpGet, Route("usuario")]
             public HttpResponseMessage Obter()
             {
