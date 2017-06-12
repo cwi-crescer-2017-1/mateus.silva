@@ -55,8 +55,9 @@ function add (opcional){
 function orcamento(){
   $scope.gerarOrcamento = true;
   $scope.mostrarOpcionais = false;
-  $scope.valorTotal = 0;
-  $scope.produtos.forEach ( p =>{ $scope.valorTotal+=p.Produto.PrecoDaDiaria})
+  var valor =  0;
+  $scope.produtos.forEach ( p =>{ valor+=p.Produto.PrecoDaDiaria})
+  $scope.valorTotal = valor*Math.ceil((Date.parse($scope.data)-Date.parse(new Date()))/(1000*3600*24));
 }
 
 function fazerPedido (){
