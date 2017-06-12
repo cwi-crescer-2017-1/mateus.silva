@@ -53,11 +53,15 @@ function add (opcional){
 }
 
 function orcamento(){
+  $scope.diasDeReserva = Math.ceil((Date.parse($scope.data)-Date.parse(new Date()))/(1000*3600*24));
+  if ($scope.diasDeReserva<=0){
+    return  toastr.success("Data prevista de entrega não pode ser menor ou igual a data de hoje.")
+  }
   $scope.gerarOrcamento = true;
   $scope.mostrarOpcionais = false;
   var valor =  0;
   $scope.produtos.forEach ( p =>{ valor+=p.Produto.PrecoDaDiaria})
-  $scope.valorTotal = valor*Math.ceil((Date.parse($scope.data)-Date.parse(new Date()))/(1000*3600*24));
+  $scope.valorTotal = valor*$scope.diasDeReserva;
 }
 
 function fazerPedido (){

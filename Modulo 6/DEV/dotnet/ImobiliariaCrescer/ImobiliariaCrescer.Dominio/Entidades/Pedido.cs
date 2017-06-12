@@ -36,7 +36,6 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             DataDoPedido = DateTime.Now;
             ValorTotal = itens.Sum(x => x.Produto.PrecoDaDiaria);
             DataPrevistaDeEntrega = entrega;
-
         }
 
         protected Pedido()

@@ -42,7 +42,7 @@
          <td>{{pacote.Nome}}</td>
          <td>{{pacote.Tipo}}</td>
          <td>{{pacote.Quantidade}}</td>
-         <td>{{pacote.PrecoDaDiaria}}</td>
+         <td>R$ {{pacote.PrecoDaDiaria}},00</td>
          <td><input type="button" class="btn btn-primary" name="editar" value="Selecionar" ng-click ="selecionar(pacote)"></td>
        </tr>
      </tbody>
@@ -59,7 +59,7 @@
          <td>{{opcional.Nome}}</td>
          <td>{{opcional.Tipo}}</td>
          <td>{{opcional.Quantidade}}</td>
-         <td>{{opcional.PrecoDaDiaria}}</td>
+         <td>R$ {{opcional.PrecoDaDiaria}},00</td>
          <td><input type="button" class="btn btn-primary" name="editar" value="Add" ng-click ="add(opcional, cliente)"></td>
        </tr>
      </tbody>
@@ -74,17 +74,18 @@
                <th>Produto Id</th>
                <th>Nome</th>
                <th>Tipo</th>
-               <th>Preco da diárial</th>
+               <th>Preco da diária</th>
            </tr>
          </theaad>
            <tbody ng-repeat="produto in produtos">
                <td>{{produto.Produto.Id}}</td>
                <td>{{produto.Produto.Nome}}</td>
                <td>{{produto.Produto.Tipo}}</td>
-               <td>{{produto.Produto.PrecoDaDiaria}}</td>
+               <td>R$ {{produto.Produto.PrecoDaDiaria}},00</td>
              </tr>
            </tbody>
      </table>
+     <p> <strong>Valor Total: R$ {{valorTotal}},00 </strong></p>
+     <p><strong>Número de dias reservado: {{diasDeReserva}} dias</strong></p>
  </div>
- <p> <strong>Valor Total = {{valorTotal}} </strong></p>
 </div>

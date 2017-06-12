@@ -30,6 +30,10 @@ namespace ImobiliariaCrescer.Dominio.Entidades
 
         public void baixarEstoqueProduto()
         {
+            if (Quantidade == 0)
+            {
+                return;
+            }
             Quantidade--;
         }
 
