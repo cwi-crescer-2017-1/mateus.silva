@@ -24,6 +24,7 @@ namespace Api.Controllers
                 _usuarioRepositorio = new UsuarioRepositorio();
             }
 
+        [BasicAuthorization]
         [HttpPost, Route("registrar")]
         public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
         {
