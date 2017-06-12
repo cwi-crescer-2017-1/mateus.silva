@@ -24,9 +24,10 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             Cliente = cliente;
             Itens = itens;
             DataDoPedido = DateTime.Now;
-            ValorTotal = itens.Sum(x => x.Produto.PrecoDaDiaria);
+            ValorTotal = itens.Sum(x => x.Produto.PrecoDaDiaria) * (decimal)Math.Ceiling((entrega - DateTime.Now).TotalDays);
             DataPrevistaDeEntrega = entrega;
-
+            Multa = 0;
+            
         }
 
         public Pedido( Cliente cliente, List<ProdutoPedido> itens, DateTime entrega)
@@ -34,8 +35,9 @@ namespace ImobiliariaCrescer.Dominio.Entidades
             Cliente = cliente;
             Itens = itens;
             DataDoPedido = DateTime.Now;
-            ValorTotal = itens.Sum(x => x.Produto.PrecoDaDiaria);
+            ValorTotal = itens.Sum(x => x.Produto.PrecoDaDiaria) * (decimal)Math.Ceiling((entrega - DateTime.Now).TotalDays);
             DataPrevistaDeEntrega = entrega;
+            Multa = 0;
         }
 
         protected Pedido()
