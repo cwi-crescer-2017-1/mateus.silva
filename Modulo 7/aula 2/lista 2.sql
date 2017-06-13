@@ -28,3 +28,21 @@ BEGIN
    END LOOP;
 END;
 
+--Exercício 2
+DECLARE
+valorTotal Pedido.valorPedido%type;
+varId Pedido.idpedido%type;
+CURSOR c_pedidoItem IS
+    SELECT idpedido,quantidade, precounitario  
+    FROM pedidoItem 
+    WHERE idpedido =: varId;
+BEGIN
+        FOR a IN c_pedidoItem LOOP 
+           valorTotal := valorTotal+ (a.quantidade*a.precoUnitario);
+        END LOOP;
+        UPDATE pedido
+        SET valorpedido = valortotal
+        WHERE idpedido =varid;
+END;
+       
+    
