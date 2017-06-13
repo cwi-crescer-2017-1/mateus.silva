@@ -315,12 +315,6 @@ public class SaintTest{
        Saint mu5 = new GoldSaint("Mu", "Touro");
        assertEquals (numero1 +5, mu5.getQtdSaints());      
     }
-    @Test 
-    public void getQtdSaintsUsandoFinalizeQtdIgualA2() throws Exception {    
-       new BronzeSaint("Shun", "Andrômeda");
-       new SilverSaint("Marin", "Águia");
-       assertEquals(2, Saint.getQtdSaints());          
-    }
     @Test
     public void testID()throws Exception {
        Saint mu = new GoldSaint("Mu", "Touro");
