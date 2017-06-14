@@ -1,4 +1,4 @@
---Exercício 1
+-------------Exercício 1
 DECLARE
 vcidade Cidade.Nome%type;
 vid Cidade.idcidade%type;
@@ -28,7 +28,7 @@ BEGIN
    END LOOP;
 END;
 
---Exercício 2
+--------------Exercício 2
 DECLARE
 valorTotal Pedido.valorPedido%type;
 varId Pedido.idpedido%type;
@@ -45,9 +45,8 @@ BEGIN
         WHERE idpedido =varid;
 END;
 
---Exercício 3       
---Crie uma rotina que atualize todos os clientes que não realizaram nenhum pedido 
---nos últimos 6 meses (considere apenas o mês, dia 01 do 6º mês anterior). Definir o atributo Situacao para I.   
+-------------Exercício 3       
+ 
 
 
 DECLARE 
@@ -60,5 +59,29 @@ BEGIN
     FOR i IN C_Cliente LOOP
        UPDATE cliente set situacao = 'I' where idcliente =  i.idcliente;
     END LOOP;
+END;
+
+----------Exercício 4
+
+DECLARE 
+CURSOR C_MaterialID IS
+SELECT*FROM produtomaterial where idproduto=2492;
+
+soma pedidoitem.quantidade%type;
+
+CURSOR C_Material IS
+SELECT*FROM material;
+BEGIN
+select sum( quantidade) INTO soma from pedidoitem where idpedido in (select idpedido from pedidoitem where idproduto =: IdProdutoQuery and idpedido in (
+select idpedido from (select*from pedido where EXTRACT (MONTH FROM datapedido)=:mes AND EXTRACT (YEAR FROM datapedido) =:ano)) );
+
+FOR a  in C_MaterialID LOOP
+    FOR c in C_Material LOOP
+        IF  (a.idmaterial = c.idmaterial)then
+            DBMS_OUTPUT.PUT_LINE( c.descricao);
+            DBMS_OUTPUT.PUT_LINE(a.quantidade*soma);
+        END IF;
+     END LOOP;
+END LOOP;
 END;
 
