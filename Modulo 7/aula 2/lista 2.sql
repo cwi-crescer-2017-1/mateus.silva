@@ -65,7 +65,7 @@ END;
 
 DECLARE 
 CURSOR C_MaterialID IS
-SELECT*FROM produtomaterial where idproduto=2492;
+SELECT*FROM produtomaterial where idproduto=:IdProdutoQuery ;
 
 soma pedidoitem.quantidade%type;
 
