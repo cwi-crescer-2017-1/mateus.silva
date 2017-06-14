@@ -44,5 +44,21 @@ BEGIN
         SET valorpedido = valortotal
         WHERE idpedido =varid;
 END;
-       
-    
+
+--Exercício 3       
+--Crie uma rotina que atualize todos os clientes que não realizaram nenhum pedido 
+--nos últimos 6 meses (considere apenas o mês, dia 01 do 6º mês anterior). Definir o atributo Situacao para I.   
+
+
+DECLARE 
+
+CURSOR C_Cliente IS
+SELECT idcliente from (
+SELECT*FROM pedido MINUS (SELECT*FROM pedido 
+WHERE datapedido >add_months(trunc(sysdate), -6)));
+BEGIN 
+    FOR i IN C_Cliente LOOP
+       UPDATE cliente set situacao = 'I' where idcliente =  i.idcliente;
+    END LOOP;
+END;
+
