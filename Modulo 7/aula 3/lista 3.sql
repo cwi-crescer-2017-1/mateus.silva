@@ -41,10 +41,7 @@ BEGIN
             end if;   
         end loop;
    END LOOP;
-END;
 END Proc_CidadesDuplicadas;
 
 
-end;
-
-
+END  pck_EliminarCidadesDuplicadas;
