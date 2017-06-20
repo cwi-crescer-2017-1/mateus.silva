@@ -63,20 +63,37 @@ End AUD_NumeroAposta;
 
 -----2
 
+DECLARE 
+
+CURSOR estados IS
+SELECT UF from cidade where idcidade in (select idcidade from aposta) group by uf;
+
+cursor  concursos is 
+select idconcurso from concurso;
+
+cursor  apostas (v_uf in varchar, v_idconcurso in integer) is
+select  sum(valor) as valor from aposta where idcidade in (select idcidade from cidade where uf  like v_uf ) and idconcurso = v_idconcurso;
+v_valor aposta.valor%type;
+
+cursor  acertos (v_uf in varchar, v_idconcurso in integer) is
+select count (acertos) as qtd, sum (valor) as premio from aposta_premiada where idaposta in( select  idaposta from aposta where idcidade in
+(select idcidade from cidade where uf  like v_uf ) and idconcurso = v_idconcurso);
+v_valor aposta.valor%type;
 
 
-Create or replace Procedure Estados  is
+BEGIN 
+FOR estado in estados LOOP
+   FOR concurso in concursos LOOP
+     FOR aposta in apostas (estado.uf, concurso.idconcurso) LOOP
+           For acerto in acertos( estado.uf, concurso.idconcurso)  LOOP
+             DBMS_OUTPUT.PUT_LINE('ESTADO: ' || estado.uf || '; Total Arrecadado: ' || aposta.valor ||  
+             '; Concurso: '  || concurso.idconcurso || '; Total de Acertadores: '|| acerto.qtd 
+             || '; Valor da Premiação: ' ||acerto.premio);
+            END LOOP;
+        END LOOP;
+                END LOOP;
 
-cursor C_estados is
-select uf, idcidade from cidade where idcidade in (select idcidade from aposta);
+        END LOOP;
+END;
 
-cursor cidades  (v_uf in cidade.uf%type) IS
-       select idcidade from cidade where uf = v_uf;
-       
-Cursor valores  IS
-       select idcidade, idconcurso, count (idcidade)
-       as contadorDeCidades , sum(valor) as 
-       ValorArrecadado from aposta group by idcidade, idconcurso;
-
-BEGIN
-FOR estado in c_estados LOOP
+-------3
