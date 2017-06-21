@@ -27,26 +27,25 @@ public class ManipuladorDeString  implements StringUtils{
     };
     
     public int contaVogais(String string){
-       int contador =0;
-       if (string.contains("a")){
-           contador++;
-       }
-       if ( string.contains("e")){
-           contador++;
-       }
-        if (string.contains("o")){
-           contador++;
-       }
-       if (string.contains("i")){
-           contador++;
-       }
-       if( string.contains("u")){
-           contador++;
+      int contador =0;
+      string =  Normalizer
+      .normalize(string, Normalizer.Form.NFD)
+      .replaceAll("[^\\p{ASCII}]", "").toLowerCase();
+     
+      char [] letras =string.toCharArray();
+      for (char l: letras){
+          switch(l) {
+              case 'a':
+              case 'e':
+              case 'i':
+              case 'o':
+              case 'u':
+              contador++;
+           }
        }
       return contador;
-        
     }
-    
+          
     public boolean isPalindromo(String string){
       String[] frase = (string).split(" ");
       String palavra = String.join("", frase);
