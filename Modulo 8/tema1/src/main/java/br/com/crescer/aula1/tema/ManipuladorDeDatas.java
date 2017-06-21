@@ -1,3 +1,5 @@
+package br.com.crescer.aula1.tema;
+
 
 import java.util.Calendar;
 import java.util.Date;
@@ -18,7 +20,7 @@ public class ManipuladorDeDatas implements CalendarUtils{
    public  DiaSemana diaSemana(Date date){
       Calendar calendar = Calendar.getInstance(); 
       calendar.setTime(date);
-      return DiaSemana.values()[calendar.get(Calendar.DAY_OF_WEEK)];
+      return DiaSemana.values()[calendar.get(Calendar.DAY_OF_WEEK)-1];
    }
 
    public  String tempoDecorrido(Date date){
