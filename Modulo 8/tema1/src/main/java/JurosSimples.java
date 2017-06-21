@@ -23,7 +23,7 @@ public class JurosSimples implements Parcelator{
          
         HashMap<String, BigDecimal> bd_map = new HashMap<>();
         
-        BigDecimal valor = valorParcelar.divide(new BigDecimal (numeroParcelas)).multiply( new BigDecimal (1 + taxaJuros));        
+        BigDecimal valorDaParcela = valorParcelar.divide(new BigDecimal (numeroParcelas)).multiply( new BigDecimal (1 + taxaJuros));        
         int contador =1;
         
         Calendar data = Calendar.getInstance(); 
@@ -33,7 +33,7 @@ public class JurosSimples implements Parcelator{
         while (contador<=numeroParcelas)  {
             data.add(Calendar.DATE,30);
             String date  = dateformat.format(data.getTime());
-            bd_map.put(contador+". " + date + " - R$ ",  valor.setScale(2, BigDecimal.ROUND_HALF_UP));
+            bd_map.put(contador+". " + date + " - R$ ",  valorDaParcela.setScale(2, BigDecimal.ROUND_HALF_UP));
             contador++;   
         }
         return bd_map;    
