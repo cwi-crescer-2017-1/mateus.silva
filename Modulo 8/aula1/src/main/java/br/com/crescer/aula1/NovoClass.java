@@ -13,22 +13,26 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 public class NovoClass {
  public static void main (String []args) throws ParseException{
    StringBuffer var = new StringBuffer();
-     
-     
+    
+    List <String> lista = new ArrayList <String>  ();
      for (Estados e : Estados.values()) {
-        var.append(e.getNome()).append(", ");
+         lista.add(e.getNome());
        }
-           
-     // Collections.sort(Estados.values().getNome());
-  
+     Collections.sort(lista);
+     for (String l : lista) {
+        var.append(l).append(", ");
+       }
       System.out.println(var);
       
-      
+      //-----------------------------------
       
      
       Scanner input = new Scanner (System.in);
