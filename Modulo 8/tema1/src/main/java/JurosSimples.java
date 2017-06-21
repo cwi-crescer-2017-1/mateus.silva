@@ -27,7 +27,7 @@ public class JurosSimples implements Parcelator{
         int contador =1;
         
         Calendar data = Calendar.getInstance(); 
-        DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
         data.setTime(dataPrimeiroVencimento);
         
         while (contador<=numeroParcelas)  {
