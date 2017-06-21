@@ -30,6 +30,6 @@ public class ManipuladorDeDatas implements CalendarUtils{
       int ano = hoje.get(Calendar.YEAR) -data.get(Calendar.YEAR);
       int mes = hoje.get(Calendar.MONTH) -data.get(Calendar.MONTH);
       int dia = hoje.get(Calendar.DATE) -data.get(Calendar.DATE);
-   return ano +" ano(s), " + mes + " mes(es) e " + dia + " dia(s)";
+   return Math.abs(ano) +" ano(s), " + Math.abs(mes) + " mes(es) e " +  Math.abs(dia) + " dia(s)";
    }
 }
