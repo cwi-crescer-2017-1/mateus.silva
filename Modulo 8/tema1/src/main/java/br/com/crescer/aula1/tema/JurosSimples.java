@@ -1,5 +1,6 @@
 package br.com.crescer.aula1.tema;
 
+import java.math.RoundingMode;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -27,18 +28,19 @@ public class JurosSimples implements Parcelator{
   public   Map<String, BigDecimal> calcular(BigDecimal valorParcelar, int numeroParcelas, double taxaJuros, Date dataPrimeiroVencimento){ 
           
         Map<String, BigDecimal> bd_map = new HashMap<>(); 
-         
-        BigDecimal valorDaParcela = valorParcelar.divide(new BigDecimal (numeroParcelas)).multiply( new BigDecimal (1 + taxaJuros/100));         
+        BigDecimal multiplicador  = new BigDecimal (1 + taxaJuros/100);
+        BigDecimal valorDaParcela = valorParcelar.multiply(multiplicador).divide(new BigDecimal (numeroParcelas)).setScale(2, BigDecimal.ROUND_HALF_UP);         
         int contador =1; 
          
         Calendar data = Calendar.getInstance();  
         DateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy"); 
         data.setTime(dataPrimeiroVencimento); 
-         
+
         while (contador<=numeroParcelas)  { 
-            data.add(Calendar.MONTH,1); 
+         
             String date  = dateformat.format(data.getTime()); 
-            bd_map.put(date , valorDaParcela.setScale(2, BigDecimal.ROUND_HALF_UP)); 
+            bd_map.put(date , valorDaParcela); 
+            data.add(Calendar.MONTH,1); 
             contador++;  
 
         }

@@ -21,7 +21,7 @@ public class ReaderUtilsImpl implements ReaderUtils{
 
     @Override
     public String read(String string) {
-        if (string == null || string.isEmpty()){
+        if (string == null || string.trim().isEmpty()){
             return string;
         }       
          try {

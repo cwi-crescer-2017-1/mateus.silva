@@ -14,7 +14,7 @@ import java.text.Normalizer;
 public class ManipuladorDeString implements StringUtils {
 
     public boolean isEmpty(String string) {
-        if ( string == null|| string.isEmpty()) {
+        if ( string == null|| string.trim().isEmpty()) {
             return true;
         }
         return false;
