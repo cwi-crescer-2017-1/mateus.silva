@@ -1,3 +1,5 @@
+package br.com.crescer.aula2.tema;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -82,7 +84,7 @@ public class FileUtisImpl implements FileUtis {
           
     
     }
-    public boolean isEmpty(String string){
+    public static boolean isEmpty(String string){
         return string == null || string.isEmpty();
     }
 }

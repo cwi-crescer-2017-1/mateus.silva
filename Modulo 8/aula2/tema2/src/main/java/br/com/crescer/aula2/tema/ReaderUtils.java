@@ -3,19 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package br.com.crescer.aula2.tema;
 
 /**
  *
  * @author Mateus
  */
-    public interface FileUtis {
-
-    boolean mk(String string);
-
-    boolean rm(String string);
-
-    String ls(String string);
-
-    boolean mv(String in, String out);
-}
+public interface ReaderUtils {
+        String read(String string);
     
+}
+
