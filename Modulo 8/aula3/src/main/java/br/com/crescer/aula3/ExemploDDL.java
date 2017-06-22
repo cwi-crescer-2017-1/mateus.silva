@@ -5,15 +5,6 @@
  */
 package br.com.crescer.aula3;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-import static java.util.stream.Collectors.toList;
-import java.util.stream.LongStream;
 
 /**
  *
@@ -27,16 +18,31 @@ public class ExemploDDL {
 //        dao.drop();
 //        dao.create();
 //        dao.insert();
-Pais p = new Pais();
-p.setNome("Argentina");
-p.setSigla("ARG");
-Long id = 1L;
-p.setId(2L);
+//Pais p = new Pais();
+//p.setNome("Antina");
+//p.setSigla("ARG");
+//p.setId(3l);
+//////Long id = 1L;
+////
 PaisDaoImpl model = new PaisDaoImpl();
-model.insert(p);
-Estado e = new Estado();
+//Estado e = new Estado();
+ System.out.println(model.loadBy(1l).getNome());
+//e.setNome("Arewela");
+//e.setUf("RS");
+//e.setPais(400l);
+//e.setId(445l);
+EstadoDaoImpl es = new EstadoDaoImpl();
+//es.delete(e);
 
-//System.out.println(model.loadBy(1L));
-     
+Cidade cidade = new Cidade ();
+cidade.setNome("odsdasasi");
+cidade.setEstado(13234l);
+cidade.setId(3423434l);
+CidadeDaoImpl c = new CidadeDaoImpl();
+c.delete(cidade);
+
+//System.out.println(c.loadBy(1l).getEstado());
+
+//System.out.println(es.loadBy(1l).getNome());
 }
 }

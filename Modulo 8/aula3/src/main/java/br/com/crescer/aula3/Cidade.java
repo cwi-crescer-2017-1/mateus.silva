@@ -7,28 +7,27 @@ package br.com.crescer.aula3;
 
 /**
  *
- * @author mateus.silva
+ * @author Mateus
  */
-public class Estado {
+public class Cidade {
     private Long id;
     private String nome;
-    private String uf;
-    private Long  pais;
+    private Long estado;
 
-    public Long getId() {
-        return id;
+    public Long getEstado() {
+        return estado;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Long getPais() {
-        return pais;
+    public Long getId() {
+        return id;
     }
 
-    public String getUf() {
-        return uf;
+    public void setEstado(Long estado) {
+        this.estado = estado;
     }
 
     public void setId(Long id) {
@@ -38,14 +37,7 @@ public class Estado {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public void setPais(Long pais) {
-        this.pais = pais;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
+    
     
     
 }

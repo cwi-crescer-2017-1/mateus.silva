@@ -7,11 +7,8 @@ package br.com.crescer.aula3;
 
 /**
  *
- * @author mateus.silva
+ * @author Mateus
  */
-public interface Dao <T> {
-    void insert (T t);
-    void update (T t);
-    void delete (T t);
-    T loadBy(Long id);
+public interface CidadeDao extends Dao<Cidade>{
+    
 }

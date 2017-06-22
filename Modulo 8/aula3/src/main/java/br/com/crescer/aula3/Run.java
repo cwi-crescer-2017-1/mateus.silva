@@ -39,7 +39,7 @@ public class Run {
                      System.out.println(resultSet.getString ("Nome"));
                  }
           // ...
-         // System.out.println(!connection.isClosed());
+         System.out.println(!connection.isClosed());
       } catch (SQLException e) {
              System.err.format("SQLException: %s", e);
             }

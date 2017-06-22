@@ -6,6 +6,7 @@
 package br.com.crescer.aula3;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
@@ -17,9 +18,9 @@ import java.util.stream.LongStream;
  */
 public class PaisDaoImpl implements PaisDao {
      private static final String INSERT_PAIS = " INSERT INTO PAIS (ID, NOME, SIGLA) VALUES (?,?,?)";
-     private static final String UPDATE_PAIS = " UPDATE PAIS SET  NOME= ? SIGLA =? WHERE ID ?";
-     private static final String DELETE_PAIS = " DELETE PAIS  WHERE ID ?";
-     private static final String LOADBY_PAIS = " SELECT*FROM PAIS  WHERE ID ?";
+     private static final String UPDATE_PAIS = " UPDATE PAIS SET  NOME = ?, SIGLA = ? WHERE ID = ?";
+     private static final String DELETE_PAIS = " DELETE PAIS  WHERE ID =?";
+     private static final String LOADBY_PAIS = " SELECT*FROM PAIS  WHERE ID = ?";
 
 
     @Override
@@ -46,7 +47,8 @@ public class PaisDaoImpl implements PaisDao {
                 
             } catch (final SQLException e) {
                 System.err.format("SQLException: %s", e);
-            }       }
+            }     
+    }
 
     @Override
     public void delete(Pais pais) {
@@ -63,15 +65,28 @@ public class PaisDaoImpl implements PaisDao {
     
 
     @Override
-    public void loadBy(Long id) {
+    public Pais loadBy(Long id) {
+         Pais pais = new Pais();
      try (final PreparedStatement preparedStatement = ConnectionUtisl.getConeccao().prepareStatement(LOADBY_PAIS)) {
-
+    
                     preparedStatement.setLong(1, id);
-                    preparedStatement.executeQuery();
+         try (final ResultSet resultSet = preparedStatement.executeQuery()) {
+
+                while (resultSet.next()) {
+                    pais.setId(resultSet.getLong("ID"));
+                    pais.setNome(resultSet.getString("NOME"));
+                    pais.setSigla(resultSet.getString("SIGLA"));
+                }
+            } catch (final SQLException e) {
+                System.err.format("SQLException: %s", e);
+            }
                 
             } catch (final SQLException e) {
                 System.err.format("SQLException: %s", e);
-            }       }
+            }     
+         return pais;
+    
+    }
    }
  
 
