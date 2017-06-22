@@ -9,6 +9,7 @@ package br.com.crescer.aula2.tema;
 import br.com.crescer.aula2.tema.FileUtis;
 import br.com.crescer.aula2.tema.FileUtisImpl;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -46,7 +47,6 @@ public class FileUtisTest {
     @Test
     public void mkStringNull (){
     String teste = null;
-  
     assertEquals (false, instance.mk(teste));   
  
     }
@@ -73,42 +73,31 @@ public class FileUtisTest {
     @Test
     public void rmDiretorio(){
         assertEquals(false, instance.rm("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2"));     
+    }   
+    
+    @Test
+    public void ls(){
+        String teste = instance.ls("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 7");
+        assertEquals(true, teste.contains("aula 1")); 
+        assertEquals(true, teste.contains("aula 2"));  
+        assertEquals(true, teste.contains("aula 3"));
+        assertEquals(true, teste.contains("tarefa"));
     }
-    
-//    @Test
-//     public void out() {
-//     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//     System.setOut(new PrintStream(outContent));
-//    instance.rm("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2");
-//    
-//    assertEquals("Arquivo Inválido", outContent);
-//}
-    
-   //  @Test
-   // public void ls(){
-   //     assertEquals("aula 1, aula 2, aula 3, tarefa, último dia,", instance.ls("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 7"));     
-   // }
     
      @Test
     public void lsRetornaPath(){
       assertEquals("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\a.txt", instance.ls("a.txt"));     
-   }
-//     @Test
-//    public void lsRetornaString(){
-//      assertEquals(">_$%#$#@", instance.ls(">_$%#$#@"));     
-//   }
-//    
+    }
+    
+    @Test
+     public void lsRetornaString(){
+      assertEquals(">_$%#$#@", instance.ls(">_$%#$#@"));     
+    }
+    
    @Test
     public void mvDiretorio(){
       assertEquals(false, instance.mv(
       "C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\","C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\"));     
-     //   assertEquals("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\a.txt", instance.ls("a.txt"));     
-
     }
-    @Test
-    public void mvaPath(){
-      assertEquals(true, instance.mv(
-     "C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\a.txt",  "C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\a.txt"));     
-
-    }
+    
 }

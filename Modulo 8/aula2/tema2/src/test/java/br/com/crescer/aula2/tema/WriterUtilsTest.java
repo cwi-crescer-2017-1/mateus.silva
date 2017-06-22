@@ -5,6 +5,8 @@
  */
 package br.com.crescer.aula2.tema;
 
+import java.io.File;
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,5 +47,6 @@ public class WriterUtilsTest {
         instance.write("a.txt", "oi");
         assertEquals("oi", reader.read("a.txt"));
     }
+ 
     
 }

@@ -24,11 +24,11 @@ public class WriterUtilsImpl implements WriterUtils{
         }
         if (file.contains(".txt")){
             try {
-        final Writer writer = new FileWriter(file);
-        final BufferedWriter bufferedWriter= new BufferedWriter(writer);
-                bufferedWriter.append(conteudo);
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
+         FileWriter writer = new FileWriter(file, true);
+         BufferedWriter bufferedWriter = new BufferedWriter(writer);    
+         bufferedWriter.append(conteudo);
+         bufferedWriter.newLine();    
+         bufferedWriter.flush();
         } catch (IOException e) {
              e.printStackTrace();
         }
@@ -41,4 +41,4 @@ public class WriterUtilsImpl implements WriterUtils{
            
            
 }
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//src: https://stackoverflow.com/questions/13938886/write-file-without-deleting-older-data

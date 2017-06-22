@@ -27,7 +27,16 @@ public class ReaderUtilsImpl implements ReaderUtils{
          try {
              if (string.contains(".txt")){
              final Reader reader = new FileReader(string);
-             final BufferedReader bufferReader = new BufferedReader(reader); 
+             final BufferedReader bufferReader= new BufferedReader(reader); 
+//             String a ;
+//            // string ="";
+//             StringBuffer files = new StringBuffer();
+//               while ((a = bufferReader.readLine())!= null" )
+//                { 
+//                   
+//                      string =  string + bufferReader.readLine();
+//                 }
+              //  }
               string = bufferReader.readLine();
             } 
             } catch (FileNotFoundException e) {

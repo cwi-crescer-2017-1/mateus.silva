@@ -7,6 +7,7 @@ package br.com.crescer.aula2.tema;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -42,20 +43,28 @@ public class NewClass {
 //             catch (FileNotFoundException e) {
 //             e.printStackTrace();
 //            }
-String string = "a.txt";
-       try {
-             if (string.contains(".txt")){
-             final Reader reader = new FileReader(string);
-             final BufferedReader bufferReader = new BufferedReader(reader); 
-              StringBuffer files = new StringBuffer();
-    
-              System.out.println(   bufferReader.readLine());
-            } 
-            } catch (FileNotFoundException e) {
-             e.printStackTrace();
-            } catch (IOException ex) {
-            Logger.getLogger(ReaderUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
-}
-       System.out.println(string);
+//String string = "a.txt";
+//       try {
+//             if (string.contains(".txt")){
+//             final Reader reader = new FileReader(string);
+//             final BufferedReader bufferReader = new BufferedReader(reader); 
+//              StringBuffer files = new StringBuffer();
+//    
+//              System.out.println(   bufferReader.readLine());
+//            } 
+//            } catch (FileNotFoundException e) {
+//             e.printStackTrace();
+//            } catch (IOException ex) {
+//            Logger.getLogger(ReaderUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+//}
+//       System.out.println(string);
+FileUtisImpl e = new FileUtisImpl();
+WriterUtilsImpl a = new WriterUtilsImpl ();
+e.mv("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\a.txta.txt", "C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\");
+ // file.delete();
+  //  file.renameTo(new File ("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\"+ file.getName()));
+ // System.out.println(file.getAbsoluteFile());
+
+ a.write("a.txt", "errouuu");
 }
 }

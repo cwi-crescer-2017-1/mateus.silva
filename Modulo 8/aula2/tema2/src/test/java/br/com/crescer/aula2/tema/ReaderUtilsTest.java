@@ -5,7 +5,9 @@
  */
 package br.com.crescer.aula2.tema;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,6 +45,7 @@ public class ReaderUtilsTest {
     @Test
     public void readFile() {
        escrever.write("a.txt", "oi");
-        assertEquals("oi", instance.read("a.txt"));
+       escrever.write("a.txt", "1i");
+       assertEquals("oi", instance.read("a.txt"));
     }
 }

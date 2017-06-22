@@ -59,30 +59,28 @@ public class FileUtisImpl implements FileUtis {
                }
        return files.toString();
         }
-        else   {
+        if (file.isFile()) {
              return file.getAbsolutePath();
-        }
-        
-      //  else return string;
+        }     
+        return string;
     }
 
+    //recebe um arquivo e um path?
     @Override
     public boolean mv(String in, String out) {
         if (isEmpty(in)){
             return false;
       }
-                final File file = new File(out);
+     final File file = new File(in);
           if (file.isDirectory()) {
                 System.out.println("Arquivo Inválido");
                 return false;
         }
           else {
-               file.renameTo(new File (in));
+               file.renameTo(new File (out + file.getName()));
+               file.delete();
                return true;
           }
-           
-          
-    
     }
     public static boolean isEmpty(String string){
         return string == null || string.isEmpty();
