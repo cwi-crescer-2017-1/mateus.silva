@@ -20,8 +20,8 @@ public class NewClass {
     public static void main (String [] args) throws SQLException, FileNotFoundException, IOException{
 
     SQLUtilsImpl a = new SQLUtilsImpl();
-   a.exportCSV("SELECT*FROM pais");
-   //a.importCSV(new File("oi.txt"));
+ //a.exportCSV("SELECT*FROM pais");
+   a.importCSV(new File("oi.csv"));
    // new File("oi.txt").createNewFile();
    // PrintWriter pw = new PrintWriter(new File("oi.txt"));
 //        StringBuilder sb = new StringBuilder();
