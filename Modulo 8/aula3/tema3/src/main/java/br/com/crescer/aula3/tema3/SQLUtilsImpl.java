@@ -48,11 +48,28 @@ public class SQLUtilsImpl implements SQLUtils {
             try (final ResultSet resultSet = preparedStatement.executeQuery()) {
                   ResultSetMetaData meta = resultSet.getMetaData();
                     for (int i = 1; i <= meta.getColumnCount(); i++) {
-                            resultado.append(meta.getColumnLabel(i)).append("\t").append("\n");;
-                       }        
-                while (resultSet.next()){        
+                            resultado.append(meta.getColumnLabel(i)).append("\t");
+                       }    
+                    resultado.append(",");
+                    int contador = 1;
+                while (resultSet.next()){    
+                    
                          for (int i = 1; i <= meta.getColumnCount(); i++) {
-                              resultado.append(resultSet.getObject(i) + "\t").append("\t").append("\n");
+                            
+                            if (meta.getColumnTypeName(i).contains("VARCHAR2")){
+                                 resultado.append("'"+resultSet.getObject(i)+"'").append("\t");
+                            }
+                           else{
+                              resultado.append(resultSet.getObject(i)).append("\t");
+                                    }
+                                           
+                           if (contador ==  meta.getColumnCount()) 
+                           {
+                               resultado.append(",");
+                               contador =1;
+                               break;
+                           }
+                            contador++;
                         }
                 }    
             }
@@ -64,16 +81,16 @@ public class SQLUtilsImpl implements SQLUtils {
 
     @Override // em construção;
     public void importCSV(File file) {
-            String insert = "INSERT INTO PAIS";
+            String insert = "INSERT INTO " + file.getName().replaceAll(".csv", "");
             String leitura = read(file.getName());
             String[] frase = (leitura).split(",,");
             String b = frase[0];
-            for(int i = 1; i< frase.length ; i++){
+            String query;
+            for(int i = 1; i< frase.length -1; i++){
                 String a = frase.toString();
-                insert ="";
-            insert =  "INSERT INTO PAIS"+ "("+ b +")"+"values" + "(" + frase[i] + ")";
-            //write("oi.csv", leitura);
-            try (final PreparedStatement preparedStatement = ConnectionUtils.getConeccao().prepareStatement(insert)) {
+                query ="";
+            query =  insert + "("+ b +")"+"values" + "(" + frase[i] + ")";
+            try (final PreparedStatement preparedStatement = ConnectionUtils.getConeccao().prepareStatement(query)) {
                     preparedStatement.executeUpdate();
                 
             } catch (final SQLException e) {

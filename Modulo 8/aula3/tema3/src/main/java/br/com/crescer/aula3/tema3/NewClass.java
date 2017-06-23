@@ -21,25 +21,9 @@ public class NewClass {
 
     SQLUtilsImpl a = new SQLUtilsImpl();
  //a.exportCSV("SELECT*FROM pais");
-   a.importCSV(new File("oi.csv"));
-   // new File("oi.txt").createNewFile();
-   // PrintWriter pw = new PrintWriter(new File("oi.txt"));
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("id");
-//        sb.append(',');
-//        sb.append("Name");
-//        sb.append('\n');
-//
-//        sb.append("1");
-//        sb.append(',');
-//        sb.append("Prashant Ghimire");
-//        sb.append('\n');
-//
-//        pw.write(sb.toString());
-//        pw.close();
-//        System.out.println("done!");
-    
-//    ScriptRunner runner = new ScriptRunner(ConnectionUtils.getConeccao(),true , true);
-//               runner.runScript(new BufferedReader(new FileReader("sql.sql")));
+  //
+  
+  a.importCSV(new File("pais.csv"));
+
 }
 }
