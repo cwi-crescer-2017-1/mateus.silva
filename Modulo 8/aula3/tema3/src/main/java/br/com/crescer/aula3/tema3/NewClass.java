@@ -7,6 +7,7 @@ package br.com.crescer.aula3.tema3;
 
 
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -19,7 +20,8 @@ public class NewClass {
     public static void main (String [] args) throws SQLException, FileNotFoundException, IOException{
 
     SQLUtilsImpl a = new SQLUtilsImpl();
-   a.exportCSV("SELECT*FROM ESTADO");
+   a.exportCSV("SELECT*FROM pais");
+   //a.importCSV(new File("oi.txt"));
    // new File("oi.txt").createNewFile();
    // PrintWriter pw = new PrintWriter(new File("oi.txt"));
 //        StringBuilder sb = new StringBuilder();

@@ -23,12 +23,20 @@ public class ReaderUtilsImpl implements ReaderUtils{
     public String read(String string) {
         if (string == null || string.trim().isEmpty()){
             return string;
-        }       
+        }    
+         StringBuilder resultado = new StringBuilder();
          try {
              if (string.contains(".txt")){
              final Reader reader = new FileReader(string);
              final BufferedReader bufferReader= new BufferedReader(reader); 
-              string = bufferReader.readLine();
+              string ="";
+             while (true) {
+                        String readLine = bufferReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        string = string + readLine + " ";
+                    }
             } 
             } catch (FileNotFoundException e) {
              e.printStackTrace();
