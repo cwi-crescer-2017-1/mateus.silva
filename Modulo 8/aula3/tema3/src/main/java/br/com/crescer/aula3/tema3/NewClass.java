@@ -6,13 +6,10 @@
 package br.com.crescer.aula3.tema3;
 
 
-import java.io.BufferedReader;
+
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -20,10 +17,25 @@ import java.sql.Statement;
  */
 public class NewClass {
     public static void main (String [] args) throws SQLException, FileNotFoundException, IOException{
+
     SQLUtilsImpl a = new SQLUtilsImpl();
-        a.runFile("sql.sql");
-//    
-   
+   a.exportCSV("SELECT*FROM ESTADO");
+   // new File("oi.txt").createNewFile();
+   // PrintWriter pw = new PrintWriter(new File("oi.txt"));
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("id");
+//        sb.append(',');
+//        sb.append("Name");
+//        sb.append('\n');
+//
+//        sb.append("1");
+//        sb.append(',');
+//        sb.append("Prashant Ghimire");
+//        sb.append('\n');
+//
+//        pw.write(sb.toString());
+//        pw.close();
+//        System.out.println("done!");
     
 //    ScriptRunner runner = new ScriptRunner(ConnectionUtils.getConeccao(),true , true);
 //               runner.runScript(new BufferedReader(new FileReader("sql.sql")));
