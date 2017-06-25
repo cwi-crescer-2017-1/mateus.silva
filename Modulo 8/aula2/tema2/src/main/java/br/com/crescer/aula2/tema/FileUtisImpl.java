@@ -18,17 +18,23 @@ public class FileUtisImpl implements FileUtis {
 
     @Override
     public boolean mk(String string) {
-        if (!isEmpty(string)){
-            try {
-                new File(string).createNewFile();
-                return true;
-            }  
-            catch (IOException e) {
-                 e.printStackTrace();
-             }
+        if (isEmpty(string)){
+            return false;
         }
-      return false;
-    }
+        try {
+            final File file = new File(string);
+            if (file.isFile()){
+                return file.createNewFile();
+            }
+            else {
+                return  file.mkdirs();
+            }
+        }  
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+   }
     
     @Override
     public boolean rm(String string) {
@@ -36,14 +42,13 @@ public class FileUtisImpl implements FileUtis {
             return false;
         }
         final File file = new File(string);
-        if (file.isDirectory()) {
-             System.out.println("Arquivo Inválido");
-        } 
-        if (file.isFile()) {
-           return file.delete();
-          
+        if (string.endsWith(".txt")|| file.isFile()) {
+            return file.delete();         
         }
-        return false;
+        else {
+            System.out.println("Arquivo Inválido");
+            throw new RuntimeException ();  
+        } 
     }
 
     @Override
@@ -51,18 +56,18 @@ public class FileUtisImpl implements FileUtis {
         if (isEmpty(string)){
             return string;
         }
-      final File file = new File(string);
-        if (file.isDirectory()) {
-              StringBuffer files = new StringBuffer();
-              for (String f: file.list()){
-                 files.append(f).append(", ");
-               }
-       return files.toString();
+        final File file = new File(string);
+        if (!string.endsWith(".txt") && file.isDirectory()) {
+            StringBuffer files = new StringBuffer();
+            for (String f: file.list()){
+                files.append(f).append(" ");
+            }
+         return files.toString().trim();
         }
-        if (file.isFile()) {
-             return file.getAbsolutePath();
+        if (string.endsWith(".txt")|| file.isFile()) {
+            return file.getAbsolutePath();
         }     
-        return string;
+        return string.trim();
     }
 
     //recebe um arquivo e um path?
@@ -71,17 +76,17 @@ public class FileUtisImpl implements FileUtis {
         if (isEmpty(in)){
             return false;
       }
-     final File file = new File(in);
-          if (file.isDirectory()) {
-                System.out.println("Arquivo Inválido");
-                return false;
+        final File file = new File(in);
+        if (!in.endsWith(".txt")&& file.isDirectory()) {
+            System.out.println("Arquivo Inválido");
+            throw new RuntimeException ();  
         }
-          else {
-               file.renameTo(new File (out + file.getName()));
-               file.delete();
-               return true;
-          }
+        else {
+            file.renameTo(new File (out + file.getName()));
+            return  true;
+        }
     }
+    
     public static boolean isEmpty(String string){
         return string == null || string.trim().isEmpty();
     }

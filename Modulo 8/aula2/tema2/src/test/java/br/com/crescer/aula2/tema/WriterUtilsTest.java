@@ -5,12 +5,11 @@
  */
 package br.com.crescer.aula2.tema;
 
-import java.io.File;
 import java.io.IOException;
-import org.junit.After;
-import org.junit.AfterClass;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Date;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,23 +19,27 @@ import static org.junit.Assert.*;
  */
 public class WriterUtilsTest {
     
+   private static final String TARGET_PATH = "target";
+
+    private final WriterUtils writerUtils;
+
+    private String filename;
+
     public WriterUtilsTest() {
+        this.writerUtils = new WriterUtilsImpl();
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
-    public void setUp() {
+    public void setBefore() throws IOException {
+        this.filename = TARGET_PATH + "/" + new Date().getTime() + "/testWrite.txt";
+        Files.createDirectories(Paths.get(filename).getParent());
     }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void testWrite() throws IOException {
+        final String test = "teste de inclusão " + new Date().getTime();
+        writerUtils.write(filename, test);
+        assertTrue(reader.read(filename).contains(test));
     }
 
        private final WriterUtils instance = new WriterUtilsImpl();
@@ -45,7 +48,7 @@ public class WriterUtilsTest {
     @Test
     public void escrever(){
         instance.write("a.txt", "oi");
-        assertEquals("oi", reader.read("a.txt"));
+        assertEquals(true, reader.read("a.txt").contains("oi"));
     }
  
     

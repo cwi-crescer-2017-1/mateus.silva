@@ -5,13 +5,12 @@
  */
 package br.com.crescer.aula2.tema;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import org.junit.After;
-import org.junit.AfterClass;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Date;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,24 +20,33 @@ import static org.junit.Assert.*;
  */
 public class ReaderUtilsTest {
 
+  
+    private static final String TARGET_PATH = "target";
+
+    private final ReaderUtils readerUtils;
+
+    private String filename;
+
     public ReaderUtilsTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
+        this.readerUtils = new ReaderUtilsImpl();
     }
 
     @Before
-    public void setUp() {
+    public void setBefore() throws IOException {
+        this.filename = TARGET_PATH + "/" + new Date().getTime() + "/testRead.txt";
+        final Path path = Paths.get(filename);
+        Files.createDirectories(path.getParent());
+        Files.createFile(path);
+        Files.write(path, filename.getBytes());
     }
 
-    @After
-    public void tearDown() {
+    @Test
+    public void testRead() {
+        final String read = readerUtils.read(filename);
+        assertNotNull(read);
+        assertEquals(filename, read);
     }
+
    private final WriterUtils escrever = new WriterUtilsImpl();
    private final ReaderUtils instance = new ReaderUtilsImpl();
 
@@ -46,6 +54,6 @@ public class ReaderUtilsTest {
     public void readFile() {
        escrever.write("a.txt", "oi");
        escrever.write("a.txt", "1i");
-       assertEquals("oi", instance.read("a.txt"));
+       assertEquals(true, instance.read("a.txt").contains("oi"));
     }
 }

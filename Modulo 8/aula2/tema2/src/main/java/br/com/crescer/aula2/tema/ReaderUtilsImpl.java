@@ -43,6 +43,6 @@ public class ReaderUtilsImpl implements ReaderUtils{
             } catch (IOException ex) {
             Logger.getLogger(ReaderUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-         return string;
+         return string.trim();
     }
 }
