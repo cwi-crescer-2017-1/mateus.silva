@@ -142,8 +142,8 @@ public class FileUtisTest {
     
     @Test
     public void ls(){
-        //String teste = instance.ls("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 7");
-         String teste = instance.ls("C:\\Users\\mateus.silva\\Documents\\mateus.silva\\Modulo 7");
+      String teste = instance.ls("C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 7");
+       //  String teste = instance.ls("C:\\Users\\mateus.silva\\Documents\\mateus.silva\\Modulo 7");
         assertEquals(true, teste.contains("aula 1")); 
         assertEquals(true, teste.contains("aula 2"));  
         assertEquals(true, teste.contains("aula 3"));
@@ -160,11 +160,11 @@ public class FileUtisTest {
       assertEquals(">_$%#$#@", instance.ls(">_$%#$#@"));     
     }
     
-   @Test
-    public void mvDiretorio(){
-   //   assertEquals(false, instance.mv(
-     // "C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\","C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\"));     
-    assertEquals(false, instance.mv("C:\\Users\\mateus.silva\\Documents\\mateus.silva\\", "C:\\Users\\mateus.silva\\Documents\\"));
-    }
-    
+//   @Test
+//    public void mvDiretorio(){
+//   //   assertEquals(false, instance.mv(
+//     // "C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\","C:\\Users\\Mateus\\Desktop\\CWI\\mateus.silva\\Modulo 8\\aula2\\tema2\\"));     
+//    assertEquals(false, instance.mv("C:\\Users\\mateus.silva\\Documents\\mateus.silva\\", "C:\\Users\\mateus.silva\\Documents\\"));
+//    }
+//    
 }

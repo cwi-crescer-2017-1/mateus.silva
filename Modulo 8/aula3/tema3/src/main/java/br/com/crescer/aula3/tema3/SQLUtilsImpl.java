@@ -30,15 +30,19 @@ public class SQLUtilsImpl implements SQLUtils {
 
     @Override
     public void runFile(String filename) {
-        if (filename.endsWith(".sql")){
-             try {
-                 ScriptRunner runner = new ScriptRunner(ConnectionUtils.getConeccao(),true , true);
-                runner.runScript(new BufferedReader(new FileReader(filename)));
-            } catch (SQLException | IOException ex) {
-                   Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
-                }
-       }
-   }
+        if (!filename.endsWith(".sql")){
+           throw new RuntimeException (); 
+        }    
+       String [] queries =  read(filename).split(";");
+       for (String query : queries){
+            try (final PreparedStatement preparedStatement = ConnectionUtils.getConeccao().prepareStatement(query)) {
+                preparedStatement.executeQuery();
+            }
+             catch (SQLException ex) {
+                 Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }         
+ }
     
     @Override
     public String executeQuery(String query) {
@@ -79,7 +83,7 @@ public class SQLUtilsImpl implements SQLUtils {
     return resultado.toString();
     }
 
-    @Override // em construção;
+    @Override 
     public void importCSV(File file) {
             String insert = "INSERT INTO " + file.getName().replaceAll(".csv", "");
             String leitura = read(file.getName());
@@ -129,11 +133,9 @@ public class SQLUtilsImpl implements SQLUtils {
         if (string == null || string.trim().isEmpty()){
             return string;
         }    
-         StringBuilder resultado = new StringBuilder();
          try {
-             if (string.contains(".csv")){
-             final Reader reader = new FileReader(string);
-             final BufferedReader bufferReader= new BufferedReader(reader); 
+             if (string.contains(".sql")|| string.endsWith(".csv")){      
+             final BufferedReader bufferReader= new BufferedReader(new FileReader(string)); 
               string ="";
              while (true) {
                         String readLine = bufferReader.readLine();
