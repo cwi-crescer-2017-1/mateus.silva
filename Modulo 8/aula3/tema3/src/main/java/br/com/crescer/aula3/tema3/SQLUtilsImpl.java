@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.crescer.aula3.tema3;
-import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,12 +12,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.sql.Connection;
+import java.io.Reader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,22 +56,25 @@ public class SQLUtilsImpl implements SQLUtils {
                        }    
                     resultado.append(",");
                     int contador = 1;
-                       while (resultSet.next()){               
+                while (resultSet.next()){    
+                    
                          for (int i = 1; i <= meta.getColumnCount(); i++) {
-                                 if (meta.getColumnTypeName(i).contains("VARCHAR2")){
-                                     resultado.append("'"+resultSet.getObject(i)+"'").append("\t");
-                                }
-                                 else{
-                                     resultado.append(resultSet.getObject(i)).append("\t");
-                                }            
-                                if (contador ==  meta.getColumnCount()) 
-                                 {
-                                     resultado.append(",");
-                                     contador =1;
-                                     break;
-                                 }
-                          contador++;
-                         }
+                            
+                            if (meta.getColumnTypeName(i).contains("VARCHAR2")){
+                                 resultado.append("'"+resultSet.getObject(i)+"'").append("\t");
+                            }
+                           else{
+                              resultado.append(resultSet.getObject(i)).append("\t");
+                                    }
+                                           
+                           if (contador ==  meta.getColumnCount()) 
+                           {
+                               resultado.append(",");
+                               contador =1;
+                               break;
+                           }
+                            contador++;
+                        }
                 }    
             }
         } catch (SQLException ex) {
@@ -94,17 +97,18 @@ public class SQLUtilsImpl implements SQLUtils {
             query =  insert + "("+ b +")"+"values( %s )";
             query = String.format(query, b.replaceAll("\\w{1,}", "?"));
             query = query.replaceAll(";", ",");
+
             try (final PreparedStatement preparedStatement = ConnectionUtils.getConeccao().prepareStatement(query)) {
-                for(int i = 1; i<frase.length; i++){
-                    for (int x = 0; x<frase[i].split(";").length;x++){
-                        String a = frase[i].split(";")[x];
-                        preparedStatement.setObject(x + 1,a );
-                    }
-                preparedStatement.executeUpdate();
-                }
+                for(int i = 1; i<frase.length; i++){ 
+                    for (int x = 0; x<frase[i].split(";").length;x++){ 
+                        String a = frase[i].split(";")[x]; 
+                        preparedStatement.setObject(x + 1,a ); 
+                    } 
+                preparedStatement.executeUpdate(); 
+                }       
             } catch (final SQLException e) {
                 System.err.format("SQLException: %s", e);
-            }        
+            }       
     }
 
     @Override
@@ -146,9 +150,6 @@ public class SQLUtilsImpl implements SQLUtils {
                         if (readLine == null) {
                             break;
                         }
-//                        if (!readLine.matches("^[0-9]+$")) {
-//                            readLine = "'"+readLine +"'";
-//                        }
                         string = string + readLine + "\n ";
                     }
             } 

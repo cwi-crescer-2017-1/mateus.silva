@@ -26,6 +26,7 @@ COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
+<<<<<<< HEAD
 COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
@@ -51,5 +52,9 @@ COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
+COL_1,COL_2,,'OK','OK',,
+COL_1,COL_2,,'OK','OK',,
+=======
+>>>>>>> parent of 26ea17f... fix (tema 3) corrigir importaçãoCSV.
 COL_1,COL_2,,'OK','OK',,
 COL_1,COL_2,,'OK','OK',,
