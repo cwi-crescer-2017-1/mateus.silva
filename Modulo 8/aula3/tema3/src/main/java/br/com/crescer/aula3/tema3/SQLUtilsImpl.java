@@ -82,7 +82,7 @@ public class SQLUtilsImpl implements SQLUtils {
 
     @Override 
     public void importCSV(File file) {
-        if (file == null || !file.getName().contains(".csv")) {
+        if (file == null || !file.getName().endsWith(".csv")) {
             throw new RuntimeException();
          }
         String insert = "INSERT INTO " + file.getName().replaceAll(".csv", "");
