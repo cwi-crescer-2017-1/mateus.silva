@@ -5,6 +5,7 @@
  */
 package br.com.crescer.aula4.tema4;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -12,22 +13,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import static org.hibernate.type.TypeFactory.serializable;
 
 /**
  *
  * @author Mateus
  */
 @Entity
-public class Cliente {
+public class Cliente implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CLIENTE")
+    @SequenceGenerator(name = "SEQ_CLIENTE", sequenceName = "SEQ_CLIENTE")
+
     @Basic (optional = false)
-    @Column (name = "ID_CLIENTE")
+    @Column (name = "ID")
     private Long id;
     
     @Basic (optional = false)
-    @Column (name = "NM_CLIENTE")
+    @Column (name = "NOME")
     private String nome;
     
     @Basic (optional = false)

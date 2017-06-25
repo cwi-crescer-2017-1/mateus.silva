@@ -5,6 +5,7 @@
  */
 package br.com.crescer.aula4.tema4;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -14,23 +15,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author Mateus
  */
 @Entity 
-public class Funcionario {
+public class Funcionario implements Serializable  {
 
    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_FUNCIONARIO")
+    @SequenceGenerator(name = "SEQ_FUNCIONARIO", sequenceName = "SEQ_FUNCIONARIO")
     @Basic (optional = false)
-    @Column(name  = "ID_FUNCIONARIO")
+    @Column(name  = "ID")
     private Long id;
     
     @Basic (optional = false)
-    @Column(name= "NM_FUNCIONARIO")
+    @Column(name= "NOME")
     private String nome;
     
     @Basic (optional  = true)

@@ -5,8 +5,11 @@
  */
 package br.com.crescer.aula4.tema4;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,18 +19,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author Mateus
  */
 @Entity
-public class Locacao {
+public class Locacao  implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_LOCACAO")
+    @SequenceGenerator(name = "SEQ_LOCACAO", sequenceName = "SEQ_LOCACAO")
     @Basic (optional = false)
-    @Column (name = "ID_LOCACAO")
+    @Column (name = "ID")
     private Long id;
     
     @Basic (optional = true)
@@ -42,8 +47,10 @@ public class Locacao {
     @JoinColumn(name = "ID_CLIENTE")
     private Cliente cliente;
 
-    @OneToMany(mappedBy="LOCACAO", targetEntity = Video.class)
-    private List<Video> videos;
+    // o certo não seria OneToMany?
+    @ManyToOne 
+    @JoinColumn(name="ID_VIDEO")
+    private Video video;
 
     public void setId(Long id) {
         this.id = id;
@@ -61,8 +68,8 @@ public class Locacao {
         this.cliente = cliente;
     }
 
-    public void setVideos(List<Video> videos) {
-        this.videos = videos;
+    public void setVideos(Video videos) {
+        this.video = video;
     }
 
     public Long getId() {
@@ -81,8 +88,8 @@ public class Locacao {
         return cliente;
     }
 
-    public List<Video> getVideos() {
-        return videos;
+    public Video getVideo() {
+        return video;
     }    
        
 }
