@@ -2,6 +2,9 @@ package br.com.crescer.aula1.tema;
 
 
 import java.util.Calendar;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 import java.util.Date;
 import java.util.Locale;
 
@@ -17,6 +20,9 @@ import java.util.Locale;
  */
 public class ManipuladorDeDatas implements CalendarUtils{
     
+   private static final Calendar CALENDAR = Calendar.getInstance();
+   private static final String TEMPLATE = "%s ano(s), %s messe(s) e %s dia(s)";
+   
    public  DiaSemana diaSemana(Date date){
       Calendar calendar = Calendar.getInstance(); 
       calendar.setTime(date);
@@ -24,14 +30,15 @@ public class ManipuladorDeDatas implements CalendarUtils{
    }
 
    public  String tempoDecorrido(Date date){
-      Calendar data = Calendar.getInstance(); 
+      Calendar data = Calendar.getInstance();  
       data.setTime(date);
+      data.set(data.get(YEAR), data.get(MONTH), data.get(DAY_OF_MONTH),0,0,0);
+      
       Calendar hoje = Calendar.getInstance(); 
       hoje.setTime(new Date());
-      
-      int ano = hoje.get(Calendar.YEAR) -data.get(Calendar.YEAR);
-      int mes = hoje.get(Calendar.MONTH) -data.get(Calendar.MONTH);
-      int dia = hoje.get(Calendar.DATE) -data.get(Calendar.DATE);
-   return Math.abs(ano) +" ano(s), " + Math.abs(mes) + " messe(s) e " +  Math.abs(dia) + " dia(s)";
+      hoje.set(hoje.get(YEAR), hoje.get(MONTH), hoje.get(DAY_OF_MONTH),0,0,0);
+
+      CALENDAR.setTime(new Date(hoje.getTime().getTime()- data.getTime().getTime()));
+      return String.format(TEMPLATE, (CALENDAR.get(YEAR) - 1970), CALENDAR.get(MONTH), CALENDAR.get(DAY_OF_MONTH));
    }
 }

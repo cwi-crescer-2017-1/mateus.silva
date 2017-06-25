@@ -26,9 +26,7 @@ public class ManipuladorDeString implements StringUtils {
         }
         return new StringBuilder(string).reverse().toString();
     }
-
-    ;
-    
+   
     public int contaVogais(String string) {
         int contador = 0;
         string = Normalizer

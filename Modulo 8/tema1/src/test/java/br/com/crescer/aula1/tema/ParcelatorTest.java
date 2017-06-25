@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import static java.util.Calendar.MONTH;
+import java.util.Date;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
@@ -36,15 +37,16 @@ public class ParcelatorTest {
         
         final BigDecimal valor = BigDecimal.valueOf(1000l);
         final BigDecimal total = valor.multiply(BigDecimal.valueOf(10).divide(BigDecimal.valueOf(100)).add(BigDecimal.ONE)).setScale(2, RoundingMode.HALF_UP);
-
-        final Map<String, BigDecimal> parcelas = parcelator.calcular(valor, 3, 10.0, CALENDAR.getTime());
+         Date  a = CALENDAR.getTime();
+        final Map<String, BigDecimal> parcelas = parcelator.calcular(valor, 3, 10.0,a);
 
         assertEquals(3, parcelas.size());
         
-//        parcelas.entrySet().forEach(e -> {
-//            assertEquals(DATE_FORMAT.format(CALENDAR.getTime()), e.getKey()); 
-//            CALENDAR.add(MONTH, 1);
-//        });
+        parcelas.entrySet().forEach(e -> {
+            assertEquals(DATE_FORMAT.format(CALENDAR.getTime()), e.getKey()); 
+           
+            CALENDAR.add(MONTH, 1);
+        });
         assertEquals(total, parcelas.entrySet().stream()
                 .map(Entry::getValue)
                 .collect(Collectors.reducing(BigDecimal.ZERO, BigDecimal::add)));
