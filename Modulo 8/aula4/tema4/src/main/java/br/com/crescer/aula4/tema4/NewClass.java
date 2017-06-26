@@ -7,6 +7,10 @@ package br.com.crescer.aula4.tema4;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import org.hibernate.Session;
 
 /**
  *
@@ -15,6 +19,10 @@ import java.util.Date;
 public class NewClass {
     public static void main(String [] args){
   
+//     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
+//     EntityManager entityManager = entityManagerFactory.createEntityManager();
+//      Session session = entityManager.unwrap(Session.class);
+    
     Funcionario funcionario = new Funcionario ();
     Cliente cliente = new Cliente();
     Video video = new Video();
@@ -46,6 +54,7 @@ public class NewClass {
     locacao.setDataDevolucao(new Date());
     locacaoDao.save(locacao);
       //  System.out.println(videoDao.loadById(50l).getId());
-
+//        entityManager.close();
+//       entityManagerFactory.close();
     }
 }
