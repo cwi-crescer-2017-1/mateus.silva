@@ -24,7 +24,7 @@ public class GeneroDao implements CrudDao <Genero, Long> {
     @Override
     public Genero save(Genero genero) {
        entityManager.getTransaction().begin();
-       session.save(genero); 
+       session.saveOrUpdate(genero); 
        entityManager.getTransaction().commit();
        entityManager.close();
        entityManagerFactory.close();

@@ -15,15 +15,37 @@ import java.util.Date;
 public class NewClass {
     public static void main(String [] args){
   
-        
-//        System.out.println(dao.loadById(50l).getNome());
-//       
-//       Funcionario fu = new Funcionario();
-//       fu.setNome("ads");
-//        f.save(fu);
-//        Video  vi = new Video();
-//        vi.setValor(new BigDecimal(12));
-//        vi.setGenero(ge.loadById(50l));
-//        vd.save(vi);
+    Funcionario funcionario = new Funcionario ();
+    Cliente cliente = new Cliente();
+    Video video = new Video();
+    Genero genero = new Genero();
+    Locacao locacao = new Locacao();
+    ClienteDao  clienteDao = new ClienteDao();
+    FuncionarioDao funcionarioDao = new FuncionarioDao();
+    GeneroDao generoDao = new GeneroDao();
+    VideoDao videoDao = new VideoDao();
+    LocacaoDao locacaoDao = new LocacaoDao();
+//
+//    funcionario.setId(1l);
+//    funcionario.setNome("Mateus");
+//    funcionario.setRg("dadsad");
+//    cliente.setNome("Alziro");
+//    cliente.setCelular("324334");
+//    cliente.setId(1l);
+//    cliente.setCpf("234342432");
+//    genero.setDescricao("drama");
+//    genero.setId(1l);
+//    video.setGenero(genero);
+//    video.setId(1l);
+//    video.setValor(new BigDecimal (123));
+    locacao.setValorTotal(new BigDecimal(34));
+    locacao.setId(1l);
+    locacao.setFuncionario(funcionarioDao.loadById(50l));
+    locacao.setCliente(clienteDao.loadById(50l));
+    locacao.setVideo(videoDao.loadById(50l));
+    locacao.setDataDevolucao(new Date());
+    locacaoDao.save(locacao);
+      //  System.out.println(videoDao.loadById(50l).getId());
+
     }
 }

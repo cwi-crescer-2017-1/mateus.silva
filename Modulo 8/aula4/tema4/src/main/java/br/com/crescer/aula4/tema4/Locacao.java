@@ -7,10 +7,12 @@ package br.com.crescer.aula4.tema4;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,19 +41,23 @@ public class Locacao  implements Serializable {
     @Column (name = "VALOR_TOTAL")
     private BigDecimal valorTotal;
     
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "ID_FUNCIONARIO")
     private Funcionario funcionario;
     
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CLIENTE")
     private Cliente cliente;
 
     // o certo não seria OneToMany?
-    @ManyToOne 
-    @JoinColumn(name="ID_VIDEO")
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name= "ID_VIDEO")
     private Video video;
 
+    @Basic (optional = true)
+    @Column (name = " DATA_DEVOLUCAO")
+    private Date dataDevolucao;
+            
     public void setId(Long id) {
         this.id = id;
     }
@@ -68,7 +74,7 @@ public class Locacao  implements Serializable {
         this.cliente = cliente;
     }
 
-    public void setVideos(Video videos) {
+    public void setVideo(Video video) {
         this.video = video;
     }
 
@@ -91,5 +97,13 @@ public class Locacao  implements Serializable {
     public Video getVideo() {
         return video;
     }    
-       
+
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+    
 }

@@ -26,7 +26,7 @@ public class ClienteDao implements CrudDao<Cliente,Long> {
     @Override
     public Cliente save(Cliente cliente) {
        entityManager.getTransaction().begin();
-       session.save(cliente); 
+       session.saveOrUpdate(cliente); 
        entityManager.getTransaction().commit();
        entityManager.close();
        entityManagerFactory.close();

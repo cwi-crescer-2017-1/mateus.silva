@@ -27,7 +27,8 @@ public class LocacaoDao implements CrudDao<Locacao, Long> {
        entityManager.getTransaction().begin();
        session.save(locacao); 
        entityManager.getTransaction().commit();
-       session.close();
+       entityManager.close();
+       entityManagerFactory.close();
        return locacao;
     }
 

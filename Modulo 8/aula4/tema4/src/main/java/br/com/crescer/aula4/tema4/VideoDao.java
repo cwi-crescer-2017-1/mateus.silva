@@ -11,21 +11,20 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
  *
  * @author Mateus
  */
 public class VideoDao implements CrudDao <Video, Long>{
-    private  EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-    private EntityManager entityManager = entityManagerFactory.createEntityManager();
-    private  Session session = entityManager.unwrap(Session.class);
+    private final  EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
+    private final EntityManager entityManager = entityManagerFactory.createEntityManager();
+    private final  Session session = entityManager.unwrap(Session.class);
 
     @Override
     public Video save(Video video) {
        entityManager.getTransaction().begin();
-       session.save(video); 
+       session.saveOrUpdate(video); 
        entityManager.getTransaction().commit();
        entityManager.close();
        entityManagerFactory.close();
@@ -48,7 +47,6 @@ public class VideoDao implements CrudDao <Video, Long>{
        video = (Video) session.get(Video.class, id);
        entityManager.close();
        entityManagerFactory.close(); 
-//        session.close();
        return video;   
     }
 
