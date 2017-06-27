@@ -6,58 +6,46 @@
 package br.com.crescer.aula4.tema4;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import org.hibernate.Criteria;
-import org.hibernate.Session;
 
 /**
  *
  * @author Mateus
  */
 public class VideoDao implements CrudDao <Video, Long>{
-    private final  EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-    private final EntityManager entityManager = entityManagerFactory.createEntityManager();
-    private final  Session session = entityManager.unwrap(Session.class);
-
+    private  final  Connection connection = new Connection();
     @Override
     public Video save(Video video) {
-       entityManager.getTransaction().begin();
-       session.saveOrUpdate(video); 
-       entityManager.getTransaction().commit();
-       entityManager.close();
-       entityManagerFactory.close();
-       return video;  
+       connection.iniciarConeccao();
+       connection.getSession().saveOrUpdate(video); 
+       connection.fecharConeccao();
+       return video;
     }
+
     @Override
     public void remove(Video video) {
-       Object persistentInstance = session.load(Video.class, video.getId());
-       entityManager.getTransaction().begin();
-       session.delete(persistentInstance); 
-       entityManager.getTransaction().commit();
-       entityManager.close();
-       entityManagerFactory.close();  
+       Object persistentInstance =  connection.getSession().load(Video.class, video.getId());
+       connection.iniciarConeccao();
+       connection.getSession().delete(persistentInstance); 
+       connection.fecharConeccao();
     }
 
     @Override
     public Video loadById(Long id) {
-       Video video = new Video();
-       entityManager.getTransaction().begin();
-       video = (Video) session.get(Video.class, id);
-       entityManager.close();
-       entityManagerFactory.close(); 
-       return video;   
+       Video video;
+       connection.iniciarConeccao();
+       video = (Video) connection.getSession().get(Video.class, id);
+       connection.fecharConeccao();
+       return video;
     }
 
     @Override
     public List<Video> findAll() {
-        entityManager.getTransaction().begin();
-        Criteria criteria = session.createCriteria(Video.class);
-        List<Video> videosLista =  criteria.list();
-        entityManager.close();
-        entityManagerFactory.close(); 
-        return videosLista;    
+        connection.iniciarConeccao();
+        Criteria criteria =  connection.getSession().createCriteria(Video.class);
+        List<Video> videoLista =  criteria.list();
+        connection.fecharConeccao();
+        return videoLista;
     }
     
 }

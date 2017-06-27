@@ -6,58 +6,48 @@
 package br.com.crescer.aula4.tema4;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import org.hibernate.Criteria;
-import org.hibernate.Session;
+
 
 /**
  *
  * @author Mateus
  */
 public class GeneroDao implements CrudDao <Genero, Long> {
-    private  EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-    private EntityManager entityManager = entityManagerFactory.createEntityManager();
-    private  Session session = entityManager.unwrap(Session.class);
     
+    private  final  Connection connection= new Connection();
     @Override
     public Genero save(Genero genero) {
-       entityManager.getTransaction().begin();
-       session.saveOrUpdate(genero); 
-       entityManager.getTransaction().commit();
-       entityManager.close();
-       entityManagerFactory.close();
-       return genero;   
+       connection.iniciarConeccao();
+       connection.getSession().saveOrUpdate(genero); 
+       connection.fecharConeccao();
+       return genero;
     }
 
     @Override
     public void remove(Genero genero) {
-       Object persistentInstance = session.load(Genero.class, genero.getId());
-       entityManager.getTransaction().begin();
-       session.delete(persistentInstance); 
-       entityManager.getTransaction().commit();
-       entityManager.close();
-       entityManagerFactory.close();   
+       Object persistentInstance =  connection.getSession().load(Genero.class, genero.getId());
+       connection.iniciarConeccao();
+       connection.getSession().delete(persistentInstance); 
+       connection.fecharConeccao();
     }
 
     @Override
     public Genero loadById(Long id) {
-       Genero genero = new Genero();
-       entityManager.getTransaction().begin();
-       genero = (Genero) session.get(Genero.class, id);
-       entityManager.close();
-       entityManagerFactory.close();   
-       return genero;  
+       Genero genero;
+       connection.iniciarConeccao();
+       genero = (Genero) connection.getSession().get(Genero.class, id);
+       connection.fecharConeccao();
+       return genero;
     }
 
     @Override
     public List<Genero> findAll() {
-        entityManager.getTransaction().begin();
-        Criteria criteria = session.createCriteria(Genero.class);
+        connection.iniciarConeccao();
+        Criteria criteria =  connection.getSession().createCriteria(Genero.class);
         List<Genero> generoLista =  criteria.list();
-        entityManager.close();
-        entityManagerFactory.close(); 
-        return generoLista;    
-    }   
+        connection.fecharConeccao();
+        return generoLista;
+    }
+    
 }

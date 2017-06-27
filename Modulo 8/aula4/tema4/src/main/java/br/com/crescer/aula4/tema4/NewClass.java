@@ -23,7 +23,7 @@ public class NewClass {
 //     EntityManager entityManager = entityManagerFactory.createEntityManager();
 //      Session session = entityManager.unwrap(Session.class);
     
-    Funcionario funcionario = new Funcionario ();
+   Funcionario funcionario = new Funcionario ();
     Cliente cliente = new Cliente();
     Video video = new Video();
     Genero genero = new Genero();
@@ -33,7 +33,7 @@ public class NewClass {
     GeneroDao generoDao = new GeneroDao();
     VideoDao videoDao = new VideoDao();
     LocacaoDao locacaoDao = new LocacaoDao();
-//
+
 //    funcionario.setId(1l);
 //    funcionario.setNome("Mateus");
 //    funcionario.setRg("dadsad");
@@ -53,8 +53,23 @@ public class NewClass {
     locacao.setVideo(videoDao.loadById(50l));
     locacao.setDataDevolucao(new Date());
     locacaoDao.save(locacao);
-      //  System.out.println(videoDao.loadById(50l).getId());
-//        entityManager.close();
-//       entityManagerFactory.close();
-    }
+
+
+//     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
+//     EntityManager entityManager = entityManagerFactory.createEntityManager();
+//     Session session = entityManager.unwrap(Session.class);
+ 
+//connection.iniciarConeccao();
+//  cliente.setCelular("33434");
+//  cliente.setNome("fffdfd");
+//  cliente.setCpf("rwwrr");
+//  funcionario.setNome("sdsdds");
+//  funcionario.setRg("232e443");
+//  funcionarioDao.save(funcionario);
+//     // entityManager.getTransaction().begin();
+//      clienteDao.save(cliente);
+//clienteDao.save(cliente);
+//  
+
+        }
 }

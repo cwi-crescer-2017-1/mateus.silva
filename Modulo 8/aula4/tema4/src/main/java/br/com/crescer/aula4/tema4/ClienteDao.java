@@ -7,59 +7,48 @@
 package br.com.crescer.aula4.tema4;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import org.hibernate.Criteria;
-import org.hibernate.Session;
+
 
 /**
  *
  * @author Mateus
  */
-public class ClienteDao implements CrudDao<Cliente,Long> {
-    private final  EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-    private final EntityManager entityManager = entityManagerFactory.createEntityManager();
-    private final  Session session = entityManager.unwrap(Session.class);
+public class ClienteDao implements CrudDao<Cliente,Long>{
     
+    private  final  Connection connection = new Connection();
 
     @Override
     public Cliente save(Cliente cliente) {
-       entityManager.getTransaction().begin();
-       session.saveOrUpdate(cliente); 
-       entityManager.getTransaction().commit();
-       entityManager.close();
-       entityManagerFactory.close();
+       connection.iniciarConeccao();
+       connection.getSession().saveOrUpdate(cliente); 
+       connection.fecharConeccao();
        return cliente;  
     }
 
     @Override
     public void remove(Cliente cliente) {
-       Object persistentInstance = session.load(Cliente.class, cliente.getId());
-       entityManager.getTransaction().begin();
-       session.delete(persistentInstance); 
-       entityManager.getTransaction().commit();
-       entityManager.close();
-       entityManagerFactory.close();  
+       Object persistentInstance =  connection.getSession().load(Cliente.class, cliente.getId());
+       connection.iniciarConeccao();
+       connection.getSession().delete(persistentInstance); 
+       connection.fecharConeccao();
     }
 
     @Override
     public Cliente loadById(Long id) {
-       Cliente cliente = new Cliente();
-       entityManager.getTransaction().begin();
-       cliente = (Cliente) session.get(Cliente.class, id);
-       entityManager.close();
-       entityManagerFactory.close();   
+       Cliente cliente;
+       connection.iniciarConeccao();
+       cliente = (Cliente)  connection.getSession().get(Cliente.class, id);
+       connection.fecharConeccao();
        return cliente;
     }
 
     @Override
     public List<Cliente> findAll() {
-        entityManager.getTransaction().begin();
-        Criteria criteria = session.createCriteria(Cliente.class);
+        connection.iniciarConeccao();
+        Criteria criteria =  connection.getSession().createCriteria(Cliente.class);
         List<Cliente> clienteLista =  criteria.list();
-        entityManager.close();
-        entityManagerFactory.close(); 
+        connection.fecharConeccao();
         return clienteLista; 
-    }
+    }      
 }
