@@ -16,7 +16,6 @@ public class VideoDao implements CrudDao <Video, Long>{
     private  final  Connection connection = new Connection();
     @Override
     public Video save(Video video) {
-       connection.iniciarConeccao();
        connection.getSession().saveOrUpdate(video); 
        connection.fecharConeccao();
        return video;
@@ -25,7 +24,6 @@ public class VideoDao implements CrudDao <Video, Long>{
     @Override
     public void remove(Video video) {
        Object persistentInstance =  connection.getSession().load(Video.class, video.getId());
-       connection.iniciarConeccao();
        connection.getSession().delete(persistentInstance); 
        connection.fecharConeccao();
     }
@@ -33,7 +31,6 @@ public class VideoDao implements CrudDao <Video, Long>{
     @Override
     public Video loadById(Long id) {
        Video video;
-       connection.iniciarConeccao();
        video = (Video) connection.getSession().get(Video.class, id);
        connection.fecharConeccao();
        return video;
@@ -41,7 +38,6 @@ public class VideoDao implements CrudDao <Video, Long>{
 
     @Override
     public List<Video> findAll() {
-        connection.iniciarConeccao();
         Criteria criteria =  connection.getSession().createCriteria(Video.class);
         List<Video> videoLista =  criteria.list();
         connection.fecharConeccao();

@@ -20,7 +20,6 @@ public class ClienteDao implements CrudDao<Cliente,Long>{
 
     @Override
     public Cliente save(Cliente cliente) {
-       connection.iniciarConeccao();
        connection.getSession().saveOrUpdate(cliente); 
        connection.fecharConeccao();
        return cliente;  
@@ -29,7 +28,6 @@ public class ClienteDao implements CrudDao<Cliente,Long>{
     @Override
     public void remove(Cliente cliente) {
        Object persistentInstance =  connection.getSession().load(Cliente.class, cliente.getId());
-       connection.iniciarConeccao();
        connection.getSession().delete(persistentInstance); 
        connection.fecharConeccao();
     }
@@ -37,7 +35,6 @@ public class ClienteDao implements CrudDao<Cliente,Long>{
     @Override
     public Cliente loadById(Long id) {
        Cliente cliente;
-       connection.iniciarConeccao();
        cliente = (Cliente)  connection.getSession().get(Cliente.class, id);
        connection.fecharConeccao();
        return cliente;
@@ -45,7 +42,6 @@ public class ClienteDao implements CrudDao<Cliente,Long>{
 
     @Override
     public List<Cliente> findAll() {
-        connection.iniciarConeccao();
         Criteria criteria =  connection.getSession().createCriteria(Cliente.class);
         List<Cliente> clienteLista =  criteria.list();
         connection.fecharConeccao();

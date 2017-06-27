@@ -29,14 +29,15 @@ public class NewClass {
     Genero genero = new Genero();
     Locacao locacao = new Locacao();
     ClienteDao  clienteDao = new ClienteDao();
-    FuncionarioDao funcionarioDao = new FuncionarioDao();
-    GeneroDao generoDao = new GeneroDao();
-    VideoDao videoDao = new VideoDao();
+   FuncionarioDao funcionarioDao = new FuncionarioDao();
+GeneroDao generoDao = new GeneroDao();
+//    VideoDao videoDao = new VideoDao();
     LocacaoDao locacaoDao = new LocacaoDao();
-
-//    funcionario.setId(1l);
-//    funcionario.setNome("Mateus");
-//    funcionario.setRg("dadsad");
+//
+  generoDao.findAll();
+    funcionario.setNome("Mateus");
+    funcionario.setRg("dadsad");
+       funcionarioDao.save(funcionario);
 //    cliente.setNome("Alziro");
 //    cliente.setCelular("324334");
 //    cliente.setId(1l);
@@ -46,11 +47,11 @@ public class NewClass {
 //    video.setGenero(genero);
 //    video.setId(1l);
 //    video.setValor(new BigDecimal (123));
-    locacao.setValorTotal(new BigDecimal(34));
-    locacao.setId(1l);
-    locacao.setFuncionario(funcionarioDao.loadById(50l));
-    locacao.setCliente(clienteDao.loadById(50l));
-    locacao.setVideo(videoDao.loadById(50l));
+   locacao.setValorTotal(new BigDecimal(34));
+//    locacao.setId(1l);
+    locacao.setFuncionario(funcionario);
+   locacao.setCliente(clienteDao.loadById(50l));
+  
     locacao.setDataDevolucao(new Date());
     locacaoDao.save(locacao);
 
@@ -59,16 +60,19 @@ public class NewClass {
 //     EntityManager entityManager = entityManagerFactory.createEntityManager();
 //     Session session = entityManager.unwrap(Session.class);
  
+//Connection connection = new Connection();
 //connection.iniciarConeccao();
-//  cliente.setCelular("33434");
-//  cliente.setNome("fffdfd");
-//  cliente.setCpf("rwwrr");
+  cliente.setCelular("33434");
+  cliente.setNome("fffdfd");
+  cliente.setCpf("rwwrr");
 //  funcionario.setNome("sdsdds");
 //  funcionario.setRg("232e443");
 //  funcionarioDao.save(funcionario);
 //     // entityManager.getTransaction().begin();
-//      clienteDao.save(cliente);
+   //clienteDao.save(cliente);
+
 //clienteDao.save(cliente);
+//connection.fecharConeccao();
 //  
 
         }

@@ -14,20 +14,19 @@ import org.hibernate.Criteria;
  * @author Mateus
  */
 public class FuncionarioDao implements CrudDao <Funcionario, Long>{
-
-    private  final  Connection connection= new Connection();
-    @Override
+ 
+    private  final  Connection connection = new Connection();
+  
+ @Override
     public Funcionario save(Funcionario funcionario) {
-       connection.iniciarConeccao();
        connection.getSession().saveOrUpdate(funcionario); 
-      // connection.fecharConeccao();
+       connection.fecharConeccao();
        return funcionario;
     }
 
     @Override
     public void remove(Funcionario funcionario) {
        Object persistentInstance =  connection.getSession().load(Funcionario.class, funcionario.getId());
-       connection.iniciarConeccao();
        connection.getSession().delete(persistentInstance); 
        connection.fecharConeccao();
     }
@@ -35,7 +34,6 @@ public class FuncionarioDao implements CrudDao <Funcionario, Long>{
     @Override
     public Funcionario loadById(Long id) {
        Funcionario funcionario;
-       connection.iniciarConeccao();
        funcionario = (Funcionario) connection.getSession().get(Funcionario.class, id);
        connection.fecharConeccao();
        return funcionario;
@@ -43,7 +41,6 @@ public class FuncionarioDao implements CrudDao <Funcionario, Long>{
 
     @Override
     public List<Funcionario> findAll() {
-        connection.iniciarConeccao();
         Criteria criteria =  connection.getSession().createCriteria(Funcionario.class);
         List<Funcionario> funcionarioLista =  criteria.list();
         connection.fecharConeccao();

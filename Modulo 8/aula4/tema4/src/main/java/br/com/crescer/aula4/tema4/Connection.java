@@ -16,18 +16,14 @@ import org.hibernate.Session;
  */
 public final class Connection {
    final  EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-   final   EntityManager entityManager = entityManagerFactory.createEntityManager();
+   final  EntityManager entityManager = entityManagerFactory.createEntityManager();
    final  Session session = entityManager.unwrap(Session.class);
     
  public  Session getSession(){
-    return     session;
- }
- 
- public  void iniciarConeccao(){
     entityManager.getTransaction().begin();
+    return session;
  }
-   
-    
+     
  public  void fecharConeccao(){
     entityManager.getTransaction().commit();
     entityManager.close();
