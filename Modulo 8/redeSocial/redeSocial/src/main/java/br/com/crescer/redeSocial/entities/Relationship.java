@@ -20,7 +20,9 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 public class Relationship  implements Serializable {
-    
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_RELATIONSHIP")
+    @SequenceGenerator(name = "SEQ_RELATIONSHIP", sequenceName = "SEQ_RELATIONSHIP")
+   
     @Id
     @Basic (optional = false)
     @Column (name = "ID")

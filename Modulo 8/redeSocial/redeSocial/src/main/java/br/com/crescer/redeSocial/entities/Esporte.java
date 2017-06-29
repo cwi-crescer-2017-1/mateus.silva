@@ -37,7 +37,7 @@ public class Esporte implements Serializable {
     @Column (name = "NOME")
     private String nome;
     
-    @ManyToMany (cascade = CascadeType.ALL)
+   // @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(name = "usuario_esporte", 
             joinColumns = {
                 @JoinColumn(name = "id_usuario")

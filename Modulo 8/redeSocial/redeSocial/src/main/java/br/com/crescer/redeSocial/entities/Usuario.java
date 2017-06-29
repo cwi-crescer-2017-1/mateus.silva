@@ -42,6 +42,10 @@ public class Usuario implements Serializable {
     private String sobrenome;
     
     @Basic (optional = true)
+    @Column (name = "URL_FOTO")
+    private String foto;
+      
+    @Basic (optional = true)
     @Column (name = "CIDADE")
     private String cidade;
     
@@ -68,10 +72,6 @@ public class Usuario implements Serializable {
     @Basic (optional =true)
     @Column (name = "CELULAR")
     private String celular;
-     
-    @Basic (optional = true)
-    @Column (name = "TELEFONE")
-    private String telefone;
     
     @Basic (optional = false)
     @Column (name = "DATA_NASCIMENTO")
@@ -81,7 +81,7 @@ public class Usuario implements Serializable {
     @Column (name = "SENHA")
     private String senha;
     
-    @ManyToMany (cascade = CascadeType.ALL)
+   // @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(name = "usuario_esporte", 
             joinColumns = {
                 @JoinColumn(name = "id_usuario")
@@ -92,7 +92,7 @@ public class Usuario implements Serializable {
     )
     private Set<Esporte> esportes;
     
-    @ManyToMany (cascade = CascadeType.ALL)
+   // @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(name = "usuario_grupo", 
             joinColumns = {
                 @JoinColumn(name = "id_usuario")
