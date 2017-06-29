@@ -9,11 +9,13 @@ import br.com.crescer.aula7.tema.Entities.Locacao;
 import br.com.crescer.aula7.tema.Repositories.LocacaoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Mateus
  */
+@Service
 public class LocacaoService {
      @Autowired
      LocacaoRepository locacaoRepository;
@@ -35,5 +37,9 @@ public class LocacaoService {
 
     public List <Locacao> findAll (){
        return  (List<Locacao>) locacaoRepository.findAll();
+    }
+    
+      public void put(Locacao locacao){
+        locacaoRepository.save(locacao);
     }
 }

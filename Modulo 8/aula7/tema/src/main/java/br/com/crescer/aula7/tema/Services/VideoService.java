@@ -9,11 +9,13 @@ import br.com.crescer.aula7.tema.Entities.Video;
 import br.com.crescer.aula7.tema.Repositories.VideoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Mateus
  */
+@Service
 public class VideoService {
     @Autowired
     VideoRepository videoRepository;
@@ -35,5 +37,9 @@ public class VideoService {
 
     public List <Video> findAll (){
        return  (List<Video>) videoRepository.findAll();
+    }
+    
+      public void put(Video video){
+        videoRepository.save(video);
     }
 }

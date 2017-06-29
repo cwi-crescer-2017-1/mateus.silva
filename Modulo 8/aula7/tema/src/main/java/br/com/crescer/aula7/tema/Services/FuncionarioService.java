@@ -9,11 +9,13 @@ import br.com.crescer.aula7.tema.Entities.Funcionario;
 import br.com.crescer.aula7.tema.Repositories.FuncionarioRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Mateus
  */
+@Service
 public class FuncionarioService {
    @Autowired 
    FuncionarioRepository funcionarioRepository;
@@ -35,6 +37,10 @@ public class FuncionarioService {
 
     public List <Funcionario> findAll (){
        return  (List<Funcionario>) funcionarioRepository.findAll();
+    }
+    
+      public void put(Funcionario funcionario){
+        funcionarioRepository.save(funcionario);
     }
     
 }

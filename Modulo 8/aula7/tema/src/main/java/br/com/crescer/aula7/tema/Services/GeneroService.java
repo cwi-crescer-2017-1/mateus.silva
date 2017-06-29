@@ -39,5 +39,7 @@ public class GeneroService {
     public List <Genero> findAll (){
        return  (List<Genero>) generoRepository.findAll();
     }
-   
+     public void put(Genero genero){
+        generoRepository.save(genero);
+    }
 }

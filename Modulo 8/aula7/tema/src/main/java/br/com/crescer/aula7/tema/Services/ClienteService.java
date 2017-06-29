@@ -9,11 +9,13 @@ import br.com.crescer.aula7.tema.Entities.Cliente;
 import br.com.crescer.aula7.tema.Repositories.ClienteRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Mateus
  */
+@Service
 public class ClienteService {
     @Autowired
      ClienteRepository clienteRepository;
@@ -35,5 +37,9 @@ public class ClienteService {
 
     public List <Cliente> findAll (){
        return  (List<Cliente>) clienteRepository.findAll();
+    }
+    
+    public void put(Cliente cliente){
+        clienteRepository.save(cliente);
     }
 }
