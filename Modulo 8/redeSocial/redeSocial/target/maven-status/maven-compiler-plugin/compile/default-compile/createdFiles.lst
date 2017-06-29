@@ -1,0 +1,9 @@
+br\com\crescer\redeSocial\controllers\UsuarioController.class
+br\com\crescer\redeSocial\entities\Usuario.class
+br\com\crescer\redeSocial\entities\Esporte.class
+br\com\crescer\redeSocial\Run.class
+br\com\crescer\redeSocial\entities\repositories\GrupoRepository.class
+br\com\crescer\redeSocial\entities\repositories\UsuarioRepository.class
+br\com\crescer\redeSocial\entities\Grupo.class
+br\com\crescer\redeSocial\entities\repositories\EsporteRepository.class
+br\com\crescer\redeSocial\services\UsuarioService.class

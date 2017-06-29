@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="cadastro">
+        <label for="nome" >Nome</label>
+        <input type="text" class="form-control" name="nome" value="">
+        <label for="sobrenome" >Sobrenome</label>
+        <input type="text" class="form-control" name="sobrenome" value="">
+        <label for="email" >Email</label>
+        <input type="email" class="form-control" name="email" value="">
+        <label for="password" >Senha</label>
+        <input type="password" class="form-control" name="password" value="">
+        <label for="password" >Cofirmar senha</label>
+        <input type="password" class="form-control" name="password" value="">
+        <button type="button" class="form-control" name="button">cadastrar</button>
+      </form>
+    </div>
+  </body>
+</html>

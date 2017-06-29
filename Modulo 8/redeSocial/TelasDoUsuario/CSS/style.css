@@ -1,0 +1,32 @@
+body{
+  margin: 0;
+  background-image: url("http://antoniomiroeyewear.com/wp-content/uploads/2016/07/Backpacker-Australia.jpg");
+}
+.container {
+  width: 30%;
+  margin-top: 100px;
+}
+button{
+  width: 30px;
+}
+.menu h1{
+  margin: 0px 10px;
+  float: left;
+  position: relative;
+
+}
+.menu input{
+  width: 300px;
+  float: left;
+}
+#button  {
+  width: 100px;
+  float: right;
+}
+
+.menu{
+  width:100%;
+  padding: 5px;
+  height: 45px;
+  background-color: silver;
+}
