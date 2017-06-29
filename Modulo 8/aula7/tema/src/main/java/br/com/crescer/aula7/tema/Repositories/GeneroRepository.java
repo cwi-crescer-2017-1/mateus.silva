@@ -13,5 +13,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author Mateus
  */
 public interface GeneroRepository extends CrudRepository <Genero, Long>{
-    
+
 }
