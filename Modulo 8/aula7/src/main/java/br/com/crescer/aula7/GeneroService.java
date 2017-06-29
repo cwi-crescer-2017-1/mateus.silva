@@ -27,4 +27,6 @@ public class GeneroService   {
      public void deleteGenero(Long id) {
       generoRespository.delete(id);
      }
+     
+     
 }
