@@ -32,10 +32,10 @@ public class UsuarioController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping
-    public Usuario save(@RequestBody Usuario usuario)  {
-       return usuarioService.save(usuario);   
-    }
+    public Usuario save(@RequestBody Usuario usuario)   {
+        return usuarioService.save(usuario);   
 
+    }
     @DeleteMapping
     public void remove(@RequestBody Usuario usuario) {
         usuarioService.remove(usuario);

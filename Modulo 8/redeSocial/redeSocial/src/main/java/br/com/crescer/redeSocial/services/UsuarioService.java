@@ -9,6 +9,7 @@ import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.repositories.UsuarioRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,7 +21,8 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
                
-    public Usuario save (Usuario usuario) {
+    public Usuario save (Usuario usuario) {        
+       usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         return usuarioRepository.save(usuario);
     }
    
