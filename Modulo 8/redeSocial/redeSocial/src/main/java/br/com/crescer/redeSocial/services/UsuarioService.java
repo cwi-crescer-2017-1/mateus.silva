@@ -6,7 +6,7 @@
 package br.com.crescer.redeSocial.services;
 
 import br.com.crescer.redeSocial.entities.Usuario;
-import br.com.crescer.redeSocial.entities.repositories.UsuarioRepository;
+import br.com.crescer.redeSocial.repositories.UsuarioRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

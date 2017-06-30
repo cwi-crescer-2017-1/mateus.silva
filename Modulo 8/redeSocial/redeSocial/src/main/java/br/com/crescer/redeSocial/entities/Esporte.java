@@ -27,8 +27,7 @@ import javax.persistence.SequenceGenerator;
 public class Esporte implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ESPORTE")
-    @SequenceGenerator(name = "SEQ_ESPORTE", sequenceName = "SEQ_ESPORTE")
-    
+    @SequenceGenerator(name = "SEQ_ESPORTE", sequenceName = "SEQ_ESPORTE")    
     @Basic (optional = false)
     @Column (name = "ID")
     private Long id;
@@ -37,7 +36,7 @@ public class Esporte implements Serializable {
     @Column (name = "NOME")
     private String nome;
     
-   // @ManyToMany (cascade = CascadeType.ALL)
+   @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(name = "usuario_esporte", 
             joinColumns = {
                 @JoinColumn(name = "id_usuario")
@@ -47,4 +46,21 @@ public class Esporte implements Serializable {
             }
     )
     private Set<Usuario> usuarios;
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+   
 }

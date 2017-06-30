@@ -1,15 +1,15 @@
     <div class="container">
       <form class="cadastro">
         <label for="nome" >Nome</label>
-        <input type="text" class="form-control" name="nome" value="">
+        <input type="text" class="form-control" name="nome" ng-model="usuario.nome" value="">
         <label for="sobrenome" >Sobrenome</label>
-        <input type="text" class="form-control" name="sobrenome" value="">
+        <input type="text" class="form-control" name="sobrenome"ng-model="usuario.sobrenome" value="">
         <label for="email" >Email</label>
-        <input type="email" class="form-control" name="email" value="">
+        <input type="email" class="form-control" name="email" ng-model="usuario.email" value="">
         <label for="password" >Senha</label>
-        <input type="password" class="form-control" name="password" value="">
+        <input type="password" class="form-control" name="password" ng-model="usuario.senha"value="">
         <label for="password" >Cofirmar senha</label>
         <input type="password" class="form-control" name="password" value="">
-        <button type="button" class="form-control" name="button">cadastrar</button>
+        <button type="button" class="form-control" ng-click="cadastrar(usuario)" name="button">cadastrar</button>
       </form>
     </div>
