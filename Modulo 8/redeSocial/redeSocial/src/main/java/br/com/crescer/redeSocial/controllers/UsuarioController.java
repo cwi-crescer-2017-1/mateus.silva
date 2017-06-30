@@ -29,14 +29,14 @@ public class UsuarioController {
 
     @Autowired
     UsuarioService usuarioService;
+    
 
-    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping
     public Usuario save(@RequestBody Usuario usuario)   {
         return usuarioService.save(usuario);   
     }
     
-    @DeleteMapping
+    @DeleteMapping ("/acessos")
     public void remove(@RequestBody Usuario usuario) {
         usuarioService.remove(usuario);
     }
