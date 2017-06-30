@@ -20,7 +20,7 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
                
-    public Usuario save (Usuario usuario){
+    public Usuario save (Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
    

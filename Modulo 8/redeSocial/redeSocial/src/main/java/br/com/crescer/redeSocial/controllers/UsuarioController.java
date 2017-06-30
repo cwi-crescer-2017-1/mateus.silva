@@ -17,48 +17,47 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author Mateus
  */
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/usuario") 
+@RequestMapping("/usuario")
 public class UsuarioController {
-    
+
     @Autowired
     UsuarioService usuarioService;
-    
-    @PostMapping 
-    public Usuario save (@RequestBody Usuario usuario){
-        return usuarioService.save(usuario);
+
+    @CrossOrigin(origins = "http://localhost:8080")
+    @PostMapping
+    public Usuario save(@RequestBody Usuario usuario)  {
+       return usuarioService.save(usuario);   
     }
-    
+
     @DeleteMapping
-    public void remove (@RequestBody Usuario usuario){
+    public void remove(@RequestBody Usuario usuario) {
         usuarioService.remove(usuario);
     }
-    
+
     @DeleteMapping("/{id}")
-    public void removeById (@PathVariable ("id") Long id){
+    public void removeById(@PathVariable("id") Long id) {
         usuarioService.removeById(id);
     }
+
     @GetMapping("/{id}")
-    public Usuario loadById(@PathVariable ("id") Long id){
+    public Usuario loadById(@PathVariable("id") Long id) {
         return usuarioService.loadById(id);
     }
 
     @GetMapping
-    public List <Usuario> findAll (){
-       return  (List <Usuario>) usuarioService.findAll();
+    public List<Usuario> findAll() {
+        return (List<Usuario>) usuarioService.findAll();
     }
-    
+
     @PutMapping
-    public void put (@RequestBody Usuario usuario){
-       usuarioService.put(usuario);
+    public void put(@RequestBody Usuario usuario) {
+        usuarioService.put(usuario);
     }
 }
-
