@@ -8,3 +8,11 @@
       <button id = "button"  class="form-control" type="button" name="grupos"><span class="glyphicon glyphicon-envelope"></span></button>
       <input id = "button"  class="form-control" type="button" name="novasAmizades" value="solicitação de amizade">
     </div>
+  <div class="post">
+    <input id="post" class="form-control" type="text" name="post" value="">
+    <button  id="postButton" class="form-control" type="button" name="post">
+    <span class="glyphicon glyphicon-ok"></span> </button>
+  </div>
+<div class="posts" ng-repeat="post in posts">
+      <li>{{post}}</li>
+</div>

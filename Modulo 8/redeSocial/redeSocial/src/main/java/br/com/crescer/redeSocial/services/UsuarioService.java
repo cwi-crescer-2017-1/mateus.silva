@@ -25,7 +25,7 @@ public class UsuarioService {
        usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         return usuarioRepository.save(usuario);
     }
-   
+    
     public void remove (Usuario usuario){
       usuarioRepository.delete(usuario);
     }

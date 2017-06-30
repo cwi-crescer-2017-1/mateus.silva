@@ -34,8 +34,8 @@ public class UsuarioController {
     @PostMapping
     public Usuario save(@RequestBody Usuario usuario)   {
         return usuarioService.save(usuario);   
-
     }
+    
     @DeleteMapping
     public void remove(@RequestBody Usuario usuario) {
         usuarioService.remove(usuario);
@@ -55,7 +55,7 @@ public class UsuarioController {
     public List<Usuario> findAll() {
         return (List<Usuario>) usuarioService.findAll();
     }
-
+    
     @PutMapping
     public void put(@RequestBody Usuario usuario) {
         usuarioService.put(usuario);
