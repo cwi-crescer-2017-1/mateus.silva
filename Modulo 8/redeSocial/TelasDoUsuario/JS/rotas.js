@@ -11,11 +11,11 @@ modulo.config(function($routeProvider) {
        .when ("/feed", {
          templateUrl: "feed.html",
          controller: "FeedController",
-      //    resolve: {
-      //    autenticado: function (authService) {
-      //     return authService.isAutenticadoPromise();
-      //  }
-      //   }
+         resolve: {
+         autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+       }
+        }
        })
         .otherwise("/login");
       });

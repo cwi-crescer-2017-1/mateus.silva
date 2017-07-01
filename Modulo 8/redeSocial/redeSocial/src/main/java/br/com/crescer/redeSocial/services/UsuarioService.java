@@ -45,11 +45,20 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
     public boolean findOneByEmail(Usuario usuario){
-        Usuario user = usuarioRepository.findOneByEmail(usuario.getEmail());
-        if (user!=null && user.getSenha().matches(new BCryptPasswordEncoder().encode(usuario.getSenha()))){
+        String username = usuario.getEmail();
+        Usuario user = usuarioRepository.findOneByEmail(username);
+        if (user!=null){
             return true;
         }
         return false;
     }
+    
+    public Usuario findOneByEmail (String username){  
+        String a = username;
+        Usuario ab = usuarioRepository.findOneByEmail(username);
+        return ab;
+    }
+    
+    
 }
 
