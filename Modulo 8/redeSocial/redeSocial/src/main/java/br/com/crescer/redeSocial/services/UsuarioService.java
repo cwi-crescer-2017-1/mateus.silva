@@ -44,5 +44,12 @@ public class UsuarioService {
     public void put(Usuario usuario){
         usuarioRepository.save(usuario);
     }
+    public boolean findOneByEmail(Usuario usuario){
+        Usuario user = usuarioRepository.findOneByEmail(usuario.getEmail());
+        if (user!=null && user.getSenha().matches(new BCryptPasswordEncoder().encode(usuario.getSenha()))){
+            return true;
+        }
+        return false;
+    }
 }
 

@@ -31,12 +31,8 @@ public class UsuarioController {
     UsuarioService usuarioService;
     
 
-    @PostMapping
-    public Usuario save(@RequestBody Usuario usuario)   {
-        return usuarioService.save(usuario);   
-    }
     
-    @DeleteMapping ("/acessos")
+    @DeleteMapping 
     public void remove(@RequestBody Usuario usuario) {
         usuarioService.remove(usuario);
     }

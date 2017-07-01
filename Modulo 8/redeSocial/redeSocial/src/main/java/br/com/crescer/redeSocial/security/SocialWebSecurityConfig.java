@@ -39,13 +39,13 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .csrf().disable();
-        
     }
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
           
         webSecurity.ignoring().antMatchers("/acessos");
+          webSecurity.ignoring().antMatchers("/acessos/auth");
     }
 
     @Bean

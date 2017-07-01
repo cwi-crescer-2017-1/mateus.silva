@@ -8,9 +8,14 @@ modulo.config(function($routeProvider) {
         templateUrl: "/cadastro.html",
         controller: "LoginController"
        })
-     .when ("/feed", {
-        templateUrl: "/feed.html",
-        controller: "FeedController"
-         })
+       .when ("/feed", {
+         templateUrl: "feed.html",
+         controller: "FeedController",
+      //    resolve: {
+      //    autenticado: function (authService) {
+      //     return authService.isAutenticadoPromise();
+      //  }
+      //   }
+       })
         .otherwise("/login");
       });

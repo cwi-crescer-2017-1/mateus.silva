@@ -4,7 +4,7 @@
       <input type="email" class="form-control" name="usarname" ng-model="usuario.email" value="">
       <label for="password" >Senha</label>
       <input type="password" class="form-control" name="password" ng-model="usuario.senha" value="">
-      <a type="button" class="form-control"   ng-href="#!/feed" name="button">entrar</a>
+      <button type="button" class="form-control"  ng-click="login(usuario)"name="button">entrar</button>
       <a type="button" class="form-control"  ng-href="#!/cadastro" name="button">cadastrar</a>
     </form>
 </div>

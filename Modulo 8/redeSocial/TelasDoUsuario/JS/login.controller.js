@@ -1,19 +1,22 @@
-modulo.controller("LoginController", function ($scope, $http, loginService){
+modulo.controller("LoginController", function ($scope,  loginService, toastr, authService){
 
 $scope.cadastrar= cadastrar;
-// $scope.logar = logar;
-
 function cadastrar(usuario){
   loginService.cadastrar(usuario).then(function(response){
   $scope.usuarioCadastrado = response.data;
  })
 }
 
-// function logar (usuario){
-//   loginService.logar(usuario).then(function (response){
-//     $scope.logado = response.data;
-//   })
-// }
+$scope.login  =login;
+function login (usuario){
 
-
+  authService.login(usuario)
+     .then(
+      function (response) {
+  toastr.success("Login executado com sucesso.")
+       },
+       function (response) {
+       toastr.error("Erro no login!");
+      });
+}
 });
