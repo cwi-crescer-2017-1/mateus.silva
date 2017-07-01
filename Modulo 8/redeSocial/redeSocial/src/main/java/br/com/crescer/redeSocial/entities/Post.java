@@ -29,9 +29,58 @@ public class Post {
     @Basic (optional = false)
     @Column (name = "ID")
     private Long id;
+
+    public Post(String conteudo, Long idUsuario) {
+        this.data = new Date();
+        this.conteudo = conteudo;
+        this.idUsuario = idUsuario;
+    }
     
-   @Basic (optional = false)
+    public Post(){}
+       
+    
+   @Basic (optional = true)
     @Column (name = "DATA")
     private Date data;
+   
+    @Basic (optional = false)
+    @Column (name = "CONTEUDO")
+    private String conteudo;
+    
+    @Basic (optional = false)
+    @Column (name = "ID_USUARIO")
+    private Long idUsuario;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
 }

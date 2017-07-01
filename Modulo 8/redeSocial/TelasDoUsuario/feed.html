@@ -1,6 +1,8 @@
     <div class="menu">
       <h1>Squad Goals</h1>
+
       <input class="form-control" type="text" name="search" value="">
+        <p>Olá, {{user.nome}}</p>
       <button id = "button"  class="form-control" type="button" name="configuracoes">
         <span class="glyphicon glyphicon-wrench"></span> </button>
       <button id = "button"  class="form-control" type="button" name="profile">
@@ -10,10 +12,10 @@
       <input id = "button"  class="form-control" type="button" name="novasAmizades" value="solicitação de amizade">
     </div>
   <div class="post">
-    <input id="post" class="form-control" type="text" name="post" value="">
-    <button  id="postButton" class="form-control" type="button" name="post">
+    <input id="post" class="form-control" type="text" name="post" ng-model="postagem" value="">
+    <button  id="postButton" class="form-control" type="button" ng-click="postar(postagem)" name="post">
     <span class="glyphicon glyphicon-ok"></span> </button>
   </div>
-<div class="posts" ng-repeat="post in posts">
-      <li>{{post}}</li>
-</div>
+  <div class="posts" ng-repeat ="post in posts">
+  <p> {{post.conteudo}}   {{post.idUsuario}}</p>
+  </div>

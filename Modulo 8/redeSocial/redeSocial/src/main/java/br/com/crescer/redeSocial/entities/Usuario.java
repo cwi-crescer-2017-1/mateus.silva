@@ -116,10 +116,10 @@ public class Usuario implements Serializable {
     )
     private Set<Usuario> amigos;
     
-    
-    @OneToMany
-    @JoinColumn(name = "ID_POST")
-    private Set<Post> posts;
+//    
+//    @OneToMany
+//    @JoinColumn(name = "ID")
+//    private Set<Post> posts;
 
 
     public Long getId() {
