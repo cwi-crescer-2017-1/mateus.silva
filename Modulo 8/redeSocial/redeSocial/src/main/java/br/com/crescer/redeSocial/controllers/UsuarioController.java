@@ -5,6 +5,7 @@
  */
 package br.com.crescer.redeSocial.controllers;
 
+import br.com.crescer.redeSocial.entities.Relationship;
 import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.services.UsuarioService;
 import java.util.ArrayList;
@@ -68,10 +69,21 @@ public class UsuarioController {
    
    @GetMapping ("/amigos/{id}")
    public List <Usuario> loadAmigos (@PathVariable("id") Long id){
-       List <Usuario> users = new ArrayList<>();
-      usuarioService.getRelationshipService().loadAmigos(id).forEach(b-> users.add(usuarioService.loadById(b.getId_enviada())));
-      return  users;          
+       List <Usuario> amigos = new ArrayList<>();
+      List <Relationship> relacoes= usuarioService.getRelationshipService().loadAmigos(id);
+      
+        for (Relationship r: relacoes){
+             if (id == r.getId_enviada()){
+                 amigos.add(usuarioService.loadById(r.getId_recebida()));
+              }
+             else {
+                  amigos.add(usuarioService.loadById(r.getId_enviada()));
+             }
+     }
+    return  amigos;          
    }   
+   
+     
  
     @GetMapping
     public Map<String, Object> listarUsuarios(Authentication authentication) {

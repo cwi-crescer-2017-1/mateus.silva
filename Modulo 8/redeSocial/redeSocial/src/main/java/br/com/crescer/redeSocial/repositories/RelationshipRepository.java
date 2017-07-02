@@ -18,5 +18,5 @@ public interface RelationshipRepository extends CrudRepository <Relationship, Lo
     public List <Relationship> findAllBySituacao(String situacao);
     public List <Relationship> findBySituacaoAndIdRecebida(String situacao, Long id);
     public Relationship findByIdRecebidaAndIdEnviada (Long IdRecebida, Long idEnviada);
-    public List <Relationship>findBySituacaoAndIdRecebidaOrIdEnviada (String situacao, Long id, Long id1);
+    public List <Relationship>findByIdRecebidaOrIdEnviada(Long id, Long id1);
 }

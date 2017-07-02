@@ -7,6 +7,7 @@ package br.com.crescer.redeSocial.services;
 
 import br.com.crescer.redeSocial.entities.Relationship;
 import br.com.crescer.redeSocial.repositories.RelationshipRepository;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +40,15 @@ public class RelationshipService {
     }
        
      public List <Relationship>loadAmigos(Long id){
-       return   relationshipRepository.findBySituacaoAndIdRecebidaOrIdEnviada("amigos", id, id);   
+         List <Relationship> relacoes = relationshipRepository.findByIdRecebidaOrIdEnviada(id, id);
+         List <Relationship> amigos = new ArrayList<>();
+         
+         for (Relationship r: relacoes){
+             if (r.getSituacao().compareTo("amigos")==0){
+                 amigos.add(r);
+             }
+         }
+         return amigos;
     }
        
       
