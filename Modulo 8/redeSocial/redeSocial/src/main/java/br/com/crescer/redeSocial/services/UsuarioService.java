@@ -51,14 +51,6 @@ public class UsuarioService {
     public void put(Usuario usuario){
         usuarioRepository.save(usuario);
     }
-//    public boolean findOneByEmail(Usuario usuario){
-//        String username = usuario.getEmail();
-//        Usuario user = usuarioRepository.findOneByEmail(username);
-//        if (user!=null){
-//            return true;
-//        }
-//        return false;
-//    }
     
     public Usuario findOneByEmail (String username){  
         String a = username;
@@ -66,11 +58,6 @@ public class UsuarioService {
         return ab;
     }
     
-//    public List <Usuario>loadByIdRecebidaPendente(Long id){
-//   
-//      return   usuarioRepository.findByAmigos();
-//      
-//    }
 
     public RelationshipService getRelationshipService() {
         return relationshipService;

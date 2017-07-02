@@ -17,6 +17,15 @@ modulo.config(function($routeProvider) {
        }
         }
        })
+       .when ("/editarPerfil", {
+         templateUrl: "editar.perfil.html",
+         controller: "FeedController",
+         resolve: {
+         autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+       }
+        }
+       })
        .when ("/perfil", {
          templateUrl: "perfil.html",
          controller: "FeedController",

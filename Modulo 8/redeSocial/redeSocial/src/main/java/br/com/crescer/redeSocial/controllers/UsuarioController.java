@@ -94,4 +94,9 @@ public class UsuarioController {
     public void put(@RequestBody Usuario usuario) {
         usuarioService.put(usuario);
     }
+    
+     @PostMapping ("/editar")
+    public void save(@RequestBody Usuario usuario)   {
+        usuarioService.put(usuario);   
+    }
 }
