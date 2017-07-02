@@ -37,4 +37,10 @@ public class RelationshipService {
         r.setSituacao("recusada");
         relationshipRepository.save(r);
     }
+       
+     public List <Relationship>loadAmigos(Long id){
+       return   relationshipRepository.findBySituacaoAndIdRecebidaOrIdEnviada("amigos", id, id);   
+    }
+       
+      
 }

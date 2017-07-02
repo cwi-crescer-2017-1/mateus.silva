@@ -35,5 +35,23 @@ modulo.config(function($routeProvider) {
        }
         }
        })
+       .when ("/amigos", {
+         templateUrl: "amigos.html",
+         controller: "AmigosController",
+         resolve: {
+         autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+       }
+        }
+      })
+      .when ("/amigoPerfil/:id", {
+        templateUrl: "/amigoPerfil.html",
+        controller: "amigoPerfilController",
+           resolve: {
+        autenticado: function (authService) {
+         return authService.isAutenticadoPromise();
+      }
+       }
+     })
         .otherwise("/login");
       });

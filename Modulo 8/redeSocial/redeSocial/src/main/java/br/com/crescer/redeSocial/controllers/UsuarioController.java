@@ -63,7 +63,13 @@ public class UsuarioController {
    public List <Usuario> loadByIdRecebidaPendente (@PathVariable("id") Long id){
        List <Usuario> users = new ArrayList<>();
       usuarioService.getRelationshipService().loadByIdRecebidaPendente(id).forEach(b-> users.add(usuarioService.loadById(b.getId_enviada())));
-       
+      return  users;          
+   } 
+   
+   @GetMapping ("/amigos/{id}")
+   public List <Usuario> loadAmigos (@PathVariable("id") Long id){
+       List <Usuario> users = new ArrayList<>();
+      usuarioService.getRelationshipService().loadAmigos(id).forEach(b-> users.add(usuarioService.loadById(b.getId_enviada())));
       return  users;          
    }   
  

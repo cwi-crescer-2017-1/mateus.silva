@@ -16,6 +16,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface RelationshipRepository extends CrudRepository <Relationship, Long> {
     public List <Relationship> findByIdRecebida(Long id);
     public List <Relationship> findAllBySituacao(String situacao);
-     public List <Relationship> findBySituacaoAndIdRecebida(String situacao, Long id);
-     public Relationship findByIdRecebidaAndIdEnviada (Long IdRecebida, Long idEnviada);
+    public List <Relationship> findBySituacaoAndIdRecebida(String situacao, Long id);
+    public Relationship findByIdRecebidaAndIdEnviada (Long IdRecebida, Long idEnviada);
+    public List <Relationship>findBySituacaoAndIdRecebidaOrIdEnviada (String situacao, Long id, Long id1);
 }
