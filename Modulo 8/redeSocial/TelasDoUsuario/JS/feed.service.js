@@ -27,8 +27,10 @@ function getSolicitacoes (idUsuarioLogado){
 }
 
 function aceitarAmizade (r, e){
-
     return $http.post(urlAceitar +"aceitar/"+r+"/"+e)
+}
+function rejeitarAmizade (r, e){
+    return $http.post(urlAceitar +"recusar/"+r+"/"+e)
 }
 
     return{
@@ -37,7 +39,8 @@ function aceitarAmizade (r, e){
       getPosts:getPosts,
       getUsuarios: getUsuarios,
       solicitacoes : getSolicitacoes,
-      aceitar : aceitarAmizade
+      aceitar : aceitarAmizade,
+      recusar: rejeitarAmizade
   }
 
 

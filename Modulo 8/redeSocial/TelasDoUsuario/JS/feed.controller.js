@@ -5,6 +5,7 @@ getUsuarios();
 $scope.postar =postar;
 getPosts();
 $scope.aceitar = aceitar;
+$scope.recusar =recusar;
 $scope.logout = authService.logout;
 var usuarioLogado;
 var idUsuarioLogado;
@@ -50,8 +51,13 @@ function solicitacoes(idUsuarioLogado){
 
 function aceitar(id){
   userGet(usuarioLogado);
-  var solicitacao = {idRecebida: idUsuarioLogado, idEnviada:id}
   feedService.aceitar(idUsuarioLogado, id).then(function(response){
+
+})};
+
+function recusar(id){
+  userGet(usuarioLogado);
+  feedService.recusar(idUsuarioLogado, id).then(function(response){
 
 })
 

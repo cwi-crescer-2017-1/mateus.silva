@@ -33,7 +33,7 @@
      <tr  ng-repeat ="solicitacao in solicitacoesPendentes">
        <td>{{solicitacao.nome}}</td>
        <td><input type="button" class="btn btn-primary"  value="aceitar" ng-click ="aceitar(solicitacao.id)"></td>
-       <td><input type="button" class="btn btn-primary"  value="recusar" ng-click ="recusar(usuario.id)"></td>
+       <td><input type="button" class="btn btn-primary"  value="recusar" ng-click ="recusar(solicitacao.id)"></td>
      </tr>
    </tbody>
   </table>
