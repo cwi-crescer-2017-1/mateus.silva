@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +34,11 @@ public class RelationshipController {
    @GetMapping ("/{id}")
    public List <Relationship> loadByIdRecebidaPendente (@PathVariable("id") Long id){
       return   relationshipService.loadByIdRecebidaPendente(id);          
+   }   
+   
+   @PostMapping ("/aceitar/{idRecebida}/{idEnviada}")
+   public void  aceitarAmizade (@PathVariable("idRecebida")Long idRecebida,  @PathVariable ( "idEnviada")  Long idEnviada){
+         relationshipService.aceitarAmizade(idRecebida, idEnviada);          
    }   
 }
 

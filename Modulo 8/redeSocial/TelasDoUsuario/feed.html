@@ -29,13 +29,11 @@
    </tbody>
   </table>
   <table class= "table table-hover solicitacoesDeAmizade" >
-   <thead>
-     <th>Usuario</th>
-     <th>conteudo</th>
-   </thead>
    <tbody>
      <tr  ng-repeat ="solicitacao in solicitacoesPendentes">
-       <td>{{solicitacao.id}}</td>
+       <td>{{solicitacao.nome}}</td>
+       <td><input type="button" class="btn btn-primary"  value="aceitar" ng-click ="aceitar(solicitacao.id)"></td>
+       <td><input type="button" class="btn btn-primary"  value="recusar" ng-click ="recusar(usuario.id)"></td>
      </tr>
    </tbody>
   </table>

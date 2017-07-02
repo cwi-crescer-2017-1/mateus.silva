@@ -25,4 +25,10 @@ public class RelationshipService {
       return   relationshipRepository.findBySituacaoAndIdRecebida("pendente", id);
       
     }
+    
+    public void aceitarAmizade (Long idRecebida, Long idEnviada){
+        Relationship r =relationshipRepository.findByIdRecebidaAndIdEnviada(idRecebida, idEnviada);
+        r.setSituacao("amigos");
+        relationshipRepository.save(r);
+    }
 }

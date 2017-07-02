@@ -5,6 +5,8 @@ var url ="http://localhost:9090/api/usuario/username/"
 var urlPost  ="http://localhost:9090/api/post"
 var urlUsuarios ="http://localhost:9090/api/usuario/lista"
 var urlSolicitacoes = "http://localhost:9090/api/usuario/solicitacoes/"
+
+var urlAceitar= "http://localhost:9090/api/relationship/"
 function get(usuario){
     return $http.get (url + usuario+"/")
 }
@@ -20,8 +22,13 @@ function getUsuarios (){
     return $http.get(urlUsuarios)
 }
 
-function getSolicitacoes (){
-    return $http.get(urlSolicitacoes+ 50 )
+function getSolicitacoes (idUsuarioLogado){
+    return $http.get(urlSolicitacoes+ idUsuarioLogado)
+}
+
+function aceitarAmizade (r, e){
+
+    return $http.post(urlAceitar +"aceitar/"+r+"/"+e)
 }
 
     return{
@@ -29,7 +36,8 @@ function getSolicitacoes (){
       postar : post,
       getPosts:getPosts,
       getUsuarios: getUsuarios,
-      solicitacoes : getSolicitacoes
+      solicitacoes : getSolicitacoes,
+      aceitar : aceitarAmizade
   }
 
 

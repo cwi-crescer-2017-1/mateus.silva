@@ -1,22 +1,24 @@
 modulo.controller("FeedController", function ($scope, feedService, authService){
 email();
+userGet(usuarioLogado);
 getUsuarios();
 $scope.postar =postar;
 getPosts();
-solicitacoes();
+$scope.aceitar = aceitar;
 $scope.logout = authService.logout;
 var usuarioLogado;
+var idUsuarioLogado;
+
 function email (){
     usuarioLogado = JSON.parse(window.localStorage.getItem("ngStorage-usuarioLogado")).username;
 
   };
 
-userGet(usuarioLogado);
-
-
 function userGet(usuarioLogado){
   feedService.userGet( usuarioLogado).then(function(response){
       $scope.user = response.data;
+      idUsuarioLogado=    response.data.id;
+      solicitacoes(idUsuarioLogado);
 })
 };
 
@@ -40,11 +42,19 @@ function getUsuarios(){
     $scope.usuarios = response.data;
   })
 }
-function solicitacoes (){
-  feedService.solicitacoes().then(function(response){
-    $scope.solicitacoesPendentes = response.data;
-    console.log(  $scope.solicitacoesPendentes);
+function solicitacoes(idUsuarioLogado){
+  feedService.solicitacoes(idUsuarioLogado).then(function(response){
+  $scope.solicitacoesPendentes = response.data;
   })
   }
+
+function aceitar(id){
+  userGet(usuarioLogado);
+  var solicitacao = {idRecebida: idUsuarioLogado, idEnviada:id}
+  feedService.aceitar(idUsuarioLogado, id).then(function(response){
+
+})
+
+}
 
 });

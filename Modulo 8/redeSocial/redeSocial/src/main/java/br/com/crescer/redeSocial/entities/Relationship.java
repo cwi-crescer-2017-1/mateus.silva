@@ -20,6 +20,12 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 public class Relationship  implements Serializable {
+    
+    public Relationship(){}
+    public Relationship(Long r, Long e){
+    this.idRecebida =r;
+    this.idEnviada =e;
+            }
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_RELATIONSHIP")
     @SequenceGenerator(name = "SEQ_RELATIONSHIP", sequenceName = "SEQ_RELATIONSHIP")
    
@@ -60,7 +66,7 @@ public class Relationship  implements Serializable {
         return idRecebida;
     }
 
-    public void setId_recebida(Long id_recebida) {
+    public void setId_recebida(Long idRecebida) {
         this.idRecebida = idRecebida;
     }
 
@@ -68,8 +74,8 @@ public class Relationship  implements Serializable {
         return idEnviada;
     }
 
-    public void setId_enviada(Long id_enviada) {
-        this.idEnviada = id_enviada;
+    public void setId_enviada(Long idEnviada) {
+        this.idEnviada = idEnviada;
     }
     
     
