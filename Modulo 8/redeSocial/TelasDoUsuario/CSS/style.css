@@ -34,12 +34,12 @@ button{
 .post{
   margin-top: 10px;
   width: 40%;
-  margin-left: 30%;
+  margin-left: 10%;
 
 
 }
 #post{
-  width: 50%;
+  width: 80%;
   position: relative;
   float: left;
   margin: 0%;
@@ -47,4 +47,19 @@ button{
 #postButton{
   width: 10%;
   float: left;
+}
+
+.postagens{
+  width: 60%;
+  position: absolute;
+  margin-left: 40px;
+}
+.solicitacoesDeAmizade{
+  width: 20%;
+  float: right;
+  margin-right: 40px;
+}
+.feed{
+  margin-top: 90px;
+  width: 100%;
 }

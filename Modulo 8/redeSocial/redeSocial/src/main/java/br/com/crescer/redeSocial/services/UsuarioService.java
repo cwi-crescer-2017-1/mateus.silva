@@ -16,8 +16,13 @@ import org.springframework.stereotype.Service;
  *
  * @author Mateus
  */
+
 @Service
 public class UsuarioService {
+   private  RelationshipService relationshipService;
+   public UsuarioService(RelationshipService relationshipService){
+       this.relationshipService = relationshipService;
+   }
     @Autowired
     UsuarioRepository usuarioRepository;
                
@@ -44,14 +49,14 @@ public class UsuarioService {
     public void put(Usuario usuario){
         usuarioRepository.save(usuario);
     }
-    public boolean findOneByEmail(Usuario usuario){
-        String username = usuario.getEmail();
-        Usuario user = usuarioRepository.findOneByEmail(username);
-        if (user!=null){
-            return true;
-        }
-        return false;
-    }
+//    public boolean findOneByEmail(Usuario usuario){
+//        String username = usuario.getEmail();
+//        Usuario user = usuarioRepository.findOneByEmail(username);
+//        if (user!=null){
+//            return true;
+//        }
+//        return false;
+//    }
     
     public Usuario findOneByEmail (String username){  
         String a = username;
@@ -59,6 +64,26 @@ public class UsuarioService {
         return ab;
     }
     
-    
+//    public List <Usuario>loadByIdRecebidaPendente(Long id){
+//   
+//      return   usuarioRepository.findByAmigos();
+//      
+//    }
+
+    public RelationshipService getRelationshipService() {
+        return relationshipService;
+    }
+
+    public void setRelationshipService(RelationshipService relationshipService) {
+        this.relationshipService = relationshipService;
+    }
+
+    public UsuarioRepository getUsuarioRepository() {
+        return usuarioRepository;
+    }
+
+    public void setUsuarioRepository(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 }
 

@@ -7,6 +7,7 @@ package br.com.crescer.redeSocial.controllers;
 
 import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.services.UsuarioService;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +58,14 @@ public class UsuarioController {
         return usuarioService.findOneByEmail(username.trim());
     }
 
+  
+   @GetMapping ("/solicitacoes/{id}")
+   public List <Usuario> loadByIdRecebidaPendente (@PathVariable("id") Long id){
+       List <Usuario> users = new ArrayList<>();
+      usuarioService.getRelationshipService().loadByIdRecebidaPendente(id).forEach(b-> users.add(usuarioService.loadById(b.getId_enviada())));
+       
+      return  users;          
+   }   
  
     @GetMapping
     public Map<String, Object> listarUsuarios(Authentication authentication) {
@@ -67,6 +76,12 @@ public class UsuarioController {
         final HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("dados", u);
         return hashMap;
+    }
+    
+    
+    @GetMapping ("/lista")
+    public List <Usuario> findAll (){
+       return  (List <Usuario>) usuarioService.findAll();
     }
     
     @PutMapping

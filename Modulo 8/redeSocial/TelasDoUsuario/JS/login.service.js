@@ -6,8 +6,6 @@ function post (usuario){
     return $http.post (url, usuario)
   }
 
-
-
-  return{
-    cadastrar:post
+return{
+  cadastrar:post
 }})

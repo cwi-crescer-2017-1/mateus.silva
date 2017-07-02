@@ -6,7 +6,6 @@
 package br.com.crescer.redeSocial.repositories;
 
 import br.com.crescer.redeSocial.entities.Relationship;
-import br.com.crescer.redeSocial.entities.Usuario;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
@@ -14,9 +13,8 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Mateus
  */
-public interface UsuarioRepository extends CrudRepository <Usuario, Long> {
-
-    public Usuario findOneByEmail(String string);
-    public Usuario findByEmail (String string);
-
+public interface RelationshipRepository extends CrudRepository <Relationship, Long> {
+    public List <Relationship> findByIdRecebida(Long id);
+    public List <Relationship> findAllBySituacao(String situacao);
+     public List <Relationship> findBySituacaoAndIdRecebida(String situacao, Long id);
 }

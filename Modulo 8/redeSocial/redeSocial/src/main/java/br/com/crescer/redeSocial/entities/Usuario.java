@@ -108,7 +108,7 @@ public class Usuario implements Serializable {
     @ManyToMany
     @JoinTable(name = "Relationship", 
             joinColumns = {
-                @JoinColumn(name = "idEnviada")
+                @JoinColumn(name = "id_Enviada")
             }, 
             inverseJoinColumns = {
                 @JoinColumn(name = "id_Recebida")
@@ -224,6 +224,30 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Set<Esporte> getEsportes() {
+        return esportes;
+    }
+
+    public void setEsportes(Set<Esporte> esportes) {
+        this.esportes = esportes;
+    }
+
+    public Set<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(Set<Grupo> grupos) {
+        this.grupos = grupos;
+    }
+
+    public Set<Usuario> getAmigos() {
+        return amigos;
+    }
+
+    public void setAmigos(Set<Usuario> amigos) {
+        this.amigos = amigos;
     }
     
 }

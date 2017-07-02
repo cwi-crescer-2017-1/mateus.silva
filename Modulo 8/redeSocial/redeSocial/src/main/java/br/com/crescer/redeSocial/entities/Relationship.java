@@ -31,7 +31,15 @@ public class Relationship  implements Serializable {
     @Basic (optional = false)
     @Column (name = "SITUACAO")
     private String situacao;
-
+   
+    @Basic (optional = false)
+    @Column (name = "ID_RECEBIDA")
+    private Long idRecebida;
+     
+    @Basic (optional = false)
+    @Column (name = "ID_ENVIADA")
+    private Long idEnviada;
+    
     public Long getId() {
         return id;
     }
@@ -47,6 +55,23 @@ public class Relationship  implements Serializable {
     public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
+
+    public Long getId_recebida() {
+        return idRecebida;
+    }
+
+    public void setId_recebida(Long id_recebida) {
+        this.idRecebida = idRecebida;
+    }
+
+    public Long getId_enviada() {
+        return idEnviada;
+    }
+
+    public void setId_enviada(Long id_enviada) {
+        this.idEnviada = id_enviada;
+    }
+    
     
     
 }

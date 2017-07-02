@@ -37,10 +37,7 @@ public class AcessoController {
     }
     
   
-    @PostMapping("/perform_login")
-    public boolean findByEmail(@RequestBody Usuario usuario){
-      return  usuarioService.findOneByEmail(usuario);
-    }
+ 
 }
   
    
