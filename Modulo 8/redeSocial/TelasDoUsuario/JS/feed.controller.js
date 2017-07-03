@@ -28,7 +28,6 @@ function cutir (idPost){
 
 function descutir (curtidas){
   var curtida = curtidas.filter(function (curtiu){return curtiu.idUsuario ==$scope.user.id})[0].id;
-  console.log(curtida);
   feedService.descutir(curtida).then(function (response){
   getPosts();
  })

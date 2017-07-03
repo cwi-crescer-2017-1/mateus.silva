@@ -34,9 +34,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    @Autowired
+    @Autowired 
     UsuarioService usuarioService;
-    
+  
 
     
     @DeleteMapping 
@@ -81,10 +81,6 @@ public class UsuarioController {
      }
     return  amigos;          
    }   
-//   @GetMapping ("/postdeamigos/{id}")
-//      public List <Map>  loadPostDeAmigos(){
-//          
-//      }
  
     @GetMapping
     public Map<String, Object> listarUsuarios(Authentication authentication) {
@@ -108,8 +104,5 @@ public class UsuarioController {
         usuarioService.put(usuario);
     }
     
-     @PostMapping ("/editar")
-    public void save(@RequestBody Usuario usuario)   {
-        usuarioService.put(usuario);   
-    }
+  
 }

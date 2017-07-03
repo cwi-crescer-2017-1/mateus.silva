@@ -35,7 +35,7 @@ function rejeitarAmizade (r, e){
 }
 
 function atualizar (usuario){
-    return $http.post("http://localhost:9090/api/usuario/editar/", usuario)
+    return $http.put("http://localhost:9090/api/usuario/", usuario)
 }
 
 function cutir (curtida){

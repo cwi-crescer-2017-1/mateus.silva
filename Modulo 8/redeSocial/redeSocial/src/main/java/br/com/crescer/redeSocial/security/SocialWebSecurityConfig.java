@@ -45,7 +45,6 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity webSecurity) throws Exception {
           
         webSecurity.ignoring().antMatchers("/acessos");
-          webSecurity.ignoring().antMatchers("/acessos/auth");
     }
 
     @Bean

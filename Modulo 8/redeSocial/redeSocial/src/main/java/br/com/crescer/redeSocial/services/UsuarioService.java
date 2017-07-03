@@ -61,7 +61,12 @@ public class UsuarioService {
         return ab;
     }
     
+     public Usuario findByEmailIgnoreCase(String email){
+        return usuarioRepository.findByEmailIgnoreCase(email);
+    }
 
+    
+    
     public RelationshipService getRelationshipService() {
         return relationshipService;
     }

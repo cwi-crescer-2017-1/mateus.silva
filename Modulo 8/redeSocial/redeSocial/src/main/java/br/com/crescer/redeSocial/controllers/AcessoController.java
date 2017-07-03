@@ -32,8 +32,12 @@ public class AcessoController {
     UsuarioService usuarioService;
     
     @PostMapping
-    public Usuario save(@RequestBody Usuario usuario)   {
-        return usuarioService.save(usuario);   
+    public Usuario save(@RequestBody Usuario usuario)  throws Exception {
+       if(usuarioService.findByEmailIgnoreCase(usuario.getEmail())==null){
+          return usuarioService.save(usuario);
+           
+       }
+       throw new Exception ("Usuário já existe");
     }
     
   
