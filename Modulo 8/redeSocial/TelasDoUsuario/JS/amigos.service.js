@@ -20,13 +20,15 @@ function getUsuarios (){
     return $http.get(url+"lista")
 }
 
-function situacao (r, e){
-    return $http.get(urlRelationship +"situacao/"+r+"/"+e)
+function situacao (idAmigo){
+    return $http.get(urlRelationship +"situacao/"+idAmigo)
 }
 
-function add (r, e){
-    return $http.post( urlRelationship +"add/"+r+"/"+e)
+function add (r){
+    return $http.post( urlRelationship +"add/"+r)
 }
+
+
 
 return {
   loadAmigos:get,
@@ -34,7 +36,8 @@ return {
   loadAmigoPerfil:getPerfil,
   loadAmigoPosts:loadPostByIdUser,
   add:add,
-  situacao: situacao
+  situacao: situacao,
+
 }
 
 

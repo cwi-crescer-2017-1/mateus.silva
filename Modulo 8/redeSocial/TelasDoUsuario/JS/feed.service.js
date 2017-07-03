@@ -26,8 +26,8 @@ function getSolicitacoes (idUsuarioLogado){
     return $http.get(urlSolicitacoes+ idUsuarioLogado)
 }
 
-function aceitarAmizade (r, e){
-    return $http.put(urlAceitar +"aceitar/"+r+"/"+e)
+function aceitarAmizade (e){
+    return $http.put(urlAceitar +"aceitar/"+e)
 }
 
 function rejeitarAmizade (r, e){

@@ -1,15 +1,4 @@
-    <div class="menu">
-      <h1>Squad Goals</h1>
-      <a id = "button"  class="form-control"  ng-href="#!/editarPerfil" type="button" name="configuracoes">
-        <span class="glyphicon glyphicon-wrench"></span> </a>
-      <a id = "button"  class="form-control"  ng-href="#!/perfil" type="button" name="profile">
-        <span class="glyphicon glyphicon-user"></span> </a>
-        <a id = "button"  class="form-control"  ng-href="#!/buscar" type="button" name="buscar">
-        buscar </a>
-        <a id = "button"  class="form-control"  ng-href="#!/amigos" type="button" name="buscar">
-        amigos </a>
-        <button id = "button"  class="form-control" type="button"  ng-click="logout()"name="sair">sair</button>
-   </div>
+<div class="menubar" ng-include="'menu.html'"><br></div>
   <div class="post">
     <input id="post" class="form-control" type="text" name="post" ng-model="postagem" value="" placeholder="No que você está pensando hoje?">
     <button  id="postButton" class="form-control" type="button" ng-click="postar(postagem)" name="post">
@@ -19,13 +8,13 @@
   <table class= "table table-hover postagens" >
    <tbody>
      <tr  ng-repeat ="post in posts | orderBy:data">
-      <td>{{post.usuario.foto}}</td>
+      <td><img class="img foto" ng-src ="{{post.usuario.foto}}"> </img></td>
        <td>{{post.usuario.nome}}</td>
        <td>{{post.conteudo}}</td>
       <td>{{post.curtida.length}}</td>
        <td>{{post.data}}</td>
-       <td ng-if ="naocurtiu(post.curtida)"><input type="button" name="" value="curtir" ng-click="curtir(post.id)"></td>
-       <td ng-if ="!naocurtiu(post.curtida)"><input type="button" name="" value="descurtir" ng-click="descurtir(post.curtida)"></td>
+       <td ng-if ="naocurtiu(post.curtida)"><button type="button" name="" value="curtir" ng-click="curtir(post.id)">   <span class="glyphicon glyphicon-thumbs-up"></span></button></td>
+       <td ng-if ="!naocurtiu(post.curtida)"><button type="button" name="" value="descurtir" ng-click="descurtir(post.curtida)"><span class="glyphicon glyphicon-thumbs-down"></span></button></td>
      </tr>
    </tbody>
   </table>

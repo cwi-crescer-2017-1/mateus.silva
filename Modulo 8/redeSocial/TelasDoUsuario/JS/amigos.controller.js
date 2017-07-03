@@ -1,11 +1,13 @@
-modulo.controller("AmigosController", function ($scope, amigosService, feedService, authService){
+modulo.controller("AmigosController", function ($scope, amigosService,  feedService, authService){
 email();
 var usuarioLogado;
 getUsuarios();
 userGet(usuarioLogado);
 $scope.add = add;
 $scope.situacao = situacao;
-
+$scope.situacaoStatus = [];
+$scope.aceitar=aceitar;
+$scope.logout = authService.logout;
 
 function email (){
   usuarioLogado = JSON.parse(window.localStorage.getItem("ngStorage-usuarioLogado")).username;
@@ -23,7 +25,7 @@ function getUsuarios(){
 
 
   function add(id){
-    amigosService.add(id, $scope.user.id).then(function(response){
+    amigosService.add(id).then(function(response){
       getUsuarios();
   })};
 
@@ -34,11 +36,16 @@ function loadAmigos(){
   } )
 }
 
-function situacao (id){
-   amigosService.situacao(id, $scope.user.id).then(function (response){
-   $scope.situacaoStatus    = response.data;
-   console.log($scope.situacaoStatus);
+function aceitar(id){
+  feedService.aceitar(id).then(function(response){
+})
+    getUsuarios();};
 
+function situacao (id){
+   amigosService.situacao(id)
+    .then(function (response){
+      $scope.situacaoStatus[id] = response.data;
+      return response.data;
    })
 }
 })

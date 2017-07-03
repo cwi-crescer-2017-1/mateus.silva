@@ -13,14 +13,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import static java.util.stream.Collectors.toList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,12 +33,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    @Autowired 
+    @Autowired
     UsuarioService usuarioService;
-  
 
-    
-    @DeleteMapping 
+    @DeleteMapping
     public void remove(@RequestBody Usuario usuario) {
         usuarioService.remove(usuario);
     }
@@ -53,56 +50,59 @@ public class UsuarioController {
     public Usuario loadById(@PathVariable("id") Long id) {
         return usuarioService.loadById(id);
     }
-    
+
     @GetMapping("/username/{username}")
-    public Usuario loadByUsername (@PathVariable String username) {
+    public Usuario loadByUsername(@PathVariable String username) {
         return usuarioService.findOneByEmail(username.trim());
     }
 
-  
-   @GetMapping ("/solicitacoes/{id}")
-   public List <Usuario> loadByIdRecebidaPendente (@PathVariable("id") Long id){
-       List <Usuario> users = new ArrayList<>();
-      usuarioService.getRelationshipService().loadByIdRecebidaPendente(id).forEach(b-> users.add(usuarioService.loadById(b.getId_enviada())));
-      return  users;          
-   } 
-   
-   @GetMapping ("/amigos/{id}")
-   public List <Usuario> loadAmigos (@PathVariable("id") Long id){
-       List <Usuario> amigos = new ArrayList<>();
-      List <Relationship> relacoes= usuarioService.getRelationshipService().loadAmigos(id);
-        for (Relationship r: relacoes){
-             if (id == r.getId_enviada()){
-                 amigos.add(usuarioService.loadById(r.getId_recebida()));
-              }
-             else {
-                  amigos.add(usuarioService.loadById(r.getId_enviada()));
-             }
-     }
-    return  amigos;          
-   }   
- 
+    @GetMapping("/solicitacoes/{id}")
+    public List<Usuario> loadByIdRecebidaPendente(@PathVariable("id") Long id) {
+        List<Usuario> users = new ArrayList<>();
+        usuarioService.getRelationshipService().loadByIdRecebidaPendente(id).forEach(b -> users.add(usuarioService.loadById(b.getId_enviada())));
+        return users;
+    }
+
+    @GetMapping("/amigos/{id}")
+    public List<Usuario> loadAmigos(@PathVariable("id") Long id) {
+        List<Usuario> amigos = new ArrayList<>();
+        List<Relationship> relacoes = usuarioService.getRelationshipService().loadAmigos(id);
+        for (Relationship r : relacoes) {
+            if (id == r.getId_enviada()) {
+                amigos.add(usuarioService.loadById(r.getId_recebida()));
+            } else {
+                amigos.add(usuarioService.loadById(r.getId_enviada()));
+            }
+        }
+        return amigos;
+    }
+
     @GetMapping
     public Map<String, Object> listarUsuarios(Authentication authentication) {
-        User u = Optional.ofNullable(authentication)
+        User user = getLoogedUser(authentication);
+        final HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("dados", user);
+        return hashMap;
+    }
+
+    private User getLoogedUser(Authentication authentication) {
+        return Optional.ofNullable(authentication)
                 .map(Authentication::getPrincipal)
                 .map(User.class::cast)
                 .orElse(null);
-        final HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("dados", u);
-        return hashMap;
     }
-    
-    
-    @GetMapping ("/lista")
-    public List <Usuario> findAll (){
-       return  (List <Usuario>) usuarioService.findAll();
+
+    @GetMapping("/lista")
+    public List<Usuario> findAll(Authentication a) {
+        final User user = getLoogedUser(a);
+        final List<Usuario> list = (List<Usuario>) usuarioService.findAll();
+        return list.stream().filter(u -> !u.getEmail().equals(user.getUsername()))
+                .collect(toList());
     }
-    
+
     @PutMapping
     public void put(@RequestBody Usuario usuario) {
         usuarioService.put(usuario);
     }
-    
-  
+
 }

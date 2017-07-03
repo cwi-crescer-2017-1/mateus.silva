@@ -1,6 +1,6 @@
 body{
   margin: 0;
-  background-color: #E6E6FA;
+  background-color:		#F8F8FF;
 }
 .container {
   width: 30%;
@@ -10,15 +10,13 @@ button{
   width: 30px;
 }
 .menu h1{
-  margin: 0px 10px;
+  margin: 0px 20px;
   float: left;
   position: relative;
+  font-family: 'Bangers', cursive;
 
 }
-.menu input{
-  width: 300px;
-  float: left;
-}
+
 #button  {
   width: 100px;
   float: right;
@@ -26,16 +24,25 @@ button{
 
 .menu{
   width:100%;
-  padding: 5px;
-  height: 45px;
-  background-color: 	#4682B4;
+  padding: 13px;
+  height: 60px;
+  background-color: 	#DC143C;
+}
+h1{
+  color: white;
 }
 
 .post{
   margin-top: 10px;
-  width: 40%;
-  margin-left: 10%;
-
+  width: 67%;
+    margin-left: 40px;
+}
+.foto{
+  margin-top: 10px;
+  width: 80px;
+  height: 80px;
+  margin-left: 50%;
+  transform: translatex(-50%);
 
 }
 #post{
@@ -50,6 +57,7 @@ button{
 }
 
 .postagens{
+  margin-top: 80px;
   width: 60%;
   position: absolute;
   margin-left: 40px;
@@ -68,4 +76,9 @@ button{
   margin-top: 40px;
   margin-left: 25%;
   width: 50%;
+}
+
+#icon{
+  width: 40px;
+  float: right;
 }
