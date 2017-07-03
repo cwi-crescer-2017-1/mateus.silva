@@ -53,7 +53,9 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**");
+                registry.addMapping("/**")
+                  .allowedOrigins("*")
+                       .allowedMethods("*");
             }
         };
     }
@@ -62,6 +64,6 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void setDetailsService(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-    
+  
   
 }

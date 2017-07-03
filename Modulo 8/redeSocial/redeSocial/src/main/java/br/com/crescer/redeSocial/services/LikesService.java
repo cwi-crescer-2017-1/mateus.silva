@@ -29,4 +29,8 @@ public class LikesService {
     public List <Likes> findAll (){
        return  (List<Likes>) likesRepository.findAll();
     }
+    
+      public void remove (Long id){
+       likesRepository.delete(id);
+    }
 }

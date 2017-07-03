@@ -42,6 +42,11 @@ function cutir (curtida){
     return $http.post("http://localhost:9090/api/likes/", curtida)
 }
 
+function descutir (curtida){
+
+    return $http.delete("http://localhost:9090/api/likes/"+ curtida)
+}
+
 
     return{
       userGet:get,
@@ -52,7 +57,8 @@ function cutir (curtida){
       aceitar : aceitarAmizade,
       recusar: rejeitarAmizade,
       editar: atualizar,
-      cutir: cutir
+      cutir: cutir,
+      descutir: descutir
   }
 
 

@@ -7,7 +7,9 @@ getPosts();
 $scope.aceitar = aceitar;
 $scope.recusar =recusar;
 $scope.curtir = cutir;
+$scope.descurtir = descutir;
 $scope.editar = editar;
+$scope.naocurtiu=naocurtiu;
 $scope.logout = authService.logout;
 var usuarioLogado;
 var idUsuarioLogado;
@@ -19,10 +21,27 @@ function email (){
 function cutir (idPost){
   var curtida = {id: 1,idUsuario: $scope.user.id, id_post: idPost };
   feedService.cutir(curtida).then(function (response){
-  $scope.cutiu = response.data;
+  $scope.curtiu = response.data;
   getPosts();
  })
 };
+
+function descutir (curtidas){
+  var curtida = curtidas.filter(function (curtiu){return curtiu.idUsuario ==$scope.user.id})[0].id;
+  console.log(curtida);
+  feedService.descutir(curtida).then(function (response){
+  getPosts();
+ })
+};
+
+function naocurtiu(curtidas){
+  if (curtidas.filter(function (curtiu){return curtiu.idUsuario ==$scope.user.id}).length>0){
+     return false;
+    }
+  else {
+    return true;
+  }
+}
 
 function userGet(usuarioLogado){
   feedService.userGet( usuarioLogado).then(function(response){
@@ -33,7 +52,6 @@ function userGet(usuarioLogado){
 
 function postar(postagem){
   var post = {id: 1, usuario: $scope.user, conteudo: postagem};
-  console.log(post);
   feedService.postar(post).then(function(response){
   $scope.postagemDoUsuario = response.data;
   getPosts();
@@ -66,7 +84,6 @@ function recusar(id){
 })}
 
 function editar (usuario){
-  console.log(usuario);
   feedService.editar(usuario).then(function(response){
 })};
 

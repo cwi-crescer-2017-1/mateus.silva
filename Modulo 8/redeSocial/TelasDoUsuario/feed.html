@@ -24,8 +24,8 @@
        <td>{{post.conteudo}}</td>
       <td>{{post.curtida.length}}</td>
        <td>{{post.data}}</td>
-       <td><input type="button" name="" value="curtir" ng-click="curtir(post.id)"></td>
-       <td><input type="button" name="" value="descurtir" ng-click="descurtir(post.id)"></td>
+       <td ng-if ="naocurtiu(post.curtida)"><input type="button" name="" value="curtir" ng-click="curtir(post.id)"></td>
+       <td ng-if ="!naocurtiu(post.curtida)"><input type="button" name="" value="descurtir" ng-click="descurtir(post.curtida)"></td>
      </tr>
    </tbody>
   </table>
