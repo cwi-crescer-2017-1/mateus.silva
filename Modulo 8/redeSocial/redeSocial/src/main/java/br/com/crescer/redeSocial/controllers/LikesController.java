@@ -5,11 +5,11 @@
  */
 package br.com.crescer.redeSocial.controllers;
 
-import br.com.crescer.redeSocial.entities.Post;
-import br.com.crescer.redeSocial.services.PostService;
+import br.com.crescer.redeSocial.entities.Esporte;
+import br.com.crescer.redeSocial.entities.Likes;
+import br.com.crescer.redeSocial.services.LikesService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,27 +21,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Mateus
  */
 @RestController
-@RequestMapping("/post") 
-public class PostController {
+@RequestMapping("/likes") 
+public class LikesController {
     
     @Autowired
-   PostService postService;
+    LikesService likesService;
     
     @PostMapping 
-    public Post save (@RequestBody Post post){
-        return postService.save(post);
+    public Likes save (@RequestBody Likes like){
+        return likesService.save(like);
     }
     
-    @DeleteMapping
-    public void remove (@RequestBody Post post){
-        postService.remove(post);
+     @GetMapping
+    public List <Likes> findAll (){
+       return  (List <Likes>) likesService.findAll();
     }
-    
-    @GetMapping
-    public List <Post> findAll (){
-       return  (List <Post>) postService.findAll();
-    }
-    
-    
-    
 }
+

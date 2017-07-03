@@ -6,6 +6,7 @@
 package br.com.crescer.redeSocial.entities;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -17,6 +18,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -91,19 +94,7 @@ public class Usuario implements Serializable {
             }
     )
     private Set<Esporte> esportes;
-    
-    @ManyToMany (cascade = CascadeType.ALL)
-    @JoinTable(name = "usuario_grupo", 
-            joinColumns = {
-                @JoinColumn(name = "id_usuario")
-            }, 
-            inverseJoinColumns = {
-                @JoinColumn(name = "id_grupo")
-            }
-    )
-    private Set<Grupo> grupos;
-    
-  
+     
     @ManyToMany
     @JoinTable(name = "Relationship", 
             joinColumns = {
@@ -114,13 +105,11 @@ public class Usuario implements Serializable {
             }
     )
     private Set<Usuario> amigos;
+     
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn (name = "ID_LIKE")
+    private Likes like;
     
-//    
-//    @OneToMany
-//    @JoinColumn(name = "ID")
-//    private Set<Post> posts;
-
-
     public Long getId() {
         return id;
     }
@@ -217,6 +206,10 @@ public class Usuario implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
+    public Likes getLike() {
+        return like;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -233,13 +226,6 @@ public class Usuario implements Serializable {
         this.esportes = esportes;
     }
 
-    public Set<Grupo> getGrupos() {
-        return grupos;
-    }
-
-    public void setGrupos(Set<Grupo> grupos) {
-        this.grupos = grupos;
-    }
 
     public Set<Usuario> getAmigos() {
         return amigos;

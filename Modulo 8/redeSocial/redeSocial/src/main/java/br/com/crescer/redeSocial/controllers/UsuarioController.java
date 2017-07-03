@@ -71,7 +71,6 @@ public class UsuarioController {
    public List <Usuario> loadAmigos (@PathVariable("id") Long id){
        List <Usuario> amigos = new ArrayList<>();
       List <Relationship> relacoes= usuarioService.getRelationshipService().loadAmigos(id);
-      
         for (Relationship r: relacoes){
              if (id == r.getId_enviada()){
                  amigos.add(usuarioService.loadById(r.getId_recebida()));
@@ -82,8 +81,10 @@ public class UsuarioController {
      }
     return  amigos;          
    }   
-   
-     
+//   @GetMapping ("/postdeamigos/{id}")
+//      public List <Map>  loadPostDeAmigos(){
+//          
+//      }
  
     @GetMapping
     public Map<String, Object> listarUsuarios(Authentication authentication) {

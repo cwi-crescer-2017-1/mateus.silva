@@ -38,6 +38,11 @@ function atualizar (usuario){
     return $http.post("http://localhost:9090/api/usuario/editar/", usuario)
 }
 
+function cutir (curtida){
+    return $http.post("http://localhost:9090/api/likes/", curtida)
+}
+
+
     return{
       userGet:get,
       postar : post,
@@ -46,7 +51,8 @@ function atualizar (usuario){
       solicitacoes : getSolicitacoes,
       aceitar : aceitarAmizade,
       recusar: rejeitarAmizade,
-      editar: atualizar
+      editar: atualizar,
+      cutir: cutir
   }
 
 

@@ -6,6 +6,7 @@ $scope.postar =postar;
 getPosts();
 $scope.aceitar = aceitar;
 $scope.recusar =recusar;
+$scope.curtir = cutir;
 $scope.editar = editar;
 $scope.logout = authService.logout;
 var usuarioLogado;
@@ -13,6 +14,13 @@ var idUsuarioLogado;
 
 function email (){
   usuarioLogado = JSON.parse(window.localStorage.getItem("ngStorage-usuarioLogado")).username;
+};
+
+function cutir (idPost){
+  var curtida = {id: 1,idUsuario: $scope.user.id, id_post: idPost };
+  feedService.cutir(curtida).then(function (response){
+  $scope.cutiu = response.data;
+ })
 };
 
 function userGet(usuarioLogado){
@@ -23,7 +31,8 @@ function userGet(usuarioLogado){
 })};
 
 function postar(postagem){
-  var post = {idUsuario: $scope.user.id, conteudo: postagem, data: new Date()};
+  var post = {id: 1, usuario: $scope.user, conteudo: postagem};
+  console.log(post);
   feedService.postar(post).then(function(response){
   $scope.postagemDoUsuario = response.data;
   getPosts();

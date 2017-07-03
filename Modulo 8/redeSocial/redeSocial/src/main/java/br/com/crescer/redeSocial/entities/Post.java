@@ -5,13 +5,19 @@
  */
 package br.com.crescer.redeSocial.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -30,26 +36,26 @@ public class Post {
     @Column (name = "ID")
     private Long id;
 
-    public Post(String conteudo, Long idUsuario) {
-        this.data = new Date();
-        this.conteudo = conteudo;
-        this.idUsuario = idUsuario;
-    }
     
     public Post(){}
        
     
-   @Basic (optional = true)
+    @Basic (optional = true)
     @Column (name = "DATA")
-    private Date data;
+    private LocalDate data;
    
     @Basic (optional = false)
     @Column (name = "CONTEUDO")
     private String conteudo;
+  
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn (name = "ID_POST")
+    private Set<Likes>  curtida;
     
-    @Basic (optional = false)
-    @Column (name = "ID_USUARIO")
-    private Long idUsuario;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn (name = "ID_USUARIO")
+    private Usuario usuario;
+
 
     public Long getId() {
         return id;
@@ -59,13 +65,15 @@ public class Post {
         this.id = id;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
+
+
 
     public String getConteudo() {
         return conteudo;
@@ -75,12 +83,25 @@ public class Post {
         this.conteudo = conteudo;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
+
+    public Set<Likes> getCurtida() {
+        return curtida;
+    }
+
+    public void setCurtida(Set<Likes> curtida) {
+        this.curtida = curtida;
+    }
+
+
+    
+
+
     
 }

@@ -21,8 +21,11 @@ import org.springframework.stereotype.Service;
 public class UsuarioService {
     
    private  RelationshipService relationshipService;
-   public UsuarioService(RelationshipService relationshipService){
+   private  PostService postService;
+
+   public UsuarioService(RelationshipService relationshipService, PostService postService){
        this.relationshipService = relationshipService;
+       this.postService = postService;
    }
    
     @Autowired

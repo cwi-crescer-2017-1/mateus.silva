@@ -6,6 +6,4 @@ function loadAmigos(){
      $scope.amigos = response.data;
   } )
 }
-
-
 })
