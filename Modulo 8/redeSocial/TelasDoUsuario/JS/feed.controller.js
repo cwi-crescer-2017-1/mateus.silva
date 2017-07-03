@@ -1,7 +1,7 @@
 modulo.controller("FeedController", function ($scope, feedService, authService){
 email();
 userGet(usuarioLogado);
-getUsuarios();
+// getUsuarios();
 $scope.postar =postar;
 getPosts();
 $scope.aceitar = aceitar;
@@ -62,10 +62,10 @@ function getPosts(){
 })}
 
 
-function getUsuarios(){
-  feedService.getUsuarios().then(function(response){
-  $scope.usuarios = response.data;
-})}
+// function getUsuarios(){
+//   feedService.getUsuarios().then(function(response){
+//   $scope.usuarios = response.data;
+// })}
 
 function solicitacoes(idUsuarioLogado){
   feedService.solicitacoes(idUsuarioLogado).then(function(response){

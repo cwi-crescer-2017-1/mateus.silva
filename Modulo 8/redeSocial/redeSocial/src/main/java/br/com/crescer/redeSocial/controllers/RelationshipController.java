@@ -37,12 +37,23 @@ public class RelationshipController {
       return   relationshipService.loadByIdRecebidaPendente(id);          
    }   
    
-   @PostMapping("/aceitar/{idRecebida}/{idEnviada}")
+   @GetMapping("/situacao/{idRecebida}/{idEnviada}")
+   public  Relationship loadByIdRecebidaAndIdEnviada(@PathVariable("idRecebida")Long idRecebida,  @PathVariable ( "idEnviada")  Long idEnviada){
+      return   relationshipService.buscarSituacao(idRecebida, idEnviada);
+   }   
+   
+   
+   @PostMapping("/add/{idRecebida}/{idEnviada}")
+   public void  add (@PathVariable("idRecebida")Long idRecebida,  @PathVariable ( "idEnviada")  Long idEnviada){
+         relationshipService.add(idRecebida, idEnviada);          
+   }
+   
+   @PutMapping("/aceitar/{idRecebida}/{idEnviada}")
    public void  aceitarAmizade (@PathVariable("idRecebida")Long idRecebida,  @PathVariable ( "idEnviada")  Long idEnviada){
          relationshipService.aceitarAmizade(idRecebida, idEnviada);          
    }
 
-   @PostMapping ("/recusar/{idRecebida}/{idEnviada}")
+   @PutMapping ("/recusar/{idRecebida}/{idEnviada}")
    public void  rejeitarAmizade (@PathVariable("idRecebida")Long idRecebida,  @PathVariable ( "idEnviada")  Long idEnviada){
          relationshipService.rejeitarAmizade(idRecebida, idEnviada);          
    }    

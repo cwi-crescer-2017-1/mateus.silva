@@ -18,20 +18,20 @@ function getPosts (){
     return $http.get(urlPost)
 }
 
-function getUsuarios (){
-    return $http.get(urlUsuarios)
-}
+// function getUsuarios (){
+//     return $http.get(urlUsuarios)
+// }
 
 function getSolicitacoes (idUsuarioLogado){
     return $http.get(urlSolicitacoes+ idUsuarioLogado)
 }
 
 function aceitarAmizade (r, e){
-    return $http.post(urlAceitar +"aceitar/"+r+"/"+e)
+    return $http.put(urlAceitar +"aceitar/"+r+"/"+e)
 }
 
 function rejeitarAmizade (r, e){
-    return $http.post(urlAceitar +"recusar/"+r+"/"+e)
+    return $http.put(urlAceitar +"recusar/"+r+"/"+e)
 }
 
 function atualizar (usuario){
@@ -52,7 +52,7 @@ function descutir (curtida){
       userGet:get,
       postar : post,
       getPosts:getPosts,
-      getUsuarios: getUsuarios,
+      // getUsuarios: getUsuarios,
       solicitacoes : getSolicitacoes,
       aceitar : aceitarAmizade,
       recusar: rejeitarAmizade,

@@ -8,7 +8,8 @@
    <tr  ng-repeat ="usuario in usuarios | filter: search">
      <td>{{usuario.nome}}</td>
      <td>{{usuario.sobrenome}}</td>
-     <td><input type="button" class="btn btn-primary"  value="Add" ng-click ="add(usuario)"></td>
+     <td ng-init="situacao(usuario.id)">{{situacaoStatus.situacao}}</td>
+     <td ><input type="button" class="btn btn-primary"  value="Add" ng-click ="add(usuario.id)"></td>
    </tr>
  </tbody>
 </table>

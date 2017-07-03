@@ -37,7 +37,7 @@ modulo.config(function($routeProvider) {
        })
        .when ("/buscar", {
          templateUrl: "buscar.html",
-         controller: "FeedController",
+         controller: "AmigosController",
          resolve: {
          autenticado: function (authService) {
           return authService.isAutenticadoPromise();

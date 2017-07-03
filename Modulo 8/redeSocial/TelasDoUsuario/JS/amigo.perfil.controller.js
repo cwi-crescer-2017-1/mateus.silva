@@ -12,7 +12,6 @@ function loadAmigoPerfil(amigoId){
 function loadAmigoPosts(amigoId){
   amigosService.loadAmigoPosts(amigoId).then(function (response) {
      $scope.amigoPosts = response.data;
-     console.log($scope.amigoPosts );
   } )
 }
 

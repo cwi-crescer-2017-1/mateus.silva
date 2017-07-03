@@ -26,12 +26,30 @@ public class RelationshipService {
       return   relationshipRepository.findBySituacaoAndIdRecebida("pendente", id);
       
     }
+    public Relationship buscarSituacao (Long idRecebida, Long idEnviada){
+       Relationship r= relationshipRepository.findByIdRecebidaAndIdEnviada(idRecebida, idEnviada);
+       if(r ==null){
+             return relationshipRepository.findByIdRecebidaAndIdEnviada( idEnviada, idRecebida);
+        }
+       else {
+           return r;
+        }
+    }
     
     public void aceitarAmizade (Long idRecebida, Long idEnviada){
         Relationship r =relationshipRepository.findByIdRecebidaAndIdEnviada(idRecebida, idEnviada);
         r.setSituacao("amigos");
         relationshipRepository.save(r);
     }
+    
+    public void add (Long idRecebida, Long idEnviada){
+        Relationship r = new Relationship();
+        r.setId_enviada(idEnviada);
+        r.setId_recebida(idRecebida);
+        r.setSituacao("pendente");
+        relationshipRepository.save(r);
+    }
+    
     
        public void rejeitarAmizade(Long idRecebida, Long idEnviada){
         Relationship r =relationshipRepository.findByIdRecebidaAndIdEnviada(idRecebida, idEnviada);
