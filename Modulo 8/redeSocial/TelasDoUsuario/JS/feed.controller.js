@@ -1,7 +1,6 @@
 modulo.controller("FeedController", function ($scope, feedService, authService){
-email();
+var usuarioLogado = authService.getUsuario().username;
 userGet(usuarioLogado);
-// getUsuarios();
 $scope.postar =postar;
 getPosts();
 $scope.aceitar = aceitar;
@@ -11,12 +10,7 @@ $scope.descurtir = descutir;
 $scope.editar = editar;
 $scope.naocurtiu=naocurtiu;
 $scope.logout = authService.logout;
-var usuarioLogado;
 var idUsuarioLogado;
-
-function email (){
-  usuarioLogado = JSON.parse(window.localStorage.getItem("ngStorage-usuarioLogado")).username;
-};
 
 function cutir (idPost){
   var curtida = {id: 1,idUsuario: $scope.user.id, id_post: idPost };

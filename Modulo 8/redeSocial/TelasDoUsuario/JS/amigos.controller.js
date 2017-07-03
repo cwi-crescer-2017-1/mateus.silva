@@ -9,8 +9,11 @@ $scope.situacaoStatus = [];
 $scope.aceitar=aceitar;
 $scope.logout = authService.logout;
 
+
 function email (){
+
   usuarioLogado = JSON.parse(window.localStorage.getItem("ngStorage-usuarioLogado")).username;
+
 };
 
 function getUsuarios(){
@@ -19,6 +22,7 @@ function getUsuarios(){
   })}
 
   function userGet(usuarioLogado){
+
     feedService.userGet(usuarioLogado).then(function(response){
     $scope.user = response.data;
   })};
