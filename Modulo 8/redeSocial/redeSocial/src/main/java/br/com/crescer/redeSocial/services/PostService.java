@@ -6,6 +6,7 @@
 package br.com.crescer.redeSocial.services;
 
 import br.com.crescer.redeSocial.entities.Post;
+import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.repositories.PostRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,10 @@ public class PostService {
     }
      public List <Post> findAll (){
        return  (List<Post>)postRepository.findAll();
+    }
+     
+    public List <Post> findAllByUsuario (Usuario usuario){
+       return  postRepository.findByUsuario(usuario);
     }
      
 }

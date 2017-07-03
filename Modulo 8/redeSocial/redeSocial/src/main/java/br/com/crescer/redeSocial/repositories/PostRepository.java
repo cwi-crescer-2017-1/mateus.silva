@@ -6,6 +6,8 @@
 package br.com.crescer.redeSocial.repositories;
 
 import br.com.crescer.redeSocial.entities.Post;
+import br.com.crescer.redeSocial.entities.Usuario;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,5 +15,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author Mateus
  */
 public interface PostRepository extends CrudRepository <Post, Long> {
-    
+    public List <Post> findByUsuario(Usuario idUsuario);
 }

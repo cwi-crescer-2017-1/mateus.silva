@@ -6,11 +6,13 @@
 package br.com.crescer.redeSocial.controllers;
 
 import br.com.crescer.redeSocial.entities.Post;
+import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.services.PostService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +41,15 @@ public class PostController {
     
     @GetMapping
     public List <Post> findAll (){
-       return  (List <Post>) postService.findAll();
+       return   postService.findAll();
     }
     
+    @GetMapping ("{idUsuario}")
+    public List <Post> findAllByUsuario (@PathVariable("idUsuario") Long idUsuario){
+        Usuario user  = new Usuario();
+        user.setId(idUsuario);
+       return   postService.findAllByUsuario(user);
+    }
     
     
 }

@@ -20,6 +20,7 @@ function cutir (idPost){
   var curtida = {id: 1,idUsuario: $scope.user.id, id_post: idPost };
   feedService.cutir(curtida).then(function (response){
   $scope.cutiu = response.data;
+  getPosts();
  })
 };
 
