@@ -5,10 +5,12 @@
    <p>Sobrenome: {{amigoPerfil.sobrenome}}</p>
    <p>Email: {{amigoPerfil.email}}</p>
 </div>
+
 <table class= "postsAmigo" >
+   <caption>Posts</caption>
   <tbody ng-repeat="postAmigo in amigoPosts">
-    <td>{{postAmigo.data}}</td>
-    <td>{{postAmigo.conteudo}}</td>
+    <td>Data: {{postAmigo.data}}</td>
+    <td>Conteúdo: {{postAmigo.conteudo}}</td>
   </tr>
 </tbody>
 </table>

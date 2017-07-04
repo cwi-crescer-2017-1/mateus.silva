@@ -12,7 +12,7 @@
         <td><img class="img foto" ng-src ="{{post.usuario.foto}}"> </img> <p>{{post.usuario.nome}}</p></td>
         <td>{{post.conteudo}}</td>
         <td>{{post.curtida.length}}<p>curtidas</p></td>
-        <td>{{post.data}}</td>
+        <td>{{post.data | date:'dd/MM/yyyy'}}</td>
         <td ng-if ="naocurtiu(post.curtida)"><button type="button"  ng-click="curtir(post.id)">Curtir</button></td>
         <td ng-if ="!naocurtiu(post.curtida)"><button type="button"  ng-click="descurtir(post.curtida)">Descutir</button></td>
       </tr>

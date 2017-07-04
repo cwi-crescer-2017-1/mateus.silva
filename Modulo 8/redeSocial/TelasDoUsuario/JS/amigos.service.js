@@ -5,8 +5,8 @@ var url ="http://localhost:9090/api/usuario/"
 var posts="http://localhost:9090/api/post/"
 var urlRelationship= "http://localhost:9090/api/relationship/"
 
-function get(id){
-    return $http.get (url + "amigos/"+50 )
+function getAmigos(){
+    return $http.get (url + "amigos")
 }
 
 function getPerfil(id){
@@ -31,7 +31,7 @@ function add (r){
 
 
 return {
-  loadAmigos:get,
+  loadAmigos:getAmigos,
   getUsuarios: getUsuarios,
   loadAmigoPerfil:getPerfil,
   loadAmigoPosts:loadPostByIdUser,

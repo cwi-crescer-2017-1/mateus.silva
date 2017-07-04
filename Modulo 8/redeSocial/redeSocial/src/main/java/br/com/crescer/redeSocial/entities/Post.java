@@ -42,7 +42,7 @@ public class Post {
     
     @Basic (optional = true)
     @Column (name = "DATA")
-    private LocalDate data;
+    private Date data;
    
     @Basic (optional = false)
     @Column (name = "CONTEUDO")
@@ -65,11 +65,11 @@ public class Post {
         this.id = id;
     }
 
-    public LocalDate getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

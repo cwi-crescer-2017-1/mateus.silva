@@ -1,15 +1,21 @@
 <div class="menubar" ng-include="'menu.html'"><br></div>
-<input type = "text" name="imovel" class="form-control"ng-model="search.nome" placeholder= "buscar por nome"> </input>
-<table class= "table table-hover bucar" >
+<input type = "text" name="buscarUsuario" class="buscarUsuario"ng-model="search.nome" placeholder= "buscar por nome"> </input>
+<input type = "text" name="buscarUsuario" class="buscarUsuario"ng-model="search.esporte" placeholder= "buscar por esporte"> </input>
+<table class= "buscarGeral" >
   <thead>
+    <th></th>
     <th>Nome</th>
     <th>Sobrenome</th>
+    <th>Esporte</th>
   </thead>
   <tbody>
     <tr  ng-repeat ="usuario in usuarios | filter: search">
+      <td>
+          <img class="img foto" ng-src ="{{usuario.foto}}"  ng-init="usuario.statusSituacao = situacao(usuario.id)"></img>
+      </td>
       <td>{{usuario.nome}}</td>
       <td>{{usuario.sobrenome}}</td>
-      <td ng-init="usuario.statusSituacao = situacao(usuario.id)">{{situacaoStatus[usuario.id].situacao}}</td>
+      <td>{{usuario.esporte}}</td>
       <td ng-if="situacaoStatus[usuario.id]==''">
         <input type="button" class="btn btn-primary"  value="Add" ng-click ="add(usuario.id)">
       </td>

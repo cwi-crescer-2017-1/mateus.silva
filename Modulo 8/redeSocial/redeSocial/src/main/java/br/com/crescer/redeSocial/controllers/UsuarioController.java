@@ -63,12 +63,13 @@ public class UsuarioController {
         return users;
     }
 
-    @GetMapping("/amigos/{id}")
-    public List<Usuario> loadAmigos(@PathVariable("id") Long id) {
+    @GetMapping("/amigos")
+    public List<Usuario> loadAmigos() {
+        Long idUsuarioLogado = usuarioService.getUsuarioLogado().getId();
         List<Usuario> amigos = new ArrayList<>();
-        List<Relationship> relacoes = usuarioService.getRelationshipService().loadAmigos(id);
+        List<Relationship> relacoes = usuarioService.getRelationshipService().loadAmigos(idUsuarioLogado);
         for (Relationship r : relacoes) {
-            if (id == r.getId_enviada()) {
+            if (idUsuarioLogado.equals(r.getId_enviada())) {
                 amigos.add(usuarioService.loadById(r.getId_recebida()));
             } else {
                 amigos.add(usuarioService.loadById(r.getId_enviada()));

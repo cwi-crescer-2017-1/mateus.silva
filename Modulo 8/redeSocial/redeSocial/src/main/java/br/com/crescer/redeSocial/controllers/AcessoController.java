@@ -37,6 +37,7 @@ public class AcessoController {
           return usuarioService.save(usuario);
            
        }
+       
        throw new Exception ("Usuário já existe");
     }
     

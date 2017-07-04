@@ -31,11 +31,7 @@ h1{
   color: white;
 }
 
-.post{
-  margin-top: 10px;
-  width: 67%;
-  margin-left: 40px;
-}
+
 
 .foto{
   margin-top: 10px;
@@ -66,19 +62,27 @@ tr{
 }
 
 .solicitacoesDeAmizade{
-  width: 40%;
+  width: 20%;
   margin-right: 40px;
 }
 
 .solicitacoes{
   float: right;
-  margin-top:90px;
+  margin-top:110px;
 }
 
 .feed{
+  margin-top: 20px;
   width: 70%;
   padding: 10px;
-  position: absolute;
+  position:relative;
+}
+.post{
+
+  margin-top: 10px;
+  width: 67%;
+  margin-left: 40px;
+  margin-bottom: 40px;
 }
 
 .editar{
@@ -250,4 +254,33 @@ input{
   font-family: sans-serif;
   font-weight: bold;
 
+}
+
+.postsAmigo{
+  margin-top: 40px;
+  width: 90%;
+  padding: 0px;
+  margin-left: 50%;
+  transform: translatex(-50%);
+  font-size: 20px;
+}
+
+.buscarGeral{
+  margin-top: 40px;
+  width: 90%;
+  padding: 0px;
+  margin-left: 50%;
+  transform: translatex(-50%);
+  font-size: 20px;
+}
+.buscarUsuario{
+  margin-top: 20px;
+  margin-left: 50%;
+  transform: translatex(-50%);
+  width: 50%;
+}
+
+.buscarGeral td:nth-child(5){
+  background-color:		#F8F8FF;
+  width:10%;
 }

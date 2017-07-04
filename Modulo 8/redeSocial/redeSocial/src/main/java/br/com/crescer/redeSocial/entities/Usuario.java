@@ -64,6 +64,10 @@ public class Usuario implements Serializable {
     @Column (name = "NUMERO_CASA")
     private String numero_casa;
     
+    @Basic (optional = false)
+    @Column (name = "GENERO")
+    private String genero;
+    
     @Basic (optional = true)
     @Column (name = "RG")
     private String rg;
@@ -76,7 +80,7 @@ public class Usuario implements Serializable {
     @Column (name = "CELULAR")
     private String celular;
     
-    @Basic (optional = true)
+    @Basic (optional = false)
     @Column (name = "DATA_NASCIMENTO")
     private Date dataNascimento;
      
@@ -84,16 +88,9 @@ public class Usuario implements Serializable {
     @Column (name = "SENHA")
     private String senha;
     
-    @ManyToMany (cascade = CascadeType.ALL)
-    @JoinTable(name = "usuario_esporte", 
-            joinColumns = {
-                @JoinColumn(name = "id_usuario")
-            }, 
-            inverseJoinColumns = {
-                @JoinColumn(name = "id_esporte")
-            }
-    )
-    private Set<Esporte> esportes;
+    @Basic (optional = true)
+    @Column (name = "ESPORTE")
+    private String esporte;
      
     @ManyToMany
     @JoinTable(name = "Relationship", 
@@ -218,12 +215,12 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Set<Esporte> getEsportes() {
-        return esportes;
+    public String getEsporte() {
+        return esporte;
     }
 
-    public void setEsportes(Set<Esporte> esportes) {
-        this.esportes = esportes;
+    public void setEsporte(String esporte) {
+        this.esporte = esporte;
     }
 
 
@@ -234,5 +231,14 @@ public class Usuario implements Serializable {
     public void setAmigos(Set<Usuario> amigos) {
         this.amigos = amigos;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    
     
 }

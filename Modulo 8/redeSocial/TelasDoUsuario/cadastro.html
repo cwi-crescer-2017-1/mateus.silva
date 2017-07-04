@@ -7,6 +7,21 @@
     <input type="email"  name="email" ng-model="usuario.email"required="required" placeholder="Email">
     <input type="password"  name="password" ng-model="usuario.senha"required="required" placeholder="Senha" >
     <input type="date"  name="date" ng-model="usuario.dataNascimento"required="required" min="1900-01-02">
+    <select required="required" ng-model="usuario.genero">
+      <option value="" disabled selected>Selecione seu gênero</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Feminino">Feminino</option>
+      <option value="Nao informado">Não informado</option>
+    </select>
+    <select required="required" ng-model="usuario.esporte">
+      <option value="" disabled selected>Selecione seu esporte</option>
+      <option value="Vôlei">Vôlei</option>
+      <option value="Futebol">Futebol</option>
+      <option value="Handball">Handball</option>
+      <option value="Tênis">Tênis</option>
+      <option value="Basketball">Basketball</option>
+      <option value="Rugby">Rugby</option>
+    </select>
     <button type="submit"  ng-click="cadastrar(usuario)" class="button">Registrar</button>
     <a id ="buttonA" type="button" ng-href="#!/login" class="button">Login</a>
   </form>

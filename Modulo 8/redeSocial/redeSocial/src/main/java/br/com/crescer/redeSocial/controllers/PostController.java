@@ -8,8 +8,11 @@ package br.com.crescer.redeSocial.controllers;
 import br.com.crescer.redeSocial.entities.Post;
 import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.services.PostService;
+import java.awt.print.Pageable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +32,10 @@ public class PostController {
     @Autowired
    PostService postService;
     
+//    @GetMapping ("/{page}")
+//    public Page <Post> findAllByDataOrderByIdAsc(@PathVariable ("page")int page) {
+//       return   postService.findAllByDataOrderByIdAsc((page, 10));
+//    }
     @PostMapping 
     public Post save (@RequestBody Post post){
         return postService.save(post);

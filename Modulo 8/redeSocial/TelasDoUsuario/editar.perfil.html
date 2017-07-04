@@ -1,23 +1,16 @@
 <div class="menubar" ng-include="'menu.html'"><br></div>
 <img class="img foto" ng-src ="{{user.foto}}"> </img>
 <div class="editar">
-  <label for="nome">Nome</label>
-    <input type="text" class="form-control" name="nome"   ng-model="user.nome"/>
-  <label for="sobrenome">Sobrenome</label>
-    <input type="text"  class="form-control"name="sobrenome"  ng-model="user.sobrenome"/>
-  <label for="bairro">Bairro</label>
-    <input type="text"  class="form-control"name="bairro"   ng-model="user.bairro"/>
-  <label for="cidade">Cidade</label>
-    <input type="text" class="form-control" name="cidade"  ng-model="user.cidade"/>
-  <label for="rua">Rua</label>
-    <input type="text" class="form-control" name="rua"  ng-model="user.rua"/>
-  <label for="nome">Numero da casa ou do prédio</label>
-    <input type="text" class="form-control" name="numero_casa"  ng-model="user.numero_casa"/>
-  <label for="celular">Celular</label>
-    <input type="text"  class="form-control" name="celular"   ng-model="user.celular"/>
-  <label for="foto">URL Foto</label>
-    <input type="text"  class="form-control" name="foto"  ng-model="user.foto"/>
-  <label for="rg">RG</label>
-    <input type="text"   class="form-control" name="rg"  ng-model="user.rg"/>
+    <input type="text" class="form-control" name="nome"   ng-model="user.nome" placeholder="nome"/>
+    <input type="text"  class="form-control"name="sobrenome"  ng-model="user.sobrenome" placeholder="sobrenome"/>
+    <input type="text"  class="form-control"name="bairro"   ng-model="user.bairro" placeholder="bairro"/>
+    <input type="text" class="form-control" name="cidade"  ng-model="user.cidade" placeholder="cidade"/>
+    <input type="text" class="form-control" name="rua"  ng-model="user.rua"  placeholder="rua"/>
+    <input type="text" class="form-control" name="numero_casa"  ng-model="user.numero_casa" placeholder="número da casa ou prédio"/>
+    <input type="text"  class="form-control" name="celular"   ng-model="user.celular" placeholder="celular"/>
+    <input type="text"  class="form-control" name="foto"  ng-model="user.foto" placeholder="url foto"/>
+    <input type="text"   class="form-control" name="rg"  ng-model="user.rg" placeholder="RG"/>
+    <input type="text"   class="form-control" name="rg"  ng-model="user.email" placeholder="email"/>
+    <input type="password"   class="form-control" name="rg"  ng-model="user.senha" placeholder="senha"/>
   <button type="button"    class="form-control" ng-click="editar(user)"> Atualizar</button>
 </div>

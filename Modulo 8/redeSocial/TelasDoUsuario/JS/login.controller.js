@@ -4,6 +4,7 @@ $scope.login  =login;
 $scope.cadastrar= cadastrar;
 
 function cadastrar(usuario){
+  console.log(usuario);
   loginService.cadastrar(usuario).then(
       function (response) {
          toastr.success("Cadastro feito com sucesso.");

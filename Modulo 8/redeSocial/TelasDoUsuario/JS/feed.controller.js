@@ -55,20 +55,14 @@ function getPosts(){
   $scope.posts = response.data;
 })}
 
-
-// function getUsuarios(){
-//   feedService.getUsuarios().then(function(response){
-//   $scope.usuarios = response.data;
-// })}
-
 function solicitacoes(idUsuarioLogado){
   feedService.solicitacoes(idUsuarioLogado).then(function(response){
   $scope.solicitacoesPendentes = response.data;
 })}
 
 function aceitar(id){
-  userGet(usuarioLogado);
-  feedService.aceitar(idUsuarioLogado, id).then(function(response){
+  feedService.aceitar(id).then(function(response){
+  solicitacoes(idUsuarioLogado);
 })};
 
 function recusar(id){

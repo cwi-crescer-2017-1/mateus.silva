@@ -57,7 +57,9 @@ public class UsuarioService {
     }
 
     public void put(Usuario usuario) {
-        usuarioRepository.save(usuario);
+        this.remove(usuario);
+        this.save(usuario);
+  
     }
 
     public Usuario findOneByEmail(String username) {
