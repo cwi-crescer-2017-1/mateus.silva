@@ -21,8 +21,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface PostRepository extends CrudRepository<Post, Long> {
 
     public List<Post> findByUsuario(Usuario idUsuario);
-//  public Page <Post> findAllByDataOrderByDataDesc(Pageable pageable);
-//   @Query("SELECT conteudo, data, id_usuario  FROM Post  ORDER BY Id_post Desc")
-//    public List <Post> findOrderById_PostDesc();
 
 }
