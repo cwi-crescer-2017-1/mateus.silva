@@ -1,10 +1,10 @@
-<div class="container">
-   <form class="login">
-      <label for="username" >Usuário</label>
-      <input type="email" class="form-control" name="usarname" ng-model="usuario.email" value="">
-      <label for="password" >Senha</label>
-      <input type="password" class="form-control" name="password" ng-model="usuario.senha" value="">
-      <button type="button" class="form-control"  ng-click="login(usuario)"name="button">entrar</button>
-      <a type="button" class="form-control"  ng-href="#!/cadastro" name="button">cadastrar</a>
-    </form>
+<div class="login">
+  <h1>Squad Goals</h1>
+  <h2>Login</h2>
+  <form class="form">
+    <input type="text" name="email" placeholder="Email"ng-model="usuario.email" required="required" />
+    <input type="password" name="senha"ng-model="usuario.senha" placeholder="Senha" required="required" />
+    <button type="submit"  ng-click="login(usuario)" class="button">Entrar</button>
+    <a id ="buttonA" type="button" ng-href="#!/cadastro" class="button">Registrar</a>
+  </form>
 </div>

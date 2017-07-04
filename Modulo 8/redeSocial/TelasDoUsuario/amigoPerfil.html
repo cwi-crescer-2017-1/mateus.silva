@@ -1,20 +1,14 @@
 <div class="menubar" ng-include="'menu.html'"><br></div>
-
-<table class= "table table-hover" >
- <thead>
-   <th>Nome</th>
-   <th>Sobrenome</th>
- </thead>
- <tbody>
-     <td>{{amigoPerfil.nome}}</td>
-     <td>{{amigoPerfil.sobrenome}}</td>
-   </tr>
- </tbody>
-</table>
-<table class= "table table-hover postsAmigo" >
+<div class="perfil">
+   <img class="img foto" ng-src ="{{amigoPerfil.foto}}"> </img>
+   <p>Nome: {{amigoPerfil.nome}}</p>
+   <p>Sobrenome: {{amigoPerfil.sobrenome}}</p>
+   <p>Email: {{amigoPerfil.email}}</p>
+</div>
+<table class= "postsAmigo" >
   <tbody ng-repeat="postAmigo in amigoPosts">
-     <td>{{postAmigo.id}}</td>
-     <td>{{postAmigo.conteudo}}</td>
-   </tr>
- </tbody>
+    <td>{{postAmigo.data}}</td>
+    <td>{{postAmigo.conteudo}}</td>
+  </tr>
+</tbody>
 </table>

@@ -1,15 +1,13 @@
-    <div class="container">
-      <form class="cadastro">
-        <label for="nome" >Nome</label>
-        <input type="text" class="form-control" name="nome" ng-model="usuario.nome" value="">
-        <label for="sobrenome" >Sobrenome</label>
-        <input type="text" class="form-control" name="sobrenome"ng-model="usuario.sobrenome" value="">
-        <label for="email" >Email</label>
-        <input type="email" class="form-control" name="email" ng-model="usuario.email" value="">
-        <label for="password" >Senha</label>
-        <input type="password" class="form-control" name="password" ng-model="usuario.senha"value="">
-        <label for="password" >Cofirmar senha</label>
-        <input type="password" class="form-control" name="password" value="">
-        <button type="button" class="form-control" ng-click="cadastrar(usuario)" name="button">cadastrar</button>
-      </form>
-    </div>
+<div class="login">
+  <h1>Squad Goals</h1>
+  <h2>Login</h2>
+  <form class="form">
+    <input type="text"  name="nome" ng-model="usuario.nome"required="required" placeholder="Nome">
+    <input type="text"  name="sobrenome"ng-model="usuario.sobrenome"  required="required" placeholder="Sobrenome">
+    <input type="email"  name="email" ng-model="usuario.email"required="required" placeholder="Email">
+    <input type="password"  name="password" ng-model="usuario.senha"required="required" placeholder="Senha" >
+    <input type="date"  name="date" ng-model="usuario.dataNascimento"required="required" min="1900-01-02">
+    <button type="submit"  ng-click="cadastrar(usuario)" class="button">Registrar</button>
+    <a id ="buttonA" type="button" ng-href="#!/login" class="button">Login</a>
+  </form>
+</div>
