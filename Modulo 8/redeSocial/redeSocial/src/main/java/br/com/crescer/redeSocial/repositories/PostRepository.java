@@ -8,15 +8,21 @@ package br.com.crescer.redeSocial.repositories;
 import br.com.crescer.redeSocial.entities.Post;
 import br.com.crescer.redeSocial.entities.Usuario;
 import java.awt.print.Pageable;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author Mateus
  */
-public interface PostRepository extends CrudRepository <Post, Long> {
-    public List <Post> findByUsuario(Usuario idUsuario);
-//    public Page <Post> findAllByDataOrderByIdDesc(Pageable pageable);
+public interface PostRepository extends CrudRepository<Post, Long> {
+
+    public List<Post> findByUsuario(Usuario idUsuario);
+//  public Page <Post> findAllByDataOrderByDataDesc(Pageable pageable);
+//   @Query("SELECT conteudo, data, id_usuario  FROM Post  ORDER BY Id_post Desc")
+//    public List <Post> findOrderById_PostDesc();
+
 }

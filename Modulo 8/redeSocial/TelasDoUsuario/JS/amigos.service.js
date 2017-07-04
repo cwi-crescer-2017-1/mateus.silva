@@ -16,8 +16,13 @@ function getPerfil(id){
 function loadPostByIdUser(id){
     return $http.get (posts + id )
 }
-function getUsuarios (){
-    return $http.get(url+"lista")
+
+function getUsuariosPorNome (nome){
+    return $http.get(url+"nome/"+nome)
+}
+
+function getUsuariosPorEsporte (esporte){
+    return $http.get(url+"esporte/"+esporte)
 }
 
 function situacao (idAmigo){
@@ -32,7 +37,8 @@ function add (r){
 
 return {
   loadAmigos:getAmigos,
-  getUsuarios: getUsuarios,
+  getUsuariosPorNome: getUsuariosPorNome,
+  getUsuariosPorEsporte: getUsuariosPorEsporte,
   loadAmigoPerfil:getPerfil,
   loadAmigoPosts:loadPostByIdUser,
   add:add,

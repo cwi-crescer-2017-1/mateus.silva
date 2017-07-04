@@ -8,6 +8,8 @@ body{
   margin-top: 100px;
 }
 
+
+
 .menu h1{
   margin: 0px 20px;
   float: left;
@@ -29,9 +31,8 @@ body{
 
 h1{
   color: white;
+  font-size: 50px;
 }
-
-
 
 .foto{
   margin-top: 10px;
@@ -62,8 +63,8 @@ tr{
 }
 
 .solicitacoesDeAmizade{
-  width: 20%;
-  margin-right: 40px;
+  width: 40%;
+  margin-right: 50px;
 }
 
 .solicitacoes{
@@ -72,15 +73,13 @@ tr{
 }
 
 .feed{
+  display: inline-block;
   margin-top: 20px;
   width: 70%;
-  padding: 10px;
-  position:relative;
+  margin-left: 0px;
 }
 .post{
-
   margin-top: 10px;
-  width: 67%;
   margin-left: 40px;
   margin-bottom: 40px;
 }
@@ -89,6 +88,10 @@ tr{
   margin-top: 40px;
   margin-left: 25%;
   width: 50%;
+}
+table.postagens {
+  width: 70%;
+  position:relative;
 }
 
 .form input {
@@ -171,14 +174,14 @@ input{
 }
 
 .feedInput{
-  width: 70%;
+  width: 50%;
   margin: 0%;
   margin-bottom: 10px;
 }
 
 .postagens{
   table-layout:fixed;
-  width: 90%;
+  width: 100%;
   padding: 0px;
   margin-bottom: 10px;
 }
@@ -195,15 +198,17 @@ input{
 }
 
 .postagens td:nth-child(3){
-  width:7%;
+  width:9%;
   text-align: center;
 }
 
 .postagens td:nth-child(4){
-  width:15%;
+  width:13%;
+  text-align: center;
 }
 
-.postagens td:nth-child(5){  margin:auto;
+.postagens td:nth-child(5){
+  margin:auto;
   display:block;
   text-align: center;
   margin-top: 50px;
@@ -273,6 +278,14 @@ input{
   transform: translatex(-50%);
   font-size: 20px;
 }
+
+.b2{
+  background-color: 	#DC143C;
+  width: 50%;
+  margin-left: 50%;
+  transform: translatex(-50%);
+  font-size: 15px;
+}
 .buscarUsuario{
   margin-top: 20px;
   margin-left: 50%;
@@ -283,4 +296,20 @@ input{
 .buscarGeral td:nth-child(5){
   background-color:		#F8F8FF;
   width:10%;
+}
+
+#button1{
+  width: 1000px;
+  text-decoration: none;
+  font-family: sans-serif;
+  background-color: 	#DC143C;
+  width: 20%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 13px;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+
 }

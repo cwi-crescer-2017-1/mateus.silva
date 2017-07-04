@@ -26,23 +26,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/acessos")
 public class AcessoController {
-    
 
     @Autowired
     UsuarioService usuarioService;
-    
+
     @PostMapping
-    public Usuario save(@RequestBody Usuario usuario)  throws Exception {
-       if(usuarioService.findByEmailIgnoreCase(usuario.getEmail())==null){
-          return usuarioService.save(usuario);
-           
-       }
-       
-       throw new Exception ("Usuário já existe");
+    public Usuario save(@RequestBody Usuario usuario) throws Exception {
+        if (usuarioService.findByEmailIgnoreCase(usuario.getEmail()) != null) {
+            throw new Exception("Usuário com email já cadastrado");
+        }
+        if (usuario.getNome() == null || usuario.getNome().isEmpty()) {
+            throw new Exception("Informe o nome");
+        }
+        if (usuario.getSobrenome() == null || usuario.getSobrenome().isEmpty()) {
+            throw new Exception("Informe o sobrenome");
+        }
+        if (usuario.getSenha() == null || usuario.getSenha().isEmpty()) {
+            throw new Exception("Informe a senha");
+        }
+        if (usuario.getGenero() == null || usuario.getGenero().isEmpty()) {
+            throw new Exception("Informe seu gênero");
+        }
+        if (usuario.getDataNascimento() == null) {
+            throw new Exception("Informe a data de nascimento");
+        }
+        if (usuario.getEsporte() == null) {
+            throw new Exception("Selecine um esporte");
+        }
+        return usuarioService.save(usuario);
     }
-    
-  
- 
+
 }
-  
-   

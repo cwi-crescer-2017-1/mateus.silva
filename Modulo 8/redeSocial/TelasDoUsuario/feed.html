@@ -1,7 +1,7 @@
 <div class="menubar" ng-include="'menu.html'"><br></div>
 <div class="post">
   <div  class="feedInput">
-    <input  type="text" name="post" ng-model="postagem" value="" placeholder="No que você está pensando hoje?">
+    <input  type="text" name="post" ng-model="postagem" required ng-minlength="1" ng-maxlength="200"  value="" placeholder="No que você está pensando hoje?">
   </div>
   <button  id="postButton"  type="button" ng-click="postar(postagem)" name="post">Compartilhar</button>
 </div>
@@ -18,11 +18,12 @@
       </tr>
     </tbody>
   </table>
-</div>
+  </div>
 <div class="solicitacoes">
   <table class= "table table-hover solicitacoesDeAmizade" >
     <tbody>
       <tr  ng-repeat ="solicitacao in solicitacoesPendentes">
+        <td>dassssssss</td>
         <td><img id="img foto" ng-src ="{{solicitacao.foto}}"> </img> <p>{{solicitacao.nome}}</p></td>
         <td><input type="button" class="btn btn-primary"  value="aceitar" ng-click ="aceitar(solicitacao.id)"></td>
         <td><input type="button" class="btn btn-primary"  value="recusar" ng-click ="recusar(solicitacao.id)"></td>

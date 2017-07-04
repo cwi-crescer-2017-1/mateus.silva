@@ -21,30 +21,27 @@ import javax.persistence.SequenceGenerator;
  *
  * @author Mateus
  */
-@Entity 
+@Entity
 public class Likes {
-       public Likes() {
-       
+
+    public Likes() {
+
     }
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_LIKES")
     @SequenceGenerator(name = "SEQ_LIKES", sequenceName = "SEQ_LIKES")
-   
-    @Basic (optional = false)
-    @Column (name = "ID")
-    private Long id;
-    
-    @Basic (optional = false)
-     @Column (name = "ID_USUARIO")
-    private long idUsuario;
-    
-    @Basic (optional = false)
-    @Column (name = "ID_POST")
-    private Long id_post;
 
-   
-  
-    
+    @Basic(optional = false)
+    @Column(name = "ID")
+    private Long id;
+
+    @Basic(optional = false)
+    @Column(name = "ID_USUARIO")
+    private long idUsuario;
+
+    @Basic(optional = false)
+    @Column(name = "ID_POST")
+    private Long id_post;
 
     public Long getId() {
         return id;
@@ -62,8 +59,6 @@ public class Likes {
         this.idUsuario = idUsuario;
     }
 
-  
-
     public Long getId_post() {
         return id_post;
     }
@@ -72,5 +67,4 @@ public class Likes {
         this.id_post = id_post;
     }
 
-    
 }

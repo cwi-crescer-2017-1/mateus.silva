@@ -2,33 +2,41 @@ modulo.controller("AmigosController", function ($scope, amigosService,  feedServ
 var usuarioLogado = authService.getUsuario().username;
 userGet(usuarioLogado);
 
-getUsuarios();
-userGet(usuarioLogado);
 $scope.add = add;
 $scope.situacao = situacao;
 $scope.situacaoStatus = [];
 $scope.aceitar=aceitar;
 $scope.logout = authService.logout;
+$scope.getUsuariosPorNome = getUsuariosPorNome;
+$scope.getUsuariosPorEsporte = getUsuariosPorEsporte;
 
 
 
-function getUsuarios(){
-  amigosService.getUsuarios().then(function(response){
+function getUsuariosPorNome(nome){
+  amigosService.getUsuariosPorNome(nome).then(function(response){
     $scope.usuarios = response.data;
+
   })}
+
+  function getUsuariosPorEsporte(esporte){
+    amigosService.getUsuariosPorEsporte(esporte).then(function(response){
+      $scope.usuarios = response.data;
+})}
 
   function userGet(usuarioLogado){
     feedService.userGet(usuarioLogado).then(function(response){
-    $scope.user = response.data;
+      $scope.user = response.data;
   })};
 
 
   function add(id){
     amigosService.add(id).then(function(response){
-      getUsuarios();
+      getUsuariosPorNome($scope.nome)
+      getUsuariosPorEsporte($scope.esporte)
   })};
 
 loadAmigos();
+
 function loadAmigos(){
   amigosService.loadAmigos().then(function (response) {
      $scope.amigos = response.data;
@@ -37,8 +45,10 @@ function loadAmigos(){
 
 function aceitar(id){
   feedService.aceitar(id).then(function(response){
+    getUsuariosPorNome($scope.nome)
+    getUsuariosPorEsporte($scope.esporte)
 })
-    getUsuarios();};
+  };
 
 function situacao (id){
    amigosService.situacao(id)

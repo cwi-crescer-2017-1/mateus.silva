@@ -1,6 +1,9 @@
 <div class="menubar" ng-include="'menu.html'"><br></div>
-<input type = "text" name="buscarUsuario" class="buscarUsuario"ng-model="search.nome" placeholder= "buscar por nome"> </input>
-<input type = "text" name="buscarUsuario" class="buscarUsuario"ng-model="search.esporte" placeholder= "buscar por esporte"> </input>
+<input type = "text" name="buscarUsuario" class="buscarUsuario"ng-model="nome" placeholder= "buscar usuário por nome"> </input>
+<button type="button" name="nome" class="b2"ng-click="getUsuariosPorNome(nome)">Buscar por Nome</button>
+<input type = "text" name="buscarUsuario" class="buscarUsuario"ng-model="esporte" placeholder= "buscar usuário por esporte"> </input>
+<button type="button" name="esporte" class="b2" ng-click="getUsuariosPorEsporte(esporte)">Buscar por Esporte</button>
+
 <table class= "buscarGeral" >
   <thead>
     <th></th>

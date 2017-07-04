@@ -8,43 +8,38 @@ package br.com.crescer.redeSocial.services;
 import br.com.crescer.redeSocial.entities.Post;
 import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.repositories.PostRepository;
-import java.awt.print.Pageable;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Mateus
  */
-@Service 
+@Service
 public class PostService {
+
     @Autowired
     PostRepository postRepository;
-            
-     public Post  save (Post post){
+
+    private UsuarioService usuarioService;
+
+    public Post save(Post post) {
         post.setData(new Date());
         return postRepository.save(post);
     }
-   
-    public void remove (Post post){
-     postRepository.delete(post);
+
+    public void remove(Post post) {
+        postRepository.delete(post);
     }
-     public List <Post> findAll (){
-       return  (List<Post>)postRepository.findAll();
+
+    public List<Post> findAll() {
+        return (List<Post>) postRepository.findAll();
     }
-     
-//    public Page <Post> findAllByDataOrderByIdAsc(Pageable pageable){
-//       return  postRepository.findAllByDataOrderByIdDesc(pageable);
-//    }
-//     
-     
-    public List <Post> findAllByUsuario (Usuario usuario){
-       return  postRepository.findByUsuario(usuario);
+
+    public List<Post> findAllByUsuario(Usuario usuario) {
+        return postRepository.findByUsuario(usuario);
     }
-     
+
 }

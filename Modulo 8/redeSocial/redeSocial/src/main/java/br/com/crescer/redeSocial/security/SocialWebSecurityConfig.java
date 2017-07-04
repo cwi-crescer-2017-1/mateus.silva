@@ -15,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-
 /**
  * @author carloshenrique
  */
@@ -23,7 +22,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${social.security.public:/health}") 
+    @Value("${social.security.public:/health}")
     private String[] securityPublic;
 
     @Autowired
@@ -43,7 +42,7 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-          
+
         webSecurity.ignoring().antMatchers("/acessos");
     }
 
@@ -53,8 +52,8 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                  .allowedOrigins("*")
-                       .allowedMethods("*");
+                        .allowedOrigins("*")
+                        .allowedMethods("*");
             }
         };
     }
@@ -63,6 +62,5 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void setDetailsService(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-  
-  
+
 }

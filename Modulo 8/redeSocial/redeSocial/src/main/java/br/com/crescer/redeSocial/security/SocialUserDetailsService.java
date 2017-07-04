@@ -18,14 +18,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SocialUserDetailsService implements UserDetailsService {
-      @Autowired
+
+    @Autowired
     UsuarioRepository usuarioRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       Usuario usuario = usuarioRepository.findOneByEmail(username);
+        Usuario usuario = usuarioRepository.findOneByEmail(username);
         final List<GrantedAuthority> grants = new ArrayList<>();
-        if (usuario!=null) {
+        if (usuario != null) {
             grants.add(() -> "ROLE_USUARIO");
         }
         return new User(username, usuario.getSenha(), grants);

@@ -14,10 +14,13 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Mateus
  */
-public interface UsuarioRepository extends CrudRepository <Usuario, Long> {
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
     public Usuario findOneByEmail(String string);
 
-     public Usuario findByEmailIgnoreCase (String string);
+    public Usuario findByEmailIgnoreCase(String string);
 
+    public List<Usuario> findByNomeIgnoreCase(String string);
+
+    public List<Usuario> findByEsporteIgnoreCase(String string);
 }

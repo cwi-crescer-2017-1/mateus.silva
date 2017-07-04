@@ -24,36 +24,35 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/relationship")
 public class RelationshipController {
-   @Autowired
-   private RelationshipService relationshipService;
-    
-   @Autowired
-   private UsuarioService usuarioService;
-   
-   @GetMapping ("/{id}")
-   public List <Relationship> loadByIdRecebidaPendente (@PathVariable("id") Long id){
-      return   relationshipService.loadByIdRecebidaPendente(id);          
-   }   
-   
-   @GetMapping("/situacao/{idRecebida}")
-   public  Relationship loadByIdRecebidaAndIdEnviada(@PathVariable("idRecebida")Long idRecebida){
-      return   relationshipService.buscarSituacao(idRecebida, usuarioService.getUsuarioLogado().getId());
-   }   
-   
-   
-   @PostMapping("/add/{idRecebida}")
-   public void  add (@PathVariable("idRecebida")Long idRecebida)  {
-         relationshipService.add(idRecebida, usuarioService.getUsuarioLogado().getId());          
-   }
-   
-   @PutMapping("/aceitar/{idEnviada}")
-   public void  aceitarAmizade ( @PathVariable ( "idEnviada")  Long idEnviada){
-         relationshipService.aceitarAmizade(usuarioService.getUsuarioLogado().getId(), idEnviada);          
-   }
 
-   @PutMapping ("/recusar/{idRecebida}/{idEnviada}")
-   public void  rejeitarAmizade (@PathVariable("idRecebida")Long idRecebida,  @PathVariable ( "idEnviada")  Long idEnviada){
-         relationshipService.rejeitarAmizade(idRecebida, idEnviada);          
-   }    
+    @Autowired
+    private RelationshipService relationshipService;
+
+    @Autowired
+    private UsuarioService usuarioService;
+
+    @GetMapping("/{id}")
+    public List<Relationship> loadByIdRecebidaPendente(@PathVariable("id") Long id) {
+        return relationshipService.loadByIdRecebidaPendente(id);
+    }
+
+    @GetMapping("/situacao/{idRecebida}")
+    public Relationship loadByIdRecebidaAndIdEnviada(@PathVariable("idRecebida") Long idRecebida) {
+        return relationshipService.buscarSituacao(idRecebida, usuarioService.getUsuarioLogado().getId());
+    }
+
+    @PostMapping("/add/{idRecebida}")
+    public void add(@PathVariable("idRecebida") Long idRecebida) {
+        relationshipService.add(idRecebida, usuarioService.getUsuarioLogado().getId());
+    }
+
+    @PutMapping("/aceitar/{idEnviada}")
+    public void aceitarAmizade(@PathVariable("idEnviada") Long idEnviada) {
+        relationshipService.aceitarAmizade(usuarioService.getUsuarioLogado().getId(), idEnviada);
+    }
+
+    @PutMapping("/recusar/{idRecebida}/{idEnviada}")
+    public void rejeitarAmizade(@PathVariable("idRecebida") Long idRecebida, @PathVariable("idEnviada") Long idEnviada) {
+        relationshipService.rejeitarAmizade(idRecebida, idEnviada);
+    }
 }
-

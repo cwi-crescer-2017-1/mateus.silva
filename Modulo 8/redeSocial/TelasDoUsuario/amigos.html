@@ -1,5 +1,5 @@
 <div class="menubar" ng-include="'menu.html'"><br></div>
-<input type = "text" ng-model="search.nome" placeholder= "buscar por nome"> </input>
+<input class="buscarUsuario"type = "text" ng-model="search.nome" placeholder= "buscar usuário por nome"> </input>
 <table class= "buscarAmigos" >
   <tbody>
     <tr  ng-repeat ="amigo in amigos | filter: search">

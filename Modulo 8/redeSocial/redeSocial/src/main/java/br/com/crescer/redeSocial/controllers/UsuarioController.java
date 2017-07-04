@@ -5,7 +5,6 @@
  */
 package br.com.crescer.redeSocial.controllers;
 
-import br.com.crescer.redeSocial.entities.Relationship;
 import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.services.UsuarioService;
 import java.util.ArrayList;
@@ -46,6 +45,16 @@ public class UsuarioController {
         usuarioService.removeById(id);
     }
 
+    @GetMapping("/nome/{nome}")
+    public List<Usuario> loadByNome(@PathVariable("nome") String nome) {
+        return usuarioService.loadByNome(nome.trim());
+    }
+
+    @GetMapping("/esporte/{esporte}")
+    public List<Usuario> loadByEsporte(@PathVariable("esporte") String esporte) {
+        return usuarioService.loadByEsporte(esporte.trim());
+    }
+
     @GetMapping("/{id}")
     public Usuario loadById(@PathVariable("id") Long id) {
         return usuarioService.loadById(id);
@@ -65,17 +74,7 @@ public class UsuarioController {
 
     @GetMapping("/amigos")
     public List<Usuario> loadAmigos() {
-        Long idUsuarioLogado = usuarioService.getUsuarioLogado().getId();
-        List<Usuario> amigos = new ArrayList<>();
-        List<Relationship> relacoes = usuarioService.getRelationshipService().loadAmigos(idUsuarioLogado);
-        for (Relationship r : relacoes) {
-            if (idUsuarioLogado.equals(r.getId_enviada())) {
-                amigos.add(usuarioService.loadById(r.getId_recebida()));
-            } else {
-                amigos.add(usuarioService.loadById(r.getId_enviada()));
-            }
-        }
-        return amigos;
+        return usuarioService.LoadAmigos();
     }
 
     @GetMapping

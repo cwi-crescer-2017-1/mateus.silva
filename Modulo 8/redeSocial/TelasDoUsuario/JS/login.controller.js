@@ -4,14 +4,14 @@ $scope.login  =login;
 $scope.cadastrar= cadastrar;
 
 function cadastrar(usuario){
-  console.log(usuario);
   loginService.cadastrar(usuario).then(
       function (response) {
-         toastr.success("Cadastro feito com sucesso.");
+         toastr.success("Usuário cadastrado com sucesso.");
        },
       function (response) {
-          toastr.error("Usuário já existe.");
+          toastr.error(response.data.message);
       })
+      $scope.usuario ={};
 }
 
 function login (usuario){

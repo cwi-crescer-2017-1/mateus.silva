@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Mateus
  */
-public interface LikesRepository extends CrudRepository <Likes, Long>{
-    
+public interface LikesRepository extends CrudRepository<Likes, Long> {
+
 }

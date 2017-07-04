@@ -26,36 +26,33 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 public class Post {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_POST")
     @SequenceGenerator(name = "SEQ_POST", sequenceName = "SEQ_POST")
-    
-     
-    @Basic (optional = false)
-    @Column (name = "ID")
+
+    @Basic(optional = false)
+    @Column(name = "ID")
     private Long id;
 
-    
-    public Post(){}
-       
-    
-    @Basic (optional = true)
-    @Column (name = "DATA")
-    private Date data;
-   
-    @Basic (optional = false)
-    @Column (name = "CONTEUDO")
-    private String conteudo;
-  
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn (name = "ID_POST")
-    private Set<Likes>  curtida;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn (name = "ID_USUARIO")
-    private Usuario usuario;
+    public Post() {
+    }
 
+    @Basic(optional = true)
+    @Column(name = "DATA")
+    private Date data;
+
+    @Basic(optional = false)
+    @Column(name = "CONTEUDO")
+    private String conteudo;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_POST")
+    private Set<Likes> curtida;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_USUARIO")
+    private Usuario usuario;
 
     public Long getId() {
         return id;
@@ -72,8 +69,6 @@ public class Post {
     public void setData(Date data) {
         this.data = data;
     }
-
-
 
     public String getConteudo() {
         return conteudo;
@@ -99,9 +94,4 @@ public class Post {
         this.curtida = curtida;
     }
 
-
-    
-
-
-    
 }

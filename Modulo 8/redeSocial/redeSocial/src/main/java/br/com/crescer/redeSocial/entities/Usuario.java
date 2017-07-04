@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.crescer.redeSocial.entities;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -28,85 +29,86 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 public class Usuario implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USUARIO")
     @SequenceGenerator(name = "SEQ_USUARIO", sequenceName = "SEQ_USUARIO")
-    
-    @Basic (optional = false)
-    @Column (name = "ID")
+
+    @Basic(optional = false)
+    @Column(name = "ID")
     private Long id;
-    
-    @Basic (optional = false)
-    @Column (name = "NOME")
+
+    @Basic(optional = false)
+    @Column(name = "NOME")
     private String nome;
-    
-    @Basic (optional = false)
-    @Column (name = "SOBRENOME")
+
+    @Basic(optional = false)
+    @Column(name = "SOBRENOME")
     private String sobrenome;
-    
-    @Basic (optional = true)
-    @Column (name = "URL_FOTO")
+
+    @Basic(optional = true)
+    @Column(name = "URL_FOTO")
     private String foto;
-      
-    @Basic (optional = true)
-    @Column (name = "CIDADE")
+
+    @Basic(optional = true)
+    @Column(name = "CIDADE")
     private String cidade;
-    
-    @Basic (optional = true)
-    @Column (name = "RUA")
+
+    @Basic(optional = true)
+    @Column(name = "RUA")
     private String rua;
-    
-    @Basic (optional = true)
-    @Column (name = "BAIRRO")
+
+    @Basic(optional = true)
+    @Column(name = "BAIRRO")
     private String bairro;
-    
-    @Basic (optional = true)
-    @Column (name = "NUMERO_CASA")
+
+    @Basic(optional = true)
+    @Column(name = "NUMERO_CASA")
     private String numero_casa;
-    
-    @Basic (optional = false)
-    @Column (name = "GENERO")
+
+    @Basic(optional = false)
+    @Column(name = "GENERO")
     private String genero;
-    
-    @Basic (optional = true)
-    @Column (name = "RG")
+
+    @Basic(optional = true)
+    @Column(name = "RG")
     private String rg;
-     
-    @Basic (optional = false)
-    @Column (name = "EMAIL")
+
+    @Basic(optional = false)
+    @Column(name = "EMAIL")
     private String email;
-    
-    @Basic (optional =true)
-    @Column (name = "CELULAR")
+
+    @Basic(optional = true)
+    @Column(name = "CELULAR")
     private String celular;
-    
-    @Basic (optional = false)
-    @Column (name = "DATA_NASCIMENTO")
+
+    @Basic(optional = false)
+    @Column(name = "DATA_NASCIMENTO")
     private Date dataNascimento;
-     
-    @Basic (optional = false)
-    @Column (name = "SENHA")
+
+    @Basic(optional = false)
+    @Column(name = "SENHA")
     private String senha;
-    
-    @Basic (optional = true)
-    @Column (name = "ESPORTE")
+
+    @Basic(optional = true)
+    @Column(name = "ESPORTE")
     private String esporte;
-     
+
     @ManyToMany
-    @JoinTable(name = "Relationship", 
+    @JoinTable(name = "Relationship",
             joinColumns = {
                 @JoinColumn(name = "id_Enviada")
-            }, 
+            },
             inverseJoinColumns = {
                 @JoinColumn(name = "id_Recebida")
             }
     )
     private Set<Usuario> amigos;
-     
+
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn (name = "ID_LIKE")
+    @JoinColumn(name = "ID_LIKE")
     private Likes like;
-    
+
     public Long getId() {
         return id;
     }
@@ -223,7 +225,6 @@ public class Usuario implements Serializable {
         this.esporte = esporte;
     }
 
-
     public Set<Usuario> getAmigos() {
         return amigos;
     }
@@ -239,6 +240,5 @@ public class Usuario implements Serializable {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    
-    
+
 }

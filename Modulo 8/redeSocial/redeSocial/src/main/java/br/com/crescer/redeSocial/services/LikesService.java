@@ -5,9 +5,7 @@
  */
 package br.com.crescer.redeSocial.services;
 
-import br.com.crescer.redeSocial.entities.Esporte;
 import br.com.crescer.redeSocial.entities.Likes;
-import br.com.crescer.redeSocial.repositories.EsporteRepository;
 import br.com.crescer.redeSocial.repositories.LikesRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +17,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class LikesService {
-     @Autowired
+
+    @Autowired
     LikesRepository likesRepository;
-               
-    public Likes save (Likes like){
+
+    public Likes save(Likes like) {
         return likesRepository.save(like);
     }
-    
-    public List <Likes> findAll (){
-       return  (List<Likes>) likesRepository.findAll();
+
+    public List<Likes> findAll() {
+        return (List<Likes>) likesRepository.findAll();
     }
-    
-      public void remove (Long id){
-       likesRepository.delete(id);
+
+    public void remove(Long id) {
+        likesRepository.delete(id);
     }
 }

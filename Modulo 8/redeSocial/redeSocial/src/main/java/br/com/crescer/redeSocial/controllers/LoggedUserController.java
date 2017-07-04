@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.crescer.redeSocial.controllers;
+
 import java.util.Optional;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author mateus.silva
  */
-
-
 @RestController
 @RequestMapping(LoggedUserController.PATH)
 public class LoggedUserController {

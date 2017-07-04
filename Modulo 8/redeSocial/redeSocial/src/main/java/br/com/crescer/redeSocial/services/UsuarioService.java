@@ -5,8 +5,10 @@
  */
 package br.com.crescer.redeSocial.services;
 
+import br.com.crescer.redeSocial.entities.Relationship;
 import br.com.crescer.redeSocial.entities.Usuario;
 import br.com.crescer.redeSocial.repositories.UsuarioRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,19 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    public void put(Usuario usuario) {
+        this.save(usuario);
+
+    }
+
+    public List<Usuario> loadByNome(String nome) {
+        return usuarioRepository.findByNomeIgnoreCase(nome);
+    }
+
+    public List<Usuario> loadByEsporte(String esporte) {
+        return usuarioRepository.findByEsporteIgnoreCase(esporte);
+    }
+
     public void remove(Usuario usuario) {
         usuarioRepository.delete(usuario);
     }
@@ -56,12 +71,6 @@ public class UsuarioService {
         return (List<Usuario>) usuarioRepository.findAll();
     }
 
-    public void put(Usuario usuario) {
-        this.remove(usuario);
-        this.save(usuario);
-  
-    }
-
     public Usuario findOneByEmail(String username) {
         String a = username;
         Usuario ab = usuarioRepository.findOneByEmail(username);
@@ -70,6 +79,20 @@ public class UsuarioService {
 
     public Usuario findByEmailIgnoreCase(String email) {
         return usuarioRepository.findByEmailIgnoreCase(email);
+    }
+
+    public List<Usuario> LoadAmigos() {
+        Long idUsuarioLogado = this.getUsuarioLogado().getId();
+        List<Usuario> amigos = new ArrayList<>();
+        List<Relationship> relacoes = this.getRelationshipService().loadAmigos(idUsuarioLogado);
+        for (Relationship r : relacoes) {
+            if (idUsuarioLogado.equals(r.getId_enviada())) {
+                amigos.add(this.loadById(r.getId_recebida()));
+            } else {
+                amigos.add(this.loadById(r.getId_enviada()));
+            }
+        }
+        return amigos;
     }
 
     public RelationshipService getRelationshipService() {

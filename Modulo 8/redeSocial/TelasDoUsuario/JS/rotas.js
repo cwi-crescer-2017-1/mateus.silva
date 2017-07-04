@@ -26,15 +26,6 @@ modulo.config(function($routeProvider) {
       }
     }
   })
-  .when ("/perfil", {
-    templateUrl: "perfil.html",
-    controller: "FeedController",
-    resolve: {
-      autenticado: function (authService) {
-        return authService.isAutenticadoPromise();
-      }
-    }
-  })
   .when ("/buscar", {
     templateUrl: "buscar.html",
     controller: "AmigosController",
